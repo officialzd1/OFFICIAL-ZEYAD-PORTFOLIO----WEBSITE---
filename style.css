@@ -210,7 +210,7 @@ html, body {
     h1, 
     .portfolio-title,
     main h1 { 
-        font-size: 18px !important; /* تصغير الخط ليناسب شاشة الجوال */
+        font-size: 12px !important; /* تصغير الخط ليناسب شاشة الجوال */
         letter-spacing: 4px !important; /* تقليل المسافات الكبيرة بين الحروف */
         text-align: center !important;
         width: 100% !important;
