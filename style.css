@@ -201,3 +201,45 @@ nav a:hover {
         font-size: 11px;
     }
 }
+
+/* تنسيق السيكشن الأساسي */
+.about-container {
+    display: flex !important;
+    flex-wrap: wrap !important; /* يخلي الفيديو ينزل تحت لما يخلص سطر الكلام */
+    justify-content: space-between !important; /* يرمي العربي يمين والإنجليزي يسار */
+    align-items: flex-start !important;
+    width: 100% !important;
+    max-width: 1000px !important; /* عرض مناسب عشان الكلام ما يتباعد بزيادة */
+    margin: 0 auto !important; /* سنترة السيكشن كامل في الشاشة */
+    padding: 60px 20px !important;
+    box-sizing: border-box !important;
+}
+
+/* تنسيق العمود الأيمن (العربي) */
+.about-container .right-col {
+    width: 45% !important;
+    text-align: right !important; /* محاذاة النص لليمين */
+}
+
+/* تنسيق العمود الأيسر (الإنجليزي) */
+.about-container .left-col {
+    width: 45% !important;
+    text-align: left !important; /* محاذاة النص لليسار */
+}
+
+/* حاوية الفيديو تاخذ سطر كامل لحالها تحت الكلام وتتسنتر */
+.video-wrapper {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 50px !important; /* مسافة حلوة تحت الكلام */
+}
+
+/* مشغل الفيديو */
+.video-wrapper video {
+    width: 100% !important;
+    max-width: 650px !important; /* حجم الفيديو الفخم والمناسب */
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.7);
+}
