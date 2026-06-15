@@ -196,60 +196,67 @@ nav a:hover {
 }
 /* --- تنسيقات خاصة بشاشات الجوال (الشاشات الأصغر من 768 بكسل) --- */
 /* --- تنسيقات ذكية وحصرية لشاشات الجوال --- */
+/* منع الحركة اليمين واليسار في الموقع كامل */
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important; /* يلغي السحب الجانبي تماماً */
+}
+
+/* --- تنسيقات ذكية وحصرية لشاشات الجوال --- */
 @media screen and (max-width: 768px) {
     
-    /* 1. تصغير كلمة PORTFOLIO الكبيرة فوق عشان ما تطلع برا الشاشة وتخرب الهيدر */
+    /* 1. السيطرة على كلمة PORTFOLIO عشان ما تطلع برة الشاشة */
     .hero h1, 
     h1, 
-    .portfolio-title { 
-        font-size: 24px !important; /* حجم أنيق ومناسب لعرض الجوال */
-        letter-spacing: 2px !important; /* تقليل التباعد الكبيير بين الحروف */
+    .portfolio-title,
+    main h1 { 
+        font-size: 18px !important; /* تصغير الخط ليناسب شاشة الجوال */
+        letter-spacing: 4px !important; /* تقليل المسافات الكبيرة بين الحروف */
         text-align: center !important;
         width: 100% !important;
-        margin-top: 10px !important;
+        display: block !important;
+        white-space: nowrap !important; /* يمنع الكلمة من الانقسام */
+        box-sizing: border-box !important;
     }
 
-    /* 2. إعادة ترتيب قسم About Me ليكونوا جنب بعض (عربي يمين وانجليزي يسار) */
+    /* 2. ترتيب قسم About Me (عربي يمين وانجليزي يسار) في سطر واحد متناسق */
     .about-container {
         display: flex !important;
-        flex-direction: row !important; /* يرجعهم جنب بعض غصب */
+        flex-direction: row !important; /* يخليهم جنب بعض */
         flex-wrap: wrap !important;     /* يضمن إن الفيديو ينزل تحتهم براحته */
         justify-content: space-between !important; /* يرمي العربي أقصى اليمين والانجليزي أقصى اليسار */
         align-items: flex-start !important;
-        padding: 20px 15px !important; /* مسافات داخلية متناسقة مع الجوال */
+        padding: 30px 15px !important;
         width: 100% !important;
         box-sizing: border-box !important;
     }
 
     /* العمود العربي (يمين) */
     .about-container .right-col {
-        width: 48% !important; /* ياخذ نصف الشاشة تقريباً */
-        text-align: right !important; /* النص يروح أقصى اليمين */
-        margin-bottom: 0 !important;
-    }
-    
-    /* تصغير حجم الخطوط في الجوال عشان ما تطلع ضخمة وتتداخل */
-    .about-container .right-col h3,
-    .about-container .left-col h3 {
-        font-size: 16px !important;
-        margin-bottom: 5px !important;
-    }
-    .about-container .right-col p,
-    .about-container .left-col p {
-        font-size: 12px !important;
+        width: 46% !important;
+        text-align: right !important;
     }
 
     /* العمود الإنجليزي (يسار) */
     .about-container .left-col {
-        width: 48% !important; /* ياخذ نصف الشاشة الثاني */
-        text-align: left !important; /* النص يروح أقصى اليسار */
-        margin-bottom: 0 !important;
+        width: 46% !important;
+        text-align: left !important;
+    }
+    
+    /* ضبط أحجام نصوص النبذة في الجوال عشان المساحة */
+    .about-container h3 {
+        font-size: 15px !important;
+        margin-bottom: 5px !important;
+    }
+    .about-container p {
+        font-size: 11px !important;
+        line-height: 1.4 !important;
     }
 
     /* 3. حاوية الفيديو تتسنتر تحتهم بالملي وتاخذ سطر كامل */
     .video-wrapper {
         width: 100% !important;
-        margin-top: 25px !important; /* مسافة ممتازة تحت الكلام العربي والانجليزي */
+        margin-top: 30px !important;
         display: flex !important;
         justify-content: center !important;
     }
@@ -261,11 +268,11 @@ nav a:hover {
     }
 
     /* 4. أزرار التواصل تحت الفيديو */
-    .buttons-container,
-    .about-container + div {
-        margin-top: 20px !important;
+    .buttons-container {
+        margin-top: 25px !important;
         display: flex !important;
         justify-content: center !important;
-        gap: 10px !important;
+        gap: 15px !important;
+        width: 100% !important;
     }
 }
