@@ -153,55 +153,6 @@ nav a:hover {
     transform: scale(1.1);
 }
 
-
-
-
-
-
-
-@media (max-width: 768px) {
-    
-    h1 { font-size: 28px !important; }
-    line-height: 1.2;
-    
-    .subtitle {
-        font-size: 24px !important;
-        padding-left: 10px !important;
-        letter-spacing: 1px;
-    }
-
-
-    .about-container {
-        flex-direction: column;
-        width: 95%;
-        gap: 15px;
-    }
-    .left-col, .right-col {
-        padding: 0 15px;
-        text-align: center;
-        font-size: 14px;
-    }
-
-    
-    nav {
-        padding: 10px;
-        gap: 10px;
-    }
-    nav a { font-size: 14px; }
-
-    
-    .social-buttons {
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        gap: 10px;
-    }
-    .social-btn {
-        padding: 8px 12px;
-        font-size: 11px;
-    }
-}
-
 /* تنسيق السيكشن الأساسي */
 .about-container {
     display: flex !important;
@@ -242,4 +193,40 @@ nav a:hover {
     aspect-ratio: 16 / 9;
     border-radius: 12px;
     box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.7);
+}
+/* --- تنسيقات خاصة بشاشات الجوال (الشاشات الأصغر من 768 بكسل) --- */
+@media screen and (max-width: 768px) {
+    
+    /* يخلي العربي والإنجليزي ينزلوا تحت بعض بدل ما ينضغطوا جنب بعض */
+    .about-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 40px 20px !important; /* تقليل المسافات لتناسب شاشة الجوال */
+    }
+
+    /* العربي ياخذ العرض كامل ويتسنتر في الجوال */
+    .about-container .right-col {
+        width: 100% !important;
+        text-align: center !important;
+        margin-bottom: 25px !important; /* مسافة بينه وبين القسم الإنجليزي */
+    }
+
+    /* الإنجليزي ياخذ العرض كامل ويتسنتر في الجوال */
+    .about-container .left-col {
+        width: 100% !important;
+        text-align: center !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* ضبط أبعاد الفيديو ليكون مناسباً جداً لشاشة الجوال بدون ما يطلع برة الشاشة */
+    .video-wrapper {
+        margin-top: 20px !important;
+    }
+
+    .video-wrapper video {
+        width: 100% !important; /* ياخذ عرض الشاشة المتاح */
+        max-width: 100% !important;
+        border-radius: 8px !important;
+    }
 }
