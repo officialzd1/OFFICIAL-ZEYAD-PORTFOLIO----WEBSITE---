@@ -210,7 +210,7 @@ html, body {
     h1, 
     .portfolio-title,
     main h1 { 
-        font-size: 12px !important; /* تصغير الخط ليناسب شاشة الجوال */
+        font-size: 18px !important; /* تصغير الخط ليناسب شاشة الجوال */
         letter-spacing: 4px !important; /* تقليل المسافات الكبيرة بين الحروف */
         text-align: center !important;
         width: 100% !important;
@@ -273,6 +273,24 @@ html, body {
         display: flex !important;
         justify-content: center !important;
         gap: 15px !important;
+        width: 100% !important;
+    }
+}
+/* منع السحب اليمين واليسار نهائياً عشان يثبت الموقع بالسنتر */
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+/* التنسيق الخاص بالجوال فقط */
+@media screen and (max-width: 768px) {
+    
+    /* استهداف كلاس الكلمة (PORTFOLIO) لتصغر لوحدها */
+    .subtitle { 
+        font-size: 14px !important;       /* تصغير حجمها هي بس عشان ما تطلع برا الشاشة */
+        letter-spacing: 4px !important;    /* تقليل المسافات بين الحروف تكة بسيطة */
+        text-align: center !important;
+        display: block !important;
         width: 100% !important;
     }
 }
