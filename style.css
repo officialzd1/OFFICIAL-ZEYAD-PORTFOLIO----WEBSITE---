@@ -195,38 +195,77 @@ nav a:hover {
     box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.7);
 }
 /* --- تنسيقات خاصة بشاشات الجوال (الشاشات الأصغر من 768 بكسل) --- */
+/* --- تنسيقات ذكية وحصرية لشاشات الجوال --- */
 @media screen and (max-width: 768px) {
     
-    /* يخلي العربي والإنجليزي ينزلوا تحت بعض بدل ما ينضغطوا جنب بعض */
+    /* 1. تصغير كلمة PORTFOLIO الكبيرة فوق عشان ما تطلع برا الشاشة وتخرب الهيدر */
+    .hero h1, 
+    h1, 
+    .portfolio-title { 
+        font-size: 24px !important; /* حجم أنيق ومناسب لعرض الجوال */
+        letter-spacing: 2px !important; /* تقليل التباعد الكبيير بين الحروف */
+        text-align: center !important;
+        width: 100% !important;
+        margin-top: 10px !important;
+    }
+
+    /* 2. إعادة ترتيب قسم About Me ليكونوا جنب بعض (عربي يمين وانجليزي يسار) */
     .about-container {
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-        padding: 40px 20px !important; /* تقليل المسافات لتناسب شاشة الجوال */
+        display: flex !important;
+        flex-direction: row !important; /* يرجعهم جنب بعض غصب */
+        flex-wrap: wrap !important;     /* يضمن إن الفيديو ينزل تحتهم براحته */
+        justify-content: space-between !important; /* يرمي العربي أقصى اليمين والانجليزي أقصى اليسار */
+        align-items: flex-start !important;
+        padding: 20px 15px !important; /* مسافات داخلية متناسقة مع الجوال */
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
-    /* العربي ياخذ العرض كامل ويتسنتر في الجوال */
+    /* العمود العربي (يمين) */
     .about-container .right-col {
-        width: 100% !important;
-        text-align: center !important;
-        margin-bottom: 25px !important; /* مسافة بينه وبين القسم الإنجليزي */
+        width: 48% !important; /* ياخذ نصف الشاشة تقريباً */
+        text-align: right !important; /* النص يروح أقصى اليمين */
+        margin-bottom: 0 !important;
+    }
+    
+    /* تصغير حجم الخطوط في الجوال عشان ما تطلع ضخمة وتتداخل */
+    .about-container .right-col h3,
+    .about-container .left-col h3 {
+        font-size: 16px !important;
+        margin-bottom: 5px !important;
+    }
+    .about-container .right-col p,
+    .about-container .left-col p {
+        font-size: 12px !important;
     }
 
-    /* الإنجليزي ياخذ العرض كامل ويتسنتر في الجوال */
+    /* العمود الإنجليزي (يسار) */
     .about-container .left-col {
-        width: 100% !important;
-        text-align: center !important;
-        margin-bottom: 20px !important;
+        width: 48% !important; /* ياخذ نصف الشاشة الثاني */
+        text-align: left !important; /* النص يروح أقصى اليسار */
+        margin-bottom: 0 !important;
     }
 
-    /* ضبط أبعاد الفيديو ليكون مناسباً جداً لشاشة الجوال بدون ما يطلع برة الشاشة */
+    /* 3. حاوية الفيديو تتسنتر تحتهم بالملي وتاخذ سطر كامل */
     .video-wrapper {
-        margin-top: 20px !important;
+        width: 100% !important;
+        margin-top: 25px !important; /* مسافة ممتازة تحت الكلام العربي والانجليزي */
+        display: flex !important;
+        justify-content: center !important;
     }
 
     .video-wrapper video {
-        width: 100% !important; /* ياخذ عرض الشاشة المتاح */
+        width: 100% !important;
         max-width: 100% !important;
         border-radius: 8px !important;
+    }
+
+    /* 4. أزرار التواصل تحت الفيديو */
+    .buttons-container,
+    .about-container + div {
+        margin-top: 20px !important;
+        display: flex !important;
+        justify-content: center !important;
+        gap: 10px !important;
     }
 }
