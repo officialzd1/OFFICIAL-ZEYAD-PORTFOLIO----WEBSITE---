@@ -161,35 +161,43 @@ nav a:hover {
 
 @media (max-width: 768px) {
     
-    h1 { font-size: 40px !important; }
+    h1 { font-size: 28px !important; }
+    line-height: 1.2;
     
-    
+    .subtitle {
+        font-size: 16px !important;
+        padding-left: 10px !important;
+        letter-spacing: 1px;
+    }
+
+
     .about-container {
         flex-direction: column;
-        width: 90%;
-        gap: 20px;
+        width: 95%;
+        gap: 15px;
     }
     .left-col, .right-col {
-        padding: 0 10px;
+        padding: 0 15px;
         text-align: center;
+        font-size: 14px;
     }
 
     
     nav {
-        padding: 20px;
-        gap: 15px;
+        padding: 10px;
+        gap: 10px;
     }
     nav a { font-size: 14px; }
 
     
     .social-buttons {
-        bottom: 20px;
+        bottom: 10px;
         left: 50%;
         transform: translateX(-50%);
         gap: 10px;
     }
     .social-btn {
-        padding: 10px 15px;
-        font-size: 12px;
+        padding: 8px 12px;
+        font-size: 11px;
     }
 }
