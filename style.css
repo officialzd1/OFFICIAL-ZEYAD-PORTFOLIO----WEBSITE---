@@ -95,12 +95,12 @@ nav {
     z-index: 9999;
 }
 nav a {
-    color: white;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 18px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    opacity: 0.7;
+    opacity: 1;
     transition: opacity 0.3s;
     transition: all 0.3s ease;
     display: inline-block;
@@ -151,4 +151,45 @@ nav a:hover {
 
 .social-btn:hover {
     transform: scale(1.1);
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    
+    h1 { font-size: 40px !important; }
+    
+    
+    .about-container {
+        flex-direction: column;
+        width: 90%;
+        gap: 20px;
+    }
+    .left-col, .right-col {
+        padding: 0 10px;
+        text-align: center;
+    }
+
+    
+    nav {
+        padding: 20px;
+        gap: 15px;
+    }
+    nav a { font-size: 14px; }
+
+    
+    .social-buttons {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        gap: 10px;
+    }
+    .social-btn {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
 }
