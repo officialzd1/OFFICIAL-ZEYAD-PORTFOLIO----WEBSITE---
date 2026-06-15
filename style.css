@@ -124,11 +124,11 @@ nav a:hover {
 }
 .social-buttons {
     position: fixed;
-    bottom: 30px;
-    left: 30px;
+    bottom: 50px;
+    left: 50px;
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    gap: 25px;
     z-index: 10000;
 }
 
