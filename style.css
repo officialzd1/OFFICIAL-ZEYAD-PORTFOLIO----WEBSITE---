@@ -198,9 +198,12 @@ html, body {
         font-size: 2rem !important;
     }
 .portfolio-text {
-    font-size: 0.8rem !important; /* جرب هذا المقاس، إذا كان صغير زيادة ارفعه لـ 1rem */
-    letter-spacing: 2px !important; /* تقليل المسافات بين الحروف عشان ما تطلع عريضة */
-}
+        font-size: 1rem !important;      /* حجم خط مناسب للجوال */
+        letter-spacing: 5px !important;  /* قللنا المسافة بين الحروف بشكل كبير لتناسب العرض */
+        margin-top: 10px !important;     /* مسافة بسيطة تحت كلمة ZEYAD */
+        word-break: break-all;           /* لضمان عدم خروج النص عن الإطار */
+    }
+
     /* تنسيق قسم about-container */
     .about-container {
         display: flex;
@@ -235,5 +238,19 @@ html, body {
     .navbar a {
         font-size: 0.7rem !important; /* تصغير حجم الخط ليصبح أنيقاً */
         text-decoration: none;
+    }
+    
+}
+@media (max-width: 768px) {
+    /* تصغير الأزرار وتقليل المسافات */
+    .social-btn {
+        padding: 6px 12px !important; /* تقليل الهوامش داخل الزر */
+        font-size: 0.8rem !important;  /* تصغير حجم الخط (الكلمة داخل الزر) */
+    }
+
+    /* التحكم في حاوية الأزرار لتكون مرتبة */
+    .social-buttons {
+        gap: 8px !important;           /* تقليل المسافة بين الزرين */
+        margin-top: 20px !important;   /* مسافة من الأعلى عشان ما تلصق في اللي فوقها */
     }
 }
