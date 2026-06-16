@@ -1,84 +1,92 @@
-html {
-    scroll-behavior: smooth;
+html
+{
+scroll-behavior: smooth;
 }
-body {
-    background-color: black;
-    color: rgb(255, 255, 255);
-    font-family: sans-serif;
-    margin: 0;
+body
+{
+background-color: black;
+color: rgb(255, 255, 255);
+font-family: sans-serif;
+margin: 0;
 }
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    animation: fadeIn 3s ease-in-out;
+.container
+{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 100vh;
+animation: fadeIn 3s ease-in-out;
 }
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        filter: blur(3.8px);
-    }
-    to {
-        opacity: 1;
-        filter: blur(0px);
-    }
-    }
-    .my-text-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    animation: fadeIn 3s ease-in-out; 
+@keyframes fadeIn
+{
+from
+{
+opacity: 0;
+filter: blur(3.8px);
 }
-h1 {
-    font-size: 80px;
-    margin: 0;
+to
+{
+opacity: 1;
+filter: blur(0px);
 }
-.subtitle {
-    font-size: 20px;
-    letter-spacing: 38px;
-    padding-left: 38px;
-    font-weight: 200;
-    font-family: 'Arial', sans-serif;
-    text-transform: uppercase;
-    margin-top: 10px;
 }
-.scroll-indicator {
-    margin-top: 30px;
-    font-size: 24px;
-    opacity: 1;
-    animation: bounce 2s infinite;
+.my-text-container
+{
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+animation: fadeIn 3s ease-in-out; 
 }
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-10px);}
+h1
+{
+font-size: 80px;
+margin: 0;
 }
-#about {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000000;
+.subtitle{
+font-size: 20px;
+letter-spacing: 38px;
+padding-left: 38px;
+font-weight: 200;
+font-family: 'Arial', sans-serif;
+text-transform: uppercase;
+margin-top: 10px;
+}
+.scroll-indicator{
+margin-top: 30px;
+font-size: 24px;
+opacity: 1;
+animation: bounce 2s infinite;
+}
+@keyframes bounce{
+0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+40% {transform: translateY(-10px);}
+}
+#about{
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #000000;
 }
 .about-container {
-    display: flex;
-    width: 80%;
-    gap: 50px;
+display: flex;
+width: 80%;
+gap: 50px;
 }
-.left-col, .right-col {
-    flex: 1;
-    padding: 0 40px;
-    text-align: justify;
-    line-height: 1.6;
+.left-col,.right-col{
+flex: 1;
+padding: 0 40px;
+text-align: justify;
+line-height: 1.6;
 }
-h3 { font-size: 20px; margin-bottom: 15px; }
-.left-col {
-    text-align: left;
+h3{ font-size: 20px; margin-bottom: 15px; }
+.left-col{
+text-align: left;
 }
-.right-col {
-    text-align: right;
+.right-col{
+text-align: right;
 }
 nav {
     position: fixed;
@@ -151,6 +159,8 @@ nav a:hover {
     transform: scale(1.1);
 }
 
+
+
 .about-container {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -159,7 +169,7 @@ nav a:hover {
     width: 100% !important;
     max-width: 1000px !important;
     margin: 0 auto !important;
-    padding: 60px 20px !important;
+    padding: 300px 10px !important;
     box-sizing: border-box !important;
 }
 
@@ -173,71 +183,21 @@ nav a:hover {
     text-align: left !important;
 }
 
+
+
+
+
 .video-wrapper {
     width: 100% !important;
     display: flex !important;
     justify-content: center !important;
     margin-top: 8px !important;
 }
-
-.video-wrapper video {
+.video-wrapper video
+{
     width: 100% !important;
     max-width: 738px !important;
     aspect-ratio: 16 / 9;
     border-radius: 12px;
     box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.7);
 }
-html, body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-@media (max-width: 900px) {
-/* تعديل كلمة PORTFOLIO */
-    .portfolio-text {
-        font-size: 0.8rem !important;      /* حجم أصغر قليلاً */
-        letter-spacing: 8px !important;    /* مسافات مريحة بين الحروف */
-        text-align: center !important;     /* التأكد من أنها في المنتصف */
-        width: 100% !important;            /* تأخذ العرض الكامل لتتوسط */
-        display: block !important;         /* لضمان عمل الـ margin والتوسيط */
-        margin: 10px auto 0 auto !important; /* توسيط تلقائي */
-        transform: none !important;        /* إلغاء أي تصغير سابق */
-    }
- .navbar {
-        display: flex !important;
-        flex-direction: row !important; /* التأكد من أنهم في سطر واحد */
-        justify-content: center !important;
-        align-items: center !important;
-        gap: 8px !important;            /* تقليل المسافات لضمان عدم الكسر */
-        padding: 5px !important;
-        width: 100% !important;
-    }
-
-    .navbar a {
-        font-size: 0.55rem !important;  /* تصغير الخط ليناسب الشاشة */
-        white-space: nowrap !important; /* منع الكلمات من النزول لسطر جديد */
-        text-decoration: none;
-        color: white !important;
-    }
-}
-
-/* تصغير أزرار التواصل في الجوال */
-    .social-btn {
-        padding: 5px 12px !important;  /* تقليل المساحة داخل الزر */
-        font-size: 0.7rem !important;  /* تصغير حجم النص */
-        border-radius: 20px !important; /* ضمان بقاء الزر بشكل دائري متناسق */
-    }
-
-.social-buttons {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        position: relative !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        margin: 20px auto 0 auto !important; /* الـ auto هنا هي التي ستوسطها */
-        padding: 0 !important;
-    }
-   
