@@ -90,7 +90,7 @@ text-align: right;
 }
 nav {
     position: fixed;
-    top: 20;
+    top: 20px;
     width: 100%;
     box-sizing: border-box;
     padding: 50px;
@@ -162,15 +162,15 @@ nav a:hover {
 
 
 .about-container {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: space-between !important;
-    align-items: flex-start !important;
-    width: 100% !important;
-    max-width: 1000px !important;
-    margin: 0 auto !important;
-    padding: 800px 10px !important;
-    box-sizing: border-box !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
 }
 
 .about-container .right-col {
@@ -181,4 +181,78 @@ nav a:hover {
 .about-container .left-col {
     width: 45% !important;
     text-align: left !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+    h1 {
+        font-size: 50px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        letter-spacing: 10px;
+        padding-left: 10px;
+        text-align: center;
+    }
+
+    nav {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    #about {
+        height: auto;
+        padding: 80px 20px;
+    }
+
+    .about-container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 30px;
+    }
+
+    .about-container .right-col,
+    .about-container .left-col {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+
+    .social-buttons {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 20px;
+        gap: 10px;
+    }
+
+    .social-btn {
+        font-size: 12px;
+        padding: 10px 16px;
+    }
+
+    #soon h2 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
 }
