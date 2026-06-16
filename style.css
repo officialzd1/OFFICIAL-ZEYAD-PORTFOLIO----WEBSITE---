@@ -193,15 +193,24 @@ html, body {
     overflow-x: hidden;
 }
 @media (max-width: 600px) {
-    h1 {
-        font-size: 2.5rem;
+    /* 1. منع التمرير الأفقي تماماً */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
     }
+
+    /* 2. تصغير حجم ZEYAD ليتناسب مع الشاشة */
+    h1 {
+        font-size: 2rem !important; 
+    }
+    
+    /* 3. تصغير وتعديل كلمة PORTFOLIO */
     .subtitle {
-        font-size: 1.2rem;       /* زيادة الحجم قليلاً ليكون أوضح */
-        letter-spacing: 12px;    /* زيادة التباعد ليعطي طابعاً أفخم وأكثر اتساعاً */
-        margin-top: 0x;       /* تقريب الكلمة قليلاً من كلمة ZEYAD */
-        text-align: center;
-        width: 100%;             /* ضمان توسيطها بشكل كامل */
-        padding-left: 12px;      /* إضافة مساحة بسيطة لتعويض الـ letter-spacing */
+        font-size: 0.8rem !important; /* تصغير الخط */
+        letter-spacing: 5px !important; /* تقليل التباعد ليحتويها عرض الشاشة */
+        word-wrap: break-word;
+        padding: 0 10px;
     }
 }
