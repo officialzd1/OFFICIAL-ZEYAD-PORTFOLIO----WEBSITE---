@@ -192,16 +192,36 @@ html, body {
     padding: 0;
     overflow-x: hidden;
 }
-/* هذا الكود لترتيب الأعمدة فوق بعضها في الجوال */
 @media (max-width: 768px) {
-    .about.container {
-        flex-direction: column; /* يجعل العناصر تترتب عمودياً */
-        text-align: center;      /* يوسط النصوص */
-        padding: 20px;
+    /* 1. تقليل حجم النصوص الرئيسية لتناسب الجوال */
+    h1 {
+        font-size: 2.5rem !important; 
+    }
+    
+    p {
+        font-size: 1rem !important;
     }
 
-    .right-col, .left-ini {
-        width: 100%;             /* تأخذ كامل عرض الشاشة */
-        margin-bottom: 20px;     /* مسافة بين العناصر */
+    /* 2. تحسين القائمة (Navbar) لتكون أكثر ترتيباً */
+    .navbar {
+        flex-direction: row; /* بقاؤهم في صف واحد */
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+
+    /* 3. تقليل الفراغات الكبيرة (التي تظهر في الصورة) */
+    #hero {
+        min-height: 80vh !important; /* تقليل الطول ليظهر المحتوى بشكل أفضل */
+        padding-top: 50px;
+    }
+
+    /* 4. تنسيق الأزرار لتكون أصغر وأرتب */
+    .social-buttons {
+        gap: 10px;
+    }
+    
+    .social-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
     }
 }
