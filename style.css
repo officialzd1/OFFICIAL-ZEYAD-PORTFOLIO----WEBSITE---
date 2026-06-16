@@ -204,6 +204,22 @@ html, body {
         margin: 10px auto 0 auto !important; /* توسيط تلقائي */
         transform: none !important;        /* إلغاء أي تصغير سابق */
     }
+ .navbar {
+        display: flex !important;
+        flex-direction: row !important; /* التأكد من أنهم في سطر واحد */
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 8px !important;            /* تقليل المسافات لضمان عدم الكسر */
+        padding: 5px !important;
+        width: 100% !important;
+    }
+
+    .navbar a {
+        font-size: 0.55rem !important;  /* تصغير الخط ليناسب الشاشة */
+        white-space: nowrap !important; /* منع الكلمات من النزول لسطر جديد */
+        text-decoration: none;
+        color: white !important;
+    }
 }
 
 /* تصغير أزرار التواصل في الجوال */
@@ -224,4 +240,4 @@ html, body {
         margin: 20px auto 0 auto !important; /* الـ auto هنا هي التي ستوسطها */
         padding: 0 !important;
     }
-    
+   
