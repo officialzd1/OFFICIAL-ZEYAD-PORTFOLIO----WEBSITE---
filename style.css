@@ -193,14 +193,38 @@ html, body {
     overflow-x: hidden;
 }
 @media (max-width: 768px) {
-    * {
-        font-size: 14px !important;
+    /* تصغير النصوص الرئيسية */
+    h1 {
+        font-size: 2rem !important;
     }
-    
+
+    /* تنسيق قسم about-container */
+    .about-container {
+        display: flex;
+        flex-direction: column !important; /* ترتيب عمودي */
+        align-items: center;
+        text-align: center;
+        padding: 10px !important;
+    }
+
+    /* تحسين الأعمدة */
+    .right-col, .left-col {
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    /* تنسيق الفيديو */
+    .video-wrapper {
+        width: 90% !important;
+        margin: 0 auto;
+    }
+
+    /* تنسيق القائمة */
     .navbar {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: center !important;
-        gap: 15px !important;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        font-size: 0.8rem;
     }
 }
