@@ -102,6 +102,7 @@ nav a {
     transition: all 0.3s ease;
     display: inline-block;
 }
+
 nav a:hover {
     opacity: 1;
 }
@@ -193,64 +194,34 @@ html, body {
     overflow-x: hidden;
 }
 @media (max-width: 768px) {
-    /* تصغير النصوص الرئيسية */
-    h1 {
-        font-size: 2rem !important;
+/* تعديل كلمة PORTFOLIO */
+    .portfolio-text {
+        font-size: 0.8rem !important;      /* حجم أصغر قليلاً */
+        letter-spacing: 8px !important;    /* مسافات مريحة بين الحروف */
+        text-align: center !important;     /* التأكد من أنها في المنتصف */
+        width: 100% !important;            /* تأخذ العرض الكامل لتتوسط */
+        display: block !important;         /* لضمان عمل الـ margin والتوسيط */
+        margin: 10px auto 0 auto !important; /* توسيط تلقائي */
+        transform: none !important;        /* إلغاء أي تصغير سابق */
     }
-.portfolio-text {
-        font-size: 1rem !important;      /* حجم خط مناسب للجوال */
-        letter-spacing: 5px !important;  /* قللنا المسافة بين الحروف بشكل كبير لتناسب العرض */
-        margin-top: 10px !important;     /* مسافة بسيطة تحت كلمة ZEYAD */
-        word-break: break-all;           /* لضمان عدم خروج النص عن الإطار */
+}
+
+/* تصغير أزرار التواصل في الجوال */
+    .social-btn {
+        padding: 5px 12px !important;  /* تقليل المساحة داخل الزر */
+        font-size: 0.7rem !important;  /* تصغير حجم النص */
+        border-radius: 20px !important; /* ضمان بقاء الزر بشكل دائري متناسق */
     }
 
-    /* تنسيق قسم about-container */
-    .about-container {
-        display: flex;
-        flex-direction: column !important; /* ترتيب عمودي */
-        align-items: center;
-        text-align: center;
-        padding: 10px !important;
-    }
-
-    /* تحسين الأعمدة */
-    .right-col, .left-col {
-        width: 100% !important;
-        margin-bottom: 20px;
-    }
-
-    /* تنسيق الفيديو */
-    .video-wrapper {
-        width: 90% !important;
-        margin: 0 auto;
-    }
-
-    /* تنسيق القائمة */
-    /* تعديل القائمة العلوية */
-    .navbar {
+.social-buttons {
         display: flex !important;
-        flex-direction: row !important;
         justify-content: center !important;
-        gap: 20px !important;    /* زيادة المسافة بين الكلمات */
-        padding: 10px 5px !important;
-    }
-
-    .navbar a {
-        font-size: 0.7rem !important; /* تصغير حجم الخط ليصبح أنيقاً */
-        text-decoration: none;
+        align-items: center !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        margin: 20px auto 0 auto !important; /* الـ auto هنا هي التي ستوسطها */
+        padding: 0 !important;
     }
     
-}
-@media (max-width: 768px) {
-    /* تصغير الأزرار وتقليل المسافات */
-    .social-btn {
-        padding: 6px 12px !important; /* تقليل الهوامش داخل الزر */
-        font-size: 0.8rem !important;  /* تصغير حجم الخط (الكلمة داخل الزر) */
-    }
-
-    /* التحكم في حاوية الأزرار لتكون مرتبة */
-    .social-buttons {
-        gap: 8px !important;           /* تقليل المسافة بين الزرين */
-        margin-top: 20px !important;   /* مسافة من الأعلى عشان ما تلصق في اللي فوقها */
-    }
-}
