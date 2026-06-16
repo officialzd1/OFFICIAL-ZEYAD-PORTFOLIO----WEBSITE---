@@ -197,7 +197,10 @@ html, body {
     h1 {
         font-size: 2rem !important;
     }
-
+.portfolio-text {
+    font-size: 0.8rem !important; /* جرب هذا المقاس، إذا كان صغير زيادة ارفعه لـ 1rem */
+    letter-spacing: 2px !important; /* تقليل المسافات بين الحروف عشان ما تطلع عريضة */
+}
     /* تنسيق قسم about-container */
     .about-container {
         display: flex;
