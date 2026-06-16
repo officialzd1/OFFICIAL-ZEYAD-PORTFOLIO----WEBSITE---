@@ -222,7 +222,7 @@ nav a:hover {
 
     #about {
         height: auto;
-        padding: 30px 70px;
+        padding: 450px 10px;
     }
 
     .about-container {
@@ -243,8 +243,8 @@ nav a:hover {
     .social-buttons {
         left: 50%;
         transform: translateX(-50%);
-        bottom: 20px;
-        gap: 10px;
+        bottom: 50px;
+        gap: 20px;
     }
 
     .social-btn {
