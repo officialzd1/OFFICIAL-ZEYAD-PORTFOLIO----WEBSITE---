@@ -222,14 +222,15 @@ nav a:hover {
 
     #about {
         height: auto;
-        padding: 80px 20px;
+        padding: 30px 70px;
     }
 
     .about-container {
         width: 100%;
-        max-width: 100%;
+        max-width: 150%;
         padding: 40px 20px;
         box-sizing: border-box;
+        flex-direction: row;
     }
 
     .about-container .right-col,
@@ -263,4 +264,12 @@ nav a:hover {
         overflow-x: hidden;
     }
 
+}
+.about-container {
+    display: flex;
+    flex-direction: row; /* لترتيب العناصر بجانب بعض */
+    justify-content: space-around; /* توزيع المسافات بينهما */
+    align-items: center; /* محاذاة العناصر في المنتصف عمودياً */
+    gap: 20px; /* إضافة مسافة فاصلة بينهما */
+    text-align: center;
 }
