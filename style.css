@@ -212,12 +212,12 @@ nav a:hover {
         display: block;
         
         position: relative; 
-        left: -15px;
+        left: -14px;
     }
 
     nav {
         padding: 20px;
-        gap: 15px;
+        gap: 14px;
     }
 
     nav a {
