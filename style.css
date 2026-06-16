@@ -192,25 +192,16 @@ html, body {
     padding: 0;
     overflow-x: hidden;
 }
-@media (max-width: 600px) {
-    /* 1. منع التمرير الأفقي تماماً */
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-        margin: 0;
-        padding: 0;
+/* هذا الكود لترتيب الأعمدة فوق بعضها في الجوال */
+@media (max-width: 768px) {
+    .about.container {
+        flex-direction: column; /* يجعل العناصر تترتب عمودياً */
+        text-align: center;      /* يوسط النصوص */
+        padding: 20px;
     }
 
-    /* 2. تصغير حجم ZEYAD ليتناسب مع الشاشة */
-    h1 {
-        font-size: 2rem !important; 
-    }
-    
-    /* 3. تصغير وتعديل كلمة PORTFOLIO */
-    .subtitle {
-        font-size: 0.8rem !important; /* تصغير الخط */
-        letter-spacing: 5px !important; /* تقليل التباعد ليحتويها عرض الشاشة */
-        word-wrap: break-word;
-        padding: 0 10px;
+    .right-col, .left-ini {
+        width: 100%;             /* تأخذ كامل عرض الشاشة */
+        margin-bottom: 20px;     /* مسافة بين العناصر */
     }
 }
