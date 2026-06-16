@@ -227,14 +227,13 @@ html, body {
 }
 /* هذا الكود يعمل فقط على الشاشات التي عرضها 768 بكسل أو أقل */
 @media (max-width: 768px) {
-  /* تصغير اسم ZEYAD ليناسب شاشة الجوال بشكل ممتاز */
   #hero h1 {
-    font-size: 2.5rem !important; 
+    font-size: 2.5rem !important; /* حجم الاسم */
+    text-align: center !important;
   }
 
-  /* تصغير كلمة PORTFOLIO */
   #hero .subtitle {
-    font-size: 1rem !important;
-    margin-bottom: 5px
+    font-size: 1.2rem !important; /* حجم كلمة بورتفوليو */
+    text-align: center !important;
   }
 }
