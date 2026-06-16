@@ -166,74 +166,27 @@ nav a:hover {
     box-sizing: border-box !important;
 }
 
-/* تنسيق العمود الأيمن (العربي) */
 .about-container .right-col {
     width: 45% !important;
-    text-align: right !important; /* محاذاة النص لليمين */
+    text-align: right !important;
 }
 
-/* تنسيق العمود الأيسر (الإنجليزي) */
 .about-container .left-col {
     width: 45% !important;
-    text-align: left !important; /* محاذاة النص لليسار */
+    text-align: left !important;
 }
 
-/* حاوية الفيديو تاخذ سطر كامل لحالها تحت الكلام وتتسنتر */
 .video-wrapper {
     width: 100% !important;
     display: flex !important;
     justify-content: center !important;
-    margin-top: 50px !important; /* مسافة حلوة تحت الكلام */
+    margin-top: 8px !important;
 }
 
-/* مشغل الفيديو */
 .video-wrapper video {
     width: 100% !important;
-    max-width: 650px !important; /* حجم الفيديو الفخم والمناسب */
+    max-width: 738px !important;
     aspect-ratio: 16 / 9;
     border-radius: 12px;
     box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.7);
-}
-
-html, body {
-    max-width: 100% !important;
-    overflow-x: hidden !important; /* يلغي السحب الجانبي تماماً */
-}
-html, body {
-    overflow-x: hidden; /* يمنع خروج أي شيء عن إطار الشاشة */
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-@media (max-width: 768px) {
-    .hero-container { /* استبدل هذا باسم الكلاس الصحيح عندك */
-        flex-direction: column; /* يجعل الصورة فوق النص أو العكس */
-        text-align: center;
-        padding: 20px;
-    }
-
-    .hero-image {
-        width: 80%; /* تصغير الصورة لتناسب شاشة الجوال */
-        margin-bottom: 20px;
-    }
-}
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.8rem; /* تصغير حجم العنوان في الشاشات الصغيرة */
-    }
-    p {
-        font-size: 0.9rem;
-    }
-}
-/* هذا الكود يعمل فقط على الشاشات التي عرضها 768 بكسل أو أقل */
-@media (max-width: 768px) {
-  #hero h1 {
-    font-size: 2.5rem !important; /* حجم الاسم */
-    text-align: center !important;
-  }
-
-  #hero .subtitle {
-    font-size: 1.2rem !important; /* حجم كلمة بورتفوليو */
-    text-align: center !important;
-  }
 }
