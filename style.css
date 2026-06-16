@@ -193,7 +193,7 @@ html, body {
     padding: 0;
     overflow-x: hidden;
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 /* تعديل كلمة PORTFOLIO */
     .portfolio-text {
         font-size: 0.8rem !important;      /* حجم أصغر قليلاً */
