@@ -199,3 +199,29 @@ html, body {
     max-width: 100% !important;
     overflow-x: hidden !important; /* يلغي السحب الجانبي تماماً */
 }
+html, body {
+    overflow-x: hidden; /* يمنع خروج أي شيء عن إطار الشاشة */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+@media (max-width: 768px) {
+    .hero-container { /* استبدل هذا باسم الكلاس الصحيح عندك */
+        flex-direction: column; /* يجعل الصورة فوق النص أو العكس */
+        text-align: center;
+        padding: 20px;
+    }
+
+    .hero-image {
+        width: 80%; /* تصغير الصورة لتناسب شاشة الجوال */
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem; /* تصغير حجم العنوان في الشاشات الصغيرة */
+    }
+    p {
+        font-size: 0.9rem;
+    }
+}
