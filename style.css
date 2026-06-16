@@ -235,5 +235,6 @@ html, body {
   /* تصغير كلمة PORTFOLIO */
   #hero .subtitle {
     font-size: 1rem !important;
+    margin-bottom: 5px
   }
 }
