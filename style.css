@@ -220,11 +220,16 @@ html, body {
     }
 
     /* تنسيق القائمة */
+    /* تعديل القائمة العلوية */
     .navbar {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 15px;
-        font-size: 0.8rem;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 20px !important;    /* زيادة المسافة بين الكلمات */
+        padding: 10px 5px !important;
     }
-}
+
+    .navbar a {
+        font-size: 0.7rem !important; /* تصغير حجم الخط ليصبح أنيقاً */
+        text-decoration: none;
+    }
