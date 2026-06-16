@@ -142,7 +142,7 @@ nav a:hover {
     padding: 12px 20px;
     border-radius: 50px;
     text-decoration: none;
-    color: white !important;
+    color: rgb(0, 0, 0) !important;
     font-weight: bold;
     font-size: 13px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -151,7 +151,7 @@ nav a:hover {
 }
 
 
-.whatsapp { background-color: #008b33; }
+.whatsapp { background-color: #00ff5e; }
 .instagram { background-color: #ff0055; }
 
 
@@ -169,7 +169,7 @@ nav a:hover {
     width: 100% !important;
     max-width: 1000px !important;
     margin: 0 auto !important;
-    padding: 300px 10px !important;
+    padding: 800px 10px !important;
     box-sizing: border-box !important;
 }
 
@@ -181,23 +181,4 @@ nav a:hover {
 .about-container .left-col {
     width: 45% !important;
     text-align: left !important;
-}
-
-
-
-
-
-.video-wrapper {
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    margin-top: 8px !important;
-}
-.video-wrapper video
-{
-    width: 100% !important;
-    max-width: 738px !important;
-    aspect-ratio: 16 / 9;
-    border-radius: 12px;
-    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.7);
 }
