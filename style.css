@@ -1,7 +1,16 @@
 html
+
+
+
+
+
+
+
+
 {
 scroll-behavior: smooth;
 }
+
 body
 {
 background-color: black;
@@ -9,6 +18,7 @@ color: rgb(255, 255, 255);
 font-family: sans-serif;
 margin: 0;
 }
+
 .container
 {
 display: flex;
@@ -16,14 +26,15 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 height: 100vh;
-animation: fadeIn 3s ease-in-out;
+animation: fadeIn 1.8s ease-in-out;
 }
+
 @keyframes fadeIn
 {
 from
 {
 opacity: 0;
-filter: blur(3.8px);
+filter: blur(5.8px);
 }
 to
 {
@@ -31,19 +42,13 @@ opacity: 1;
 filter: blur(0px);
 }
 }
-.my-text-container
-{
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-animation: fadeIn 3s ease-in-out; 
-}
+
 h1
 {
-font-size: 80px;
+font-size: 50px;
 margin: 0;
 }
+
 .subtitle{
 font-size: 20px;
 letter-spacing: 38px;
@@ -51,7 +56,7 @@ padding-left: 38px;
 font-weight: 200;
 font-family: 'Arial', sans-serif;
 text-transform: uppercase;
-margin-top: 10px;
+margin-top: 20px;
 }
 .scroll-indicator{
 margin-top: 30px;
@@ -182,98 +187,45 @@ nav a:hover {
     width: 45% !important;
     text-align: left !important;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media screen and (max-width: 768px) {
-
-    h1 {
-        font-size: 30px;
-    }
-
-    .subtitle {
-        font-size: 10px;
-        letter-spacing: 12px;
-        text-align: center;
-        display: block;
-        
-        position: relative; 
-        left: -14px;
-    }
-
-    nav {
-        padding: 20px;
-        gap: 14px;
-    }
-
-    nav a {
-        font-size: 14px;
-    }
-
-    #about {
-        height: auto;
-        padding: 450px 10px;
-    }
-
-    .about-container {
-        width: 100%;
-        max-width: 150%;
-        padding: 40px 20px;
-        box-sizing: border-box;
-        flex-direction: row;
-    }
-
-    .about-container .right-col,
-    .about-container .left-col {
-        width: 100%;
-        text-align: center;
-        padding: 0;
-    }
-
-    .social-buttons {
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 50px;
-        gap: 20px;
-    }
-
-    .social-btn {
-        font-size: 12px;
-        padding: 10px 16px;
-    }
-
-    #soon h2 {
-        font-size: 1.2rem;
-        text-align: center;
-    }
-
-    html,
-    body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-
+/* تنسيق قسم نموذج الطلب */
+#order-form {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #1a1a1a; /* لون خلفية خفيف للنموذج */
+    border-radius: 15px;
+    color: white;
+    font-family: sans-serif;
 }
-.about-container {
-    display: flex;
-    flex-direction: row; /* لترتيب العناصر بجانب بعض */
-    justify-content: space-around; /* توزيع المسافات بينهما */
-    align-items: center; /* محاذاة العناصر في المنتصف عمودياً */
-    gap: 20px; /* إضافة مسافة فاصلة بينهما */
-    text-align: center;
+
+/* تنسيق الحقول */
+#order-form input, 
+#order-form select, 
+#order-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background: #000;
+    color: white;
+    box-sizing: border-box; /* لضمان عدم خروج الحقول عن الإطار */
+}
+
+/* تنسيق زر الإرسال */
+#order-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+#order-form button:hover {
+    background-color: #0056b3;
 }
