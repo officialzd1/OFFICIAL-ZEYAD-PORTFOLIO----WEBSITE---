@@ -240,8 +240,188 @@ nav a:hover {
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
-    padding-top: 40px !important; /* هذا سيخلق المسافة التي تريدها */
+    padding-top: 30px !important; /* هذا سيخلق المسافة التي تريدها */
 }
+
+
+
+
+
+
+
+
+
+
+.stats-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    /* للتحكم في الارتفاع للأعلى والأسفل */
+    margin-top: -890px; /* غيّر هذا الرقم (مثلاً -100px أو -200px) لرفع القسم للأعلى */
+    margin-bottom: 50px; /* المسافة بين الإحصائيات وما تحتها */
+    
+    padding: 308px;
+    background: transparent;
+}
+
+.stat-item {
+    text-align: center;
+    /* للتحكم في تقارب الكلمات ببعضها */
+    margin: 0 10px; 
+}
+
+.stat-item h3 {
+    font-size: 3rem; /* غيّر حجم الرقم هنا */
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.stat-item p {
+    font-size: 1.2rem; /* غيّر حجم كلمة (سنوات خبرة/مشاهدات) هنا */
+    color: #ccc;
+    margin-top: 0px; /* قلل هذا الرقم لجعل الكلمة أقرب للرقم */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* تنسيق الجوال */
+@media (max-width: 768px) {
+    .stats-section {
+        flex-direction: column; /* جعلهم تحت بعض في الجوال */
+        gap: 30px;
+    }
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* --- إصلاح التوافق مع الجوال (إضافة في نهاية ملفك فقط) --- */
