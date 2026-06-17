@@ -271,3 +271,35 @@ nav a:hover {
         gap: 10px !important;
     }
 }
+/* --- حل مشكلة التمرير الجانبي (يمين ويسار) --- */
+@media (max-width: 768px) {
+    /* 1. منع أي عنصر من أن يكون أعرض من الشاشة */
+    body, html {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        position: relative;
+    }
+
+    /* 2. تصغير الخطوط الكبيرة التي تسبب توسع الشاشة */
+    h1 {
+        font-size: 35px !important; /* تصغير العنوان الرئيسي */
+    }
+
+    .subtitle {
+        font-size: 14px !important;
+        letter-spacing: 5px !important; /* تقليل المسافات */
+        padding-left: 0 !important;
+        word-break: break-word; /* إجبار الكلمات الطويلة على النزول لسطر جديد */
+    }
+
+    /* 3. التأكد من أن أي عنصر داخلي لا يخرج عن الإطار */
+    * {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 4. إخفاء أو تصغير أي عنصر قد يسبب المشكلة */
+    .container {
+        padding: 10px !important;
+    }
+}
