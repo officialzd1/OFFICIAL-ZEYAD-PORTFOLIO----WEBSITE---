@@ -255,11 +255,13 @@ nav a:hover {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 40px 20px;
+    padding: 10px 20px;
     background: transparent;
     width: 100%;
-    margin-top: 20px; /* المسافة بينه وبين ما فوقه */
-    margin-bottom: 20px; /* المسافة بينه وبين ما تحته */
+    
+    /* ارفعها للأعلى بقيمة بسيطة جداً */
+    margin-top: -690px !important; 
+    margin-bottom: 40px;
 }
 
 
@@ -361,7 +363,13 @@ nav a:hover {
 
 
 
-
+@media (max-width: 768px) {
+    .stats-section {
+        margin-top: 0px !important; /* في الجوال اجعلها صفر لكي لا ترتفع فوق النص وتخرب التصميم */
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+}
 
 
 
