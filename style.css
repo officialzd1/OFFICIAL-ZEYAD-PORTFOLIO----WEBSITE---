@@ -13,6 +13,43 @@ scroll-behavior: smooth;
 
 body
 {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 background-color: black;
 color: rgb(255, 255, 255);
 font-family: sans-serif;
@@ -255,41 +292,14 @@ nav a:hover {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px 20px;
     background: transparent;
     width: 100%;
     
     /* ارفعها للأعلى بقيمة بسيطة جداً */
-    margin-top: -690px !important; 
+    margin-top: -800=px !important; 
     margin-bottom: 40px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -311,6 +321,158 @@ nav a:hover {
     color: #ccc;
     margin-top: 0px; /* قلل هذا الرقم لجعل الكلمة أقرب للرقم */
 }
+
+
+#scrollProgress {
+    position: fixed; top: 0; left: 0; width: 0%; height: 4px;
+    background: #ffffff; z-index: 1000;
+}
+
+
+h2, h3 {
+    transition: color 0.4s ease, transform 0.3s ease;
+}
+
+h2:hover, h3:hover {
+    color: #0075ff; /* يتغير اللون للأزرق عند مرور الماوس */
+    transform: translateX(5px); /* يتحرك حركة خفيفة جداً */
+}
+
+
+
+
+#backToTop {
+    position: fixed; bottom: 20px; right: 20px;
+    background: #0075ff; color: white; border: none;
+    padding: 10px 15px; cursor: pointer; border-radius: 5px;
+    display: none; /* مخفي افتراضياً */
+    z-index: 999;
+}
+
+
+nav a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0; height: 2px;
+    bottom: -5px; left: 50%;
+    background: #ffffff;
+    transition: all 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%; left: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -363,13 +525,7 @@ nav a:hover {
 
 
 
-@media (max-width: 768px) {
-    .stats-section {
-        margin-top: 0px !important; /* في الجوال اجعلها صفر لكي لا ترتفع فوق النص وتخرب التصميم */
-        flex-direction: column !important;
-        gap: 30px !important;
-    }
-}
+
 
 
 

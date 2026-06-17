@@ -14,6 +14,21 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="scrollProgress"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 <nav class="navbar">
 <a href="#soon">SOON</a>
 <a href="#order-form">Order</a>
@@ -35,6 +50,7 @@
 <h3>About Me</h3>
 <p>I'm ZEYAD , A Video Editor</p>
 </div>
+
 </section>
 
 
@@ -186,32 +202,17 @@
 
 
 
-<script>
-    var form = document.getElementById("my-form");
-    
-    async function handleSubmit(event) {
-        event.preventDefault();
-        var status = document.getElementById("my-form-status");
-        var data = new FormData(event.target);
-        fetch(event.target.action, {
-            method: form.method,
-            body: data,
-            headers: { 'Accept': 'application/json' }
-        }).then(response => {
-            if (response.ok) {
-                // هنا يختفي النموذج وتظهر علامة الصح
-                form.innerHTML = "<div style='text-align:center; font-size: 50px;'>✅</div><h3 style='text-align:center;'>تم استلام طلبك بنجاح!</h3>";
-            } else {
-                status.innerHTML = "حدث خطأ ما، حاول مجدداً.";
-            }
-        }).catch(error => {
-            status.innerHTML = "حدث خطأ ما، حاول مجدداً.";
-        });
-    }
-    form.addEventListener("submit", handleSubmit);
-</script>
 
 
 
+<button id="backToTop" title="Go to top">↑</button>
+
+
+
+
+
+
+
+<script src="script.js"></script>
 </body>
 </html>
