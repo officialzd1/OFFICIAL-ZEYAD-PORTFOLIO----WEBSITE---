@@ -231,9 +231,17 @@ nav a:hover {
     background-color: #0056b3;
 }
 
+.clients-section h2 {
+    margin-bottom: 40px !important; /* يمكنك زيادة هذا الرقم (مثلاً 60px) لزيادة المسافة */
+}
 
-
-
+.clients-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding-top: 40px !important; /* هذا سيخلق المسافة التي تريدها */
+}
 
 
 /* --- إصلاح التوافق مع الجوال (إضافة في نهاية ملفك فقط) --- */
@@ -303,6 +311,73 @@ nav a:hover {
         padding: 10px !important;
     }
 }
+
+
+.clients-section h2 {
+    margin-bottom: 40px !important; /* يمكنك زيادة هذا الرقم (مثلاً 60px) لزيادة المسافة */
+}
+
+.clients-grid {
+    display: flex;
+    justify-content: center; /* توسيط الصور في المنتصف */
+    gap: 30px;               /* مسافة بين الصور */
+    flex-wrap: wrap;         /* لتنزل الصور تحت بعض في الجوال إذا كثرت */
+}
+
+.clients-grid img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;       /* لضمان عدم تشوه الوجه داخل الدائرة */
+    border: 3px solid #fff;  /* إطار أبيض جمالي */
+    transition: transform 0.3s ease; /* نعومة الحركة */
+}
+
+/* التأثير: تكبير بسيط عند الوقوف بالماوس */
+.clients-grid img:hover {
+    transform: scale(1.15); 
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
 section, #hero, #about, #order-form, #soon {
         display: flex !important;
@@ -332,6 +407,11 @@ section, #hero, #about, #order-form, #soon {
     scroll-margin-top: 0 !important;   /* جرب 0 إذا كان نازلاً، أو قيمة سالبة إذا لزم الأمر */
     padding-top: 100px !important;     /* أضف padding إضافي من الأعلى لدفع النص للأسفل قليلاً */
 }
+.marquee-content img {
+        width: 60px !important;
+        height: 60px !important;
+        margin: 0 10px !important;
+    }
 
 
 
@@ -372,7 +452,7 @@ nav a {
     /* الحل اليدوي لتوسيط العنصر */
     position: relative !important;
     left: 26% !important;
-    transform: translateX(-54%) !important;
+    transform: translateX(-52%) !important;
     
     width: auto !important; /* نجعل العرض بحجم الكلمة فقط */
     white-space: nowrap !important; /* نمنع الكلمة من أن تنزل لسطر جديد */
