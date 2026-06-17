@@ -230,3 +230,44 @@ nav a:hover {
 #order-form button:hover {
     background-color: #0056b3;
 }
+
+
+
+
+
+
+/* --- إصلاح التوافق مع الجوال (إضافة في نهاية ملفك فقط) --- */
+@media (max-width: 768px) {
+    /* 1. إصلاح القائمة العلوية لتناسب الشاشات الصغيرة */
+    nav {
+        gap: 15px !important;
+        padding: 20px !important;
+        flex-wrap: wrap;
+    }
+    
+    /* 2. جعل المحتوى (About) يأتي فوق بعضه */
+    .about-container {
+        flex-direction: column !important;
+        width: 100% !important;
+        padding: 10px !important;
+    }
+    .about-container .right-col, .about-container .left-col {
+        width: 100% !important;
+        padding: 10px !important;
+        text-align: center !important;
+    }
+
+    /* 3. تصغير النموذج قليلاً ليناسب شاشة الجوال */
+    #order-form {
+        width: 90% !important;
+        margin: 20px auto !important;
+    }
+
+    /* 4. إصلاح أزرار التواصل لكي لا تغطي المحتوى */
+    .social-buttons {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        bottom: 20px !important;
+        gap: 10px !important;
+    }
+}
