@@ -251,19 +251,45 @@ nav a:hover {
 
 
 
-
 .stats-section {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    
-    /* للتحكم في الارتفاع للأعلى والأسفل */
-    margin-top: -890px; /* غيّر هذا الرقم (مثلاً -100px أو -200px) لرفع القسم للأعلى */
-    margin-bottom: 50px; /* المسافة بين الإحصائيات وما تحتها */
-    
-    padding: 308px;
+    padding: 40px 20px;
     background: transparent;
+    width: 100%;
+    margin-top: 20px; /* المسافة بينه وبين ما فوقه */
+    margin-bottom: 20px; /* المسافة بينه وبين ما تحته */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .stat-item {
     text-align: center;
@@ -308,7 +334,25 @@ nav a:hover {
 
 
 
+@media (max-width: 768px) {
+    /* تحويل التخطيط ليكون تحت بعضه */
+    .about-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 20px !important;
+    }
 
+    /* توسيع الأعمدة لتأخذ كامل عرض الشاشة */
+    .right-col, .left-col {
+        width: 100% !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* تصغير العناوين لتناسب شاشة الجوال */
+    .about-container h3 {
+        font-size: 1.5rem !important;
+    }
+}
 
 
 
