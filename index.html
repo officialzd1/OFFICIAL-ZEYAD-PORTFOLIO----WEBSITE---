@@ -10,6 +10,7 @@
 <body>
 <nav class="navbar">
 <a href="#soon">SOON</a>
+<a href="#order-form">Order</a>
 <a href="#about">About Me</a>
 <a href="#hero">Home</a>
 </nav>
@@ -32,25 +33,38 @@
 
 
 <section id="order-form" style="padding: 50px;">
-    <h2>اطلب خدمتك الآن</h2>
+    <h2 style="text-align: center;">اطلب خدمتك الآن / Order Now</h2>
     <form id="my-form" action="https://formspree.io/f/xeewdywy" method="POST">
-        <label>الاسم الكريم:</label><br>
-        <input type="text" name="name" required><br>
         
-        <label>رابط الفيديو (Drive):</label><br>
-        <input type="url" name="video-link" placeholder="تأكد من إتاحة الرابط للعامة" required><br>
+        <label style="display: block; overflow: hidden;">
+            <span style="float: right;">الاسم الكريم</span>
+            <span style="float: left;">Your Name</span>
+        </label>
+        <input type="text" name="name" required>
         
-        <label>نوع الفيديو:</label><br>
+        <label style="display: block; overflow: hidden;">
+            <span style="float: right;">رابط الفيديو (Drive)</span>
+            <span style="float: left;">Video Link</span>
+        </label>
+        <input type="url" name="video-link" placeholder="تأكد من إتاحة الرابط / Ensure link is public" required>
+        
+        <label style="display: block; overflow: hidden;">
+            <span style="float: right;">نوع الفيديو</span>
+            <span style="float: left;">Video Type</span>
+        </label>
         <select name="video-type">
-            <option value="youtube">يوتيوب</option>
-            <option value="reels">ريلز / تيك توك</option>
-            <option value="ad">إعلان</option>
-        </select><br>
+            <option value="youtube">يوتيوب / YouTube</option>
+            <option value="reels">ريلز / Reels</option>
+            <option value="ad">إعلان / Advertisement</option>
+        </select>
         
-        <label>ملاحظات إضافية:</label><br>
-        <textarea name="message"></textarea><br>
+        <label style="display: block; overflow: hidden;">
+            <span style="float: right;">ملاحظات إضافية</span>
+            <span style="float: left;">Additional Notes</span>
+        </label>
+        <textarea name="message" style="height: 100px;"></textarea>
         
-        <button type="submit" id="my-form-button">إرسال الطلب</button>
+        <button type="submit" id="my-form-button">إرسال الطلب / Order Now</button>
     </form>
     <p id="my-form-status" style="text-align: center; font-size: 20px;"></p>
 </section>
