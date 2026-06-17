@@ -303,3 +303,84 @@ nav a:hover {
         padding: 10px !important;
     }
 }
+@media (max-width: 768px) {
+    /* 1. إصلاح القائمة العلوية */
+    nav {
+    display: flex !important;
+    justify-content: center !important; /* توسيط القائمة في منتصف الشاشة */
+    align-items: center !important;
+    gap: 18px !important;              /* تباعد ثابت بين الكلمات يمكنك تقليله أو زيادته */
+    padding: 10px 0 !important;        /* تقليل الحواف لتصغير حجم القائمة */
+    width: 100% !important;
+}
+
+nav a {
+    font-size: 11px !important;        /* تصغير الخط ليكون مناسباً للجوال */
+    letter-spacing: 1px !important;    /* تقليل المسافة بين الحروف */
+    text-transform: uppercase;
+    white-space: nowrap;               /* منع الكلمة من النزول لسطر جديد */
+}
+
+    /* 2. تحسين اسم ZEYAD و PORTFOLIO */
+    h1 { font-size: 30px !important; }
+
+
+ .portfolio-text {
+    font-size: 20px !important;
+    letter-spacing: 10px !important;
+    margin-top: 10px !important;
+    
+    /* الحل اليدوي لتوسيط العنصر */
+    position: relative !important;
+    left: 26% !important;
+    transform: translateX(-50%) !important;
+    
+    width: auto !important; /* نجعل العرض بحجم الكلمة فقط */
+    white-space: nowrap !important; /* نمنع الكلمة من أن تنزل لسطر جديد */
+    padding-left: 0 !important;
+}
+
+    /* 3. ترتيب نبذة عني و About Me */
+  .about-container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    padding: 10px !important;
+    align-items: flex-start !important; /* لضمان بدء النصوص من الأعلى */
+}
+
+/* العمود الأيمن (العربي) */
+.right-col {
+    width: 50% !important;
+    text-align: right !important; /* إجبار العربي على اليمين */
+    padding-right: 15px !important; 
+    padding-left: 5px !important;
+}
+
+/* العمود الأيسر (الإنجليزي) */
+.left-col {
+    width: 50% !important;
+    text-align: left !important;  /* إجبار الإنجليزي على اليسار */
+    padding-left: 15px !important;
+    padding-right: 5px !important;
+}
+
+/* تصغير العناوين والفقرات داخل القسم للجوال */
+.about-container h3, .about-container p {
+    font-size: 12px !important; /* يمكنك زيادة هذا الرقم إذا كان الخط صغيراً جداً */
+    line-height: 1.4 !important;
+}
+    /* 4. تصغير النموذج وتوسيطه */
+    #order-form {
+        width: 95% !important;
+        max-width: 400px !important;
+        padding: 15px !important;
+        margin: 20px auto !important;
+    }
+
+    /* 5. تصغير Coming Soon */
+    #soon h2 {
+        font-size: 1.2rem !important;
+    }
+}
