@@ -429,12 +429,23 @@ nav a:hover::after {
 
 
 
+.floating-btn {
+    position: fixed; bottom: 120px; left: 34px;
+    background: #25d366; color: white; padding: 15px 25px;
+    border-radius: 50px; text-decoration: none; font-weight: bold;
+    box-shadow: 0 4px 15px rgba(37,211,102,0.4); z-index: 999;
+}
 
 
 
 
-
-
+.scarcity-text {
+    font-size: 0.75rem !important; /* حجم صغير وناعم */
+    color: #ffcc00 !important; /* لون ذهبي ليوحي بالندرة */
+    margin-top: 15px !important;
+    font-style: italic;
+    opacity: 0.8;
+}
 
 
 
