@@ -1,1036 +1,246 @@
-html
+html { scroll-behavior: smooth; }
 
-
-
-
-
-
-
-
-{
-scroll-behavior: smooth;
-}
-
-body
-{
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+body {
 background-color: black;
 color: rgb(255, 255, 255);
-font-family: sans-serif;
-margin: 0;
+margin: 0; }
+
+nav {
+position: fixed;
+top: 2rem;
+width: 100%;
+box-sizing: border-box;
+padding: 4rem;
+display: flex;
+justify-content: center;
+gap: 5rem;
+z-index: 9999;
 }
 
-.container
-{
+nav a {
+color: rgb(255, 255, 255);
+text-decoration: none;
+font-size: 1.2rem;
+letter-spacing: 0.1rem;
+text-transform: uppercase;
+opacity: 1;
+transition: opacity 0.3s;
+transition: all 0.3s ease;
+display: inline-block;
+}
+
+.navbar a:hover {
+opacity: 1;
+transform: scale(1.1); 
+cursor: pointer;
+}
+
+.container {
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 height: 100vh;
-animation: fadeIn 1.8s ease-in-out;
+animation: fadeIn 1.8s ease-in-out; }
+
+@keyframes fadeIn {
+from {
+opacity: 0; }
+to {
+opacity: 1; }
 }
 
-@keyframes fadeIn
-{
-from
-{
-opacity: 0;
-filter: blur(5.8px);
-}
-to
-{
-opacity: 1;
-filter: blur(0px);
-}
-}
-
-h1
-{
-font-size: 50px;
+h1 {
+font-size: 3rem;
+letter-spacing: 0.3rem;
 margin: 0;
 }
 
-.subtitle{
-font-size: 20px;
-letter-spacing: 38px;
-padding-left: 38px;
+.subtitle {
+font-size: 1rem;
+letter-spacing: 3rem;
+padding-left: 3rem;
 font-weight: 200;
 font-family: 'Arial', sans-serif;
-text-transform: uppercase;
-margin-top: 20px;
+margin-top: 1rem;
 }
+
 .scroll-indicator{
-margin-top: 30px;
-font-size: 24px;
-opacity: 1;
+margin-top: 30rem;
+font-size: 1.8rem;
+margin-top: 1rem;
 animation: bounce 2s infinite;
 }
-@keyframes bounce{
+
+@keyframes bounce {
 0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-40% {transform: translateY(-10px);}
+40% {transform: translateY(-0.5rem);}
 }
-#about{
+
+#about {
 height: 100vh;
 display: flex;
 justify-content: center;
 align-items: center;
 background-color: #000000;
 }
+
 .about-container {
 display: flex;
 width: 80%;
-gap: 50px;
-}
-.left-col,.right-col{
-flex: 1;
-padding: 0 40px;
-text-align: justify;
-line-height: 1.6;
-}
-h3{ font-size: 20px; margin-bottom: 15px; }
-.left-col{
-text-align: left;
-}
-.right-col{
-text-align: right;
-}
-nav {
-    position: fixed;
-    top: 20px;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 50px;
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    z-index: 9999;
-}
-nav a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-size: 18px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    opacity: 1;
-    transition: opacity 0.3s;
-    transition: all 0.3s ease;
-    display: inline-block;
+gap: 3rem;
 }
 
-nav a:hover {
-    opacity: 1;
+.left-col,.right-col {
+flex: 1;
+padding: 1rem;
+text-align: justify;
+line-height: 1.3;
 }
-.navbar a:hover {
-    opacity: 1;
-    transform: scale(1.1); 
-    cursor: pointer;
+
+h3 {
+font-size: 1.8rem;
+margin-bottom: 1rem;
 }
-@keyframes blink {
-    0%, 100% { opacity: 0.1; }
-    50% { opacity: 0.5; }
+
+.left-col {
+text-align: left;
+letter-spacing: 0.1rem;
 }
-#soon h2 {
-    animation: blink 2s infinite;
-    font-size: 2rem;
-    text-transform: uppercase;
+
+.right-col {
+text-align: right;
 }
+
 .social-buttons {
-    position: fixed;
-    bottom: 50px;
-    left: 50px;
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    z-index: 10000;
+position: fixed;
+bottom: 5rem;
+left: 42rem;
+display: flex;
+flex-direction: row;
+gap: 2rem;
+z-index: 10000;
 }
 
 .social-btn {
-    padding: 12px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    color: rgb(0, 0, 0) !important;
-    font-weight: bold;
-    font-size: 13px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-    display: block;
+padding: 1rem 1rem;
+border-radius: 3rem;
+text-decoration: none;
+color: rgb(0, 0, 0) !important;
+font-weight: bold;
+font-size: 1rem;
+box-shadow: 0rem 10rem rgba(0, 0, 0, 0.3);
+transition: transform 0.3s ease;
+display: block;
 }
-
 
 .whatsapp { background-color: #00ff5e; }
 .instagram { background-color: #ff0055; }
 
-
 .social-btn:hover {
-    transform: scale(1.1);
+transform: scale(1.1);
 }
-
-
 
 .about-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    box-sizing: border-box;
-}
-
-.about-container .right-col {
-    width: 45% !important;
-    text-align: right !important;
-}
-
-.about-container .left-col {
-    width: 45% !important;
-    text-align: left !important;
-}
-/* تنسيق قسم نموذج الطلب */
-#order-form {
-    scroll-margin-top: 460px;
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 30px;
-    background: #1a1a1a; /* لون خلفية خفيف للنموذج */
-    border-radius: 15px;
-    color: white;
-    font-family: sans-serif;
-}
-
-/* تنسيق الحقول */
-#order-form input, 
-#order-form select, 
-#order-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    background: #000;
-    color: white;
-    box-sizing: border-box; /* لضمان عدم خروج الحقول عن الإطار */
-}
-
-/* تنسيق زر الإرسال */
-#order-form button {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-#order-form button:hover {
-    background-color: #0056b3;
-}
-
-.clients-section h2 {
-    margin-bottom: 40px !important; /* يمكنك زيادة هذا الرقم (مثلاً 60px) لزيادة المسافة */
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: flex-start;
+width: 100%;
+max-width: 80rem;
+margin: 0 auto;
+padding: 8rem 1rem;
+box-sizing: border-box;
 }
 
 .clients-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    padding-top: 30px !important; /* هذا سيخلق المسافة التي تريدها */
-}
-
-
-
-
-
-
-
-
-
-.stats-section {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px 20px;
-    background: transparent;
-    width: 100%;
-    
-    /* ارفعها للأعلى بقيمة بسيطة جداً */
-    margin-top: -800=px !important; 
-    margin-bottom: 40px;
-}
-
-
-
-.stat-item {
-    text-align: center;
-    /* للتحكم في تقارب الكلمات ببعضها */
-    margin: 0 10px; 
-}
-
-.stat-item h3 {
-    font-size: 3rem; /* غيّر حجم الرقم هنا */
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
-}
-
-.stat-item p {
-    font-size: 1.2rem; /* غيّر حجم كلمة (سنوات خبرة/مشاهدات) هنا */
-    color: #ccc;
-    margin-top: 0px; /* قلل هذا الرقم لجعل الكلمة أقرب للرقم */
-}
-
-
-#scrollProgress {
-    position: fixed; top: 0; left: 0; width: 0%; height: 4px;
-    background: #ffffff; z-index: 1000;
-}
-
-
-h2, h3 {
-    transition: color 0.4s ease, transform 0.3s ease;
-}
-
-h2:hover, h3:hover {
-    color: #0075ff; /* يتغير اللون للأزرق عند مرور الماوس */
-    transform: translateX(5px); /* يتحرك حركة خفيفة جداً */
-}
-
-
-
-
-#backToTop {
-    position: fixed; bottom: 20px; right: 20px;
-    background: #0075ff; color: white; border: none;
-    padding: 10px 15px; cursor: pointer; border-radius: 5px;
-    display: none; /* مخفي افتراضياً */
-    z-index: 999;
-}
-
-
-nav a {
-    position: relative;
-    text-decoration: none;
-    color: white;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0; height: 2px;
-    bottom: -5px; left: 50%;
-    background: #ffffff;
-    transition: all 0.3s ease;
-}
-
-nav a:hover::after {
-    width: 100%; left: 0;
-}
-
-/* تنسيق القسم */
-.services-section {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.section-title {
-    color: white;
-    margin-bottom: 50px;
-    font-size: 2.5rem;
-}
-
-/* حاوية البطاقات */
-.pricing-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-/* تصميم البطاقة الزجاجية */
-.card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 30px;
-    color: white;
-    transition: 0.4s;
-}
-
-.card h3 { margin-bottom: 15px; color: #0075ff; }
-.card p { font-size: 1rem; margin-bottom: 5px; }
-.card .en-desc { color: #888; font-size: 0.9rem; }
-
-.card:hover {
-    transform: translateY(-10px);
-    border-color: #0075ff;
-    box-shadow: 0 10px 30px rgba(0, 117, 255, 0.2);
-}
-
-.card button {
-    background: transparent;
-    border: 2px solid #0075ff;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 10px;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.card button:hover {
-    background: #0075ff;
-}
-
-
-
-
-.floating-btn {
-    position: fixed; bottom: 120px; left: 34px;
-    background: #25d366; color: white; padding: 15px 25px;
-    border-radius: 50px; text-decoration: none; font-weight: bold;
-    box-shadow: 0 4px 15px rgba(37,211,102,0.4); z-index: 999;
-}
-
-
-
-
-.scarcity-text {
-    font-size: 0.75rem !important; /* حجم صغير وناعم */
-    color: #ffcc00 !important; /* لون ذهبي ليوحي بالندرة */
-    margin-top: 15px !important;
-    font-style: italic;
-    opacity: 0.8;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 768px) {
-    .mobile-alert {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: #000;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 9999;
-    padding: 20px;
-}
-
-.alert-content {
-    max-width: 400px;
-}
-
-.alert-content h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-.alert-content p {
-    font-size: 0.9rem;
-    color: #aaa;
-    line-height: 1.6;
-}
-
-hr {
-    border: 0;
-    height: 1px;
-    background: #333;
-    margin: 20px 0;
-}
-    /* 1. إخفاء محتوى الموقع بالكامل في الجوال */
-    body > *:not(.mobile-alert) {
-        display: none !important;
-    }
-
-    /* 2. إنشاء شاشة التنبيه */
-    .mobile-alert {
-        display: flex !important;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: #000; /* لون الخلفية أسود */
-        color: #fff;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-        z-index: 9999;
-        font-family: sans-serif;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 768px) {
-    /* تحويل التخطيط ليكون تحت بعضه */
-    .about-container {
-        flex-direction: column !important;
-        text-align: center !important;
-        padding: 20px !important;
-    }
-
-    /* توسيع الأعمدة لتأخذ كامل عرض الشاشة */
-    .right-col, .left-col {
-        width: 100% !important;
-        margin-bottom: 20px !important;
-    }
-
-    /* تصغير العناوين لتناسب شاشة الجوال */
-    .about-container h3 {
-        font-size: 1.5rem !important;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* تنسيق الجوال */
-@media (max-width: 768px) {
-    .stats-section {
-        flex-direction: column; /* جعلهم تحت بعض في الجوال */
-        gap: 30px;
-    }
-    .stat-item h3 {
-        font-size: 2rem;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* --- إصلاح التوافق مع الجوال (إضافة في نهاية ملفك فقط) --- */
-@media (max-width: 768px) {
-    /* 1. إصلاح القائمة العلوية لتناسب الشاشات الصغيرة */
-    nav {
-        gap: 15px !important;
-        padding: 20px !important;
-        flex-wrap: wrap;
-    }
-    
-    /* 2. جعل المحتوى (About) يأتي فوق بعضه */
-    .about-container {
-        flex-direction: column !important;
-        width: 100% !important;
-        padding: 10px !important;
-    }
-    .about-container .right-col, .about-container .left-col {
-        width: 100% !important;
-        padding: 10px !important;
-        text-align: center !important;
-    }
-
-    /* 3. تصغير النموذج قليلاً ليناسب شاشة الجوال */
-    #order-form {
-        width: 90% !important;
-        margin: 20px auto !important;
-    }
-
-    /* 4. إصلاح أزرار التواصل لكي لا تغطي المحتوى */
-    .social-buttons {
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        bottom: 20px !important;
-        gap: 10px !important;
-    }
-}
-/* --- حل مشكلة التمرير الجانبي (يمين ويسار) --- */
-@media (max-width: 768px) {
-    /* 1. منع أي عنصر من أن يكون أعرض من الشاشة */
-    body, html {
-        overflow-x: hidden !important;
-        width: 100% !important;
-        position: relative;
-    }
-
-    /* 2. تصغير الخطوط الكبيرة التي تسبب توسع الشاشة */
-    h1 {
-        font-size: 35px !important; /* تصغير العنوان الرئيسي */
-    }
-
-    .subtitle {
-        font-size: 14px !important;
-        letter-spacing: 5px !important; /* تقليل المسافات */
-        padding-left: 0 !important;
-        word-break: break-word; /* إجبار الكلمات الطويلة على النزول لسطر جديد */
-    }
-
-    /* 3. التأكد من أن أي عنصر داخلي لا يخرج عن الإطار */
-    * {
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 4. إخفاء أو تصغير أي عنصر قد يسبب المشكلة */
-    .container {
-        padding: 10px !important;
-    }
-}
-
-
-.clients-section h2 {
-    margin-bottom: 40px !important; /* يمكنك زيادة هذا الرقم (مثلاً 60px) لزيادة المسافة */
-}
-
-.clients-grid {
-    display: flex;
-    justify-content: center; /* توسيط الصور في المنتصف */
-    gap: 30px;               /* مسافة بين الصور */
-    flex-wrap: wrap;         /* لتنزل الصور تحت بعض في الجوال إذا كثرت */
+display: flex;
+justify-content: center;
+gap: 4rem;
+flex-wrap: wrap;
+padding-top: 1.8rem
 }
 
 .clients-grid img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;       /* لضمان عدم تشوه الوجه داخل الدائرة */
-    border: 3px solid #fff;  /* إطار أبيض جمالي */
-    transition: transform 0.3s ease; /* نعومة الحركة */
+width: 6rem;
+height: 6rem;
+border-radius: 50%;
+object-fit: cover;
+border: 0.2rem solid #ffffff;
+transition: transform 0.5s ease;
 }
 
-/* التأثير: تكبير بسيط عند الوقوف بالماوس */
 .clients-grid img:hover {
-    transform: scale(1.15); 
-    cursor: pointer;
+transform: scale(1.1); 
+cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 768px) {
-section, #hero, #about, #order-form, #soon {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important; /* توسيط عمودي */
-        align-items: center !important;     /* توسيط أفقي */
-        min-height: 80vh !important;        /* نستخدم 80vh لضمان عدم خروج القسم عن الشاشة */
-        padding: 20px 0 !important;
-        scroll-margin-top: 20vh !important;  /* هذه هي القيمة التي تتحكم في مكان وقوف القسم */
-    }
-
-    /* 2. استثناء خاص للنموذج (لأن طوله يختلف عن الأقسام الأخرى) */
-    #order-form {
-        min-height: auto !important; /* النموذج لا نريده بارتفاع الشاشة لكي لا يظهر مشوهاً */
-        margin-top: 50px !important;
-        margin-bottom: 50px !important;
-    }
-    
-    #soon {
-    min-height: 80vh !important; /* نجعله يأخذ مساحة كبيرة */
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important; /* توسيط عمودي */
-    align-items: center !important;     /* توسيط أفقي */
-    
-    /* التحكم اليدوي في مكانه */
-    scroll-margin-top: 0 !important;   /* جرب 0 إذا كان نازلاً، أو قيمة سالبة إذا لزم الأمر */
-    padding-top: 100px !important;     /* أضف padding إضافي من الأعلى لدفع النص للأسفل قليلاً */
-}
-.marquee-content img {
-        width: 60px !important;
-        height: 60px !important;
-        margin: 0 10px !important;
-    }
-
-
-
-
-
-
-
-
-
-
-
-    /* 1. إصلاح القائمة العلوية */
-    nav {
-    display: flex !important;
-    justify-content: center !important; /* توسيط القائمة في منتصف الشاشة */
-    align-items: center !important;
-    gap: 18px !important;              /* تباعد ثابت بين الكلمات يمكنك تقليله أو زيادته */
-    padding: 10px 0 !important;        /* تقليل الحواف لتصغير حجم القائمة */
-    width: 100% !important;
-}
-
-nav a {
-    font-size: 11px !important;        /* تصغير الخط ليكون مناسباً للجوال */
-    letter-spacing: 1px !important;    /* تقليل المسافة بين الحروف */
-    text-transform: uppercase;
-    white-space: nowrap;               /* منع الكلمة من النزول لسطر جديد */
-}
-
-    /* 2. تحسين اسم ZEYAD و PORTFOLIO */
-    h1 { font-size: 30px !important; }
-
-
- .portfolio-text {
-    font-size: 20px !important;
-    letter-spacing: 10px !important;
-    margin-top: 10px !important;
-    
-    /* الحل اليدوي لتوسيط العنصر */
-    position: relative !important;
-    left: 26% !important;
-    transform: translateX(-52%) !important;
-    
-    width: auto !important; /* نجعل العرض بحجم الكلمة فقط */
-    white-space: nowrap !important; /* نمنع الكلمة من أن تنزل لسطر جديد */
-    padding-left: 0 !important;
-}
-
-    /* 3. ترتيب نبذة عني و About Me */
-  .about-container {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    width: 100% !important;
-    padding: 10px !important;
-    align-items: flex-start !important; /* لضمان بدء النصوص من الأعلى */
-}
-
-/* العمود الأيمن (العربي) */
-.right-col {
-    width: 50% !important;
-    text-align: right !important; /* إجبار العربي على اليمين */
-    padding-right: 15px !important; 
-    padding-left: 5px !important;
-}
-
-/* العمود الأيسر (الإنجليزي) */
-.left-col {
-    width: 50% !important;
-    text-align: left !important;  /* إجبار الإنجليزي على اليسار */
-    padding-left: 15px !important;
-    padding-right: 5px !important;
-}
-
-/* تصغير العناوين والفقرات داخل القسم للجوال */
-.about-container h3, .about-container p {
-    font-size: 12px !important; /* يمكنك زيادة هذا الرقم إذا كان الخط صغيراً جداً */
-    line-height: 1.4 !important;
-}
-    /* 4. تصغير النموذج وتوسيطه */
 #order-form {
-    width: 320px !important;    /* يمكنك تغيير هذا الرقم لتصغير أو تكبير المربع */
-    padding: 15px !important;   /* تقليل الحواف الداخلية لتقليل الحجم */
-    margin: px auto !important; /* ضمان بقائه في المنتصف */
-    background: #1a1a1a;
-    border-radius: 12px;
-}
-
-/* تصغير الخطوط داخل النموذج لتتناسب مع الحجم الجديد */
-#order-form label {
-    font-size: 12px !important;
+scroll-margin-top: 25rem;
+max-width: 30rem;
+margin: 50rem auto;
+padding: 30rem;
+background: #131313;
+border-radius: 1rem;
+color: white;
+font-family: sans-serif;
 }
 
 #order-form input, 
 #order-form select, 
 #order-form textarea {
-    padding: 8px !important;   /* تصغير مساحة الكتابة */
-    margin-bottom: 10px !important;
-    font-size: 13px !important;
+width: 100%;
+padding: 1rem;
+margin-top: 1rem;
+margin-bottom: 1rem;
+border: 0.1rem solid #333;
+border-radius: 1rem;
+background: #000;
+color: white;
+box-sizing: border-box; /* لضمان عدم خروج الحقول عن الإطار */
 }
 
 #order-form button {
-    padding: 10px !important;
-    font-size: 14px !important;
+width: 100%;
+padding: 1rem;
+background-color: #007bff;
+color: white;
+border: none;
+border-radius: 5rem;
+cursor: pointer;
+font-size: 1rem;
+transition: 0.3s;
 }
 
-    /* 5. تصغير Coming Soon */
-    #soon h2 {
-        font-size: 1.2rem !important;
-    }
+#order-form button:hover {
+background-color: #0056b3;
+}
+
+@keyframes blink {
+0%, 100% { opacity: 0.1; }
+50% { opacity: 0.5; }
+}
+
+#soon h2 {
+animation: blink 1.8s infinite;
+font-size: 2rem;
+text-transform: uppercase;
+}
+
+#scrollProgress {
+position: fixed; top: 0; left: 0; width: 0%; height: 4px;
+background: #ffffff; z-index: 1000;
+}
+
+nav a::after {
+content: '';
+position: absolute;
+width: 0; height: 2px;
+bottom: -0.3rem; left: 50%;
+background: #ffffff;
+transition: all 0.3s ease;
+}
+
+nav a:hover::after {
+width: 100%; left: 0;
 }
