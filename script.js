@@ -1,21 +1,30 @@
 const langBtn = document.querySelector('.lang-btn');
-const nameText = document.querySelector('h1');
+const nameText = document.getElementById('name-text');
+const aboutTitle = document.getElementById('about-title');
+const aboutText = document.getElementById('about-text');
 
 langBtn.addEventListener('click', () => {
-    // 1. أضف كلاس الاختفاء الناعم
     nameText.classList.add('fade-out');
+    aboutTitle.classList.add('fade-out');
+    aboutText.classList.add('fade-out');
 
-    // 2. انتظر 300 ملي ثانية (وقت تأثير الـ CSS) ثم غيّر النص واظهره مجدداً
     setTimeout(() => {
-        if (nameText.textContent === 'ZEYAD') {
+        if (langBtn.textContent === 'العربية') {
             nameText.textContent = 'زياد';
+            aboutTitle.textContent = 'نبذة عني';
+            aboutText.textContent = 'أنا زياد، محرر فيديو';
             langBtn.textContent = 'English';
+            document.body.style.direction = 'rtl';
         } else {
             nameText.textContent = 'ZEYAD';
+            aboutTitle.textContent = 'About Me';
+            aboutText.textContent = "I'M ZEYAD , A Video Editor .";
             langBtn.textContent = 'العربية';
+            document.body.style.direction = 'ltr';
         }
-        
-        // 3. احذف كلاس الاختفاء ليعود النص للظهور بنعومة
+
         nameText.classList.remove('fade-out');
-    }, 300); 
+        aboutTitle.classList.remove('fade-out');
+        aboutText.classList.remove('fade-out');
+    }, 300);
 });
