@@ -112,35 +112,6 @@ letter-spacing: 0.1rem;
 text-align: right;
 }
 
-.social-buttons {
-position: fixed;
-bottom: 5rem;
-left: 42rem;
-display: flex;
-flex-direction: row;
-gap: 2rem;
-z-index: 10000;
-}
-
-.social-btn {
-padding: 1rem 1rem;
-border-radius: 3rem;
-text-decoration: none;
-color: rgb(0, 0, 0) !important;
-font-weight: bold;
-font-size: 1rem;
-box-shadow: 0rem 10rem rgba(0, 0, 0, 0.3);
-transition: transform 0.3s ease;
-display: block;
-}
-
-.whatsapp { background-color: #00ff5e; }
-.instagram { background-color: #ff0055; }
-
-.social-btn:hover {
-transform: scale(1.1);
-}
-
 .about-container {
 display: flex;
 flex-wrap: wrap;
@@ -243,4 +214,32 @@ transition: all 0.3s ease;
 
 nav a:hover::after {
 width: 100%; left: 0;
+}
+.social-buttons {
+position: fixed;
+bottom: 5rem;
+left: 92rem;
+display: flex;
+flex-direction: row;
+gap: 2rem;
+z-index: 10000;
+}
+
+.social-btn {
+padding: 1rem 1rem;
+border-radius: 3rem;
+text-decoration: none;
+color: rgb(0, 0, 0) !important;
+font-weight: bold;
+font-size: 1rem;
+box-shadow: 0rem 10rem rgba(0, 0, 0, 0.3);
+transition: transform 0.3s ease;
+display: block;
+}
+
+.whatsapp { background-color: #00ff5e; }
+.instagram { background-color: #ff0055; }
+
+.social-btn:hover {
+transform: scale(1.1);
 }
