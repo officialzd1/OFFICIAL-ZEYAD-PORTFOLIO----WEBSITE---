@@ -29,6 +29,7 @@ transition: all 0.3s ease;
 display: inline-block;
 }
 
+
 .navbar a:hover {
 opacity: 1;
 transform: scale(1.1); 
@@ -187,6 +188,125 @@ transition: 0.3s;
 background-color: #0056b3;
 }
 
+#play-btn {
+    flex-shrink: 0; /* منع الزر من الانضغاط */
+    width: 50px;    /* عرض ثابت للزر */
+}
+
+#waveform {
+    display: flex;
+    align-items: center; /* هذا يضمن أنها تتحرك من المنتصف */
+    justify-content: center;
+    gap: 3px;
+    height: 60px; /* مساحة ثابتة ومحجوزة للموجات */
+    overflow: hidden; 
+}
+
+.bar {
+    width: 3px;
+    background: white;
+    height: 10px; /* الارتفاع عند السكون */
+    transition: height 0.05s ease; /* سرعة استجابة ناعمة */
+    /* التعديل الجوهري هنا */
+    transform-origin: center; 
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    /* التأثيرات الحركية */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 99999;
+    display: block;
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#backToTop:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @keyframes blink {
 0%, 100% { opacity: 0.1; }
 50% { opacity: 0.5; }
@@ -244,6 +364,162 @@ display: block;
 transform: scale(1.1);
 }
 
+section {
+    opacity: 0;
+    transform: translateY(3rem);
+    transition: all 1s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: bold;
+    /* التدرج اللوني */
+    background: linear-gradient(90deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    background-size: 200% auto;
+    
+    /* قص الخلفية على شكل الحروف */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* الحركة (اللمعان) */
+    animation: shine 3s linear infinite;
+
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    
+    /* حركة ناعمة عند التوهج */
+    transition: all 0.4s ease;
+
+    cursor: default; 
+    
+    /* إذا كنت تفضل شكل اليد (مثل الأزرار)، استخدم هذه بدلاً من default */
+    /* cursor: pointer; */
+    
+    /* هذا السطر يمنع المستخدم من تحديد النص (تظليل النص بالماوس) */
+    user-select: none;
+}
+
+.logo:hover {
+    /* عند مرور الماوس، نزيد قوة التوهج ونوسع انتشاره */
+    text-shadow: 0 0 20px rgb(255, 255, 255), 
+                 0 0 40px rgba(255, 255, 255, 0), 
+                 0 0 60px rgba(255, 255, 255, 0);
+    
+    /* زيادة طفيفة في الحجم لتعطي إيحاء بالقرب */
+    transform: scale(1.05);
+}
+
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+/* النص الذي سيصبح ضبابياً */
+/* هذا الكلاس سيجعل الـ blur-area ترتفع للأعلى */
+.blur-area.active {
+    filter: blur(10px);
+    opacity: 0.3;
+    transform: translateY(-80px); /* يرفع الاسم للأعلى بمقدار 80 بكسل */
+}
+
+/* تأكد أن الـ blur-area عندها transition */
+.blur-area {
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* الصورة المخفية تحت الاسم */
+.profile-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    
+    /* هذا هو الحل */
+    object-fit: cover;
+    object-position: 3% 75%;    
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: scale(0.8);
+    
+}
+
+.profile-img.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.subtitle {
+    transition: opacity 0.5s ease;
+}
+
+.subtitle.hidden {
+    opacity: 0;
+}
+
+
+/* الحركة (النبض) */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgb(255, 255, 255); }
+    50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgb(255, 255, 255); }
+}
+
+.profile-img.show {
+    opacity: 1;
+    transform: scale(1);
+    /* إضافة التوهج الذهبي */
+    border: 1px solid rgb(255, 255, 255); 
+    box-shadow: 0 0 30px rgb(255, 255, 255);
+    /* إضافة حركة النبض */
+    animation: pulse 5s infinite ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* --- تعديلات الجوال الاحترافية --- */
@@ -264,6 +540,11 @@ body, html {
         gap: 3rem !important;     /* عدل المسافة بين الروابط */
     }
 
+    nav a {
+        font-size: 1rem !important; /* تصغير الخط ليتسع الشريط لكل الروابط */
+        letter-spacing: 0px !important; /* تقليل المسافة بين الحروف */
+    }
+
     /* 3. التحكم في العنوان الرئيسي */
     h1 {
         font-size: 2.5rem !important; /* عدل حجم الاسم هنا */
@@ -272,7 +553,13 @@ body, html {
     .left-col, .right-col {
         width: 100% !important; /* اجعل النص يأخذ كامل العرض */
         text-align: center !important; /* عدل المحاذاة (left/center/right) */
+        
     }
+#about {
+        padding-left: 5rem; /* هذا سيدفع المحتوى لليمين */
+    }
+
+
 
     /* 5. التحكم في نموذج الطلب */
     #order-form {
@@ -295,4 +582,35 @@ body, html {
         padding: 1rem 2rem !important; /* عدل حجم الزر */
         font-size: 0.9rem !important;      /* عدل حجم خط الزر */
     }
+
+
+
+
+#reviews {
+        /* إزالة الـ padding-top إذا تسبب في تداخل، واستخدام margin-top مكانه */
+        padding-top: 0 !important; 
+        margin-top: 10rem !important; /* هذه القيمة ستدفع القسم للأسفل بشكل منفصل */
+    }
+
+
+#backToTop {
+        bottom: 4rem; /* نرفعه قليلاً أو ننقله */
+        right: 3rem;  /* المسافة من اليمين */
+        padding: 0.8rem 1.2rem; /* تصغير حجم الزر قليلاً */
+        font-size: 1rem;
+    }
+
+    .profile-img {
+        width: 180px;  /* تصغير حجم الصورة قليلاً في الجوال */
+        height: 180px;
+    }
+    
+    /* إذا أردت رفع الاسم أكثر في الجوال ليناسب صغر حجم الشاشة */
+    .blur-area.active {
+        transform: translateY(-50px); 
+    }
+
+
+
+
 }
