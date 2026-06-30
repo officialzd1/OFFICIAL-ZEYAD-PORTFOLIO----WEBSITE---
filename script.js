@@ -152,19 +152,27 @@ nameTrigger.addEventListener('click', (e) => {
 });
 
 
-// بدلاً من التعامل مع id واحد، نأخذ كل الحاويات
-document.querySelectorAll('.audio-container').forEach(container => {
-    const playBtn = container.querySelector('.play-btn');
-    const audio = container.querySelector('.my-audio');
-    
-    playBtn.addEventListener('click', () => {
-        if (audio.paused) {
-            audio.play();
-            playBtn.textContent = '⏸'; // أيقونة إيقاف
-        } else {
-            audio.pause();
-            playBtn.textContent = '▶'; // أيقونة تشغيل
-        }
+function toggleMenu() {
+    document.getElementById('mobile-nav').classList.toggle('active');
+}
+
+function closeMenu() {
+    document.getElementById('mobile-nav').classList.remove('active');
+}
+
+// دالة تبديل القائمة (التي لديك حالياً)
+function toggleMenu() {
+    const mobileNav = document.getElementById('mobile-nav');
+    mobileNav.classList.toggle('active');
+}
+
+// إضافة حدث لجميع روابط القائمة لتغلق عند الضغط عليها
+document.querySelectorAll('#mobile-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        closeMenu();
     });
 });
 
+function toggleMenu() {
+    document.getElementById('mobile-nav').classList.toggle('active');
+}

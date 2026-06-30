@@ -152,19 +152,6 @@ cursor: pointer;
 }
 
 
-/* تنسيق القائمة للكمبيوتر والجوال */
-.main-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 3rem;
-    background: #000;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    margin: 3rem;
-}
 
 /* تنسيق قسم العمل الواحد */
 .works-section {
@@ -599,7 +586,10 @@ section.visible {
 
 
 
-
+/* إخفاء أيقونة البرجر والقائمة الجوال بشكل افتراضي في كل الشاشات */
+.menu-icon, #mobile-nav {
+    display: none !important;
+}
 
 
 
@@ -698,8 +688,77 @@ body, html {
         transform: translateY(-50px); 
     }
 
-    
+    .navbar {
+        display: none !important;
+    }
 
+    /* 2. إظهار أيقونة البرجر */
+    .menu-icon {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+        position: fixed;
+        top: 5rem;
+        right: 45rem;
+        z-index: 1000;
+    }
+
+    .menu-icon span {
+        display: block;
+        height: 0.4rem;
+        width: 100%;
+        background-color: white;
+        border-radius: 2rem;
+    }
+
+    /* 3. تنسيق القائمة الجانبية (#mobile-nav) */
+#mobile-nav {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    top: -100%; /* مخفية في الأعلى */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* نبدأ بشفافية صفر للخلفية */
+    background: rgba(0, 0, 0, 0); 
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    /* حركة ناعمة لكل شيء (الخلفية + الموقع) */
+    transition: all 0.5s ease-in-out;
+}
+
+#mobile-nav.active {
+    top: 0;
+    background: rgba(0, 0, 0, 0.9); /* درجة التظليل التي تظهر في الخلفية */
+}
+
+
+body.menu-open {
+    filter: blur(5px) brightness(0.5); /* تغبيش وتعتيم للمحتوى الأصلي */
+    transition: 0.5s;
+}
+
+
+#mobile-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+    margin: 20px 0;
+    transform: translateY(-20px); /* النصوص تبدأ فوق قليلاً */
+    opacity: 0;
+    transition: all 1s ease 1s;
+}
+
+
+
+#mobile-nav.active a {
+    opacity: 1;
+}
 
 
 }
