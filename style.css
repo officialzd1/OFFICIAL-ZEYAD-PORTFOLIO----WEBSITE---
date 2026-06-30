@@ -625,16 +625,22 @@ body, html {
     
     /* 3. التحكم في العنوان الرئيسي */
     h1 {
-        font-size: 3.5rem !important; /* عدل حجم الاسم هنا */
+        font-size: 4.8rem !important; /* عدل حجم الاسم هنا */
     }
     
+.subtitle {
+font-size: 2rem; }
+
+
+
+
     .left-col, .right-col {
         width: 100% !important; /* اجعل النص يأخذ كامل العرض */
         text-align: center !important; /* عدل المحاذاة (left/center/right) */
         
     }
 #about {
-        padding-left: 2.5rem; /* هذا سيدفع المحتوى لليمين */
+        padding-left: 1.9rem; /* هذا سيدفع المحتوى لليمين */
     }
 
 
@@ -697,21 +703,21 @@ body, html {
         display: flex !important;
         flex-direction: column;
         justify-content: space-between;
-        width: 30px;
-        height: 25px;
+        width: 3rem;
+        height: 3rem;
         cursor: pointer;
         position: fixed;
         top: 5rem;
-        right: 45rem;
+        right: 60rem;
         z-index: 1000;
     }
 
     .menu-icon span {
         display: block;
-        height: 0.4rem;
+        height: 0.5rem;
         width: 100%;
         background-color: white;
-        border-radius: 2rem;
+        border-radius: 3rem;
     }
 
     /* 3. تنسيق القائمة الجانبية (#mobile-nav) */
@@ -722,7 +728,7 @@ body, html {
     top: -100%; /* مخفية في الأعلى */
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100rem;
     /* نبدأ بشفافية صفر للخلفية */
     background: rgba(0, 0, 0, 0); 
     align-items: center;
@@ -739,19 +745,22 @@ body, html {
 
 
 body.menu-open {
-    filter: blur(5px) brightness(0.5); /* تغبيش وتعتيم للمحتوى الأصلي */
+    filter: blur(8rem) brightness(1); /* تغبيش وتعتيم للمحتوى الأصلي */
     transition: 0.5s;
 }
 
+nav a {
+    font-size: 1.8rem !important; /* استخدم القيمة التي تناسبك */
+}
 
 #mobile-nav a {
     color: white;
     text-decoration: none;
-    font-size: 28px;
-    margin: 20px 0;
-    transform: translateY(-20px); /* النصوص تبدأ فوق قليلاً */
+    font-size: 5rem;
+    margin: 2rem 0;
+    transform: translateY(5rem); /* النصوص تبدأ فوق قليلاً */
     opacity: 0;
-    transition: all 1s ease 1s;
+    transition: all 0.5s ease 0,5s;
 }
 
 
