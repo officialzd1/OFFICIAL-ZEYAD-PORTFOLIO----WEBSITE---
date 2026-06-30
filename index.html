@@ -18,14 +18,18 @@
 
 
 
+
+
 <div id="scrollProgress"></div>
 <nav class="navbar">
-<a href="#soon">SOON</a>
-<a href="#reviews">Clients Reviews</a>
-<a href="#order-form">Order</a>
-<a href="#clients">Clients</a>
-<a href="#about">About Me</a>
-<a href="#hero">Home</a>
+<a href="#soon"> قريباً | SOON </a>
+<a href="#reviews"> آراء العملاء  | Clients Reviews </a>
+<a href="#order-form"> اطلب الآن | Order </a>
+<a href="#works"> الأعمال | Works </a>
+<a href="#clients"> العملاء | Clients </a>
+<a href="#about"> نبذة عني | About Me </a>
+<a href="#hero"> الرئيسية | Home </a>
+
 </nav>
 
 
@@ -44,11 +48,11 @@
 <section id="about" class="about-container">
 <div class="right-col">
 <h3>نبذة عني</h3>
-<p>أنا زياد ، محرر فيديو</p>
+<p> أنا زياد ، محرر فيديو على برنامج أدوبي بريمير من عمر 13 . </p>
 </div>
 <div class="left-col">
 <h3>About Me</h3>
-<p>I'm ZEYAD , A Video Editor</p>
+<p> . I'm ZEYAD , A Video Editor Using Adobe Premiere Since I Was 13 Years </p>
 </div>
 </section>
 
@@ -75,9 +79,63 @@
 </section>
 
 
+<section id="works" class="works-section">
+    <h2> الأعمال | Works </h2>
+    <div class="works-grid-container"></div>
+    <div class="work-single">
+        <video controls>
+            <source src="your-video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+<div class="work-single">
+    <video controls>
+        <source src="your-video2.mp4" type="video/mp4">
+    </video>
+</div>
+
+
+<div class="work-single">
+    <video controls>
+        <source src="your-video3.mp4" type="video/mp4">
+    </video>
+</div>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <section id="order-form" style="padding: 50px;">
-<h2 style="text-align: center;">اطلب الآن / Order Now</h2>
+<h2 style="text-align: center;"> اطلب الآن / Order Now</h2>
 <form id="my-form" action="https://formspree.io/f/xeewdywy" method="POST">
 <label style="display: block; overflow: hidden;">
 <span style="float: right;">الاسم</span>
@@ -94,9 +152,8 @@
 <span style="float: left;">Video Type</span>
 </label>
 <select name="video-type">
-<option value="youtube">يوتيوب / YouTube</option>
-<option value="reels">ريلز / Reels</option>
-<option value="ad">إعلان / Advertisement</option>
+<option value="ad"> تشويقة / Suspense </option>
+
 </select>
 <label style="display: block; overflow: hidden; margin-top: 10px;">
 <span style="float: right;">التواصل ( واتساب | إيميل )</span>
@@ -116,18 +173,21 @@
 
 
 <section id="reviews" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; padding: 2rem; height: calc(100vh - 8rem); scroll-margin-top: 5rem;">
-<h2 style="color: white; margin-bottom: 1.8rem;">آراء العملاء | Clients Reviews</h2>
+<h2 style="color: white; margin-bottom: 1.8rem;"> آراء العملاء | Clients Reviews</h2>
 <div style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; direction: ltr;">
 <button id="play-btn" style="background: none; border: none; color: white; cursor: pointer; font-size: 2rem;">▶</button>
 <div id="waveform" style="display: flex; align-items: center; gap: 0.2rem; height: 3rem;"></div>
 <audio id="my-audio" src="audio/client1.mp3"></audio>
 </div>
+
+
+
 </section>
 
 
 
 <section id="soon" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
-<h2 style="color: rgb(255, 255, 255); opacity: 1; letter-spacing: 5px;"> . . . COMING SOON</h2>
+<h2 style="color: rgb(255, 255, 255); opacity: 1; letter-spacing: 5px;"> قـــــريـــباً . . . | . . . COMING SOON</h2>
 </section>
 
 
@@ -144,6 +204,48 @@
 آخر تحديث : يوليو 2026 | Last Updated : July 2026
 </p>
 </footer>
+
+<script>
+  const form = document.getElementById("my-form");
+  const status = document.getElementById("my-form-status");
+
+  async function handleSubmit(event) {
+    event.preventDefault(); // منع الصفحة من الانتقال
+    status.innerHTML = "جاري الإرسال...";
+    const data = new FormData(event.target);
+    
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        // هنا تظهر علامة الصح أو رسالة النجاح
+        status.innerHTML = " تم إرسال طلبك ✅ Your Order Has Sent ";
+        form.reset(); // تفريغ الحقول بعد الإرسال
+      } else {
+        status.innerHTML = "حدث خطأ، حاول مرة أخرى.";
+      }
+    }).catch(error => {
+      status.innerHTML = "حدث خطأ في الاتصال.";
+    });
+  }
+  form.addEventListener("submit", handleSubmit);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </button>
 <script src="script.js"></script>
