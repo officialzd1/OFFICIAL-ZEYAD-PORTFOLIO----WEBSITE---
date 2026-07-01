@@ -176,3 +176,205 @@ document.querySelectorAll('#mobile-nav a').forEach(link => {
 function toggleMenu() {
     document.getElementById('mobile-nav').classList.toggle('active');
 }
+
+
+// دالة فتح/غلق النافذة
+function toggleInfo() {
+    const modal = document.getElementById('info-modal');
+    modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
+}
+
+// دالة لتغيير الحالة برمجياً (استخدمها متى ما احتجت)
+function setStatus(isBusy) {
+    const badge = document.getElementById('status-badge');
+    const text = document.getElementById('status-text');
+    
+    if (isBusy) {
+        badge.classList.add('busy');
+        text.innerText = 'مشغول Busy';
+    } else {
+        badge.classList.remove('busy');
+        text.innerText = 'متاح Available ';
+    }
+}
+setStatus(false);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function checkProject() {
+    const code = document.getElementById('project-code').value.toUpperCase(); // نحول الكود لحروف كبيرة لضمان التطابق
+    const display = document.getElementById('project-status');
+
+    const projects = {
+        "ZD1": { name: "فيديو إعلاني لشركة X", stage: "🎨 مرحلة التلوين (Color Grading)" },
+        "ZD1": { name: "مقطع يوتيوب", stage: "✂️ مرحلة المونتاج (Editing)" }
+    };
+
+    // تأثير بسيط عند التحقق
+    display.innerHTML = "جاري البحث...";
+
+    setTimeout(() => {
+        if (projects[code]) {
+            display.innerHTML = `
+                <div style="text-align: left; color: #fff;">
+                    <p><strong>📦 المشروع:</strong> ${projects[code].name}</p>
+                    <p><strong>🚀 الحالة:</strong> ${projects[code].stage}</p>
+                </div>`;
+        } else {
+            display.innerHTML = "<p style='color: #ff4444;'>❌ كود غير صحيح، تأكد من الكود!</p>";
+        }
+    }, 600); // تأخير بسيط ليعطي شعور الاحترافية
+}
+
+function toggleTracker() {
+    const modal = document.getElementById('tracker-modal');
+    // إذا كانت النافذة مخفية افتحها، وإذا كانت مفتوحة أغلقها
+    if (modal.style.display === 'flex') {
+        modal.style.display = 'none';
+    } else {
+        modal.style.display = 'flex';
+    }
+}
+
+
+function checkProject() {
+    const code = document.getElementById('project-code').value.toUpperCase();
+    const display = document.getElementById('project-status');
+    
+    // المراحل الثابتة
+    const stages = ["القص (Cutting)",
+         "التلوين (Color Grading)",
+         "مؤثرات صوتية (SFX)",
+          "المراجعة (Review)",
+           "تسليم نهائي"];
+    const projects = {
+        "ZD1": { name: "مقطع يوتيوب", currentStage: 4 } // 1 يعني التلوين
+    };
+
+    if (projects[code]) {
+        let timelineHTML = `<ul class="timeline">`;
+        stages.forEach((stage, index) => {
+            const activeClass = (index === projects[code].currentStage) ? "active" : "";
+            timelineHTML += `<li class="${activeClass}">${stage}</li>`;
+        });
+        timelineHTML += `</ul>`;
+
+        display.innerHTML = `<strong>مشروع: ${projects[code].name}</strong>` + timelineHTML;
+    } else {
+        display.innerHTML = "<p style='color:red;'>كود غير صحيح.</p>";
+    }
+}

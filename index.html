@@ -16,6 +16,36 @@
 <body>
 </script>
 
+
+<!-- زر التتبع -->
+<button class="track-btn" onclick="toggleTracker()">Track Project</button>
+
+<!-- النافذة المنبثقة للتتبع -->
+<div id="tracker-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="toggleTracker()">&times;</span>
+        <h3>Track Project</h3>
+        <input type="text" id="project-code" placeholder="أدخل كود المشروع">
+<button class="check-btn" onclick="checkProject()">تحقق</button>
+        <div id="project-status"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="menu-icon" onclick="toggleMenu()">
         <span></span>
         <span></span>
@@ -249,7 +279,20 @@
 
 
 
+<!-- مؤشر الحالة -->
+<div id="status-badge" onclick="toggleInfo()">
+    <span id="status-dot"></span>
+    <span id="status-text">متاح للعمل</span>
+</div>
 
+<!-- النافذة المنبثقة للشرح -->
+<div id="info-modal" onclick="toggleInfo()">
+    <div class="modal-content">
+        <h3> حالة العمل | Work Status </h3>
+        <p><span style="color: #00ff00;">●</span> أخضر : متاح لاستقبال مشارع جديدة | Ready for new projects </p>
+        <p><span style="color: #ff0000;">●</span> أحمر : مشغول حالياً بمشروع ، تواصل معي لحجز موعد لاحق | Currently Working On A Project , Contact Me To Book Later </p>
+    </div>
+</div>
 
 
 
