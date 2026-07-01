@@ -307,7 +307,17 @@ setStatus(false);
 
 
 
+// دالة فتح نافذة "حالة العمل"
+function toggleInfo() {
+    const modal = document.getElementById('info-modal');
+    modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
+}
 
+// دالة فتح نافذة "تتبع المشروع"
+function toggleTracker() {
+    const modal = document.getElementById('tracker-modal');
+    modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+}
 
 
 

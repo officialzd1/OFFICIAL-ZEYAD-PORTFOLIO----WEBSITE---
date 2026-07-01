@@ -598,21 +598,21 @@ section.visible {
     position: fixed;
     top: 60px;
     right: 20px;
-    background: #222;
+    background: #000; /* تغيير الخلفية للأسود */
     padding: 15px;
     border-radius: 10px;
     width: 200px;
     color: white;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     z-index: 999;
+    border: 1px solid #c5a059; /* الإطار الذهبي */
 }
-
 
 
 
 #info-modal .modal-content {
     line-height: 1.4;
-    font-size: 14px;
+    font-size: px;
 }
 
 #info-modal small {
@@ -650,16 +650,21 @@ section.visible {
     align-items: center;
 }
 
+/* هذا يضمن أن أي نافذة منبثقة تستخدم هذه الخصائص */
 .modal-content {
-    background: #111;
+    background: #000 !important; /* الـ !important تفرض اللون الأسود وتلغي أي لون قديم */
+    border: 1px solid #c5a059 !important;
+    color: white !important;
     padding: 30px;
-    border: 1px solid #c5a059;
-    color: white;
     width: 300px;
     text-align: center;
+    border-radius: 10px;
 }
 
-
+#info-modal {
+    background: #000; /* تأكد أنها سوداء أيضاً */
+    border: 1px solid #000000;
+}
 
 #project-code {
     width: 80%;
@@ -688,7 +693,13 @@ section.visible {
     border-top: 1px solid #444;
 }
 
-
+#info-modal .modal-content, 
+#tracker-modal .modal-content {
+    background: #000;
+    border: 1px solid #c5a059;
+    padding: 20px;
+    color: white;
+}
 
 
 
@@ -964,5 +975,19 @@ nav a {
     opacity: 1;
 }
 
+
+
+.track-btn {
+    position: fixed;
+    bottom: 3.23rem;
+    left: 2rem;
+    z-index: 10000; /* هذا السطر الأهم */
+    background: transparent;
+    color: white;
+    border: 1px solid #c5a059;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
 }
