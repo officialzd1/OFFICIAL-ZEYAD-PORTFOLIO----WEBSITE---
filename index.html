@@ -17,14 +17,17 @@
 </script>
 
 
+
+
+
 <!-- زر التتبع -->
-<button class="track-btn" onclick="toggleTracker()">Track Project</button>
+<button class="track-btn" onclick="toggleTracker()"> تتبع المشروع | Track Project </button>
 
 <!-- النافذة المنبثقة للتتبع -->
 <div id="tracker-modal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="toggleTracker()">&times;</span>
-        <h3>Track Project</h3>
+        <h3> تتبع المشروع | Track Project </h3>
         <input type="text" id="project-code" placeholder="أدخل كود المشروع">
 <button class="check-btn" onclick="checkProject()">تحقق</button>
         <div id="project-status"></div>
@@ -57,6 +60,7 @@
 <a href="#about" onclick="closeMenu()"> نبذة عني | About Me </a>
 <a href="#clients" onclick="closeMenu()"> العملاء | Clients </a>
 <a href="#works" onclick="closeMenu()"> الأعمال | Works </a>
+<a href="#packages" onclick="closeMenu()"> الباقات / Packages </a>
 <a href="#order-form" onclick="closeMenu()"> اطلب الآن | Order </a>
 <a href="#reviews" onclick="closeMenu()"> آراء العملاء  | Clients Reviews </a>
 <a href="#soon" onclick="closeMenu()">  قريباً | SOON </a>
@@ -69,6 +73,7 @@
 <a href="#soon"> قريباً | SOON </a>
 <a href="#reviews"> آراء العملاء  | Clients Reviews </a>
 <a href="#order-form"> اطلب الآن | Order </a>
+<a href="#packages"> الباقات / Packages </a>
 <a href="#works"> الأعمال | Works </a>
 <a href="#clients"> العملاء | Clients </a>
 <a href="#about"> نبذة عني | About Me </a>
@@ -92,11 +97,11 @@
 <section id="about" class="about-container">
 <div class="right-col">
 <h3>نبذة عني</h3>
-<p> أنا زياد ، محرر فيديو على برنامج أدوبي بريمير من عمر 13 . </p>
+<p> أنا زياد عمري 18 سنة ، محرر فيديو على برنامج أدوبي بريمير من عمر 13 . </p>
 </div>
 <div class="left-col">
 <h3>About Me</h3>
-<p> . I'm ZEYAD , A Video Editor Using Adobe Premiere Since I Was 13 Years </p>
+<p> . I'm ZEYAD I'm 18 Years Old , A Video Editor Using Adobe Premiere Since I Was 13 Years </p>
 </div>
 </section>
 
@@ -131,29 +136,32 @@
             <source src="your-video.mp4" type="video/mp4">
         </video>
     </div>
-
-<div class="work-single">
-    <video controls>
-        <source src="your-video2.mp4" type="video/mp4">
-    </video>
-</div>
-
-
-<div class="work-single">
-    <video controls>
-        <source src="your-video3.mp4" type="video/mp4">
-    </video>
-</div>
-
-
-
-
-
-
 </section>
 
 
+<section id="packages" class="packages-section" style="padding: 50px; text-align: center; color: white;">
+    <h2 style="margin-bottom: 40px;">الباقات / Packages</h2>
+    
+    <div class="packages-container" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        
+        <!-- الباقة الأساسية -->
+        <div class="package-card" style="border: 1px solid #333; padding: 20px; width: 300px; border-radius: 10px;">
+            <h3>الباقة الأساسية / Basic Package</h3>
+            <p>مقطع يوتيوب / YouTube Video</p>
+            <p style="text-decoration: line-through; color: #888;">300 SAR</p>
+            <p style="font-size: 24px; font-weight: bold; color: #d4af37;"><p class="gold-glow">150 SAR (للعملاء الجدد / New Clients)</p>
+        </div>
 
+        <!-- باقة سريع سريع -->
+        <div class="package-card" style="border: 1px solid #333; padding: 20px; width: 300px; border-radius: 10px;">
+            <h3>سريع سريع / Quick Pack</h3>
+            <p>فيديو تشويقي / Teaser Video</p>
+
+            <p style="font-size: 24px; font-weight: bold; margin-top: 40px;">38 SAR</p>
+        </div>
+
+    </div>
+</section>
 
 
 

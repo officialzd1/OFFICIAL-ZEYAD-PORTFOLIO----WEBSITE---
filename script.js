@@ -372,7 +372,7 @@ function checkProject() {
           "المراجعة (Review)",
            "تسليم نهائي"];
     const projects = {
-        "ZD1": { name: "مقطع يوتيوب", currentStage: 4 } // 1 يعني التلوين
+        "ZD1": { name: "مقطع يوتيوب", currentStage: 3 } // 1 يعني التلوين
     };
 
     if (projects[code]) {
@@ -383,8 +383,46 @@ function checkProject() {
         });
         timelineHTML += `</ul>`;
 
-        display.innerHTML = `<strong>مشروع: ${projects[code].name}</strong>` + timelineHTML;
+        display.innerHTML = `<strong>مشروع : ${projects[code].name}</strong>` + timelineHTML;
     } else {
         display.innerHTML = "<p style='color:red;'>كود غير صحيح.</p>";
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

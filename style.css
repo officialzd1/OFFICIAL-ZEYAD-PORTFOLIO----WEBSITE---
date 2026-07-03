@@ -1,9 +1,11 @@
 html { scroll-behavior: smooth; }
 
 body {
+    overflow-x: hidden; /* يمنع التمرير الأفقي تماماً */
 background-color: black;
 color: rgb(255, 255, 255);
-margin: 0; }
+margin: 0; 
+}
 
 nav {
 position: fixed;
@@ -306,7 +308,11 @@ background-color: #0056b3;
     transform: scale(1.1);
 }
 
-
+.gold-glow {
+    color: #ffd700; /* اللون الذهبي للنص */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 215, 0, 0.5);
+    font-weight: bold;
+}
 
 
 
@@ -746,7 +752,34 @@ section.visible {
 
 
 
+.packages-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* توسيط عمودي */
+    align-items: center;     /* توسيط أفقي */
+    min-height: 100vh;       /* جعل القسم يأخذ طول الشاشة كاملاً */
+    width: 100%;
+    background-color: #000;  /* الخلفية السوداء */
+    padding: 0;              /* إزالة المسافات الكبيرة */
+    margin: 0;               /* إزالة الهوامش الزائدة */
+    padding-top: 20rem;
+    padding-bottom: 20rem;
+}
 
+.package-card {
+    background-color: #111; /* لون أغمق قليلاً للكروت */
+    border: 1rem solid rgb(255, 196, 0); /* إطار ذهبي خفيف جداً كقاعدة */
+    transition: transform 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-10px);
+    border-color: #d4af37; /* لون ذهبي عند المرور بالفأرة */
+    border-color: #ffd700; /* إطار ذهبي صريح عند الهوفر */
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4), 
+                0 0 30px rgba(212, 175, 55, 0.2);
+
+}
 
 
 
@@ -987,5 +1020,64 @@ nav a {
     cursor: pointer;
     border-radius: 5px;
 }
+
+.packages-section {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 20px 0 !important;
+    }
+
+    /* تصحيح الحاوية لتكون في المنتصف */
+    .packages-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        gap: 20px !important;
+    }
+
+    /* تصحيح الكروت لتكون متمركزة */
+    .package-card {
+        width: 85% !important;
+        max-width: 350px !important;
+        margin: 0 auto !important;
+    }
+
+.package-card {
+        width: 90% !important;
+        padding: 15px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* تكبير حجم الخطوط داخل المربعات */
+    .package-card h3 {
+        font-size: 1.4rem !important; /* حجم العنوان */
+    }
+
+    .package-card p {
+        font-size: 1.1rem !important; /* حجم النصوص */
+    }
+
+    .package-card .price {
+        font-size: 1.6rem !important; /* حجم السعر */
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
