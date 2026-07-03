@@ -1014,14 +1014,14 @@ nav a {
 
 .track-btn {
     position: fixed;
-    bottom: 3.23rem;
+    bottom: 3.7rem;
     left: 2rem;
     z-index: 10000; /* هذا السطر الأهم */
     background: transparent;
     color: white;
     border: 1px solid #c5a059;
-    padding: 2rem 1rem;
-    font-size: 1.3rem;
+    padding: 1rem 1rem;
+    font-size: 1rem;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -1131,5 +1131,29 @@ margin-bottom: 2rem;
         /* إذا أردت مسافة أكبر بين الصور بعد تكبيرها */
         margin-bottom: 25px !important;
     }
+
+
+
+
+
+    #backToTop {
+    position: fixed;
+    bottom: 3.7rem;
+    right: 3rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    /* التأثيرات الحركية */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 99999;
+    display: block;
+}
+
 
 }
