@@ -871,13 +871,17 @@ font-size: 2rem; }
 
 
 
-    .left-col, .right-col {
-        width: 100% !important; /* اجعل النص يأخذ كامل العرض */
-        text-align: center !important; /* عدل المحاذاة (left/center/right) */
-        
+ .about {
+        flex-direction: column !important;
+        flex-wrap: nowrap !important; /* منع الالتفاف */
     }
-#about {
-        padding-left: 1.9rem; /* هذا سيدفع المحتوى لليمين */
+
+    /* فرض عرض كامل للأعمدة */
+    .about .left-col, 
+    .about .right-col {
+        width: 100% !important;
+        flex: 0 0 100% !important; /* تأكيد أخذ العرض الكامل */
+        margin-bottom: 20px !important; /* إضافة مسافة بين النصين */
     }
 
 
@@ -1016,7 +1020,8 @@ nav a {
     background: transparent;
     color: white;
     border: 1px solid #c5a059;
-    padding: 10px 20px;
+    padding: 2rem 1rem;
+    font-size: 1.3rem;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -1068,16 +1073,63 @@ nav a {
     }
 
 
+#status-badge {
+    position: fixed;
+    top: 34px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+    border: 1px solid #444;
+}
 
 
 
+.clients-grid {
+display: flex;
+justify-content: center;
+gap: 5rem;
+flex-wrap: wrap;
+padding-top: 1.8rem
+
+}
+
+.clients-grid img {
+width: 6rem;
+height: 6rem;
+border-radius: 50%;
+object-fit: cover;
+border: 0.2rem solid #ffffff;
+transition: transform 0.5s ease;
+}
+
+h2 {
+font-size: 3rem;
+margin-bottom: 2rem;
+}
 
 
+.clients-grid {
+        flex-direction: column !important;
+        align-items: center !important; /* لضمان توسيط الصور */
+    }
 
-
-
-
-
-
+    /* إضافة مسافة بين الصور عند ترتيبها عمودياً */
+    .clients-grid img {
+        margin-bottom: 15px !important;
+    }
+.clients-grid img {
+        /* قم بزيادة هذه القيم لتكبير الصور */
+        width: 10rem !important;  
+        height: 10rem !important;
+        
+        /* إذا أردت مسافة أكبر بين الصور بعد تكبيرها */
+        margin-bottom: 25px !important;
+    }
 
 }
