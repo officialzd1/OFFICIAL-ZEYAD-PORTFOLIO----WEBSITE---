@@ -330,8 +330,7 @@ function checkProject() {
     const display = document.getElementById('project-status');
 
     const projects = {
-        "ZD1": { name: "فيديو إعلاني لشركة X", stage: "🎨 مرحلة التلوين (Color Grading)" },
-        "ZD1": { name: "مقطع يوتيوب", stage: "✂️ مرحلة المونتاج (Editing)" }
+        "ZD3": { name: "فلوق يوتيوب", stage: "✂️ مرحلة المونتاج (Editing)" }
     };
 
     // تأثير بسيط عند التحقق
@@ -366,13 +365,18 @@ function checkProject() {
     const display = document.getElementById('project-status');
     
     // المراحل الثابتة
-    const stages = ["القص (Cutting)",
-         "التلوين (Color Grading)",
+    const stages = [
+        "التنزيل (Downloading)",
+        "الترتيب (Organizing)",
+        "القص (Cutting)",
+        "الانتقالات (Transitions)",
+        "مؤثرات بصرية (VFX)",
          "مؤثرات صوتية (SFX)",
           "المراجعة (Review)",
            "تسليم نهائي"];
+
     const projects = {
-        "ZD1": { name: "مقطع يوتيوب", currentStage: 3 } // 1 يعني التلوين
+        "ZD1": { name: "فلوق يوتيوب", currentStage: 0 } // 1 يعني التلوين
     };
 
     if (projects[code]) {
