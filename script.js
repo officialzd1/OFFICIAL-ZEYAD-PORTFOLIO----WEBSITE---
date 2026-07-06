@@ -364,6 +364,26 @@ function checkProject() {
     const code = document.getElementById('project-code').value.toUpperCase();
     const display = document.getElementById('project-status');
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // المراحل الثابتة
     const stages = [
         "التنزيل (Downloading)",
@@ -374,11 +394,42 @@ function checkProject() {
         "مؤثرات بصرية (VFX)",
          "مؤثرات صوتية (SFX)",
           "المراجعة (Review)",
-           "تسليم نهائي"];
+           "تسليم نهائي"
+        ];
 
     const projects = {
-        "ZD1": { name: "فلوق يوتيوب", currentStage: 1 } // 1 يعني التلوين
+        "ZD1": { name: "فلوق يوتيوب", currentStage: 2 } // 1 يعني التلوين
     };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     if (projects[code]) {
         let timelineHTML = `<ul class="timeline">`;
