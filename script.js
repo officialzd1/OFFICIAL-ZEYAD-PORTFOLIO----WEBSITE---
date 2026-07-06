@@ -197,7 +197,7 @@ function setStatus(isBusy) {
         text.innerText = 'متاح Available ';
     }
 }
-setStatus(false);
+setStatus(true);
 
 
 
