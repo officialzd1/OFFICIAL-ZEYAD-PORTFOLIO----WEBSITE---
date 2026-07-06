@@ -369,6 +369,7 @@ function checkProject() {
         "التنزيل (Downloading)",
         "الترتيب (Organizing)",
         "القص (Cutting)",
+        "الترجمة (Subtitling)",
         "الانتقالات (Transitions)",
         "مؤثرات بصرية (VFX)",
          "مؤثرات صوتية (SFX)",
