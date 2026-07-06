@@ -376,7 +376,7 @@ function checkProject() {
            "تسليم نهائي"];
 
     const projects = {
-        "ZD1": { name: "فلوق يوتيوب", currentStage: 0 } // 1 يعني التلوين
+        "ZD1": { name: "فلوق يوتيوب", currentStage: 1 } // 1 يعني التلوين
     };
 
     if (projects[code]) {
