@@ -372,15 +372,7 @@ function checkProject() {
 
 
         
-    // إضافة نص بسيط كـ رابط يفتح نافذة النظام (Alert)
-    timelineHTML += `
-        <div style="margin-top: 20px; text-align: center;">
-            <button onclick="showPreview('${project.previewUrl}')" 
-                    style="background: none; border: 1px solid #d4af37; color: #d4af37; padding: 10px 20px; cursor: pointer; border-radius: 5px;">
-                مشاهدة العرض المسبق
-            </button>
-        </div>
-    `;
+    
 
 
     
