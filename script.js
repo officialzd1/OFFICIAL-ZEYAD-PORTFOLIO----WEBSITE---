@@ -321,6 +321,7 @@ const myProjects = {
         "مؤثرات بصرية VFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
          "مؤثرات صوتية SFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
         "المراجعة Review <span style='color: #FFA500;'>33%</span>",
+        "التصدير Exporting <span style='color: #2ecc71;'>100%</span>",
         "التسليم Final Delivery",
 
                 
