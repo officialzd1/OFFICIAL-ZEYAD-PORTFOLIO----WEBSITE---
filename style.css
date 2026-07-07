@@ -409,13 +409,14 @@ nav a:hover::after {
 width: 100%; left: 0;
 }
 .social-buttons {
-position: fixed;
-bottom: 5rem;
-left: 92rem;
-display: flex;
-flex-direction: row;
-gap: 2rem;
-z-index: 10000;
+    position: fixed;
+    bottom: 20px;       /* مسافة ثابتة من الأسفل */
+    left: 50%;          /* تحريك العنصر لنصف الشاشة */
+    transform: translateX(-50%); /* سحب العنصر للخلف بمقدار نصف عرضه ليتوسط تماماً */
+    display: flex;
+    flex-direction: row;
+    gap: 20px;          /* مسافة مريحة بين الأزرار */
+    z-index: 10000;
 }
 
 .social-btn {
@@ -742,6 +743,7 @@ section.visible {
     padding: 20px;
     color: white;
 }
+
 
 
 
