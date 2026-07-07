@@ -396,6 +396,27 @@ modal.style.display = 'flex';
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // اجعل هذا المتغير هو مرجعك الوحيد لحالة عملك
 const isBusy = false; // غيّر هذه القيمة إلى false عندما تصبح متاحاً
 
@@ -434,15 +455,21 @@ for (let i = 1; i <= 30; i++) {
     const dayDiv = document.createElement('div');
     dayDiv.className = 'day';
     dayDiv.innerText = i;
-
-    // فحص هل التاريخ موجود في قائمة الانشغال
+// فحص هل التاريخ موجود في قائمة الانشغال
     if (busyDates.includes(dateStr)) {
         dayDiv.classList.add('busy');
         dayDiv.innerText += " (مشغول)";
     } else {
         dayDiv.classList.add('free');
-        // هنا يمكنك إضافة رابط يوجههم للواتساب للحجز
-        dayDiv.onclick = () => alert("أهلاً! تواصل معي عبر الواتساب لحجز يوم " + i);
+        
+        // هذا هو الكود الوحيد للواتساب
+        dayDiv.onclick = function() {
+            const phoneNumber = "966560260300"; // تأكد أن الرقم صحيح
+            const message = "مرحباً، أريد حجز موعد يوم " + i + " من الشهر الحالي.";
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            
+            window.open(whatsappUrl, '_blank');
+        };
     }
     grid.appendChild(dayDiv);
-}
+    }

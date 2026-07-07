@@ -870,7 +870,7 @@ section.visible {
 #calendar-container {
     background-color: #000000;
     border: 1px solid #c49b33;
-    padding: 70px;      /* مساحة داخلية متوازنة */
+    padding: 6rem;      /* مساحة داخلية متوازنة */
     border-radius: 8px;
     display: table;     /* هذه الخاصية تجعل العرض مناسباً للمحتوى فقط */
     margin: 20px auto;  /* يوسط القسم في الصفحة */
@@ -883,7 +883,7 @@ section.visible {
     margin-bottom: 50px;
     
     /* التعديلات المطلوبة */
-    font-size: 0.9rem;         /* تقليل حجم الخط قليلاً ليناسب العرض */
+    font-size: 1.7rem;         /* تقليل حجم الخط قليلاً ليناسب العرض */
     white-space: nowrap;      /* منع النص من النزول لسطر جديد */
 }
 
