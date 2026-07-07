@@ -619,6 +619,7 @@ section.visible {
     gap: 8px;
     z-index: 1000;
     border: 1px solid #444;
+    
 }
 
 #status-dot {
@@ -627,6 +628,7 @@ section.visible {
     border-radius: 50%;
     background: #00ff00; /* الأخضر */
     box-shadow: 0 0 10px #00ff00; /* التوهج */
+    
 }
 
 /* كلاس للحالة المشغولة (يمكنك إضافته برمجياً) */
@@ -642,16 +644,27 @@ section.visible {
     top: 60px;
     right: 20px;
     background: #000; /* تغيير الخلفية للأسود */
-    padding: 15px;
+    padding: 5px;
     border-radius: 10px;
     width: 200px;
     color: white;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     z-index: 999;
     border: 1px solid #c5a059; /* الإطار الذهبي */
+    
+    
 }
 
+#info-modal h3 {
+    margin: 0;
+    font-size: 30px;
+        color: #ffd000;
 
+
+
+
+
+  }
 
 #info-modal .modal-content {
     line-height: 1.4;
@@ -700,6 +713,7 @@ section.visible {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+    
 }
 
 /* النافذة المنبثقة */
@@ -961,13 +975,21 @@ section.visible {
     border-color: #7f0000;
 }
 
+
+/* تنسيق الحالة الجديدة: متوقف عن العمل */
+.day.paused {
+    background-color: #ff660098; /* لون برتقالي */
+    color: white;
+    cursor: not-allowed;
+}
+
+
 /* تنسيق عناوين أيام الأسبوع (Sun, Mon, etc.) - إذا قمت بإضافتها */
 .weekday-header {
     font-weight: bold;
     color: #c49b33; /* عناوين ذهبية */
     padding-bottom: 5px;
 }
-
 
 
 

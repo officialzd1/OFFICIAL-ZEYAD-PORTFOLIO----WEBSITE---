@@ -7,19 +7,6 @@ document.getElementById("scrollProgress").style.width = (winScroll / height) * 1
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 const audio = document.getElementById('my-audio');
 const playBtn = document.getElementById('play-btn');
 const waveform = document.getElementById('waveform');
@@ -75,13 +62,6 @@ audio.onended = () => { playBtn.textContent = '▶'; };
 
 
 
-
-
-
-
-
-
-
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -111,8 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 });
-
-
 
 
 
@@ -395,28 +373,6 @@ modal.style.display = 'flex';
 }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // اجعل هذا المتغير هو مرجعك الوحيد لحالة عملك
 const isBusy = false; // غيّر هذه القيمة إلى false عندما تصبح متاحاً
 
@@ -433,11 +389,91 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // هنا تحدد الأيام التي تكون فيها مشغولاً يدوياً
 const busyDates = [
+
+
+
+
 "2026-07-10",
-"2026-07-11",
-"2026-07-20",
+"2026-07-08",
+"2026-07-09",
+
 
 
 
@@ -452,6 +488,53 @@ const grid = document.getElementById('calendar-grid');
 // توليد أيام الشهر (مثال مبسط لـ 30 يوم)
 for (let i = 1; i <= 30; i++) {
     const dateStr = `2026-07-${i < 10 ? '0' + i : i}`;
+
+
+
+
+
+    const pausedDates = [
+    "2026-07-20",
+    "2026-07-21",
+    "2026-07-22",
+    "2026-07-23",
+    "2026-07-24",
+    "2026-07-25",
+    "2026-07-26",
+    "2026-07-27",
+    "2026-07-28",
+    "2026-07-29",
+    "2026-07-30",
+    "2026-07-31",
+
+
+];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // أضف التواريخ التي تريدها هنا
     const dayDiv = document.createElement('div');
     dayDiv.className = 'day';
     dayDiv.innerText = i;
@@ -459,8 +542,32 @@ for (let i = 1; i <= 30; i++) {
     if (busyDates.includes(dateStr)) {
         dayDiv.classList.add('busy');
         dayDiv.innerText += " (مشغول)";
-    } else {
+    }
+
+
+
+
+
+
+
+
+
+
+
+else if (pausedDates.includes(dateStr)) {
+    dayDiv.classList.add('paused');
+    dayDiv.innerText += " (متوقف)";
+}
+
+
+
+
+
+
+    
+     else {
         dayDiv.classList.add('free');
+        
         
         // هذا هو الكود الوحيد للواتساب
         dayDiv.onclick = function() {
@@ -472,4 +579,9 @@ for (let i = 1; i <= 30; i++) {
         };
     }
     grid.appendChild(dayDiv);
+
+
+    
     }
+
+    
