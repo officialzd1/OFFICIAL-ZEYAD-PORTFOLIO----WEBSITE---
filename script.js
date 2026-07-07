@@ -553,7 +553,6 @@ for (let i = 1; i <= 30; i++) {
 
 
 
-
 else if (pausedDates.includes(dateStr)) {
     dayDiv.classList.add('paused');
     dayDiv.innerText += " (متوقف)";
