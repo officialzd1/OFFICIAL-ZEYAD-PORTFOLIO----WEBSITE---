@@ -307,7 +307,7 @@ const myProjects = {
     "ZD1": { 
         name: "فلوق يوتيوب", 
         status: "active",
-        currentStage: 3, 
+        currentStage: 4, 
 
         
         stages: [
@@ -384,11 +384,11 @@ function checkProject() {
 
     if (project) {
         const statusColors = {
-            "active": "#f1c40f",
+            "active": "#00ff22",
             "paused": "#f1c40f",
             "review": "#e67e22"
         };
-        const dotColor = statusColors[project.status] || "#95a5a6";
+        const dotColor = statusColors[project.status] || "#00eeff";
 
         let timelineHTML = `<ul class="timeline">`;
         project.stages.forEach((stage, index) => {
@@ -400,7 +400,7 @@ function checkProject() {
         // هذا هو الكود الفعلي للعرض، تأكد أنه غير معلق بـ //
         display.innerHTML = `
     <div style="text-align: center; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 8px;">
-        <span class="online-badge">متوقف مؤقتاً</span>
+        <span class="online-badge"> متصل . . . </span>
         
         <span class="status-dot" style="background-color: ${dotColor}; display: inline-block; width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 5px ${dotColor};"></span>
         <strong>مشروع : ${project.name}</strong>
@@ -425,11 +425,6 @@ function toggleTracker() {
         modal.style.display = 'flex';
     }
 }
-
-
-
-
-
 
 
 
