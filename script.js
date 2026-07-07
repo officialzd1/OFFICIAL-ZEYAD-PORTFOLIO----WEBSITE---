@@ -303,50 +303,92 @@ setStatus(true);
 
 
 
+const myProjects = {
+    "ZD1": { 
+        name: "فلوق يوتيوب", 
+        currentStage: 3, 
+        stages: [
+            
+            
+        "التنزيل Downloading",
+        "الترتيب Organizing",
+        "القص Cutting",
+        "الترجمة Subtitling",
+         "الانتقالات Transitions",
+        "مؤثرات بصرية VFX",
+         "مؤثرات صوتية SFX",
+        "المراجعة Review",
+          "التسليم Final Delivery",
+
+                
+                
+                
+                
+                ] 
+    },
 
 
 
 
-// دالة فتح نافذة "حالة العمل"
+
+
+    "ZD1-2": { 
+        name: "إعلان تجاري", 
+        currentStage: 0, 
+        stages: ["تصوير", "تعديل ألوان", "صوت", "تسليم نهائي"] 
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function toggleInfo() {
     const modal = document.getElementById('info-modal');
     modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
 }
 
-// دالة فتح نافذة "تتبع المشروع"
-function toggleTracker() {
-    const modal = document.getElementById('tracker-modal');
-    modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
-}
-
-
-
-
-
 
 
 function checkProject() {
-    const code = document.getElementById('project-code').value.toUpperCase(); // نحول الكود لحروف كبيرة لضمان التطابق
+    const code = document.getElementById('project-code').value.toUpperCase();
     const display = document.getElementById('project-status');
+    const project = myProjects[code];
 
-    const projects = {
-        "ZD3": { name: "فلوق يوتيوب", stage: "✂️ مرحلة المونتاج (Editing)" }
-    };
-
-    // تأثير بسيط عند التحقق
-    display.innerHTML = "جاري البحث...";
-
-    setTimeout(() => {
-        if (projects[code]) {
-            display.innerHTML = `
-                <div style="text-align: left; color: #fff;">
-                    <p><strong>📦 المشروع:</strong> ${projects[code].name}</p>
-                    <p><strong>🚀 الحالة:</strong> ${projects[code].stage}</p>
-                </div>`;
-        } else {
-            display.innerHTML = "<p style='color: #ff4444;'>❌ كود غير صحيح، تأكد من الكود!</p>";
-        }
-    }, 600); // تأخير بسيط ليعطي شعور الاحترافية
+    if (project) {
+        let timelineHTML = '<ul class="timeline">';
+        project.stages.forEach((stage, index) => {
+            const activeClass = (index === project.currentStage) ? "active" : "";
+            timelineHTML += `<li class="${activeClass}">${stage}</li>`;
+        });
+        timelineHTML += '</ul>';
+        display.innerHTML = `<strong>مشروع : ${project.name}</strong>` + timelineHTML;
+    } else {
+        display.innerHTML = "<p style='color:red;'>كود غير صحيح</p>";
+    }
 }
 
 function toggleTracker() {
@@ -359,91 +401,6 @@ function toggleTracker() {
     }
 }
 
-
-function checkProject() {
-    const code = document.getElementById('project-code').value.toUpperCase();
-    const display = document.getElementById('project-status');
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // المراحل الثابتة
-    const stages = [
-        "التنزيل (Downloading)",
-        "الترتيب (Organizing)",
-        "القص (Cutting)",
-        "الترجمة (Subtitling)",
-        "الانتقالات (Transitions)",
-        "مؤثرات بصرية (VFX)",
-         "مؤثرات صوتية (SFX)",
-          "المراجعة (Review)",
-           "تسليم نهائي"
-        ];
-
-    const projects = {
-        "ZD1": { name: "فلوق يوتيوب", currentStage: 2 } // 1 يعني التلوين
-    };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    if (projects[code]) {
-        let timelineHTML = `<ul class="timeline">`;
-        stages.forEach((stage, index) => {
-            const activeClass = (index === projects[code].currentStage) ? "active" : "";
-            timelineHTML += `<li class="${activeClass}">${stage}</li>`;
-        });
-        timelineHTML += `</ul>`;
-
-        display.innerHTML = `<strong>مشروع : ${projects[code].name}</strong>` + timelineHTML;
-    } else {
-        display.innerHTML = "<p style='color:red;'>كود غير صحيح.</p>";
-    }
-}
 
 
 
