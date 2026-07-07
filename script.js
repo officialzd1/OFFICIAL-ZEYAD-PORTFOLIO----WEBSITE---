@@ -316,7 +316,7 @@ const myProjects = {
         "الترتيب Organizing <span style='color: #2ecc71;'>100%</span>",
         "القص Cutting <span style='color: #2ecc71;'>100%</span>",
         "إيقاف مؤقت Pausing",
-        "الترجمة Subtitling <span style='color: #FFA500;'>88%</span>",
+        "الترجمة Subtitling <span style='color: #2ecc71;'>92%</span>",
          "الانتقالات Transitions <span style='color: #2ecc71;'>100%</span>",
         "مؤثرات بصرية VFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
          "مؤثرات صوتية SFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
