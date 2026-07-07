@@ -313,14 +313,14 @@ const myProjects = {
             
             
         "التنزيل Downloading <span style='color: #2ecc71;'>100%</span>",
-        "الترتيب Organizing <span style='color: #FFA500;'>63%</span>",
-        "القص Cutting <span style='color: #FFA500;'>63%</span>",
+        "الترتيب Organizing <span style='color: #2ecc71;'>100%</span>",
+        "القص Cutting <span style='color: #2ecc71;'>100%</span>",
         "إيقاف مؤقت Pausing",
-        "الترجمة Subtitling <span style='color: #FFA500;'>82%</span>",
-         "الانتقالات Transitions <span style='color: #2ecc71;'>93%</span>",
+        "الترجمة Subtitling <span style='color: #FFA500;'>88%</span>",
+         "الانتقالات Transitions <span style='color: #2ecc71;'>100%</span>",
         "مؤثرات بصرية VFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
          "مؤثرات صوتية SFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
-        "المراجعة Review <span style='color: #FFA500;'>33%</span>",
+        "المراجعة Review <span style='color: #2ecc71;'>100%</span>",
         "التصدير Exporting <span style='color: #2ecc71;'>100%</span>",
         "التسليم Final Delivery",
 
