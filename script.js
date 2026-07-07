@@ -307,7 +307,7 @@ const myProjects = {
     "ZD1": { 
         name: "فلوق يوتيوب", 
         status: "active",
-        currentStage: 9, 
+        currentStage: 10, 
         previewUrl: "your-video1.mp4",        
         stages: [
             
@@ -322,7 +322,7 @@ const myProjects = {
          "مؤثرات صوتية SFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
         "المراجعة Review <span style='color: #2ecc71;'>100%</span>",
         "التصدير Exporting <span style='color: #2ecc71;'>100%</span>",
-        "التسليم Final Delivery",
+        "التسليم ✓ Final Delivery",
 
                 
                 
