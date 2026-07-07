@@ -351,6 +351,7 @@ function checkProject() {
 
     if (project) {
 
+        
         const statusColors = {
             "active": "#00ff22",
             "paused": "#f1c40f",
@@ -365,6 +366,21 @@ function checkProject() {
         });
         timelineHTML += `</ul>`;
 
+
+        timelineHTML += "</ul>";
+
+    // إضافة نص بسيط كـ رابط يفتح نافذة النظام (Alert)
+    timelineHTML += `
+        <div style="margin-top: 20px; text-align: center;">
+            <button onclick="showPreview('${project.previewUrl}')" 
+                    style="background: none; border: 1px solid #d4af37; color: #d4af37; padding: 10px 20px; cursor: pointer; border-radius: 5px;">
+                مشاهدة العرض المسبق
+            </button>
+        </div>
+    `;
+
+
+    
         // هذا هو الكود الفعلي للعرض، تأكد أنه غير معلق بـ //
         display.innerHTML = `
     <div style="text-align: center; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 8px;">
@@ -373,6 +389,12 @@ function checkProject() {
         <span class="status-dot" style="background-color: ${dotColor}; display: inline-block; width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 5px ${dotColor};"></span>
         <strong>مشروع : ${project.name}</strong>
     </div>
+
+
+
+
+
+    
     ${timelineHTML}`;
 
 
@@ -403,5 +425,12 @@ function toggleTracker() {
         modal.style.display = 'none';
     } else {
         modal.style.display = 'flex';
+    }
+}
+
+
+function showPreview(url) {
+    if(confirm("هل تود الانتقال لمشاهدة العرض المسبق للمشروع؟")) {
+        window.open(url, '_blank');
     }
 }
