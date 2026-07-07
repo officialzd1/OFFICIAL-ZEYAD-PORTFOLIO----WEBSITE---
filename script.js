@@ -307,7 +307,7 @@ const myProjects = {
     "ZD1": { 
         name: "فلوق يوتيوب", 
         status: "active",
-        currentStage: 4, 
+        currentStage: 5, 
 
         
         stages: [
@@ -318,7 +318,7 @@ const myProjects = {
         "القص Cutting <span style='color: #FFA500;'>63%</span>",
         "إيقاف مؤقت Pausing",
         "الترجمة Subtitling <span style='color: #FFA500;'>82%</span>",
-         "الانتقالات Transitions <span style='color: #FFA500;'>38%</span>",
+         "الانتقالات Transitions <span style='color: #2ecc71;'>93%</span>",
         "مؤثرات بصرية VFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
          "مؤثرات صوتية SFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
         "المراجعة Review <span style='color: #686767;'>0%</span>",
