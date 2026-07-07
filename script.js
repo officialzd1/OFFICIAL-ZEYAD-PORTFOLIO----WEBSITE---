@@ -306,6 +306,7 @@ setStatus(true);
 const myProjects = {
     "ZD1": { 
         name: "فلوق يوتيوب", 
+        status: "active",
         currentStage: 3, 
 
         
@@ -381,20 +382,39 @@ function checkProject() {
     const display = document.getElementById('project-status');
     const project = myProjects[code];
 
-
-    
     if (project) {
-        let timelineHTML = '<ul class="timeline">';
+        const statusColors = {
+            "active": "#f1c40f",
+            "paused": "#f1c40f",
+            "review": "#e67e22"
+        };
+        const dotColor = statusColors[project.status] || "#95a5a6";
+
+        let timelineHTML = `<ul class="timeline">`;
         project.stages.forEach((stage, index) => {
-            const activeClass = (index === project.currentStage) ? "active" : "";
+            const activeClass = index === project.currentStage ? 'active' : '';
             timelineHTML += `<li class="${activeClass}">${stage}</li>`;
         });
-        timelineHTML += '</ul>';
-        display.innerHTML = `<strong>مشروع : ${project.name}</strong>` + timelineHTML;
+        timelineHTML += `</ul>`;
+
+        // هذا هو الكود الفعلي للعرض، تأكد أنه غير معلق بـ //
+        display.innerHTML = `
+    <div style="text-align: center; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <span class="online-badge">متوقف مؤقتاً</span>
+        
+        <span class="status-dot" style="background-color: ${dotColor}; display: inline-block; width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 5px ${dotColor};"></span>
+        <strong>مشروع : ${project.name}</strong>
+    </div>
+    ${timelineHTML}`;
+
+
+
     } else {
         display.innerHTML = "<p style='color:red;'>كود غير صحيح</p>";
     }
 }
+    
+
 
 function toggleTracker() {
     const modal = document.getElementById('tracker-modal');

@@ -780,10 +780,27 @@ section.visible {
 
 
 
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 6px; /* مسافة بين الدائرة والكلمة */
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
 
 
 
-
+.online-badge {
+    color: #f1c40f;
+    font-size: 0.7em;
+    font-weight: bold;
+    margin-right: 0rem;
+    
+    /* الأنيميشن: يظهر الكلمة ثم يخفيها تدريجياً */
+    animation: fadeOut 3s forwards; 
+    animation-delay: 1s; /* يبدأ بعد ثانية من ظهور الواجهة */
+}
 
 
 
