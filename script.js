@@ -307,18 +307,21 @@ const myProjects = {
     "ZD1": { 
         name: "فلوق يوتيوب", 
         currentStage: 3, 
+
+        
         stages: [
             
             
         "التنزيل Downloading",
         "الترتيب Organizing",
         "القص Cutting",
+        "إيقاف مؤقت Pausing",
         "الترجمة Subtitling",
          "الانتقالات Transitions",
-        "مؤثرات بصرية VFX",
-         "مؤثرات صوتية SFX",
+        "مؤثرات بصرية VFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
+         "مؤثرات صوتية SFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
         "المراجعة Review",
-          "التسليم Final Delivery",
+        "التسليم Final Delivery",
 
                 
                 
@@ -378,6 +381,8 @@ function checkProject() {
     const display = document.getElementById('project-status');
     const project = myProjects[code];
 
+
+    
     if (project) {
         let timelineHTML = '<ul class="timeline">';
         project.stages.forEach((stage, index) => {
@@ -400,9 +405,6 @@ function toggleTracker() {
         modal.style.display = 'flex';
     }
 }
-
-
-
 
 
 
