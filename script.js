@@ -304,129 +304,93 @@ setStatus(true);
 
 
 const myProjects = {
-    "ZD1": { 
-        name: "فلوق يوتيوب", 
-        status: "active",
-        currentStage: 10, 
-        previewUrl: "your-video1.mp4",        
-        stages: [
+"ZD1": { 
+name: "فلوق يوتيوب", 
+status: "active",
+statusMsg: "تم الإنتهاء من المشروع ", // نص المشروع الأول
+currentStage: 10, 
+previewUrl: "your-video1.mp4",        
+stages: [
             
-            
-        "التنزيل Downloading <span style='color: #2ecc71;'>100%</span>",
-        "الترتيب Organizing <span style='color: #2ecc71;'>100%</span>",
-        "القص Cutting <span style='color: #2ecc71;'>100%</span>",
-        "إيقاف مؤقت Pausing",
-        "الترجمة Subtitling <span style='color: #2ecc71;'>92%</span>",
-         "الانتقالات Transitions <span style='color: #2ecc71;'>100%</span>",
-        "مؤثرات بصرية VFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
-         "مؤثرات صوتية SFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
-        "المراجعة Review <span style='color: #2ecc71;'>100%</span>",
-        "التصدير Exporting <span style='color: #2ecc71;'>100%</span>",
-        "التسليم ✓ Final Delivery",
+"التنزيل Downloading <span style='color: #2ecc71;'>100%</span>",
+"الترتيب Organizing <span style='color: #2ecc71;'>100%</span>",
+"القص Cutting <span style='color: #2ecc71;'>100%</span>",
+"إيقاف مؤقت Pausing",
+"الترجمة Subtitling <span style='color: #2ecc71;'>92%</span>",
+"الانتقالات Transitions <span style='color: #2ecc71;'>100%</span>",
+"مؤثرات بصرية VFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
+"مؤثرات صوتية SFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
+"المراجعة Review <span style='color: #2ecc71;'>100%</span>",
+"التصدير Exporting <span style='color: #2ecc71;'>100%</span>",
+"التسليم ✓ Final Delivery",
+] 
+},
 
-                
-                
-                
-                
-                ] 
-    },
 
-    "ZD1-2": { 
-        name: "إعلان تجاري", 
-        currentStage: 0, 
-        stages: ["تصوير", "تعديل ألوان", "صوت", "تسليم نهائي"] 
-    }
+
+"ZD1-2": { 
+name: "إعلان تجاري",
+statusText: "جاري العمل على التعديلات ⏳", // نص خاص بالمشروع الثاني
+status: "paused",
+statusMsg: "لم يبدأ حتى الآن ⏳", // نص المشروع الثاني
+currentStage: 0, 
+stages: ["تصوير", "تعديل ألوان", "صوت", "تسليم نهائي"] 
+}
 };
 
 
 
 function toggleInfo() {
-    const modal = document.getElementById('info-modal');
-    modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
+const modal = document.getElementById('info-modal');
+modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
 }
 
 function checkProject() {
-    const code = document.getElementById('project-code').value.toUpperCase();
-    const display = document.getElementById('project-status');
-    const project = myProjects[code];
+const code = document.getElementById('project-code').value.toUpperCase();
+const display = document.getElementById('project-status');
+const project = myProjects[code];
 
-    if (project) {
-
-        
-        const statusColors = {
-            "active": "#00ff22",
-            "paused": "#f1c40f",
-            "review": "#e67e22"
-        };
-        const dotColor = statusColors[project.status] || "#00eeff";
-
-        let timelineHTML = `<ul class="timeline">`;
-        project.stages.forEach((stage, index) => {
-            const activeClass = index === project.currentStage ? 'active' : '';
-            timelineHTML += `<li class="${activeClass}">${stage}</li>`;
-        });
-        timelineHTML += `</ul>`;
-
-
-        timelineHTML += "</ul>";
+if (project) { 
+const statusColors = {
+"active": "#00ff22",
+"paused": "#00e1ff",
+"review": "#e67e22"
+};
 
 
 
-        
+
+const dotColor = statusColors[project.status] || "#6e6e6e";
+let timelineHTML = `<ul class="timeline">`;
+project.stages.forEach((stage, index) => {
+const activeClass = index === project.currentStage ? 'active' : '';
+timelineHTML += `<li class="${activeClass}">${stage}</li>`;
+});
+timelineHTML += `</ul>`;
+timelineHTML += "</ul>";
+
+
+display.innerHTML = `
+<div style="text-align: center; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 8px;">
     
-
-
+    <span class="online-badge">${project.statusMsg}</span> 
     
-        // هذا هو الكود الفعلي للعرض، تأكد أنه غير معلق بـ //
-        display.innerHTML = `
-    <div style="text-align: center; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 8px;">
-        <span class="online-badge"> متصل . . . </span>
-        
-        <span class="status-dot" style="background-color: ${dotColor}; display: inline-block; width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 5px ${dotColor};"></span>
-        <strong>مشروع : ${project.name}</strong>
-    </div>
-
-
-
-
-
+    <span class="status-dot" style="background-color: ${dotColor}; display: inline-block; width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 5px ${dotColor};"></span>
     
-    ${timelineHTML}`;
+    <strong>مشروع : ${project.name}</strong>
+</div>
+${timelineHTML}`;
 
-
-    
-    // تأكد من دمج timelineHTML داخل الـ display.innerHTML
-        display.innerHTML = `
-            <div style="text-align: center; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
-                <span class="online-badge">متصل</span>
-                <span class="status-dot" style="background-color: ${dotcolor}; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin: 0 5px;"></span>
-                <strong>${project.name}</strong>
-            </div>
-            ${timelineHTML}
-        `;
-
-
-    } else {
-        display.innerHTML = "<p style='color:red;'>كود غير صحيح</p>";
-    }
+} else {
+display.innerHTML = "<p style='color:red;'>كود غير صحيح</p>";
+}
 }
     
-
-
-
 function toggleTracker() {
-    const modal = document.getElementById('tracker-modal');
-    // إذا كانت النافذة مخفية افتحها، وإذا كانت مفتوحة أغلقها
-    if (modal.style.display === 'flex') {
-        modal.style.display = 'none';
-    } else {
-        modal.style.display = 'flex';
-    }
+const modal = document.getElementById('tracker-modal');
+if (modal.style.display === 'flex') {
+modal.style.display = 'none';
+} else {
+modal.style.display = 'flex';
 }
-
-
-function showPreview(url) {
-    if(confirm("هل تود الانتقال لمشاهدة العرض المسبق للمشروع؟")) {
-        window.open(url, '_blank');
-    }
 }
