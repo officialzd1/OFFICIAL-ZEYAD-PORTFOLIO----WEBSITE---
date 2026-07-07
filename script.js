@@ -394,3 +394,55 @@ modal.style.display = 'none';
 modal.style.display = 'flex';
 }
 }
+
+
+// اجعل هذا المتغير هو مرجعك الوحيد لحالة عملك
+const isBusy = false; // غيّر هذه القيمة إلى false عندما تصبح متاحاً
+
+document.addEventListener("DOMContentLoaded", function() {
+    const bookingBtn = document.getElementById('booking-btn');
+    
+    // إذا كنت متاحاً، أظهر الزر
+    if (!isBusy) {
+        bookingBtn.style.display = 'inline-block';
+    } else {
+        bookingBtn.style.display = 'none';
+    }
+});
+
+
+
+// هنا تحدد الأيام التي تكون فيها مشغولاً يدوياً
+const busyDates = [
+"2026-07-10",
+"2026-07-11",
+"2026-07-20",
+
+
+
+
+
+
+
+]; 
+
+const grid = document.getElementById('calendar-grid');
+
+// توليد أيام الشهر (مثال مبسط لـ 30 يوم)
+for (let i = 1; i <= 30; i++) {
+    const dateStr = `2026-07-${i < 10 ? '0' + i : i}`;
+    const dayDiv = document.createElement('div');
+    dayDiv.className = 'day';
+    dayDiv.innerText = i;
+
+    // فحص هل التاريخ موجود في قائمة الانشغال
+    if (busyDates.includes(dateStr)) {
+        dayDiv.classList.add('busy');
+        dayDiv.innerText += " (مشغول)";
+    } else {
+        dayDiv.classList.add('free');
+        // هنا يمكنك إضافة رابط يوجههم للواتساب للحجز
+        dayDiv.onclick = () => alert("أهلاً! تواصل معي عبر الواتساب لحجز يوم " + i);
+    }
+    grid.appendChild(dayDiv);
+}

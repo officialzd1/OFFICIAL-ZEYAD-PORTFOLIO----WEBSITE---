@@ -564,6 +564,47 @@ section.visible {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #status-badge {
     position: fixed;
     top: 20px;
@@ -813,6 +854,86 @@ section.visible {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+#calendar-container {
+    background-color: #000000;
+    border: 1px solid #c49b33;
+    padding: 70px;      /* مساحة داخلية متوازنة */
+    border-radius: 8px;
+    display: table;     /* هذه الخاصية تجعل العرض مناسباً للمحتوى فقط */
+    margin: 20px auto;  /* يوسط القسم في الصفحة */
+    width: auto;        /* لن يأخذ عرضاً أكبر من حجم الجدول */
+}
+
+#calendar-container h3 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 50px;
+    
+    /* التعديلات المطلوبة */
+    font-size: 0.9rem;         /* تقليل حجم الخط قليلاً ليناسب العرض */
+    white-space: nowrap;      /* منع النص من النزول لسطر جديد */
+}
+
+/* شبكة الأيام */
+#calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+/* تنسيق عام لكل خلية يوم */
+.day {
+    padding: 12px 8px;
+    border: 1px solid #474747; /* حدود رمادية داكنة */
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease; /* تأثير انتقالي ناعم */
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+/* تنسيق الأيام المتاحة (Free) */
+.day.free {
+    background-color: #00ff223b; /* خلفية سوداء أفتح قليلاً */
+    color: #f0f0f0;
+}
+
+/* تأثير التمرير على الأيام المتاحة */
+.day.free:hover {
+    background-color: #c49b33; /* خلفية ذهبية عند التمرير */
+    color: #111; /* نص أسود عند التمرير */
+    border-color: #c49b33;
+}
+
+/* تنسيق الأيام المشغولة (Busy) */
+.day.busy {
+    background-color: #b71c1c; /* لون أحمر غامق وقوي للمشغول */
+    color: white;
+    cursor: not-allowed; /* تغيير مؤشر الفأرة */
+    text-decoration: line-through; /* شطب اليوم */
+    opacity: 0.8;
+    border-color: #7f0000;
+}
+
+/* تنسيق عناوين أيام الأسبوع (Sun, Mon, etc.) - إذا قمت بإضافتها */
+.weekday-header {
+    font-weight: bold;
+    color: #c49b33; /* عناوين ذهبية */
+    padding-bottom: 5px;
+}
 
 
 
