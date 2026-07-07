@@ -617,7 +617,7 @@ section.visible {
     display: flex;
     align-items: center;
     gap: 8px;
-    z-index: 1000;
+    z-index: 10000; /* هذا السطر الأهم */
     border: 1px solid #444;
     
 }
@@ -974,6 +974,15 @@ section.visible {
     opacity: 0.8;
     border-color: #7f0000;
 }
+
+
+.past-day {
+    
+    opacity: 0.5;            /* شفافية ليكون باهتاً */
+    cursor: not-allowed;     /* تغيير شكل المؤشر ليدل على عدم الإمكانية */
+    pointer-events: none;    /* منع أي تفاعل بالماوس */
+}
+
 
 
 /* تنسيق الحالة الجديدة: متوقف عن العمل */

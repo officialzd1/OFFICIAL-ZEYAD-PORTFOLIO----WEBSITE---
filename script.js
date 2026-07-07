@@ -468,17 +468,9 @@ document.addEventListener("DOMContentLoaded", function() {
 const busyDates = [
 
 
-
-
 "2026-07-10",
 "2026-07-08",
 "2026-07-09",
-
-
-
-
-
-
 
 
 ]; 
@@ -488,9 +480,6 @@ const grid = document.getElementById('calendar-grid');
 // توليد أيام الشهر (مثال مبسط لـ 30 يوم)
 for (let i = 1; i <= 30; i++) {
     const dateStr = `2026-07-${i < 10 ? '0' + i : i}`;
-
-
-
 
 
     const pausedDates = [
@@ -508,62 +497,36 @@ for (let i = 1; i <= 30; i++) {
     "2026-07-31",
 
 
+    
+
 ];
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ 
     // أضف التواريخ التي تريدها هنا
     const dayDiv = document.createElement('div');
     dayDiv.className = 'day';
     dayDiv.innerText = i;
 // فحص هل التاريخ موجود في قائمة الانشغال
+
+const currentDate = new Date('2026-07-08'); 
+const currentDay = new Date(dateStr); 
+
+if (currentDay < currentDate) {
+    dayDiv.classList.add('past-day');
+    dayDiv.style.opacity = '0.5';
+    dayDiv.style.pointerEvents = 'none';
+    dayDiv.innerText = i + "\n"; // اختياري: لتوضيح أن اليوم انتهى
+}
+
     if (busyDates.includes(dateStr)) {
         dayDiv.classList.add('busy');
         dayDiv.innerText += " (مشغول)";
     }
-
-
-
-
-
-
-
-
-
 
 else if (pausedDates.includes(dateStr)) {
     dayDiv.classList.add('paused');
     dayDiv.innerText += " (متوقف)";
 }
 
-
-
-
-
-
-    
      else {
         dayDiv.classList.add('free');
         
@@ -577,6 +540,8 @@ else if (pausedDates.includes(dateStr)) {
             window.open(whatsappUrl, '_blank');
         };
     }
+
+    
     grid.appendChild(dayDiv);
 
 
