@@ -667,6 +667,26 @@ section.visible {
 
 
 
+/* تنسيق زر الإغلاق الجديد (X) */
+.new-close-btn {
+    font-size: 50px;         /* حجم الـ X الجديد (اجعله 50px أو أكثر ليكون واضحاً) */
+    font-weight: bold;
+    color: #c49b33;         /* اللون الذهبي المتناسق مع موقعك */
+    cursor: pointer;
+    /* للتحكم في موقعه فوق في المنتصف */
+    display: block;         /* يجعله كتلة مستقلة */
+    text-align: center;     /* يوسطه أفقياً */
+    margin: -10px auto 20px auto; /* يزيحه قليلاً للأعلى ويترك مسافة تحته */
+    line-height: 1;         /* يضمن عدم تمدد شكل الـ X */
+    transition: color 0.3s ease;
+}
+
+/* تأثير عند تمرير الفأرة عليه */
+.new-close-btn:hover {
+    color: #ffffff;         /* يتحول لونه للأبيض عند التمرير */
+}
+
+
 
 /* زر التتبع */
 .track-btn {
@@ -686,6 +706,7 @@ section.visible {
 .modal {
     display: none;
     position: fixed;
+    
     top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.8);
     z-index: 9999;
@@ -693,11 +714,21 @@ section.visible {
     align-items: center;
 }
 
+
+.modal-content h3 {
+    white-space: nowrap;    /* منع النص من النزول لسطر جديد */
+    display: inline-block;  /* الحفاظ على النص ككتلة واحدة */
+    font-size: 1.2rem;      /* يمكنك تصغير الحجم قليلاً إذا كان الإطار ضيقاً */
+    margin: 0 auto;         /* توسيط العنوان */
+}
+
 /* هذا يضمن أن أي نافذة منبثقة تستخدم هذه الخصائص */
 .modal-content {
     background: #000 !important; /* الـ !important تفرض اللون الأسود وتلغي أي لون قديم */
     border: 1px solid #c5a059 !important;
     color: white !important;
+    width: auto;            /* تغيير العرض من 300px ليكون تلقائياً */
+    min-width: 350px;       /* وضع حد أدنى للعرض ليناسب النص */
     padding: 30px;
     width: 300px;
     text-align: center;
