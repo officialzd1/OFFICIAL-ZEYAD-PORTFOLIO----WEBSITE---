@@ -307,9 +307,8 @@ const myProjects = {
     "ZD1": { 
         name: "فلوق يوتيوب", 
         status: "active",
-        currentStage: 5, 
-
-        
+        currentStage: 8, 
+        previewUrl: "your-video1.mp4",        
         stages: [
             
             
@@ -321,7 +320,7 @@ const myProjects = {
          "الانتقالات Transitions <span style='color: #2ecc71;'>93%</span>",
         "مؤثرات بصرية VFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
          "مؤثرات صوتية SFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
-        "المراجعة Review <span style='color: #686767;'>0%</span>",
+        "المراجعة Review <span style='color: #FFA500;'>33%</span>",
         "التسليم Final Delivery",
 
                 
@@ -330,11 +329,6 @@ const myProjects = {
                 
                 ] 
     },
-
-
-
-
-
 
     "ZD1-2": { 
         name: "إعلان تجاري", 
@@ -345,37 +339,10 @@ const myProjects = {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function toggleInfo() {
     const modal = document.getElementById('info-modal');
     modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
 }
-
-
 
 function checkProject() {
     const code = document.getElementById('project-code').value.toUpperCase();
@@ -383,6 +350,7 @@ function checkProject() {
     const project = myProjects[code];
 
     if (project) {
+
         const statusColors = {
             "active": "#00ff22",
             "paused": "#f1c40f",
@@ -408,12 +376,24 @@ function checkProject() {
     ${timelineHTML}`;
 
 
+    
+    // تأكد من دمج timelineHTML داخل الـ display.innerHTML
+        display.innerHTML = `
+            <div style="text-align: center; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                <span class="online-badge">متصل</span>
+                <span class="status-dot" style="background-color: ${dotcolor}; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin: 0 5px;"></span>
+                <strong>${project.name}</strong>
+            </div>
+            ${timelineHTML}
+        `;
+
 
     } else {
         display.innerHTML = "<p style='color:red;'>كود غير صحيح</p>";
     }
 }
     
+
 
 
 function toggleTracker() {
@@ -425,34 +405,3 @@ function toggleTracker() {
         modal.style.display = 'flex';
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
