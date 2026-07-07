@@ -69,7 +69,6 @@
 <a href="#about" onclick="closeMenu()"> نبذة عني | About Me </a>
 <a href="#clients" onclick="closeMenu()"> العملاء | Clients </a>
 <a href="#works" onclick="closeMenu()"> الأعمال | Works </a>
-<a href="#packages" onclick="closeMenu()"> الباقات / Packages </a>
 <a href="#order-form" onclick="closeMenu()"> اطلب الآن | Order </a>
 <a href="#reviews" onclick="closeMenu()"> آراء العملاء  | Clients Reviews </a>
 <a href="#soon" onclick="closeMenu()">  قريباً | SOON </a>
@@ -82,7 +81,6 @@
 <a href="#soon"> قريباً | SOON </a>
 <a href="#reviews"> آراء العملاء  | Clients Reviews </a>
 <a href="#order-form"> اطلب الآن | Order </a>
-<a href="#packages"> الباقات / Packages </a>
 <a href="#works"> الأعمال | Works </a>
 <a href="#clients"> العملاء | Clients </a>
 <a href="#about"> نبذة عني | About Me </a>
@@ -162,68 +160,6 @@
     </div>
 </section>
 
-
-<section id="packages" class="packages-section" style="padding: 50px; text-align: center; color: white;">
-    <h2 style="margin-bottom: 40px;">الباقات / Packages</h2>
-    
-    <div class="packages-container" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-        
-        <!-- الباقة الأساسية -->
-        <div class="package-card" style="border: 1px solid #333; padding: 20px; width: 300px; border-radius: 10px;">
-            <h3>الباقة الأساسية / Basic Package</h3>
-            <p>مقطع يوتيوب / YouTube Video</p>
-            <p style="text-decoration: line-through; color: #888;">300 SAR</p>
-            <p style="font-size: 24px; font-weight: bold; color: #d4af37;"><p class="gold-glow">150 SAR ( للعملاء الجدد / New Clients )</p>
-        </div>
-
-        <!-- باقة سريع سريع -->
-
-
-
-
-
-        <div class="package-card" style="border: 1px solid #333; padding: 20px; width: 300px; border-radius: 10px;">
-            <h3>الباقة الشاملة / Comprehensive Package </h3>
-                        <p>مقطع يوتيوب / YouTube Video</p>
-
-            <p>فيديو تشويقي / Teaser Video</p>
-
-            <p>فيديو قصير / Short Video</p>
-
-
-
-
-
-
-            <p style="font-size: 24px; font-weight: bold; margin-top: 40px;">376 SAR</p>
-        </div>
-
-    </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <section id="order-form" style="padding: 50px;">
 <h2 style="text-align: center;"> اطلب الآن / Order Now</h2>
 <form id="my-form" action="https://formspree.io/f/xeewdywy" method="POST">
@@ -240,12 +176,17 @@
 
 <input type="url" name="video-link" placeholder=>
 <label style="display: block; overflow: hidden;">
-<span style="float: right;">باقة الفيديو</span>
+<span style="float: right;">نوع الفيديو</span>
 <span style="float: left;">Video Type</span>
 </label>
 <select name="video-type">
-<option value="Basic"> الباقة الأساسية / Basic Package </option>
-<option value="youtube"> الباقة الشاملة / Comprehensive Package </option>
+<option value="Basic"> يوتيوب | YouTube </option>
+<option value="Basic"> تشويقة | Teaser </option>
+<option value="Basic"> قصير | Short </option>
+
+
+
+
 
 </select>
 <label style="display: block; overflow: hidden; margin-top: 10px;">
