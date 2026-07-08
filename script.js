@@ -533,6 +533,7 @@ for (let i = 1; i <= 30; i++) {
     const dateStr = `2026-07-${i < 10 ? '0' + i : i}`;
 
 
+    
     const pausedDates = [
     "2026-07-20",
     "2026-07-21",
@@ -558,7 +559,7 @@ for (let i = 1; i <= 30; i++) {
     dayDiv.innerText = i;
 // فحص هل التاريخ موجود في قائمة الانشغال
 
-const currentDate = new Date('2026-07-08'); 
+const currentDate = new Date('2026-07-09'); 
 const currentDay = new Date(dateStr); 
 
 if (currentDay < currentDate) {

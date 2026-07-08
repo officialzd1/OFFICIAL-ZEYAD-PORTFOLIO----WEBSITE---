@@ -410,7 +410,7 @@ width: 100%; left: 0;
 }
 .social-buttons {
     position: fixed;
-    bottom: 20px;       /* مسافة ثابتة من الأسفل */
+    bottom: 60px;       /* مسافة ثابتة من الأسفل */
     left: 50%;          /* تحريك العنصر لنصف الشاشة */
     transform: translateX(-50%); /* سحب العنصر للخلف بمقدار نصف عرضه ليتوسط تماماً */
     display: flex;
