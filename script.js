@@ -282,11 +282,12 @@ setStatus(true);
 
 
 const myProjects = {
+
 "ZD1": { 
 name: "فلوق يوتيوب", 
 
 status: "paused",
-statusMsg: " تم الإنتهاء | Finished ", // نص المشروع الأول
+statusMsg: " تم الإنتهاء | Finished ",
 currentStage: 14, 
 previewUrl: "your-video1.mp4",        
 stages: [
@@ -309,28 +310,21 @@ stages: [
 "التسليم ✓ Final Delivery"
 ,
 
-
-
-
-
-
-
-
-
 ] 
 },
 
 
 
 "ZD1-2": { 
-name: "إعلان تجاري",
-statusText: "جاري العمل على التعديلات ⏳", // نص خاص بالمشروع الثاني
-status: "paused",
-statusMsg: "لم يبدأ حتى الآن ⏳", // نص المشروع الثاني
+name: "جولة في السعودية | Saudi Arabia Tour ",
+status: "review",
+statusMsg: "لم يبدأ حتى الآن | Waiting To Start",
 currentStage: 0, 
 stages: ["تصوير", "تعديل ألوان", "صوت", "تسليم نهائي"] 
 }
-};
+},
+
+
 
 
 
@@ -350,9 +344,6 @@ const statusColors = {
 "paused": "#ff0000",
 "review": "#e67e22"
 };
-
-
-
 
 const dotColor = statusColors[project.status] || "#6e6e6e";
 let timelineHTML = `<ul class="timeline">`;
