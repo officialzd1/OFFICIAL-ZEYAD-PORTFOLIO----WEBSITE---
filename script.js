@@ -315,6 +315,34 @@ stages: [
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 "ZD1-2": { 
 name: "جولة في السعودية | Saudi Arabia Tour ",
 status: "review",
@@ -322,7 +350,9 @@ statusMsg: "لم يبدأ حتى الآن | Waiting To Start",
 currentStage: 0, 
 stages: ["تصوير", "تعديل ألوان", "صوت", "تسليم نهائي"] 
 }
-},
+};
+
+
 
 
 
@@ -367,7 +397,7 @@ display.innerHTML = `
 ${timelineHTML}`;
 
 } else {
-display.innerHTML = "<p style='color:red;'>كود غير صحيح</p>";
+display.innerHTML = "<p style='color:red;'> كود غير صحيح | Invalid Code </p>";
 }
 }
     
@@ -392,6 +422,20 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         bookingBtn.style.display = 'none';
     }
+
+
+
+    // افتراضاً أن هذا هو المتغير الذي يحتوي على الكود الذي أدخله العميل
+let inputCode = document.getElementById('your-input-id').value; // غير your-input-id إلى الـ ID حق مربع النص عندك
+
+if (inputCode === "zd1") {
+    // هنا نضيف النص الذي تريده
+    document.getElementById('result-container').innerHTML = `
+        <p style="color: #2ecc71; font-size: 18px; text-align: center; margin-top: 20px;">
+            تم الانتهاء من هذا المشروع
+        </p>
+    `;
+}
 });
 
 
