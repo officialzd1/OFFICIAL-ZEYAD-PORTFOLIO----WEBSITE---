@@ -285,8 +285,8 @@ const myProjects = {
 "ZD1": { 
 name: "فلوق يوتيوب", 
 status: "active",
-statusMsg: "تم الإنتهاء من المشروع ", // نص المشروع الأول
-currentStage: 10, 
+statusMsg: " متصل | Online ", // نص المشروع الأول
+currentStage: 11, 
 previewUrl: "your-video1.mp4",        
 stages: [
             
@@ -301,6 +301,19 @@ stages: [
 "المراجعة Review <span style='color: #2ecc71;'>100%</span>",
 "التصدير Exporting <span style='color: #2ecc71;'>100%</span>",
 "التسليم ✓ Final Delivery",
+
+" فيديو قصير | Short Video | <span style='color: #2ecc71;'>93%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
+" فيديو قصير | Short Video | <span style='color: #ffbb00;'>0%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
+" فيديو قصير | Short Video | <span style='color: #ffbb00;'>0%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
+"التسليم ✓ Final Delivery",
+
+
+
+
+
+
+
+
 ] 
 },
 
