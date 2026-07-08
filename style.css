@@ -641,7 +641,7 @@ section.visible {
 #info-modal {
     display: none;
     position: fixed;
-    top: 28rem;
+    top: 10rem;
     right: 5.5rem;
     background: #000; /* تغيير الخلفية للأسود */
     padding: 5px;
