@@ -880,10 +880,12 @@ section.visible {
 
 
 .online-badge {
-    color: #51ff00;
+    color: #ff0000;
     font-size: 0.7em;
     font-weight: bold;
     margin-right: 0rem;
+        text-decoration: line-through; /* شطب اليوم */
+
     
     /* الأنيميشن: يظهر الكلمة ثم يخفيها تدريجياً */
     animation: fadeOut 3s forwards; 

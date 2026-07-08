@@ -284,8 +284,9 @@ setStatus(true);
 const myProjects = {
 "ZD1": { 
 name: "فلوق يوتيوب", 
-status: "active",
-statusMsg: " متصل | Online ", // نص المشروع الأول
+
+status: "paused",
+statusMsg: " تم الإنتهاء | Finished ", // نص المشروع الأول
 currentStage: 14, 
 previewUrl: "your-video1.mp4",        
 stages: [
@@ -305,7 +306,9 @@ stages: [
 " فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
 " فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
 " فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
-"التسليم ✓ Final Delivery",
+"التسليم ✓ Final Delivery"
+,
+
 
 
 
@@ -344,7 +347,7 @@ const project = myProjects[code];
 if (project) { 
 const statusColors = {
 "active": "#00ff22",
-"paused": "#00e1ff",
+"paused": "#ff0000",
 "review": "#e67e22"
 };
 
