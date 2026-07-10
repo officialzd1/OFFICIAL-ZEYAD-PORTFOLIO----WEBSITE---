@@ -546,7 +546,7 @@ for (let i = 1; i <= 30; i++) {
     dayDiv.innerText = i;
 // فحص هل التاريخ موجود في قائمة الانشغال
 
-const currentDate = new Date('2026-07-09'); 
+const currentDate = new Date('2026-07-10'); 
 const currentDay = new Date(dateStr); 
 
 if (currentDay < currentDate) {
