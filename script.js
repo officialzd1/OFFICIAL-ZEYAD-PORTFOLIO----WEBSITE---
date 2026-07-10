@@ -317,38 +317,22 @@ stages: [
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 "ZD1-2": { 
-name: "جولة في السعودية | Saudi Arabia Tour ",
-status: "review",
-statusMsg: "لم يبدأ حتى الآن | Waiting To Start",
+name: " فيديو يوتيوب ",
+status: "active",
+statusMsg: " جاري العمل | In Progress ",
 currentStage: 0, 
-stages: ["تصوير", "تعديل ألوان", "صوت", "تسليم نهائي"] 
+stages: [
+    
+"التنزيل Downloading <span style='color: #e67e22;'>38%</span>",
+"الترتيب Organizing <span style='color: #e67e22;'>0%</span>",
+"القص Cutting <span style='color: #e67e22;'>0%</span>",
+"الانتقالات Transitions <span style='color: #e67e22;'>0%</span>",
+"التصدير Exporting <span style='color: #ffffff;'>0%</span>",
+"التسليم ✓ Final Delivery",
+
+
+] 
 }
 };
 
