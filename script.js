@@ -324,11 +324,11 @@ stages: [
 name: " فيديو يوتيوب ",
 status: "active",
 statusMsg: " جاري العمل | In Progress ",
-currentStage: 0, 
+currentStage: 1, 
 stages: [
     
-"التنزيل Downloading <span style='color: #e67e22;'>38%</span>",
-"الترتيب Organizing <span style='color: #e67e22;'>0%</span>",
+"التنزيل Downloading <span style='color: #00ff22;'>100%</span>",
+"الترتيب Organizing <span style='color: #00ff22;'>93%</span>",
 "القص Cutting <span style='color: #e67e22;'>0%</span>",
 "الانتقالات Transitions <span style='color: #e67e22;'>0%</span>",
 "التصدير Exporting <span style='color: #ffffff;'>0%</span>",
@@ -338,9 +338,6 @@ stages: [
 ] 
 }
 };
-
-
-
 
 
 
