@@ -329,14 +329,16 @@ stages: [
     
 "التنزيل Downloading <span style='color: #00ff22;'>100%</span>",
 "الترتيب Organizing <span style='color: #00ff22;'>100%</span>",
-"القص Cutting <span style='color: #e67e22;'>20%</span>",
-"الانتقالات Transitions <span style='color: #e67e22;'>20%</span>",
+"القص Cutting <span style='color: #e67e22;'>48%</span>",
+"الانتقالات Transitions <span style='color: #e67e22;'>48%</span>",
 "التصدير Exporting <span style='color: #ffffff;'>0%</span>",
 "التسليم ✓ Final Delivery",
 
 
 ] 
+
 }
+
 };
 
 
