@@ -283,11 +283,27 @@ setStatus(true);
 
 const myProjects = {
 
-"ZD1-2": { 
-name: " فيديو يوتيوب ",
+    "ZD1-3": { 
+name: " فلوق يوتيوب ",
 status: "active",
 statusMsg: " جاري العمل | In Progress ",
-currentStage: 5, 
+currentStage: 0, 
+stages: [
+    
+"التنزيل Downloading <span style='color: #ffffff;'>0%</span>",
+"الترتيب Organizing <span style='color: #ffffff;'>0%</span>",
+"القص Cutting <span style='color: #ffffff;'>0%</span>",
+"الانتقالات Transitions <span style='color: #ffffff;'>0%</span>",
+"التصدير Exporting <span style='color: #ffffff;'>0%</span>",
+"التسليم ✓ Final Delivery",]},
+
+
+    
+"ZD1-2": { 
+name: " فيديو يوتيوب ",
+status: "paused",
+statusMsg: " تم الإنتهاء | Finished ",
+currentStage: 6, 
 stages: [
     
 "التنزيل Downloading <span style='color: #00ff22;'>100%</span>",
@@ -295,7 +311,7 @@ stages: [
 "القص Cutting <span style='color: #00ff22;'>100%</span>",
 "الانتقالات Transitions <span style='color: #e67e22;'>88%</span>",
 "إيقاف مؤقت Pausing",
-"التصدير Exporting <span style='color: #ffffff;'>30%</span>",
+"التصدير Exporting <span style='color: #ffffff;'>100%</span>",
 "التسليم ✓ Final Delivery",]},
 
 "ZD1": { 
@@ -315,7 +331,6 @@ stages: [
 "الانتقالات Transitions <span style='color: #2ecc71;'>100%</span>",
 "مؤثرات بصرية VFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
 "مؤثرات صوتية SFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
-"المراجعة Review <span style='color: #2ecc71;'>100%</span>",
 "التصدير Exporting <span style='color: #2ecc71;'>100%</span>",
 "التسليم ✓ Final Delivery",
 
