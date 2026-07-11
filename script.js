@@ -285,9 +285,9 @@ const myProjects = {
 
 "ZD1-2": { 
 name: " فيديو يوتيوب ",
-status: "review",
-statusMsg: " انتظار الرد | Awaiting Response ",
-currentStage: 4, 
+status: "active",
+statusMsg: " جاري العمل | In Progress ",
+currentStage: 5, 
 stages: [
     
 "التنزيل Downloading <span style='color: #00ff22;'>100%</span>",
@@ -295,7 +295,7 @@ stages: [
 "القص Cutting <span style='color: #00ff22;'>100%</span>",
 "الانتقالات Transitions <span style='color: #e67e22;'>88%</span>",
 "إيقاف مؤقت Pausing",
-"التصدير Exporting <span style='color: #ffffff;'>0%</span>",
+"التصدير Exporting <span style='color: #ffffff;'>30%</span>",
 "التسليم ✓ Final Delivery",]},
 
 "ZD1": { 
