@@ -490,6 +490,9 @@ let inputCode = document.getElementById('your-input-id').value; // غير your-i
 // هنا تحدد الأيام التي تكون فيها مشغولاً يدوياً
 const busyDates = [
 
+
+"2026-07-13",
+"2026-07-12",
 "2026-07-11",
 "2026-07-10",
 "2026-07-08",
@@ -531,7 +534,7 @@ for (let i = 1; i <= 30; i++) {
     dayDiv.innerText = i;
 // فحص هل التاريخ موجود في قائمة الانشغال
 
-const currentDate = new Date('2026-07-11'); 
+const currentDate = new Date('2026-07-12'); 
 const currentDay = new Date(dateStr); 
 
 if (currentDay < currentDate) {
