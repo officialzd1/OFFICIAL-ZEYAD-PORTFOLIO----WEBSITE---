@@ -286,6 +286,21 @@ const myProjects = {
 
 
 
+
+"ZD1-2": { 
+name: " فيديو يوتيوب ",
+status: "active",
+statusMsg: " جاري العمل | In Progress ",
+currentStage: 2, 
+stages: [
+    
+"التنزيل Downloading <span style='color: #00ff22;'>100%</span>",
+"الترتيب Organizing <span style='color: #00ff22;'>100%</span>",
+"القص Cutting <span style='color: #e67e22;'>74%</span>",
+"الانتقالات Transitions <span style='color: #e67e22;'>74%</span>",
+"التصدير Exporting <span style='color: #ffffff;'>0%</span>",
+"التسليم ✓ Final Delivery",]},
+
 "ZD1": { 
 name: "فلوق يوتيوب", 
 
@@ -310,35 +325,9 @@ stages: [
 " فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
 " فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
 " فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
-"التسليم ✓ Final Delivery"
-,
-
+"التسليم ✓ Final Delivery",
 ] 
 },
-
-
-
-
-
-"ZD1-2": { 
-name: " فيديو يوتيوب ",
-status: "active",
-statusMsg: " جاري العمل | In Progress ",
-currentStage: 2, 
-stages: [
-    
-"التنزيل Downloading <span style='color: #00ff22;'>100%</span>",
-"الترتيب Organizing <span style='color: #00ff22;'>100%</span>",
-"القص Cutting <span style='color: #e67e22;'>74%</span>",
-"الانتقالات Transitions <span style='color: #e67e22;'>74%</span>",
-"التصدير Exporting <span style='color: #ffffff;'>0%</span>",
-"التسليم ✓ Final Delivery",
-
-
-] 
-
-}
-
 };
 
 
