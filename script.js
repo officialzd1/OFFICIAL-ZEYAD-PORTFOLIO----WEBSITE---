@@ -283,21 +283,18 @@ setStatus(true);
 
 const myProjects = {
 
-
-
-
-
 "ZD1-2": { 
 name: " فيديو يوتيوب ",
-status: "active",
-statusMsg: " جاري العمل | In Progress ",
-currentStage: 2, 
+status: "review",
+statusMsg: " انتظار الرد | Awaiting Response ",
+currentStage: 4, 
 stages: [
     
 "التنزيل Downloading <span style='color: #00ff22;'>100%</span>",
 "الترتيب Organizing <span style='color: #00ff22;'>100%</span>",
-"القص Cutting <span style='color: #e67e22;'>74%</span>",
-"الانتقالات Transitions <span style='color: #e67e22;'>74%</span>",
+"القص Cutting <span style='color: #00ff22;'>100%</span>",
+"الانتقالات Transitions <span style='color: #e67e22;'>88%</span>",
+"إيقاف مؤقت Pausing",
 "التصدير Exporting <span style='color: #ffffff;'>0%</span>",
 "التسليم ✓ Final Delivery",]},
 
@@ -325,18 +322,11 @@ stages: [
 " فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
 " فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
 " فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
-"التسليم ✓ Final Delivery",
-] 
-},
-};
-
-
-
+"التسليم ✓ Final Delivery",]},};
 
 function toggleInfo() {
 const modal = document.getElementById('info-modal');
-modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
-}
+modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';}
 
 function checkProject() {
 const code = document.getElementById('project-code').value.toUpperCase();
@@ -403,14 +393,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // افتراضاً أن هذا هو المتغير الذي يحتوي على الكود الذي أدخله العميل
 let inputCode = document.getElementById('your-input-id').value; // غير your-input-id إلى الـ ID حق مربع النص عندك
 
-if (inputCode === "zd1") {
-    // هنا نضيف النص الذي تريده
-    document.getElementById('result-container').innerHTML = `
-        <p style="color: #2ecc71; font-size: 18px; text-align: center; margin-top: 20px;">
-            تم الانتهاء من هذا المشروع
-        </p>
-    `;
-}
 });
 
 
@@ -493,7 +475,7 @@ if (inputCode === "zd1") {
 // هنا تحدد الأيام التي تكون فيها مشغولاً يدوياً
 const busyDates = [
 
-
+"2026-07-11",
 "2026-07-10",
 "2026-07-08",
 "2026-07-09",
@@ -534,7 +516,7 @@ for (let i = 1; i <= 30; i++) {
     dayDiv.innerText = i;
 // فحص هل التاريخ موجود في قائمة الانشغال
 
-const currentDate = new Date('2026-07-10'); 
+const currentDate = new Date('2026-07-11'); 
 const currentDay = new Date(dateStr); 
 
 if (currentDay < currentDate) {
