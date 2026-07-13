@@ -287,14 +287,14 @@ const myProjects = {
 name: " فلوق يوتيوب ",
 status: "paused",
 statusMsg: " تم الإنتهاء | Finished ",
-currentStage: 4, 
+currentStage: 5, 
 stages: [
     
 "التنزيل Downloading <span style='color: #00ff22;'>100%</span>",
 "الترتيب Organizing <span style='color: #00ff22;'>100%</span>",
 "القص Cutting <span style='color: #00ff22;'>100%</span>",
 "الانتقالات Transitions <span style='color: #00ff22;'>100%</span>",
-"التصدير Exporting <span style='color: #ffffff;'>0%</span>",
+"التصدير Exporting <span style='color: #00ff22;'>100%</span>",
 "التسليم ✓ Final Delivery",]},
 
 
