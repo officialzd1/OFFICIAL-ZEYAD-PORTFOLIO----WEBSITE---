@@ -287,12 +287,12 @@ const myProjects = {
 name: " فلوق يوتيوب ",
 status: "active",
 statusMsg: " جاري العمل | In Progress ",
-currentStage: 1, 
+currentStage: 2, 
 stages: [
     
 "التنزيل Downloading <span style='color: #00ff22;'>100%</span>",
-"الترتيب Organizing <span style='color: #e67e22;'>50%</span>",
-"القص Cutting <span style='color: #ffffff;'>0%</span>",
+"الترتيب Organizing <span style='color: #00ff22;'>100%</span>",
+"القص Cutting <span style='color: #e67e22;'>50%</span>",
 "الانتقالات Transitions <span style='color: #ffffff;'>0%</span>",
 "التصدير Exporting <span style='color: #ffffff;'>0%</span>",
 "التسليم ✓ Final Delivery",]},
@@ -490,7 +490,7 @@ let inputCode = document.getElementById('your-input-id').value; // غير your-i
 // هنا تحدد الأيام التي تكون فيها مشغولاً يدوياً
 const busyDates = [
 
-
+"2026-07-14",
 "2026-07-13",
 "2026-07-12",
 "2026-07-11",
@@ -534,7 +534,7 @@ for (let i = 1; i <= 30; i++) {
     dayDiv.innerText = i;
 // فحص هل التاريخ موجود في قائمة الانشغال
 
-const currentDate = new Date('2026-07-12'); 
+const currentDate = new Date('2026-07-13'); 
 const currentDay = new Date(dateStr); 
 
 if (currentDay < currentDate) {
