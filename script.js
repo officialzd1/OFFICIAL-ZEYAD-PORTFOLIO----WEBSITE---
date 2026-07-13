@@ -285,8 +285,8 @@ const myProjects = {
 
     "ZD1-3": { 
 name: " فلوق يوتيوب ",
-status: "active",
-statusMsg: " جاري العمل | In Progress ",
+status: "paused",
+statusMsg: " تم الإنتهاء | Finished ",
 currentStage: 4, 
 stages: [
     
