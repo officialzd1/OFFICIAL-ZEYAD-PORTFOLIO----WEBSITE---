@@ -139,11 +139,11 @@ z-index: 1;
         padding-left: 1rem;
     }
     #portfolio-grid {
-        padding: 3rem 1rem;
+        padding: 8rem 1rem;
     }
     .gallery {
         grid-template-columns: 1fr; /* عرض الصور تحت بعضها */
-        gap: 2rem;
+        gap: 1rem;
     }
     .gallery img {
         width: 90%;
@@ -152,6 +152,6 @@ z-index: 1;
     .work-label {
         font-size: 1.2rem;
         /* ملاحظة: قد تحتاج لتعديل الـ top هنا بناءً على تصميمك الخاص */
-        top: 90%; 
+        top: 103%; 
     }
 }
