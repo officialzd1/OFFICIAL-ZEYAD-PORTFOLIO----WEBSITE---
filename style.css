@@ -22,15 +22,10 @@ animation: blurToClear 3s ease-out forwards;
 
 0% {
 filter: blur(0.5rem);
-opacity: 0; 
-transform: scale(1.5);
-}
+opacity: 0; }
 100% {
 filter: blur(0rem);
-opacity: 1; 
-transform: scale(1);
-}
-
+opacity: 1; }
 }
 
 h1 {
