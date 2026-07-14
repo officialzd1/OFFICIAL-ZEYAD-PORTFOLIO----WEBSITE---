@@ -53,37 +53,29 @@ user-select: none;
 .logo {
 font-size: 3rem;
 font-weight: bold;
-background: linear-gradient(90deg, #BF953F, #fcf6ba, #B38728, #FBF5B7, #AA771C);
+background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
 background-size: 200% auto;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
-animation: shine 3s linear infinite;
-text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-transition: all 0.4s ease;
-cursor: default; 
+animation: shine 3.8s linear infinite;
 user-select: none;
 }
 
-.logo:hover {
-text-shadow: 0 0 20px rgb(255, 255, 255), 
-0 0 40px rgba(255, 255, 255, 0), 
-0 0 60px rgba(255, 255, 255, 0);
-transform: scale(1.05);
-}
-
 @keyframes shine {
-    to { background-position: 200% center; }
+to { background-position: 200% center; }
 }
 
 #portfolio-grid {
-    padding: 1rem 1rem;
-    text-align: center;
+padding: 18rem 18rem;
+text-align: center;
 }
 
 .gallery {
-    grid-template-columns: repeat(auto-fit, minmax(30rem, fr));
-    gap: 1rem;
-    margin-top: 1rem;
+grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+gap: 38rem;
+margin-top: -5rem;
+margin-bottom: 18rem;
+
 }
 
 .gallery img {
@@ -97,8 +89,7 @@ transform: scale(1.05);
 }
 
 .gallery a {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
+display: inline-block;
+position: relative;
+cursor: pointer;
 }
-
