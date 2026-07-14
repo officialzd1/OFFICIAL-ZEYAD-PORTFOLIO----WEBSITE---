@@ -5,24 +5,32 @@ color: rgb(255, 255, 255);
 margin: 0; 
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .container {
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 height: 100vh;
-animation: blurToClear 1.3s ease-out forwards;
+animation: blurToClear 3s ease-out forwards;
 }
 
 @keyframes blurToClear {
+
 0% {
 filter: blur(0.5rem);
-opacity: 0;
+opacity: 0; 
+transform: scale(1.5);
 }
 100% {
 filter: blur(0rem);
-opacity: 1;
+opacity: 1; 
+transform: scale(1);
 }
+
 }
 
 h1 {
@@ -106,7 +114,6 @@ transform: translate(-50%, -50%);
 color: white;
 font-size: 2rem;
 font-weight: bold;
-text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
 pointer-events: none;
 z-index: 1;
 }
