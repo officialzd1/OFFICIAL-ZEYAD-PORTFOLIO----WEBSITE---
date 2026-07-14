@@ -11,14 +11,18 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 height: 100vh;
-animation: fadeIn 1.8s ease-in-out;
+animation: blurToClear 1.3s ease-out forwards;
 }
 
-@keyframes fadeIn {
-from {
-opacity: 0; }
-to {
-opacity: 1; }
+@keyframes blurToClear {
+0% {
+filter: blur(0.5rem);
+opacity: 0;
+}
+100% {
+filter: blur(0rem);
+opacity: 1;
+}
 }
 
 h1 {
@@ -75,7 +79,6 @@ grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
 gap: 38rem;
 margin-top: -5rem;
 margin-bottom: 18rem;
-
 }
 
 .gallery img {
@@ -86,10 +89,24 @@ transition: transform 0.3s ease;
 
 .gallery img:hover {
 transform: scale(1.05);
+filter: drop-shadow(rgb #fff);
 }
 
 .gallery a {
 display: inline-block;
 position: relative;
 cursor: pointer;
+}
+
+.work-label {
+position: absolute;
+top: 113rem;
+left: 50%;
+transform: translate(-50%, -50%);
+color: white;
+font-size: 2rem;
+font-weight: bold;
+text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+pointer-events: none;
+z-index: 1;
 }
