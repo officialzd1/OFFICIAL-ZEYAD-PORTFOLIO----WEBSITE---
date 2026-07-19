@@ -6,50 +6,8 @@ margin: 0;
 }
 
 html {
-    scroll-behavior: smooth;
+scroll-behavior: smooth;
 }
-
-.coming-soon {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    text-align: center;
-    user-select: none;
-    animation: fadeInBlur 1.8s ease-out forwards;
-
-}
-
-@keyframes fadeInBlur {
-    0% {
-        filter: blur(10px); /* بداية بتغبيش قوي */
-        opacity: 0;         /* بداية بشفافية تامة */
-    }
-    100% {
-        filter: blur(0px);  /* نهاية بدون تغبيش */
-        opacity: 1;         /* نهاية بظهور كامل */
-    }
-}
-
-
-#countdown {
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    color: #aa761c; /* نفس لون الشعار الخاص بك */
-    font-family: monospace;
-    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-background-size: 200% auto;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-animation: shine 3.8s linear infinite;
-
-}
-
 
 .container {
 display: flex;
@@ -57,7 +15,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 height: 100vh;
-animation: blurToClear 3s ease-out forwards;
+animation: blurToClear 1.8s ease-out forwards;
 }
 
 @keyframes blurToClear {
@@ -67,7 +25,7 @@ filter: blur(0.5rem);
 opacity: 0; }
 100% {
 filter: blur(0rem);
-opacity: 0; }
+opacity: 1; }
 }
 
 h1 {
@@ -119,111 +77,61 @@ padding: 18rem 18rem;
 text-align: center;
 }
 
-.gallery {
-grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-gap: 38rem;
-margin-top: -5rem;
-margin-bottom: 18rem;
-}
-
-.gallery img {
-width: 38rem;
-border-radius: 1rem;
-transition: transform 0.3s ease;
-}
-
-.gallery img:hover {
-transform: scale(1.05);
-filter: drop-shadow(rgb #fff);
-}
-
-.gallery a {
-display: inline-block;
-position: relative;
-cursor: pointer;
-}
-
-.work-label {
-position: absolute;
-top: 113rem;
-left: 50%;
-transform: translate(-50%, -50%);
-color: white;
-font-size: 2rem;
-font-weight: bold;
-pointer-events: none;
-z-index: 1;
-}
 
 
-/* للأجهزة اللوحية والشاشات المتوسطة (أقل من 1024px) */
-@media (max-width: 1024px) {
-    #portfolio-grid {
-        padding: 5rem 2rem;
-    }
-    .gallery {
-        gap: 5rem;
-    }
-    .gallery img {
-        width: 100%;
-        max-width: 30rem;
-    }
-}
-
-/* طبقة التغطية (Soon Overlay) */
 
 
-/* للهواتف المحمولة (أقل من 768px) */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
-    .subtitle {
-        font-size: 0.8rem;
-        letter-spacing: 1.8rem;
-        padding-left: 1rem;
-    }
-    #portfolio-grid {
-        padding: 8rem 1rem;
-    }
-    .gallery {
-        grid-template-columns: 1fr; /* عرض الصور تحت بعضها */
-        gap: 1rem;
-    }
-    .gallery img {
-        width: 90%;
-        max-width: 20rem;
-    }
-    .work-label {
-        font-size: 1.2rem;
-        /* ملاحظة: قد تحتاج لتعديل الـ top هنا بناءً على تصميمك الخاص */
-        top: 103%; 
-    }
 
-.coming-soon {
-    
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: black;
-    color: white;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* الحاوية الرئيسية */
+.portfolios-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    text-align: center;
+    flex-direction: column; /* يجبر العناصر على أن تكون عموداً */
+    align-items: center;    /* توسيط الصور في المنتصف */
+    gap: 1.5rem;            /* المسافة بين الصور (تعادل 24px) */
+    padding: 1.25rem;       /* مسافة حول الحاوية (20px) */
+    
 }
 
-.soon-text {
-    font-size: 1.5rem; /* تحكم بالحجم من هنا */
-    margin-bottom: 0.5rem;
+.thumbnail-link {
+display: block;
+overflow: hidden;
+border-radius: 0.75rem; /* تعادل 12px */
+transition: transform 0.3s ease;
+
 }
 
-#countdown {
-    font-size: 1rem;
-    margin-top: 1rem;
-    color: #aa761c; /* نفس لون الشعار الخاص بك */
-    font-family: monospace;
+/* تنسيق الصور */
+.thumbnail-link img {
+width: 100%;
+height: 14rem; /* تعادل 200px */
+object-fit: cover;
+display: block;
 }
+
+/* التأثير عند التمرير */
+.thumbnail-link:hover {
+transform: scale(1.03);
 
 }
