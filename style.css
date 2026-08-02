@@ -203,7 +203,7 @@ order: 1;
 }
 
 .status-text {
-font-size: 0.8rem;
+font-size: 0.7rem;
 color: white;
 font-family: sans-serif;
 letter-spacing: 0.05rem;
@@ -238,22 +238,29 @@ animation: pulse 2s infinite;
 
 .show-more-btn {
   display: block;
-  margin: 3rem auto;
+  margin: 1rem auto;
   padding: 1rem 1rem;
   background-color: #000000; /* لون ذهبي متناسق مع تصميمك */
   color: #ffffff;
   font-weight: bold;
   font-size: 0.8rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 0rem;
   cursor: pointer;
   transition: 0.3s ease;
+  background: rgba(0, 0, 0, 0.5);
+padding: 1rem 1rem;
+border-radius: 38rem;
+border: 0.1rem solid rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(5px);
+user-select: none;
 }
 
 .show-more-btn:hover {
   background-color: #000000;
   transform: scale(1.05);
 }
+
 
 
 
