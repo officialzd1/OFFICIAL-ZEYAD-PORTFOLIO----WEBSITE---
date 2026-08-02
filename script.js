@@ -32,3 +32,36 @@ function topFunction() {
         behavior: 'smooth'
     });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const videoLinks = document.querySelectorAll("#slider .thumbnail-link");
+  const showMoreBtn = document.getElementById("showMoreBtn");
+  
+  let visibleCount = 3; // عدد الفيديوهات البداية
+  const increment = 5;  // عدد الفيديوهات التي تظهر عند الضغط
+
+  function updateVideos() {
+    videoLinks.forEach((video, index) => {
+      if (index < visibleCount) {
+        video.style.display = "block"; // إظهار الفيديو
+      } else {
+        video.style.display = "none";  // إخفاء الفيديو
+      }
+    });
+
+    // إذا ظهرت كل الفيديوهات، أخفِ الزر
+    if (visibleCount >= videoLinks.length) {
+      showMoreBtn.style.display = "none";
+    }
+  }
+
+  showMoreBtn.addEventListener("click", function () {
+    visibleCount += increment;
+    updateVideos();
+  });
+
+  // تشغيل الدالة أول ما يفتح الموقع
+  updateVideos();
+});
+
+
