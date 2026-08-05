@@ -1,298 +1,513 @@
-html { scroll-behavior: smooth; }
-
-body {
-    overflow-x: hidden; /* يمنع التمرير الأفقي تماماً */
-background-color: black;
-color: rgb(255, 255, 255);
-margin: 0; 
+/* إعدادات عامة */
+html { 
+    scroll-behavior: smooth; 
 }
 
+body {
+    overflow-x: hidden;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* شريط التنقل العلوي */
 nav {
-position: fixed;
-top: 2rem;
-width: 100%;
-box-sizing: border-box;
-padding: 4rem;
-display: flex;
-justify-content: center;
-gap: 5rem;
-z-index: 9999;
+    position: fixed;
+    top: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
 }
 
 nav a {
-color: rgb(255, 255, 255);
-text-decoration: none;
-font-size: 1.2rem;
-letter-spacing: 0.1rem;
-text-transform: uppercase;
-opacity: 1;
-transition: opacity 0.3s;
-transition: all 0.3s ease;
-display: inline-block;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 1.1rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    position: relative;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
-
-.navbar a:hover {
-opacity: 1;
-transform: scale(1.1); 
-cursor: pointer;
+nav a:hover {
+    opacity: 1;
+    transform: scale(1.1); 
+    cursor: pointer;
+    color: #fcf6ba;
 }
 
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0; 
+    height: 2px;
+    bottom: -0.3rem; 
+    left: 50%;
+    background: #c49b33;
+    transition: all 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%; 
+    left: 0;
+}
+
+/* الشريط العلوي لتقدم التمرير - تدرج ذهبي متحرك ومتصل 100% */
+#scrollProgress {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 4px !important;
+    z-index: 99999 !important;
+    background: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c, #b38728, #fcf6ba, #bf953f) !important;
+    background-size: 800% 100% !important;
+    animation: continuousGold 4s linear infinite !important;
+}
+
+@keyframes continuousGold {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* القسم الرئيسي (Hero) */
 .container {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-height: 100vh;
-animation: fadeIn 1.8s ease-in-out; }
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    animation: fadeIn 1.8s ease-in-out;
+}
 
 @keyframes fadeIn {
-from {
-opacity: 0; }
-to {
-opacity: 1; }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-h1 {
-font-size: 3rem;
-letter-spacing: 0.3rem;
-margin: 0;
+/* اسم ZEYAD - تدرج ذهبي متحرك ومتصل تماماً بدون قطع */
+.logo {
+    font-size: 4rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #b38728, #fbf5b7, #aa761c, #b38728, #fcf6ba, #aa761c);
+    background-size: 800% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: seamlessLogoShine 5s linear infinite;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    cursor: default;
+    margin: 0;
+}
+
+@keyframes seamlessLogoShine {
+    0% { background-position: 0% center; }
+    100% { background-position: 100% center; }
+}
+
+.logo:hover {
+    text-shadow: 0 0 25px rgba(252, 246, 186, 0.6), 
+                 0 0 50px rgba(191, 149, 63, 0.4);
+    transform: scale(1.05);
 }
 
 .subtitle {
-font-size: 1rem;
-letter-spacing: 3rem;
-padding-left: 3rem;
-font-weight: 200;
-font-family: 'Arial', sans-serif;
-margin-top: 1rem;
+    font-size: 1rem;
+    letter-spacing: 2.5rem;
+    padding-left: 2.5rem;
+    font-weight: 200;
+    font-family: 'Arial', sans-serif;
+    margin-top: 1rem;
+    transition: opacity 0.5s ease;
+}
+
+.subtitle.hidden {
+    opacity: 0;
 }
 
 .scroll-indicator{
-margin-top: 30rem;
-font-size: 1.8rem;
-margin-top: 1rem;
-animation: bounce 2s infinite;
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    animation: bounce 2s infinite;
 }
 
 @keyframes bounce {
-0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-40% {transform: translateY(-0.5rem);}
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-0.5rem); }
 }
 
+/* منطقة الصورة والـ Blur */
+.blur-area {
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.blur-area.active {
+    filter: blur(10px);
+    opacity: 0.3;
+    transform: translateY(-80px);
+}
+
+.profile-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 3% 50%;    
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: scale(0.8);
+}
+
+.profile-img.show {
+    opacity: 1;
+    transform: scale(1);
+    border: 2px solid #fcf6ba; 
+    box-shadow: 0 0 35px rgba(191, 149, 63, 0.6);
+    animation: pulse 5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 20px rgba(191, 149, 63, 0.4); }
+    50% { transform: scale(1.04); box-shadow: 0 0 40px rgba(252, 246, 186, 0.7); }
+    100% { transform: scale(1); box-shadow: 0 0 20px rgba(191, 149, 63, 0.4); }
+}
+
+/* قسم نبذة عني */
 #about {
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: #000000;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    padding: 4rem 1rem;
+    box-sizing: border-box;
 }
 
 .about-container {
-display: flex;
-width: 80%;
-gap: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 75rem;
+    margin: 0 auto;
+    gap: 2rem;
 }
 
-.left-col,.right-col {
-flex: 3;
-padding: 3rem;
-text-align: justify;
-line-height: 1.8;
-}
-
-h3 {
-font-size: 2rem;
-margin-bottom: 1rem;
-}
-
-.left-col {
-text-align: left;
-letter-spacing: 0.1rem;
-font-size: 0.8rem;
-
+.left-col, .right-col {
+    flex: 1;
+    min-width: 300px;
+    padding: 2.5rem;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 1rem;
+    line-height: 1.8;
 }
 
 .right-col {
-text-align: right;
-font-size: 1.1rem;
-
+    text-align: right;
+    font-size: 1.1rem;
 }
 
-.about-container {
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-align-items: flex-start;
-width: 100%;
-max-width: 80rem;
-margin: 0 auto;
-padding: 8rem 1rem;
-box-sizing: border-box;
+.left-col {
+    text-align: left;
+    letter-spacing: 0.1rem;
+    font-size: 0.9rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #fcf6ba;
+}
+
+/* قسم العملاء */
+#clients {
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    padding: 4rem 1rem;
+    box-sizing: border-box;
+}
+
+#clients h2, .works-section h2, #order-form h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .clients-grid {
-display: flex;
-justify-content: center;
-gap: 4rem;
-flex-wrap: wrap;
-padding-top: 1.8rem
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
 }
 
 .clients-grid img {
-width: 6rem;
-height: 6rem;
-border-radius: 50%;
-object-fit: cover;
-border: 0.2rem solid #ffffff;
-transition: transform 0.5s ease;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.2rem solid #c49b33;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .clients-grid img:hover {
-transform: scale(1.1); 
-cursor: pointer;
+    transform: scale(1.1); 
+    box-shadow: 0 0 20px rgba(196, 155, 51, 0.6);
+    cursor: pointer;
 }
 
-
-
-/* تنسيق قسم العمل الواحد */
+/* قسم الأعمال */
 .works-section {
     text-align: center;
-    padding: 20rem 20rem;
+    padding: 6rem 2rem;
     background: #000;
     color: white;
 }
 
-.works-grid-container {
+.portfolios-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr)); /* يوزع الفيديوهات بجانب بعضها */
-    gap: 30rem;
-    max-width: 1200rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 1rem;
 }
 
-
-
-.work-single {
-    max-width: 30rem; /* تحكم في حجم عرض الفيديو */
-    margin: 3rem auto; /* توسيط العنصر */
-}
-
-.work-single video {
-    width: 100%;
+.thumbnail-link {
+    display: block;
+    overflow: hidden;
     border-radius: 1rem;
+    border: 1px solid #333;
+    transition: all 0.4s ease;
+    background: #111;
 }
-.work-single video {
+
+.thumbnail-link img {
     width: 100%;
-    border-radius: 15px;
-    
-    /* 1. تأثير التوهج (Glow Effect) */
-    /* التوهج هنا بلون أبيض خفيف، يمكنك تغيير اللون بـ #ff00ff مثلاً لتوهج وردي */
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.068); 
-    
-    /* 5. الفلتر السينمائي (Grayscale) */
-    filter: grayscale(100%); /* الفيديو يظهر رمادي قليلاً في حالته الطبيعية */
-    transition: all 0.5s ease; /* هذا يجعل الانتقال بين الرمادي والألوان ناعماً جداً */
+    height: 16rem;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(80%);
+    transition: all 0.5s ease;
 }
 
-/* تأثير التفاعل عند مرور الفأرة (Hover) */
-.work-single video:hover {
-    filter: grayscale(0%); /* يتحول للألوان الكاملة */
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.4); /* يزداد التوهج */
-    transform: scale(1.02); /* زووم بسيط وأنيق */
+.thumbnail-link:hover {
+    transform: translateY(-5px);
+    border-color: #c49b33;
+    box-shadow: 0 10px 25px rgba(196, 155, 51, 0.3);
 }
 
+.thumbnail-link:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+}
 
-
-
-
-
-
-
-
-
-
+/* نموذج الطلب */
 #order-form {
-scroll-margin-top: 25rem;
-max-width: 30rem;
-margin: 50rem auto;
-padding: 30rem;
-background: #131313;
-border-radius: 1rem;
-color: white;
-font-family: sans-serif;
+    max-width: 35rem;
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    background: #111;
+    border: 1px solid #c49b33;
+    border-radius: 1rem;
+    color: white;
+    box-sizing: border-box;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
 
 #order-form input, 
 #order-form select, 
 #order-form textarea {
-width: 100%;
-padding: 1rem;
-margin-top: 1rem;
-margin-bottom: 1rem;
-border: 0.1rem solid #333;
-border-radius: 1rem;
-background: #000;
-color: white;
-box-sizing: border-box; /* لضمان عدم خروج الحقول عن الإطار */
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background: #000;
+    color: white;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#order-form input:focus, 
+#order-form select:focus, 
+#order-form textarea:focus {
+    border-color: #c49b33;
+    outline: none;
 }
 
 #order-form button {
-width: 100%;
-padding: 1rem;
-background-color: #007bff;
-color: white;
-border: none;
-border-radius: 5rem;
-cursor: pointer;
-font-size: 1rem;
-transition: 0.3s;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(90deg, #bf953f, #aa771c);
+    color: black;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
 #order-form button:hover {
-background-color: #0056b3;
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+/* آراء العملاء والموجات الصوتية */
+#reviews {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 2rem; 
+    padding: 4rem 2rem; 
+    min-height: 80vh; 
 }
 
 #play-btn {
-    flex-shrink: 0; /* منع الزر من الانضغاط */
-    width: 50px;    /* عرض ثابت للزر */
+    flex-shrink: 0; 
+    width: 50px; 
+    background: none; 
+    border: none; 
+    color: #c49b33; 
+    cursor: pointer; 
+    font-size: 2rem;
+    transition: transform 0.3s;
+}
+
+#play-btn:hover {
+    transform: scale(1.2);
 }
 
 #waveform {
-    display: flex;
-    align-items: center; /* هذا يضمن أنها تتحرك من المنتصف */
-    justify-content: center;
-    gap: 3px;
-    height: 60px; /* مساحة ثابتة ومحجوزة للموجات */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 4px; 
+    height: 60px; 
     overflow: hidden; 
 }
 
 .bar {
     width: 3px;
-    background: white;
-    height: 10px; /* الارتفاع عند السكون */
-    transition: height 0.05s ease; /* سرعة استجابة ناعمة */
-    /* التعديل الجوهري هنا */
+    background: #c49b33;
+    height: 10px; 
+    transition: height 0.05s ease; 
     transform-origin: center; 
+}
+
+/* قسم قريباً */
+#soon {
+    min-height: 80vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+#soon h2 {
+    animation: blink 1.8s infinite;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 5px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+/* الأزرار الثابتة (تواصل، حالة، عودة للأعلى) */
+.social-buttons {
+    position: fixed;
+    bottom: 25px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex; 
+    flex-direction: row;
+    gap: 15px; 
+    z-index: 9998;
+}
+
+.social-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    color: #000 !important;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.whatsapp { background-color: #00ff5e; }
+.instagram { background-color: #ff0055; }
+
+.social-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(255,255,255,0.2);
+}
+
+#status-badge {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10000;
+    border: 1px solid #c49b33;
+    user-select: none;
+}
+
+#status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #00ff00;
+    box-shadow: 0 0 8px #00ff00;
 }
 
 #backToTop {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    padding: 1rem 1.5rem;
-    background: rgba(255, 255, 255, 0);
+    padding: 0.8rem 1.2rem;
+    background: rgba(0, 0, 0, 0.6);
     color: rgb(255, 255, 255);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid #c49b33;
     cursor: pointer;
     border-radius: 50px;
-    font-size: 1.2rem;
-    /* التأثيرات الحركية */
+    font-size: 1.1rem;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 99999;
-    display: block;
 }
 
 #backToTop.show {
@@ -301,468 +516,79 @@ background-color: #0056b3;
 }
 
 #backToTop:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: #c49b33;
+    color: #000;
     transform: scale(1.1);
 }
 
-.gold-glow {
-    color: #ffd700; /* اللون الذهبي للنص */
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 215, 0, 0.5);
-    font-weight: bold;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@keyframes blink {
-0%, 100% { opacity: 0.1; }
-50% { opacity: 0.5; }
-}
-
-#soon h2 {
-animation: blink 1.8s infinite;
-font-size: 2rem;
-text-transform: uppercase;
-}
-
-#scrollProgress {
-position: fixed; top: 0; left: 0; width: 0%; height: 4px;
-background: #ffffff; z-index: 1000;
-}
-
-nav a::after {
-content: '';
-position: absolute;
-width: 0; height: 2px;
-bottom: -0.3rem; left: 50%;
-background: #ffffff;
-transition: all 0.3s ease;
-}
-
-nav a:hover::after {
-width: 100%; left: 0;
-}
-.social-buttons {
-    position: fixed;
-    bottom: 60px;       /* مسافة ثابتة من الأسفل */
-    left: 50%;          /* تحريك العنصر لنصف الشاشة */
-    transform: translateX(-50%); /* سحب العنصر للخلف بمقدار نصف عرضه ليتوسط تماماً */
-    display: flex;
-    flex-direction: row;
-    gap: 20px;          /* مسافة مريحة بين الأزرار */
-    z-index: 10000;
-}
-
-.social-btn {
-padding: 1rem 1rem;
-border-radius: 3rem;
-text-decoration: none;
-color: rgb(0, 0, 0) !important;
-font-weight: bold;
-font-size: 1rem;
-box-shadow: 0rem 10rem rgba(0, 0, 0, 0.3);
-transition: transform 0.3s ease;
-display: block;
-}
-
-.whatsapp { background-color: #00ff5e; }
-.instagram { background-color: #ff0055; }
-
-.social-btn:hover {
-transform: scale(1.1);
-}
-
-section {
-    opacity: 0;
-    transform: translateY(3rem);
-    transition: all 1s ease-out;
-}
-
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.logo {
-    font-size: 3rem;
-    font-weight: bold;
-    /* التدرج اللوني */
-    background: linear-gradient(90deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
-    background-size: 200% auto;
-    
-    /* قص الخلفية على شكل الحروف */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    
-    /* الحركة (اللمعان) */
-    animation: shine 3s linear infinite;
-
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    
-    /* حركة ناعمة عند التوهج */
-    transition: all 0.4s ease;
-
-    cursor: default; 
-    
-    /* إذا كنت تفضل شكل اليد (مثل الأزرار)، استخدم هذه بدلاً من default */
-    /* cursor: pointer; */
-    
-    /* هذا السطر يمنع المستخدم من تحديد النص (تظليل النص بالماوس) */
-    user-select: none;
-}
-
-.logo:hover {
-    /* عند مرور الماوس، نزيد قوة التوهج ونوسع انتشاره */
-    text-shadow: 0 0 20px rgb(255, 255, 255), 
-                 0 0 40px rgba(255, 255, 255, 0), 
-                 0 0 60px rgba(255, 255, 255, 0);
-    
-    /* زيادة طفيفة في الحجم لتعطي إيحاء بالقرب */
-    transform: scale(1.05);
-}
-
-
-@keyframes shine {
-    to { background-position: 200% center; }
-}
-
-
-.container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-}
-
-/* النص الذي سيصبح ضبابياً */
-/* هذا الكلاس سيجعل الـ blur-area ترتفع للأعلى */
-.blur-area.active {
-    filter: blur(10px);
-    opacity: 0.3;
-    transform: translateY(-80px); /* يرفع الاسم للأعلى بمقدار 80 بكسل */
-}
-
-/* تأكد أن الـ blur-area عندها transition */
-.blur-area {
-    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/* الصورة المخفية تحت الاسم */
-.profile-img {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    
-    /* هذا هو الحل */
-    object-fit: cover;
-    object-position: 3% 75%;    
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    transform: scale(0.8);
-    
-}
-
-.profile-img.show {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.subtitle {
-    transition: opacity 0.5s ease;
-}
-
-.subtitle.hidden {
-    opacity: 0;
-}
-
-
-/* الحركة (النبض) */
-@keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgb(255, 255, 255); }
-    50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgb(255, 255, 255); }
-}
-
-.profile-img.show {
-    opacity: 1;
-    transform: scale(1);
-    /* إضافة التوهج الذهبي */
-    border: 1px solid rgb(255, 255, 255); 
-    box-shadow: 0 0 30px rgb(255, 255, 255);
-    /* إضافة حركة النبض */
-    animation: pulse 5s infinite ease-in-out;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#status-badge {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    z-index: 10000; /* هذا السطر الأهم */
-    border: 1px solid #444;
-    
-}
-
-#status-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #00ff00; /* الأخضر */
-    box-shadow: 0 0 10px #00ff00; /* التوهج */
-    
-}
-
-/* كلاس للحالة المشغولة (يمكنك إضافته برمجياً) */
-.busy #status-dot {
-    background: #ff0000;
-    box-shadow: 0 0 10px #ff0000;
-}
-
-/* تنسيق النافذة المنبثقة */
-#info-modal {
+/* النوافذ المنبثقة (Modals) */
+.modal {
     display: none;
     position: fixed;
-    top: 10rem;
-    right: 5.5rem;
-    background: #000; /* تغيير الخلفية للأسود */
-    padding: 5px;
-    border-radius: 10px;
-    width: 200px;
-    color: white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    z-index: 999;
-    border: 1px solid #c5a059; /* الإطار الذهبي */
-    
-    
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: 100000;
+    justify-content: center;
+    align-items: center;
 }
 
-#info-modal h3 {
-    margin: 0;
-    font-size: 30px;
-        color: #ffd000;
-
-
-
-
-
-  }
-
-#info-modal .modal-content {
-    line-height: 1.4;
-    font-size: px;
+.modal-content {
+    background: #000 !important;
+    border: 1px solid #c49b33 !important;
+    color: white !important;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(196, 155, 51, 0.3);
 }
 
-#info-modal small {
-    display: block;
-    color: #ccc;
-    font-size: 12px;
-    margin-top: 2px;
-}
-
-
-
-/* تنسيق زر الإغلاق الجديد (X) */
 .new-close-btn {
-    font-size: 50px;         /* حجم الـ X الجديد (اجعله 50px أو أكثر ليكون واضحاً) */
+    font-size: 35px;
     font-weight: bold;
-    color: #c49b33;         /* اللون الذهبي المتناسق مع موقعك */
+    color: #c49b33;
     cursor: pointer;
-    /* للتحكم في موقعه فوق في المنتصف */
-    display: block;         /* يجعله كتلة مستقلة */
-    text-align: center;     /* يوسطه أفقياً */
-    margin: -10px auto 20px auto; /* يزيحه قليلاً للأعلى ويترك مسافة تحته */
-    line-height: 1;         /* يضمن عدم تمدد شكل الـ X */
+    display: block;
+    text-align: right;
+    margin: -10px 0 10px 0;
     transition: color 0.3s ease;
 }
 
-/* تأثير عند تمرير الفأرة عليه */
 .new-close-btn:hover {
-    color: #ffffff;         /* يتحول لونه للأبيض عند التمرير */
+    color: #ffffff;
 }
 
-
-
-/* زر التتبع */
 .track-btn {
     position: fixed;
     bottom: 20px;
     left: 20px;
-    z-index: 10000; /* هذا السطر الأهم */
-    background: transparent;
+    z-index: 9998;
+    background: rgba(0, 0, 0, 0.8);
     color: white;
     border: 1px solid #c5a059;
-    padding: 10px 20px;
+    padding: 10px 18px;
     cursor: pointer;
-    border-radius: 5px;
-    
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
 }
 
-/* النافذة المنبثقة */
-.modal {
-    display: none;
-    position: fixed;
-    
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.modal-content h3 {
-    white-space: nowrap;    /* منع النص من النزول لسطر جديد */
-    display: inline-block;  /* الحفاظ على النص ككتلة واحدة */
-    font-size: 1.2rem;      /* يمكنك تصغير الحجم قليلاً إذا كان الإطار ضيقاً */
-    margin: 0 auto;         /* توسيط العنوان */
-}
-
-/* هذا يضمن أن أي نافذة منبثقة تستخدم هذه الخصائص */
-.modal-content {
-    background: #000 !important; /* الـ !important تفرض اللون الأسود وتلغي أي لون قديم */
-    border: 1px solid #c5a059 !important;
-    color: white !important;
-    width: auto;            /* تغيير العرض من 300px ليكون تلقائياً */
-    min-width: 350px;       /* وضع حد أدنى للعرض ليناسب النص */
-    padding: 30px;
-    width: 300px;
-    text-align: center;
-    border-radius: 10px;
-}
-
-#info-modal {
-    background: #000; /* تأكد أنها سوداء أيضاً */
-    border: 1px solid #000000;
+.track-btn:hover {
+    background: #c5a059;
+    color: black;
 }
 
 #project-code {
-    width: 80%;
+    width: 100%;
     padding: 12px;
     margin: 15px 0;
-    background: #222;
+    background: #111;
     border: 1px solid #c5a059;
     color: white;
-    border-radius: 5px;
+    border-radius: 6px;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .check-btn {
@@ -772,588 +598,151 @@ section.visible {
     padding: 10px 20px;
     cursor: pointer;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.check-btn:hover {
+    opacity: 0.9;
 }
 
 #project-status {
-    margin-top: 20px;
-    padding: 10px;
-    border-top: 1px solid #444;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #333;
 }
 
-#info-modal .modal-content, 
-#tracker-modal .modal-content {
-    background: #000;
-    border: 1px solid #c5a059;
-    padding: 20px;
-    color: white;
-}
-
-
-
-
-
-
-
-/* إخفاء أيقونة البرجر والقائمة الجوال بشكل افتراضي في كل الشاشات */
-.menu-icon, #mobile-nav {
-    display: none !important;
-}
-
-
-.timeline {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-    position: relative;
-}
-
-.timeline li {
-    padding: 10px 0 10px 30px;
-    position: relative;
-    color: #888;
-}
-
-/* الخط العمودي */
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 8px; top: 5px; bottom: 5px;
-    width: 2px; background: #444;
-}
-
-/* الدوائر */
-.timeline li::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 15px;
-    width: 15px; height: 15px;
-    background: #444; border-radius: 50%;
-}
-
-/* الحالة النشطة */
-.timeline li.active { color: #c5a059; font-weight: bold; }
-.timeline li.active::before { background: #c5a059; box-shadow: 0 0 10px #c5a059; }
-
-
-
-.packages-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* توسيط عمودي */
-    align-items: center;     /* توسيط أفقي */
-    min-height: 100vh;       /* جعل القسم يأخذ طول الشاشة كاملاً */
-    width: 100%;
-    background-color: #000;  /* الخلفية السوداء */
-    padding: 0;              /* إزالة المسافات الكبيرة */
-    margin: 0;               /* إزالة الهوامش الزائدة */
-    padding-top: 20rem;
-    padding-bottom: 20rem;
-}
-
-.package-card {
-    background-color: #111; /* لون أغمق قليلاً للكروت */
-    border: 1rem solid rgb(255, 196, 0); /* إطار ذهبي خفيف جداً كقاعدة */
-    transition: transform 0.3s ease;
-}
-
-.package-card:hover {
-    transform: translateY(-10px);
-    border-color: #d4af37; /* لون ذهبي عند المرور بالفأرة */
-    border-color: #ffd700; /* إطار ذهبي صريح عند الهوفر */
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4), 
-                0 0 30px rgba(212, 175, 55, 0.2);
-
-}
-
-
-
-.status-dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    margin-left: 6px; /* مسافة بين الدائرة والكلمة */
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
-}
-
-
-
-.online-badge {
-    color: #ffffff;
-    font-size: 0.7em;
-    font-weight: bold;
-    margin-right: 0rem;
-
-    
-    /* الأنيميشن: يظهر الكلمة ثم يخفيها تدريجياً */
-    animation: fadeOut 3s forwards; 
-    animation-delay: 1s; /* يبدأ بعد ثانية من ظهور الواجهة */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#calendar-container {
-    background-color: #000000;
-    border: 1px solid #c49b33;
-    padding: 6rem;      /* مساحة داخلية متوازنة */
-    border-radius: 8px;
-    display: table;     /* هذه الخاصية تجعل العرض مناسباً للمحتوى فقط */
-    margin: 20px auto;  /* يوسط القسم في الصفحة */
-    width: auto;        /* لن يأخذ عرضاً أكبر من حجم الجدول */
-}
-
-#calendar-container h3 {
-    text-align: center;
-    color: #ffffff;
-    margin-bottom: 50px;
-    
-    /* التعديلات المطلوبة */
-    font-size: 1.7rem;         /* تقليل حجم الخط قليلاً ليناسب العرض */
-    white-space: nowrap;      /* منع النص من النزول لسطر جديد */
-}
-
-/* شبكة الأيام */
-#calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 4px;
-}
-
-/* تنسيق عام لكل خلية يوم */
-.day {
-    padding: 12px 8px;
-    border: 1px solid #474747; /* حدود رمادية داكنة */
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease; /* تأثير انتقالي ناعم */
-    font-size: 0.9em;
-    color: #ccc;
-}
-
-/* تنسيق الأيام المتاحة (Free) */
-.day.free {
-    background-color: #00ff223b; /* خلفية سوداء أفتح قليلاً */
-    color: #f0f0f0;
-}
-
-/* تأثير التمرير على الأيام المتاحة */
-.day.free:hover {
-    background-color: #c49b33; /* خلفية ذهبية عند التمرير */
-    color: #111; /* نص أسود عند التمرير */
-    border-color: #c49b33;
-}
-
-/* تنسيق الأيام المشغولة (Busy) */
-.day.busy {
-    background-color: #b71c1c; /* لون أحمر غامق وقوي للمشغول */
-    color: white;
-    cursor: not-allowed; /* تغيير مؤشر الفأرة */
-    text-decoration: line-through; /* شطب اليوم */
-    opacity: 0.8;
-    border-color: #7f0000;
-}
-
-
-.past-day {
-    
-    opacity: 0.5;            /* شفافية ليكون باهتاً */
-    cursor: not-allowed;     /* تغيير شكل المؤشر ليدل على عدم الإمكانية */
-    pointer-events: none;    /* منع أي تفاعل بالماوس */
-}
-
-
-
-/* تنسيق الحالة الجديدة: متوقف عن العمل */
-.day.paused {
-    background-color: #ff660098; /* لون برتقالي */
-    color: white;
-    cursor: not-allowed;
-}
-
-
-/* تنسيق عناوين أيام الأسبوع (Sun, Mon, etc.) - إذا قمت بإضافتها */
-.weekday-header {
-    font-weight: bold;
-    color: #c49b33; /* عناوين ذهبية */
-    padding-bottom: 5px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media screen and (max-width: 768px) {
-body, html {
-        overflow-x: hidden; /* يمنع أي حركة لليمين أو اليسار */
-        width: 100%;
-        position: relative;
-    }
-    /* 1. لتصغير كل شيء دفعة واحدة (غير الـ 14px للقيمة التي تعجبك) */
-    html {
-        font-size: 8px; 
-    }
-
-    
-
-    
-    /* 2. التحكم في القائمة العلوية */
-    nav {
-        padding: 5rem !important; /* عدل المسافة حول القائمة */
-        gap: 3rem !important;     /* عدل المسافة بين الروابط */
-    }
-
-    nav a {
-        font-size: 1rem !important; /* تصغير الخط ليتسع الشريط لكل الروابط */
-        letter-spacing: 0px !important; /* تقليل المسافة بين الحروف */
-    }
-
-    
-    /* 3. التحكم في العنوان الرئيسي */
-    h1 {
-        font-size: 4.8rem !important; /* عدل حجم الاسم هنا */
-    }
-    
-.subtitle {
-font-size: 2rem; }
-
-
-
-
- .about {
-        flex-direction: column !important;
-        flex-wrap: nowrap !important; /* منع الالتفاف */
-    }
-
-    /* فرض عرض كامل للأعمدة */
-    .about .left-col, 
-    .about .right-col {
-        width: 100% !important;
-        flex: 0 0 100% !important; /* تأكيد أخذ العرض الكامل */
-        margin-bottom: 20px !important; /* إضافة مسافة بين النصين */
-    }
-
-
-
-    /* 5. التحكم في نموذج الطلب */
-    #order-form {
-        margin: 2rem auto !important; /* عدل المسافة فوق وتحت النموذج */
-        padding: 2rem !important;     /* عدل المساحة داخل النموذج */
-        width: 90% !important;        /* عدل عرض النموذج بالنسبة للشاشة */
-    }
-
-  .social-buttons {
-    position: fixed !important; /* ثابتة بالنسبة للشاشة */
-    bottom: 4rem !important;    /* المسافة من أسفل الشاشة */
-    left: 50% !important;       /* تبدأ من المنتصف */
-    transform: translateX(-50%) !important; /* تضبط المحاذاة بالضبط في المنتصف */
-    flex-direction: row !important;
-    gap: 1rem !important;
-    z-index: 10000 !important;
-    margin-top: 0 !important;   /* إلغاء أي مارجن إضافي */
-}
-    .social-btn {
-        padding: 1rem 2rem !important; /* عدل حجم الزر */
-        font-size: 0.9rem !important;      /* عدل حجم خط الزر */
-    }
-
-
-
-
-#reviews {
-        /* إزالة الـ padding-top إذا تسبب في تداخل، واستخدام margin-top مكانه */
-        padding-top: 0 !important; 
-        margin-top: 10rem !important; /* هذه القيمة ستدفع القسم للأسفل بشكل منفصل */
-    }
-
-
-#backToTop {
-        bottom: 4.3rem; /* نرفعه قليلاً أو ننقله */
-        right: 4rem;  /* المسافة من اليمين */
-        padding: 0.8rem 1.2rem; /* تصغير حجم الزر قليلاً */
-        font-size: 1rem;
-    }
-
-    .profile-img {
-        width: 180px;  /* تصغير حجم الصورة قليلاً في الجوال */
-        height: 180px;
-    }
-    
-    /* إذا أردت رفع الاسم أكثر في الجوال ليناسب صغر حجم الشاشة */
-    .blur-area.active {
-        transform: translateY(-50px); 
-    }
-
-    .navbar {
-        display: none !important;
-    }
-
-    /* 2. إظهار أيقونة البرجر */
-    .menu-icon {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 3rem;
-        height: 3rem;
-        cursor: pointer;
-        position: fixed;
-        top: 5rem;
-        right: 55rem;
-        z-index: 1000;
-    }
-
-    .menu-icon span {
-        display: block;
-        height: 0.5rem;
-        width: 100%;
-        background-color: white;
-        border-radius: 3rem;
-    }
-
-    /* 3. تنسيق القائمة الجانبية (#mobile-nav) */
-#mobile-nav {
-    display: flex !important;
-    flex-direction: column;
-    position: fixed;
-    top: -100%; /* مخفية في الأعلى */
-    left: 0;
-    width: 100%;
-    height: 100rem;
-    /* نبدأ بشفافية صفر للخلفية */
-    background: rgba(0, 0, 0, 0); 
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-    /* حركة ناعمة لكل شيء (الخلفية + الموقع) */
-    transition: all 0.5s ease-in-out;
-}
-
-#mobile-nav.active {
-    top: 0;
-    background: rgba(0, 0, 0, 0.9); /* درجة التظليل التي تظهر في الخلفية */
-}
-
-
-body.menu-open {
-    filter: blur(8rem) brightness(1); /* تغبيش وتعتيم للمحتوى الأصلي */
-    transition: 0.5s;
-}
-
-nav a {
-    font-size: 1.8rem !important; /* استخدم القيمة التي تناسبك */
-}
-
-#mobile-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 5rem;
-    margin: 2rem 0;
-    transform: translateY(5rem); /* النصوص تبدأ فوق قليلاً */
+/* تفعيل ظهور الأقسام عند التمرير */
+section {
     opacity: 0;
-    transition: all 0.5s ease 0,5s;
+    transform: translateY(2rem);
+    transition: all 0.8s ease-out;
 }
 
-
-
-#mobile-nav.active a {
+section.visible {
     opacity: 1;
+    transform: translateY(0);
 }
 
 
+/* ==========================================
+   إعدادات التجاوب الكامل (MEDIA QUERIES)
+   ========================================== */
 
-.track-btn {
-    position: fixed;
-    bottom: 3.7rem;
-    left: 2rem;
-    z-index: 10000; /* هذا السطر الأهم */
-    background: transparent;
-    color: white;
-    border: 1px solid #c5a059;
-    padding: 1rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
+/* أجهزة التابلت والشاشات المتوسطة (Less than 992px) */
+@media screen and (max-width: 992px) {
+    nav {
+        padding: 1.5rem 2rem;
+        gap: 1.5rem;
+    }
+    nav a {
+        font-size: 0.95rem;
+    }
+    .logo {
+        font-size: 3rem;
+    }
+    .subtitle {
+        letter-spacing: 1.5rem;
+        padding-left: 1.5rem;
+    }
+    .about-container {
+        width: 90%;
+    }
+    .works-section {
+        padding: 4rem 1rem;
+    }
 }
 
-.packages-section {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 20px 0 !important;
+/* أجهزة الهواتف الذكية والشاشات الصغيرة (Less than 768px) */
+@media screen and (max-width: 768px) {
+    nav {
+        position: relative;
+        top: 0;
+        padding: 1rem;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        background: #000;
+        border-bottom: 1px solid #222;
     }
-
-    /* تصحيح الحاوية لتكون في المنتصف */
-    .packages-container {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        width: 100% !important;
-        margin: 0 auto !important;
-        gap: 20px !important;
+    nav a {
+        font-size: 0.8rem;
     }
-
-    /* تصحيح الكروت لتكون متمركزة */
-    .package-card {
-        width: 85% !important;
-        max-width: 350px !important;
-        margin: 0 auto !important;
+    .logo {
+        font-size: 2.3rem;
     }
-
-.package-card {
-        width: 90% !important;
-        padding: 15px !important;
-        margin-bottom: 20px !important;
+    .subtitle {
+        font-size: 0.85rem;
+        letter-spacing: 1rem;
+        padding-left: 1rem;
     }
-
-    /* تكبير حجم الخطوط داخل المربعات */
-    .package-card h3 {
-        font-size: 1.4rem !important; /* حجم العنوان */
+    .profile-img {
+        width: 200px;
+        height: 200px;
     }
-
-    .package-card p {
-        font-size: 1.1rem !important; /* حجم النصوص */
+    .about-container {
+        flex-direction: column;
+        width: 95%;
+        padding: 4rem 0.5rem;
     }
-
-    .package-card .price {
-        font-size: 1.6rem !important; /* حجم السعر */
+    .left-col, .right-col {
+        padding: 1.5rem;
+        font-size: 0.95rem;
     }
-
-
-#status-badge {
-    position: fixed;
-    top: 34px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    z-index: 1000;
-    border: 1px solid #444;
-}
-
-
-
-.clients-grid {
-display: flex;
-justify-content: center;
-gap: 5rem;
-flex-wrap: wrap;
-padding-top: 1.8rem
-
-}
-
-.clients-grid img {
-width: 6rem;
-height: 6rem;
-border-radius: 50%;
-object-fit: cover;
-border: 0.2rem solid #ffffff;
-transition: transform 0.5s ease;
-}
-
-h2 {
-font-size: 2rem;
-margin-bottom: 2rem;
-}
-
-
-.clients-grid {
-        flex-direction: column !important;
-        align-items: center !important; /* لضمان توسيط الصور */
+    .clients-grid {
+        gap: 1.5rem;
     }
-
-    /* إضافة مسافة بين الصور عند ترتيبها عمودياً */
     .clients-grid img {
-        margin-bottom: 15px !important;
+        width: 5rem;
+        height: 5rem;
     }
-.clients-grid img {
-        /* قم بزيادة هذه القيم لتكبير الصور */
-        width: 10rem !important;  
-        height: 10rem !important;
-        
-        /* إذا أردت مسافة أكبر بين الصور بعد تكبيرها */
-        margin-bottom: 25px !important;
+    #order-form {
+        width: 90%;
+        margin: 2rem auto;
+        padding: 1.5rem;
     }
-
-
-
-
-
+    .social-buttons {
+        bottom: 15px;
+        gap: 10px;
+    }
+    .social-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+    .track-btn {
+        bottom: 75px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+    #status-badge {
+        top: auto;
+        bottom: 75px;
+        right: 10px;
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
     #backToTop {
-    position: fixed;
-    bottom: 3.7rem;
-    right: 3rem;
-    padding: 1rem 1.5rem;
-    background: rgba(255, 255, 255, 0);
-    color: rgb(255, 255, 255);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    /* التأثيرات الحركية */
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 99999;
-    display: block;
+        bottom: 75px;
+        right: 10px;
+        padding: 0.5rem 0.9rem;
+        font-size: 0.9rem;
+    }
 }
 
-
+/* الشاشات الصغيرة جداً (Less than 480px) */
+@media screen and (max-width: 480px) {
+    nav a {
+        font-size: 0.7rem;
+        gap: 0.4rem;
+    }
+    .logo {
+        font-size: 2rem;
+    }
+    .subtitle {
+        letter-spacing: 0.5rem;
+        padding-left: 0.5rem;
+    }
+    .portfolios-container {
+        grid-template-columns: 1fr;
+    }
 }
