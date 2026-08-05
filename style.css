@@ -274,6 +274,47 @@ h3 {
     cursor: pointer;
 }
 
+/* تنسيقات أزرار الفلترة */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: #141414;
+    color: #aaa;
+    border: 1px solid #333;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: #d4af37;
+    color: #fff;
+}
+
+.filter-btn.active {
+    background-color: #d4af37;
+    color: #000;
+    border-color: #d4af37;
+    font-weight: bold;
+}
+
+/* خاصية إخفاء العناصر غير المطلوبة بسلاسة */
+.thumbnail-link {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.thumbnail-link.hidden {
+    display: none !important;
+}
+
 /* قسم الأعمال */
 .works-section {
     text-align: center;

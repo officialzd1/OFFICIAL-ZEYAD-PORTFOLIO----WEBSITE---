@@ -348,3 +348,30 @@ document.addEventListener('DOMContentLoaded', function() {
         window.open(`https://wa.me/${myWhatsAppNumber}?text=${encodedMessage}`, '_blank');
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.thumbnail-link');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // إزالة الكلاس النشط من كل الأزرار وإضافته للزر المضغوط
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            const filterValue = this.getAttribute('data-filter');
+
+            portfolioItems.item(0).parentElement; // حاوية الأعمال
+
+            portfolioItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+
+                if (filterValue === 'all' || itemCategory === filterValue) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
