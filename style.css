@@ -374,6 +374,148 @@ h3 {
     transform: scale(1.02);
 }
 
+/* تنسيقات قسم الحجوزات - ثيم أسود وذهبي */
+.booking-section {
+    padding: 80px 20px;
+    background-color: #0b0b0b;
+    color: #fff;
+    text-align: center;
+    font-family: inherit;
+}
+
+.booking-section .section-title {
+    font-size: 2rem;
+    color: #d4af37; /* لون ذهبي فخم */
+    margin-bottom: 10px;
+}
+
+.booking-section .section-subtitle {
+    color: #888;
+    margin-bottom: 40px;
+    font-size: 0.95rem;
+}
+
+.calendar-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.calendar-header {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+.weekdays-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    color: #aaa;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.day-cell {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+/* الأيام المتاحة (بالأخضر) */
+.day-cell.available {
+    background-color: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+    cursor: pointer;
+}
+
+.day-cell.available:hover {
+    background-color: #2ecc71;
+    color: #000;
+    transform: scale(1.05);
+}
+
+/* الأيام المشغولة أو المحجوزة (بالأحمر أو المشطوبة) */
+.day-cell.busy {
+    background-color: rgba(231, 76, 60, 0.15);
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    text-decoration: line-through;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.day-cell.empty {
+    background: transparent;
+}
+
+/* صندوق إدخال البيانات عند اختيار الموعد */
+.booking-modal {
+    max-width: 600px;
+    margin: 20px auto 0;
+    background: #181818;
+    border: 1px solid #d4af37;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: right;
+}
+
+.booking-modal h3 {
+    color: #d4af37;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.booking-modal input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    background: #0b0b0b;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.booking-modal input:focus {
+    border-color: #d4af37;
+    outline: none;
+}
+
+.confirm-btn {
+    background-color: #25d366;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: opacity 0.2s;
+}
+
+.confirm-btn:hover {
+    opacity: 0.9;
+}
+
 /* آراء العملاء والموجات الصوتية */
 #reviews {
     display: flex; 
@@ -744,5 +886,60 @@ section.visible {
     }
     .portfolios-container {
         grid-template-columns: 1fr;
+    }
+}
+
+/* --- التجاوز والتوافق مع الشاشات الصغيرة (الجوالات والتابلت) --- */
+
+@media screen and (max-width: 768px) {
+    .booking-section {
+        padding: 40px 10px;
+    }
+
+    .booking-section .section-title {
+        font-size: 1.5rem;
+    }
+
+    .calendar-wrapper {
+        padding: 12px;
+        margin: 0 10px;
+    }
+
+    .weekdays-grid {
+        font-size: 0.8rem;
+    }
+
+    .day-cell {
+        font-size: 0.85rem;
+    }
+
+    .booking-modal {
+        margin: 15px 10px 0;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .calendar-wrapper {
+        padding: 8px;
+    }
+    
+    .days-grid {
+        gap: 5px;
+    }
+
+    .day-cell {
+        font-size: 0.75rem;
+        border-radius: 6px;
+    }
+
+    .booking-modal h3 {
+        font-size: 0.95rem;
+    }
+
+    .booking-modal input, 
+    .confirm-btn {
+        font-size: 0.85rem;
+        padding: 8px;
     }
 }

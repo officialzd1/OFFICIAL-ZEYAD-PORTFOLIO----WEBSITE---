@@ -282,3 +282,69 @@ function checkProject() {
         display.innerHTML = `<p style="color:red; text-align: center;">كود غير صحيح | Invalid Code</p>`;
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const daysGrid = document.getElementById('days-grid');
+    const bookingModal = document.getElementById('booking-modal');
+    const selectedDateText = document.getElementById('selected-date-text');
+    const bookingForm = document.getElementById('booking-form');
+    
+    let selectedDate = '';
+
+    // تحديد الأيام المشغولة لهذا الشهر (مثال: أيام 6, 10, 15, 20 مشغولة والباقي متاح)
+    // يمكنك تعديل رقم اليوم ليكون true (متاح) أو false (مشغول/أحمر)
+    const busyDays = [6, 10, 15, 20, 25]; 
+
+    // شهر أغسطس 2026 يبدأ يوم السبت (تعديل حسب التقويم الحقيقي)
+    // عدد أيام أغسطس 31 يوم
+    const totalDays = 31;
+    const startDayOffset = 6; // السبت
+
+// إفراغ الشبكة أولاً
+    daysGrid.innerHTML = '';
+
+    // إضافة فراغات بداية الشهر
+    for (let i = 0; i < startDayOffset; i++) {
+        const emptyCell = document.createElement('div');
+        emptyCell.classList.add('day-cell', 'empty');
+        daysGrid.appendChild(emptyCell);
+    }
+
+    // بناء أيام الشهر
+    for (let day = 1; day <= totalDays; day++) {
+        const dayCell = document.createElement('div');
+        dayCell.classList.add('day-cell');
+        dayCell.textContent = day;
+
+        if (busyDays.includes(day)) {
+            // يوم مشغول (أحمر ومطفي)
+            dayCell.classList.add('busy');
+        } else {
+            // يوم متاح (أخضر وقابل للنقر)
+            dayCell.classList.add('available');
+            dayCell.addEventListener('click', function() {
+                selectedDate = `أغسطس ${day}, 2026`;
+                selectedDateText.textContent = selectedDate;
+                bookingModal.style.display = 'block';
+                bookingModal.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+
+        daysGrid.appendChild(dayCell);
+    }
+
+    // إرسال تفاصيل الحجز عبر الواتساب
+    bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const clientName = document.getElementById('client-name').value;
+        const projectType = document.getElementById('project-type').value;
+
+        // استبدل هذا الرقم برقم واتساب الخاص بك مع رمز الدولة (مثلاً 9665xxxxxxxx)
+        const myWhatsAppNumber = "966560260300"; 
+        
+        const message = `مرحباً زياد، أرغب بحجز موعد مشروع مونتاج:\n- التاريخ: ${selectedDate}\n- الاسم: ${clientName}\n- نوع المشروع: ${projectType}`;
+        const encodedMessage = encodeURIComponent(message);
+
+        window.open(`https://wa.me/${myWhatsAppNumber}?text=${encodedMessage}`, '_blank');
+    });
+});

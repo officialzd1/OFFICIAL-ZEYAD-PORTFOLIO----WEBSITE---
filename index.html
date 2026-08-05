@@ -134,6 +134,36 @@
         <p id="my-form-status" style="text-align: center; font-size: 20px;"></p>
     </section>
 
+    <!-- قسم الحجوزات الفاخر -->
+<section id="booking" class="booking-section">
+    <div class="booking-container">
+        <h2 class="section-title">احجز موعداً لمشروعك</h2>
+        <p class="section-subtitle">اختر يوماً متاحاً (بالأخضر) لحجز استشارة أو بدء مشروعك المونتاجي</p>
+        
+        <div class="calendar-wrapper">
+            <div class="calendar-header">
+                <span id="month-year">أغسطس 2026</span>
+            </div>
+            <div class="weekdays-grid">
+                <div>أحد</div><div>إثنين</div><div>ثلاثاء</div><div>أربعاء</div><div>خميس</div><div>جمعة</div><div>سبت</div>
+            </div>
+            <div id="days-grid" class="days-grid">
+                <!-- سيتم تعبئة الأيام تلقائياً عبر الجافا سكريبت -->
+            </div>
+        </div>
+
+        <!-- صندوق تأكيد الحجز -->
+        <div id="booking-modal" class="booking-modal" style="display: none;">
+            <h3>تأكيد الحجز ليوم: <span id="selected-date-text"></span></h3>
+            <form id="booking-form">
+                <input type="text" id="client-name" placeholder="اسمك الكريم" required>
+                <input type="text" id="project-type" placeholder="نوع الفيديو (يوتيوب، ريلز، إعلان...)" required>
+                <button type="submit" class="confirm-btn">إرسال تفاصيل الحجز عبر الواتساب</button>
+            </form>
+        </div>
+    </div>
+</section>
+
     <!-- قسم آراء العملاء -->
     <section id="reviews" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; padding: 2rem; height: calc(100vh - 8rem); scroll-margin-top: 5rem;">
         <h2 style="color: white; margin-bottom: 1.8rem;">آراء العملاء | Clients Reviews</h2>
