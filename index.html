@@ -25,10 +25,13 @@
     <!-- شريط تقدم التمرير العلوي -->
     <div id="scrollProgress"></div>
 
+    
+
     <!-- شريط التنقل العلوي -->
     <nav class="navbar">
         <a href="#soon">قريباً | SOON</a>
         <a href="#reviews">آراء العملاء | Clients Reviews</a>
+        <a href="#booking">احجز موعد | Book Appointment </a>
         <a href="#order-form">اطلب الآن | Order</a>
         <a href="#works">الأعمال | Works</a>
         <a href="#clients">العملاء | Clients</a>
@@ -101,6 +104,7 @@
             <a href="https://youtu.be/UdCc1Npt840?si=fbUJojsGAWKnGH03" target="_blank" class="thumbnail-link" data-category="Pranks"><img src="WORKS/14" alt="مقلب السواق النصاب"></a>
         </div>
     </section>
+    
 
     <!-- قسم اطلب الآن -->
     <section id="order-form" style="padding: 50px;">
@@ -141,7 +145,12 @@
             <textarea name="message" style="height: 100px;"></textarea>  
             
             <button type="submit" id="my-form-button">إرسال الطلب / Order Now</button>
+
         </form>
+        <!-- تحت زر الإرسال مباشرة في قسم اطلب الآن -->
+<div id="form-success-msg" style="display: none; text-align: center; margin-top: 15px; color: #2ecc71; font-size: 1.1rem; font-weight: bold;">
+    ✓ تم إرسال طلبك بنجاح! سنتواصل معك قريباً 🚀
+</div>
         <p id="my-form-status" style="text-align: center; font-size: 20px;"></p>
     </section>
 
@@ -185,6 +194,34 @@
         </div>
     </section>
 
+    <!-- قسم العداد التنازلي للمشروع القادم -->
+<section id="countdown-section" class="countdown-container">
+    <h2>المشروع القادم قريباً 🎬 | COMING SOON </h2>
+    <p class="section-subtitle"></p>
+    
+    <div class="countdown-timer">
+        <div class="time-box">
+            <span id="days">00</span>
+            <span class="time-label">يوم</span>
+        </div>
+        <span class="colon">:</span>
+        <div class="time-box">
+            <span id="hours">00</span>
+            <span class="time-label">ساعة</span>
+        </div>
+        <span class="colon">:</span>
+        <div class="time-box">
+            <span id="minutes">00</span>
+            <span class="time-label">دقيقة</span>
+        </div>
+        <span class="colon">:</span>
+        <div class="time-box">
+            <span id="seconds">00</span>
+            <span class="time-label">ثانية</span>
+        </div>
+    </div>
+</section>
+
     <!-- قسم قريباً -->
     <section id="soon" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
         <h2 style="color: rgb(255, 255, 255); opacity: 1; letter-spacing: 5px;">قريباً . . . | . . . COMING SOON</h2>
@@ -216,12 +253,43 @@
         </div>
     </div>
 
+    <!-- قسم تقييم الزوار السريع -->
+<!-- قسم تقييم الزوار السريع -->
+<!-- قسم تقييم الزوار المطور -->
+<section id="visitor-rating" class="rating-section">
+    <h3> كيف كانت تجربتك في الموقع ؟ | ? How was your experience on the site </h3>
+    
+    <form id="rating-form" action="https://formspree.io/f/xeewdywy" method="POST">
+        <!-- حقل مخفي يحفظ نوع التقييم -->
+        <input type="hidden" name="rating_value" id="rating-input-value">
+        
+        <div class="emoji-container">
+            <button type="button" class="emoji-btn" onclick="handleEmojiClick('😡 زعلان / سيء', true)">😡</button>
+            <button type="button" class="emoji-btn" onclick="handleEmojiClick('😐 عادي / مقبول', false)">😐</button>
+            <button type="button" class="emoji-btn" onclick="handleEmojiClick('😍 أعجبني جداً / ممتاز', false)">😍</button>
+        </div>
+
+        <!-- خانة الملاحظات المخفية (تظهر فقط عند اختيار زعلان) -->
+        <div id="feedback-box" style="display: none; margin-top: 15px;">
+            <textarea name="visitor_feedback" placeholder="أخبرنا باختصار عن سبب استيائك لنقوم بتحسينه..." style="width: 100%; max-width: 400px; height: 80px; background: #000; color: #fff; border: 1px solid #c49b33; border-radius: 8px; padding: 10px; box-sizing: border-box;"></textarea>
+            <br>
+            <button type="button" onclick="submitRatingForm()" class="calc-submit-btn" style="margin-top: 10px; max-width: 200px;">إرسال الملاحظة</button>
+        </div>
+    </form>
+    <footer style="text-align: center; margin-top: 3rem; margin-bottom: 0.3rem;">
+        <p style="color: #66666662; font-size: 0.8rem; font-family: sans-serif;">
+            آخر تحديث : أغسطس 2026 | Last Updated : August 2026
+        </p>
+    </footer>
+    <p id="rating-status" style="margin-top: 10px; font-size: 0.9rem; color: #c49b33;"></p>
+</section>
+
     <!-- زر العودة للأعلى -->
     <button id="backToTop">↑</button>
 
     <!-- الفوتر -->
     <footer style="text-align: center; margin-top: 3rem; margin-bottom: 0.3rem;">
-        <p style="color: #666; font-size: 0.8rem; font-family: sans-serif;">
+        <p style="color: #66666600; font-size: 0.8rem; font-family: sans-serif;">
             آخر تحديث : أغسطس 2026 | Last Updated : August 2026
         </p>
     </footer>

@@ -375,3 +375,108 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+function handleEmojiClick(ratingText, needsFeedback) {
+    const inputField = document.getElementById('rating-input-value');
+    inputField.value = ratingText;
+
+    const feedbackBox = document.getElementById('feedback-box');
+
+    if (needsFeedback) {
+        // إذا ضغط زعلان، نفتح له خانة الكتابة وما نرسل مباشرة
+        feedbackBox.style.display = 'block';
+        document.getElementById('rating-status').textContent = "يرجى كتابة ملاحظتك بالأسفل ثم اضغط إرسال:";
+    } else {
+        // إذا عادي أو ممتاز، نرسل التقييم مباشرة بدون تعب
+        feedbackBox.style.display = 'none';
+        submitRatingForm();
+    }
+}
+
+function submitRatingForm() {
+    const form = document.getElementById('rating-form');
+    const statusElement = document.getElementById('rating-status');
+
+    statusElement.textContent = "جاري إرسال تقييمك، شكراً لك...";
+
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            statusElement.textContent = "شكراً لك! تم استلام تقييمك بنجاح ❤️";
+            document.querySelector('.emoji-container').style.display = 'none';
+            document.getElementById('feedback-box').style.display = 'none';
+        } else {
+            statusElement.textContent = "عذراً، حدث خطأ. حاول مرة أخرى.";
+        }
+    }).catch(error => {
+        statusElement.textContent = "تأكد من اتصالك بالإنترنت.";
+    });
+}
+
+// حدد التاريخ والوقت المستهدف لإطلاق المشروع (مثلاً: 10 أغسطس 2026، الساعة 8 مساءً)
+const targetDate = new Date("August 10, 2026 20:00:00").getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const timeLeft = targetDate - now;
+
+    if (timeLeft < 0) {
+        document.getElementById("countdown-section").innerHTML = "<h2>تم إطلاق المشروع الآن! شاهد العمل في قسم الأعمال 🚀</h2>";
+        return;
+    }
+
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = String(days).padStart(2, '0');
+    document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+}
+
+// تحديث العداد كل ثانية
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+const form = document.getElementById('my-form');
+const successMsg = document.getElementById('form-success-msg');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // يمنع الانتقال لصفحة Formspree البيضاء
+    
+    const submitBtn = document.getElementById('my-form-button');
+    submitBtn.textContent = "جاري الإرسال...";
+    submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            // إخفاء الفورم أو تصفيره وإظهار رسالة النجاح وعلامة الصح
+            form.reset();
+            form.style.display = 'none'; // يفضل إخفاء الفورم بعد النجاح
+            successMsg.style.display = 'block'; // إظهار علامة الصح ورسالة النجاح
+        } else {
+            alert('عذراً، حدث خطأ في إرسال الطلب. حاول مرة أخرى.');
+            submitBtn.textContent = 'إرسال الطلب / Order Now';
+            submitBtn.disabled = false;
+        }
+    }).catch(error => {
+        alert('تأكد من اتصالك بالإنترنت وحاول مرة أخرى.');
+        submitBtn.textContent = 'إرسال الطلب / Order Now';
+        submitBtn.disabled = false;
+    });
+});
