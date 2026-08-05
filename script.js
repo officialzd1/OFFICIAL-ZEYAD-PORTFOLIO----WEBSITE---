@@ -480,29 +480,3 @@ form.addEventListener('submit', function(e) {
         submitBtn.disabled = false;
     });
 });
-
-// دالة للتحقق مما إذا كان المستخدم يفتح الموقع من الجوال
-function checkDevice() {
-    // فحص عرض الشاشة أو نوع المتصفح (إذا كان أقل من 768 بكسل يعتبر جوال)
-    const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
-    // للتأكد أن النافذة تطلع مرة واحدة فقط خلال جلسة التصفح (اختياري)
-    const modalShown = sessionStorage.getItem('mobileWarningShown');
-
-    if (isMobile && !modalShown) {
-        // إظهار النافذة بعد ثانية من دخول الموقع
-        setTimeout(() => {
-            document.getElementById('mobile-warning-modal').style.display = 'flex';
-        }, 1000);
-    }
-}
-
-// دالة إغلاق النافذة
-function closeMobileWarning() {
-    document.getElementById('mobile-warning-modal').style.display = 'none';
-    // حفظ أن المستخدم أغلق النافذة حتى لا تظهر له مع كل تنقل
-    sessionStorage.setItem('mobileWarningShown', 'true');
-}
-
-// تشغيل الفحص أول ما يفتح الموقع
-window.addEventListener('DOMContentLoaded', checkDevice);

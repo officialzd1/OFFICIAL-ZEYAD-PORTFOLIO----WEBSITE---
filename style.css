@@ -907,86 +907,84 @@ section.visible {
     color: #c49b33;
 }
 
-.mobile-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
-    z-index: 99999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
+
+body > * {
+display: none !important;
 }
 
-.mobile-modal-content {
-    background: #111;
-    border: 1px solid #c49b33;
-    border-radius: 16px;
-    padding: 25px 20px;
-    text-align: center;
-    color: #fff;
-    max-width: 320px;
-    width: 100%;
-    box-shadow: 0 10px 30px rgba(196, 155, 51, 0.3);
-    position: relative;
-    animation: fadeInModal 0.3s ease;
-}
-
-.mobile-modal-close {
-    position: absolute;
-    top: 10px;
-    left: 15px;
-    font-size: 1.5rem;
-    color: #aaa;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.mobile-modal-close:hover {
-    color: #fff;
-}
-
-.mobile-modal-icon {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.mobile-modal-content h3 {
-    font-size: 1.05rem;
-    color: #fcf6ba;
-    margin-bottom: 8px;
-    line-height: 1.5;
-}
-
-.mobile-modal-content p {
-    font-size: 0.85rem;
-    color: #aaa;
-    margin-bottom: 20px;
-    line-height: 1.4;
-}
-
-.mobile-modal-btn {
-    background: #c49b33;
-    color: #000;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
-}
-
-.mobile-modal-btn:hover {
-    background: #fcf6ba;
-    transform: scale(1.05);
-}
-
-@keyframes fadeInModal {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+}}
