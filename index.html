@@ -3,80 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZEYAD PORTFOLIO | تحت الصيانة والحجز</title>
+    <title>ZEYAD PORTFOLIO | SOON</title>
     <style>
-        /* تنسيقات عامة - أسود وذهبي فاخر */
         body {
-    background-color: #0b0b0b;
-    color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    box-sizing: border-box;
-}
+            background-color: #0b0b0b;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
 
         .maintenance-container {
-            max-width: 650px;
-            margin: 40px auto;
-            padding: 30px;
+            max-width: 450px;
+            width: 100%;
+            padding: 20px;
             background: #141414;
             border: 1px solid #222;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            text-align: center;
         }
 
         h1 {
-            color: #d4af37; /* ذهبي فخم */
-            font-size: 1.8rem;
-            margin-bottom: 8px;
+            color: #d4af37;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
         }
 
-        .sub-text {
-            color: #888;
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-        }
-
-        /* زر الواتساب السريع */
-        .whatsapp-quick-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: #25d366;
-            color: #fff;
-            padding: 10px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.95rem;
-            margin-bottom: 30px;
-            transition: opacity 0.3s;
-        }
-
-        .whatsapp-quick-btn:hover {
-            opacity: 0.9;
-        }
-
-        /* تنسيقات قسم التقويم المصغر */
         .calendar-wrapper {
             background: #0f0f0f;
             border: 1px solid #333;
             border-radius: 10px;
             padding: 15px;
-            margin-top: 20px;
             text-align: right;
         }
 
         .calendar-header {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             color: #d4af37;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             text-align: center;
         }
 
@@ -133,12 +106,11 @@
             background: transparent;
         }
 
-        /* صندوق إدخال الحجز */
         .booking-modal {
-            margin-top: 20px;
+            margin-top: 15px;
             background: #181818;
             border: 1px solid #d4af37;
-            padding: 15px;
+            padding: 12px;
             border-radius: 8px;
             text-align: right;
             display: none;
@@ -146,14 +118,14 @@
 
         .booking-modal h3 {
             color: #d4af37;
-            font-size: 1rem;
-            margin-bottom: 10px;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
         }
 
         .booking-modal input {
             width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
+            padding: 7px;
+            margin-bottom: 8px;
             background: #0b0b0b;
             border: 1px solid #333;
             border-radius: 5px;
@@ -171,82 +143,45 @@
             background-color: #25d366;
             color: #fff;
             border: none;
-            padding: 8px;
+            padding: 7px;
             border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
             width: 100%;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        /* --- دعم توافقية الشاشات والجوالات --- */
-@media screen and (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
-
-    .maintenance-container {
-        margin: 15px auto;
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 1.4rem;
-    }
-
-    .sub-text {
-        font-size: 0.85rem;
-    }
-
-    .calendar-wrapper {
-        padding: 10px;
-    }
-
-    .weekdays-grid {
-        font-size: 0.75rem;
-    }
-
-    .day-cell {
-        font-size: 0.75rem;
-    }
-
-    .whatsapp-quick-btn {
-        font-size: 0.85rem;
-        padding: 8px 15px;
-    }
-}
-
+        @media screen and (max-width: 600px) {
+            .maintenance-container {
+                padding: 12px;
+            }
+            h1 {
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="maintenance-container">
-        <!-- رسالة الصيانة القصيرة والفخمة -->
-        <h1>الموقع تحت التحديثات الإبداعية</h1>
-        <div class="sub-text">نعمل على تطوير استوديو المونتاج. يمكنك حجز موعدك مباشرة من هنا:</div>
+        <!-- الكلمة الرئيسية فقط -->
+        <h1>قريباً | SOON</h1>
 
-        <!-- زر تواصل واتساب سريع -->
-        <a href="https://wa.me/966560260300" target="_blank" class="whatsapp-quick-btn">
-            💬 تواصل سريع عبر الواتساب
-        </a>
-
-        <!-- قسم الحجوزات المصغر -->
+        <!-- جدول الحجوزات وأيام الأسبوع -->
         <div class="calendar-wrapper">
-            <div class="calendar-header">أغسطس 2026 - اختر يوم الموعد</div>
+            <div class="calendar-header">أغسطس 2026</div>
             <div class="weekdays-grid">
                 <div>أحد</div><div>إثنين</div><div>ثلاثاء</div><div>أربعاء</div><div>خميس</div><div>جمعة</div><div>سبت</div>
             </div>
-            <div id="days-grid" class="days-grid">
-                <!-- الأيام تتولد بالجافا سكريبت -->
-            </div>
+            <div id="days-grid" class="days-grid"></div>
         </div>
 
-        <!-- صندوق تأكيد الحجز -->
+        <!-- صندوق إدخال الحجز عند الضغط على يوم -->
         <div id="booking-modal" class="booking-modal">
             <h3>تأكيد الحجز ليوم: <span id="selected-date-text"></span></h3>
             <form id="booking-form">
                 <input type="text" id="client-name" placeholder="اسمك الكريم" required>
-                <input type="text" id="project-type" placeholder="نوع المشروع (يوتيوب، ريلز...)" required>
+                <input type="text" id="project-type" placeholder="نوع المشروع" required>
                 <button type="submit" class="confirm-btn">إرسال الحجز للواتساب</button>
             </form>
         </div>
@@ -260,9 +195,9 @@
             const bookingForm = document.getElementById('booking-form');
             
             let selectedDate = '';
-            const busyDays = [6, 10, 15, 20, 25]; // الأيام المشغولة (بالأحمر)
+            const busyDays = [6, 10, 15, 20, 25];
             const totalDays = 31;
-            const startDayOffset = 6; // السبت
+            const startDayOffset = 6;
 
             daysGrid.innerHTML = '';
 
@@ -294,7 +229,7 @@
                 e.preventDefault();
                 const clientName = document.getElementById('client-name').value;
                 const projectType = document.getElementById('project-type').value;
-                const myWhatsAppNumber = "966560260300"; // استبدل برقمك
+                const myWhatsAppNumber = "966500000000"; 
                 
                 const message = `مرحباً زياد، أرغب بحجز موعد:\n- التاريخ: ${selectedDate}\n- الاسم: ${clientName}\n- المشروع: ${projectType}`;
                 window.open(`https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(message)}`, '_blank');
