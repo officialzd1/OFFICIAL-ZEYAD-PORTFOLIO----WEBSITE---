@@ -439,6 +439,7 @@ h3 {
     color: #fff;
     text-align: center;
     font-family: inherit;
+    display: none; /* إخفاء القسم بشكل افتراضي */
 }
 
 .booking-section .section-title {
@@ -534,6 +535,7 @@ h3 {
     padding: 20px;
     border-radius: 10px;
     text-align: right;
+    
 }
 
 .booking-modal h3 {
@@ -590,10 +592,11 @@ h3 {
     width: 50px; 
     background: none; 
     border: none; 
-    color: #c49b33; 
+    color: #ffffff; 
     cursor: pointer; 
     font-size: 2rem;
     transition: transform 0.3s;
+    
 }
 
 #play-btn:hover {
@@ -611,7 +614,7 @@ h3 {
 
 .bar {
     width: 3px;
-    background: #c49b33;
+    background: #ffffff;
     height: 10px; 
     transition: height 0.05s ease; 
     transform-origin: center; 
@@ -1023,6 +1026,90 @@ section.visible {
     background: #444; border-radius: 50%;
 }
 
+/* قسم أفضل عمل */
+#featured-work {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#featured-work h2 {
+    color: #ffc107;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* بطاقة العمل */
+.featured-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #141414;
+    border: 1px solid #ffc107;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.15);
+}
+
+/* مشغل الفيديو (عرض طبيعي ومناسب للفيديوهات الأفقية) */
+.video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* يحافظ على أبعاد العرض الصحيحة للفيديو */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: #000;
+}
+
+.video-wrapper video,
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    object-fit: contain; /* لضمان ظهور كامل الفيديو بالعرض بدون قص */
+}
+
+/* تفاصيل العمل (مطابقة لألوان النصوص في الموقع) */
+.work-details {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.work-details h3 {
+    color: #ffc107; /* لون عنوان متناسق مع الثيم الذهبي */
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.work-details p {
+    color: #cccccc; /* لون النصوص العادية في موقعك */
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* شارة التنبيه في الأسفل */
+.concept-badge {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background-color: rgba(255, 193, 7, 0.08);
+    color: #e0e0e0; /* لون نص متناسق غير مزعج للعين */
+    border: 1px dashed #ffc107;
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    text-align: right;
+    line-height: 1.5;
+}
+
+.concept-badge strong {
+    color: #ffc107;
+}
 /* Media Query للجوالات */
 @media (max-width: 768px) {
 
@@ -1203,11 +1290,29 @@ body.utility-menu-active::before,
         object-fit: cover !important;
     }
 
-    section#order-form,
-    .order-form,
-    div.order-form {
-        display: none !important;
-    }
+    #order-form {
+    margin: 1rem auto !important;     /* تقليل المسافة فوق وتحت النموذج */
+    padding: 1rem !important;     /* تقليل المساحة داخل النموذج */
+    width: 80% !important;        /* تصغير عرض النموذج بالنسبة للشاشة */
+}
+
+#order-form input,
+#order-form select,
+#order-form textarea {
+    padding: 8px 12px !important; /* تقليل الحشو داخل حقول الإدخال */
+    margin-bottom: 10px !important; /* تقليل المسافة بين الحقول */
+    font-size: 0.5rem !important;   /* تصغير حجم الخط قليلاً */
+}
+
+#order-form h2, 
+#order-form h1 {
+    font-size: 1.5rem !important;     /* تصغير حجم الخط (يمكنك تعديل الرقم حسب الرغبة مثل 1.2rem) */
+    white-space: nowrap !important;   /* إجبار النص على البقاء في سطر واحد دون نزول للأسفل */
+}
+#order-form label {
+    font-size: 0.85rem !important;  /* تصغير حجم العناوين فوق الحقول */
+    margin-bottom: 4px !important;
+}
 
     .booking-section {
         display: none !important;

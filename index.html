@@ -22,6 +22,9 @@
 </head>
 <body>
 
+
+    
+
     <!-- شريط تقدم التمرير العلوي -->
     <div id="scrollProgress"></div>
 
@@ -29,7 +32,7 @@
     <nav class="navbar">
         <a href="#soon">قريباً | SOON</a>
         <a href="#reviews">آراء العملاء | Clients Reviews</a>
-        <a href="#booking">احجز موعد | Book Appointment </a>
+        
         <a href="#order-form">اطلب الآن | Order</a>
         <a href="#works">الأعمال | Works</a>
         <a href="#clients">العملاء | Clients</a>
@@ -84,6 +87,8 @@
     <button class="filter-btn" data-filter="story"> قصص | Stories</button>
     <button class="filter-btn" data-filter="Pranks"> مقالب | Pranks</button>
     <button class="filter-btn" data-filter="Experiments"> تجارب | Experiments</button>
+    <button class="filter-btn" data-filter="Teaser"> ترويج | Teasers</button>
+
 
 
 
@@ -93,8 +98,10 @@
             <a href="https://youtu.be/AmwNr7vQUy0?si=_5k7PZMLMzPbuR5N" target="_blank" class="thumbnail-link" data-category="vlog"><img src="WORKS/2" alt="فلوق رحلة اتلانتا"></a>
             <a href="https://youtu.be/tPpVBMyrqWE?si=s7bx2b11vZYSUXVY" target="_blank" class="thumbnail-link" data-category="Experiments"><img src="WORKS/3" alt="صرت باكستاني لمدة 24 ساعة"></a>
             <a href="https://youtu.be/MKPA-BmoSkE?si=nMlvuTX8ed5fOBvR" target="_blank" class="thumbnail-link" data-category="challenge"><img src="WORKS/4" alt="تحدي التناغم"></a>
-            <a href="https://youtu.be/CudNBlgTGnE?si=dItQxiBHh_kiPOqV" target="_blank" class="thumbnail-link" data-category="vlog"><img src="WORKS/5" alt="مطاعم المشاهير"></a>
-            <a href="https://youtu.be/VZcWpZs6yzU?si=1S16UL8e_xjtoMr9" target="_blank" class="thumbnail-link" data-category="Experiments"><img src="WORKS/6" alt="زيارتي لكشمير"></a>
+            <a href="https://x.com/Abo_treek1/status/1959275208365244815?s=20" target="_blank" class="thumbnail-link" data-category="Teaser"><img src="WORKS/16" alt="تحدي التناغم"></a>
+            <a href="https://youtu.be/VZcWpZs6yzU?si=1S16UL8e_xjtoMr9" target="_blank" class="thumbnail-link" data-category="Experiments"><img src="WORKS/6" alt="مطاعم المشاهير"></a>
+            <a href="https://x.com/ImSkelyy/status/1912251022942073250?s=20" target="_blank" class="thumbnail-link" data-category="Teaser"><img src="WORKS/17" alt="مطاعم المشاهير"></a>
+            <a href="https://youtu.be/CudNBlgTGnE?si=dItQxiBHh_kiPOqV" target="_blank" class="thumbnail-link" data-category="vlog"><img src="WORKS/5" alt="زيارتي لكشمير"></a>
             <a href="https://youtu.be/sHPfm9vUaJw?si=bhwZtOCAm7FPD-qw" target="_blank" class="thumbnail-link" data-category="story"><img src="WORKS/7" alt="حكاية اقوى ساحر سوداني"></a>
             <a href="https://youtu.be/HOEXf71h7K4?si=bsH6IzRpTfRWXyci" target="_blank" class="thumbnail-link" data-category="challenge"><img src="WORKS/8" alt="تحدي التنمر"></a>
             <a href="https://youtu.be/n461_RB2fRU?si=WW9IrJlDk6-VytD3" target="_blank" class="thumbnail-link" data-category="Pranks"><img src="WORKS/9" alt="مقلب التنمر"></a>
@@ -103,8 +110,29 @@
             <a href="https://youtu.be/nNBCm9JFWX8?si=J49B0JCYs-ecT04n" target="_blank" class="thumbnail-link" data-category="Pranks"><img src="WORKS/12" alt="مقلب السكيورتي"></a>
             <a href="https://youtu.be/Hx6la0F4jOk?si=Fzj93cjRJVtiJBl0" target="_blank" class="thumbnail-link" data-category="Pranks"><img src="WORKS/13" alt="مقلب في بنت الكورنيش"></a>
             <a href="https://youtu.be/UdCc1Npt840?si=fbUJojsGAWKnGH03" target="_blank" class="thumbnail-link" data-category="Pranks"><img src="WORKS/14" alt="مقلب السواق النصاب"></a>
+
+
         </div>
     </section>
+
+    <section id="featured-work">
+    <h2> أفضل عمل 👑 Best Work</h2>
+
+    <div class="featured-card">
+        <!-- مشغل الفيديو (أصبح في الأعلى) -->
+        <div class="video-wrapper">
+            <video controls poster="thumb.jpg">
+                <source src="your-best-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        
+
+        <!-- شارة التنبيه (أصبحت في الأسفل) -->
+        
+    </div>
+</section>
     
 
     <!-- قسم اطلب الآن -->
@@ -187,7 +215,7 @@
 
     <!-- قسم آراء العملاء -->
     <section id="reviews" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; padding: 2rem; height: calc(100vh - 8rem); scroll-margin-top: 5rem;">
-        <h2 style="color: white; margin-bottom: 1.8rem;">آراء العملاء | Clients Reviews</h2>
+        <h2 style="    color: #c49b33; margin-bottom: 1.8rem;">آراء العملاء | Clients Reviews</h2>
         <div style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; direction: ltr;">
             <button id="play-btn" style="background: none; border: none; color: white; cursor: pointer; font-size: 2rem;">▶</button>
             <div id="waveform" style="display: flex; align-items: center; gap: 0.2rem; height: 3rem;"></div>
