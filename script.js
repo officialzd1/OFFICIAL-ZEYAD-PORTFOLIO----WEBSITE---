@@ -153,135 +153,127 @@ setStatus(false);
 
 // 8. نظام تتبع المشاريع (Project Tracker Modal)
 const myProjects = {
-    "ZD1-3": { 
+
+    "ZD1-8": { 
         name: "فلوق يوتيوب",
         status: "paused",
-        statusMsg: "تم الإنتهاء | Finished",
-        currentStage: 5, 
+        currentStage: 3, 
         stages: [
-            "التنزيل | Downloading",
-            "الترتيب | Organizing",
-            "القص | Cutting",
-            "الانتقالات | Transitions",
-            "التصدير | Exporting",
-            "التسليم | Final Delivery"
+            { ar: "التنزيل", en: "Downloading" },
+            { ar: "الترتيب", en: "Organizing" },
+            { ar: "القص", en: "Cutting" },
+            { ar: "الانتقالات", en: "Transitions" },
+            { ar: "التصدير", en: "Exporting" },
+            { ar: "التسليم", en: "Final Delivery" }
         ]
     },
-    "ZD1-2": { 
-        name: "فيديو يوتيوب",
-        status: "paused",
-        statusMsg: "تم الإنتهاء | Finished",
-        currentStage: 6, 
-        stages: [
-            "التنزيل | Downloading",
-            "الترتيب | Organizing",
-            "القص | Cutting",
-            "الانتقالات | Transitions",
-            "إيقاف مؤقت | Pausing",
-            "التصدير | Exporting",
-            "التسليم | Final Delivery"
-        ]
-    },
-    "ZD1": { 
-        name: "فلوق يوتيوب", 
-        status: "paused",
-        statusMsg: "تم الإنتهاء | Finished",
-        currentStage: 13, 
-        stages: [
-            "التنزيل | Downloading",
-            "الترتيب | Organizing",
-            "القص | Cutting",
-            "إيقاف مؤقت | Pausing",
-            "الترجمة | Subtitling",
-            "الانتقالات | Transitions",
-            "مؤثرات بصرية | VFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
-            "مؤثرات صوتية | SFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
-            "التصدير | Exporting",
-            "التسليم | Final Delivery",
-            "فيديو قصير | Short Video <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف )</small>",
-            "فيديو قصير | Short Video <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف )</small>",
-            "فيديو قصير | Short Video <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف )</small>",
-            "التسليم | Final Delivery"
-        ]
-    }
-};
+
+"ZD1": { 
+name: "فلوق يوتيوب", 
+
+status: "paused",
+statusMsg: " تم الإنتهاء | Finished ",
+currentStage: 14, 
+previewUrl: "your-video1.mp4",        
+stages: [
+            
+"التنزيل Downloading <span style='color: #2ecc71;'>100%</span>",
+"الترتيب Organizing <span style='color: #2ecc71;'>100%</span>",
+"القص Cutting <span style='color: #2ecc71;'>100%</span>",
+"إيقاف مؤقت Pausing",
+"الترجمة Subtitling <span style='color: #2ecc71;'>92%</span>",
+"الانتقالات Transitions <span style='color: #2ecc71;'>100%</span>",
+"مؤثرات بصرية VFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
+"مؤثرات صوتية SFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
+"التصدير Exporting <span style='color: #2ecc71;'>100%</span>",
+"التسليم ✓ Final Delivery",
+
+" فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
+" فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
+" فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
+"التسليم ✓ Final Delivery",]},};
 
 function toggleInfo() {
-    const modal = document.getElementById('info-modal');
-    if (modal) {
-        modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
-    }
-}
-
-function toggleTracker() {
-    const modal = document.getElementById('tracker-modal');
-    if (modal) {
-        modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
-    }
-}
+const modal = document.getElementById('info-modal');
+modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';}
 
 function checkProject() {
     const codeInput = document.getElementById('project-code');
     const display = document.getElementById('project-status');
     if (!codeInput || !display) return;
 
-    const code = codeInput.value.toUpperCase();
+    const code = codeInput.value.trim().toUpperCase();
     const project = myProjects[code];
 
     if (project) { 
-        const statusColors = {
-            "active": "#00ff22",
-            "paused": "#ff0000",
-            "review": "#e67e22"
-        };
-
-        const dotColor = statusColors[project.status] || "#6e6e6e";
+        let timelineHTML = `<div style="display: flex; flex-direction: column; align-items: center; margin-top: 15px; max-height: 260px; overflow-y: auto; width: 100%; box-sizing: border-box; padding: 10px 0;">`;
+        timelineHTML += `<div style="position: relative; width: 100%; margin-top: 5px;">`;
         
-        let timelineHTML = `<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 15px; max-height: 250px; overflow-y: auto; width: 100%;">`;
-        timelineHTML += `<div style="display: inline-block; text-align: right;">`;
-        timelineHTML += `<ul style="list-style: none; padding: 0; margin: 0; position: relative;">`;
+        // الخط العمودي في المنتصف تماماً
+        timelineHTML += `<div style="position: absolute; top: 10px; bottom: 10px; left: 50%; transform: translateX(-50%); width: 2px; background: rgba(255, 255, 255, 0.15);"></div>`;
+        timelineHTML += `<ul style="list-style: none; padding: 0; margin: 0; position: relative; width: 100%;">`;
 
         project.stages.forEach((stage, index) => {
             const isCompleted = index < project.currentStage;
             const isActive = index === project.currentStage;
             
-            let circleColor = "#ff0000"; // أحمر (لسا ما بدات)
-            let textColor = "#a0a0a0";
+            let circleColor = "rgba(255, 255, 255, 0.2)"; 
+            let arColor = "#777777";
+            let enColor = "#777777";
             let glow = "none";
             
             if (isCompleted) {
-                circleColor = "#00ff22"; // أخضر (انتهيت)
-                textColor = "#ffffff";
+                circleColor = "#00ff22"; 
+                arColor = "#ffffff";
+                enColor = "#ffffff";
             } else if (isActive) {
-                circleColor = "#ffb000"; // ذهبي (المرحلة الحالية)
-                textColor = "#ffb000";
-                glow = "0 0 10px #ffb000"; 
-            } else if (index === project.currentStage + 1) {
-                circleColor = "#e67e22"; // برتقالي (اللي شغال عليها)
+                circleColor = "#ffb000"; 
+                arColor = "#ffb000";
+                enColor = "#ffb000";
+                glow = "0 0 10px #ffb000";
             }
 
+            let arText = typeof stage === 'object' ? stage.ar : stage;
+            let enText = typeof stage === 'object' ? stage.en : '';
+
             timelineHTML += `
-                <li style="position: relative; margin-bottom: 14px; font-size: 0.85em; color: ${textColor}; display: flex; align-items: center; justify-content: flex-end; white-space: nowrap;">
-                    <span style="margin-left: 24px; text-align: right;">${stage}</span>
-                    <span style="position: absolute; right: -22px; width: 12px; height: 12px; background-color: ${circleColor}; border-radius: 50%; box-shadow: ${glow};"></span>
+                <li style="position: relative; margin-bottom: 20px; font-size: 0.82em; display: flex; align-items: center; justify-content: space-between; width: 100%; direction: ltr; box-sizing: border-box; padding: 0 10px;">
+                    <!-- النص الانجليزي على اليسار -->
+                    <span style="width: 42%; text-align: right; color: ${enColor}; box-sizing: border-box;">${enText}</span>
+                    
+                    <!-- الدائرة في المنتصف تماماً -->
+                    <div style="width: 16%; display: flex; justify-content: center; position: relative;">
+                        <span style="width: 12px; height: 12px; background-color: ${circleColor}; border-radius: 50%; box-shadow: ${glow}; border: 2px solid #111; z-index: 2;"></span>
+                    </div>
+                    
+                    <!-- النص العربي على اليمين -->
+                    <span style="width: 42%; text-align: left; color: ${arColor}; box-sizing: border-box;">${arText}</span>
                 </li>`;
         });
         
         timelineHTML += `</ul></div></div>`;
 
         display.innerHTML = `
-        <div style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); text-align: center;">
-            <div style="margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
-                <span class="online-badge">${project.statusMsg}</span> 
-                <span class="status-dot" style="background-color: ${dotColor}; display: inline-block; width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 5px ${dotColor};"></span>
-                <strong>مشروع : ${project.name}</strong>
+        <div style="background: rgba(0,0,0,0.6); padding: 15px; border-radius: 10px; border: 1px solid rgba(197,160,89,0.3); text-align: center;">
+            <div style="margin-bottom: 12px; text-align: center;">
+                <strong style="color: #fcf6ba; font-size: 1rem;">مشروع : ${project.name}</strong>
             </div>
             ${timelineHTML}
         </div>`;
     } else {
-        display.innerHTML = `<p style="color:red; text-align: center;">كود غير صحيح | Invalid Code</p>`;
+        display.innerHTML = `<p style="color:red; text-align: center; padding: 10px;">كود غير صحيح | Invalid Code</p>`;
     }
 }
+    
+function toggleTracker() {
+const modal = document.getElementById('tracker-modal');
+if (modal.style.display === 'flex') {
+modal.style.display = 'none';
+} else {
+modal.style.display = 'flex';
+}
+}
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const daysGrid = document.getElementById('days-grid');
@@ -479,4 +471,50 @@ form.addEventListener('submit', function(e) {
         submitBtn.textContent = 'إرسال الطلب / Order Now';
         submitBtn.disabled = false;
     });
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth <= 768) {
+        // إنشاء زر البرجر برمجياً للجوال
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'mobile-utility-toggle';
+        toggleBtn.innerHTML = '<span></span><span></span><span></span>';
+        document.body.appendChild(toggleBtn);
+
+        // إنشاء حاوية القائمة المنبثقة
+        const menuWrapper = document.createElement('div');
+        menuWrapper.className = 'mobile-utility-menu';
+        document.body.appendChild(menuWrapper);
+
+        // جلب زر الحالة وزر تتبع المشروع وإضافتهما داخل القائمة
+        const statusBadge = document.getElementById('status-badge');
+        const trackBtn = document.querySelector('.track-btn');
+
+        if (statusBadge) menuWrapper.appendChild(statusBadge);
+        if (trackBtn) menuWrapper.appendChild(trackBtn);
+
+        // إنشاء أزرار التواصل الاجتماعي وإضافتها للقائمة
+        // إنشاء أزرار التواصل الاجتماعي وإضافتها للقائمة (الشكل المطلوب)
+        const socialDiv = document.createElement('div');
+        socialDiv.style.cssText = "display: flex; gap: 15px; margin-top: 25px; justify-content: center;";
+        socialDiv.innerHTML = `
+            <a href="https://wa.me/966562650100" target="_blank" style="padding: 10px 25px; background: #00e676; border-radius: 50px; color: #000; text-decoration: none; font-size: 14px; font-weight: bold; transition: 0.3s; text-align: center; line-height: normal; display: inline-block;">WhatsApp</a>
+            <a href="https://www.instagram.com/officialzd1/" target="_blank" style="padding: 10px 25px; background: #ff0050; border-radius: 50px; color: #000; text-decoration: none; font-size: 14px; font-weight: bold; transition: 0.3s; text-align: center; line-height: normal; display: inline-block;">Instagram</a>
+        `;
+        menuWrapper.appendChild(socialDiv);
+
+        // تفعيل فتح وإغلاق القائمة عند الضغط على زر البرجر
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('utility-menu-active');
+        });
+
+        // إغلاق القائمة تلقائياً عند النقر على أي زر بداخلهما
+        [statusBadge, trackBtn, socialDiv].forEach(btn => {
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    document.body.classList.remove('utility-menu-active');
+                });
+            }
+        });
+    }
 });
