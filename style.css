@@ -1355,4 +1355,9 @@ body.utility-menu-active::before,
         margin: 2px !important;
     }
 
+    #featured-work {
+    padding: 40px 20px;
+    text-align: center;
+    display: none !important; /* إخفاء قسم أفضل عمل في الجوال */
+}
 }
