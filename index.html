@@ -81,7 +81,6 @@
         <!-- أزرار الفلترة -->
 <div class="filter-buttons">
     <button class="filter-btn active" data-filter="all"> الكل | All</button>
-    <button class="filter-btn" data-filter="Shorts"> قصيرة | Shorts</button>
     <button class="filter-btn" data-filter="vlog"> فلوقات | Vlogs</button>
     <button class="filter-btn" data-filter="challenge"> تحديات | Challenges</button>
     <button class="filter-btn" data-filter="story"> قصص | Stories</button>
@@ -97,9 +96,6 @@
         <div class="portfolios-container" id="slider">
             <a href="https://www.instagram.com/reel/Db1D8RByxoc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="thumbnail-link" data-category="Re-Edits"><img src="WORKS/18" alt="السبت الممتاز مع كارولين عزمي"></a>
             <a href="https://youtu.be/DNW3pVBPlKg?si=qolXZ4xJYDGI9hM3" target="_blank" class="thumbnail-link" data-category="vlog"><img src="WORKS/1" alt="فلوق سفرة ماربيا مع الأهل"></a>
-            <a href="https://www.tiktok.com/@hamadalomarii/video/7660422615709781256?is_from_webapp=1&sender_device=pc&web_id=7602638982917408263" target="_blank" class="thumbnail-link" data-category="Shorts"><img src="WORKS/21" alt="فلوق رحلة اتلانتاS3"></a>
-            <a href="https://www.tiktok.com/@hamadalomarii/video/7660422272750079250?is_from_webapp=1&sender_device=pc&web_id=7602638982917408263" target="_blank" class="thumbnail-link" data-category="Shorts"><img src="WORKS/20" alt="فلوق رحلة اتلانتاS2"></a>
-            <a href="https://www.tiktok.com/@hamadalomarii/video/7660256014595296519?is_from_webapp=1&sender_device=pc&web_id=7602638982917408263" target="_blank" class="thumbnail-link" data-category="Shorts"><img src="WORKS/19" alt="فلوق رحلة اتلانتاS1"></a>
             <a href="https://youtu.be/AmwNr7vQUy0?si=_5k7PZMLMzPbuR5N" target="_blank" class="thumbnail-link" data-category="vlog"><img src="WORKS/2" alt="فلوق رحلة اتلانتا"></a>
             <a href="https://youtu.be/tPpVBMyrqWE?si=s7bx2b11vZYSUXVY" target="_blank" class="thumbnail-link" data-category="Experiments"><img src="WORKS/3" alt="صرت باكستاني لمدة 24 ساعة"></a>
             <a href="https://youtu.be/MKPA-BmoSkE?si=nMlvuTX8ed5fOBvR" target="_blank" class="thumbnail-link" data-category="challenge"><img src="WORKS/4" alt="تحدي التناغم"></a>
@@ -120,29 +116,12 @@
         </div>
     </section>
 
-    <section id="featured-work">
-    <h2> أفضل عمل 👑 Best Work</h2>
-
-    <div class="featured-card">
-        <!-- مشغل الفيديو (أصبح في الأعلى) -->
-        <div class="video-wrapper">
-            <video controls poster="thumb.jpg">
-                <source src="your-best-video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        
-
-        <!-- شارة التنبيه (أصبحت في الأسفل) -->
-        
-    </div>
-</section>
+    
     
 
     <!-- قسم اطلب الآن -->
     <section id="order-form" style="padding: 50px;">
-        <h2 style="text-align: center;">اطلب الآن / Order Now</h2>
+        <h2 style="text-align: center;">اطلب الآن | Order Now</h2>
         <form id="my-form" action="https://formspree.io/f/xeewdywy" method="POST">
             <label style="display: block; overflow: hidden;">
                 <span style="float: right;">الاسم</span>
@@ -151,7 +130,7 @@
             <input type="text" name="name" required>
             
             <label style="display: block; overflow: hidden;">
-                <span style="float: right;">رابط الفيديو ( Drive )</span>
+                <span style="float: right;">رابط الفيديو</span>
                 <span style="float: left;">Video Link</span>
             </label>
             <input type="url" name="video-link">
@@ -167,8 +146,8 @@
             </select>
 
             <label style="display: block; overflow: hidden; margin-top: 10px;">
-                <span style="float: right;">التواصل ( واتساب | إيميل )</span>
-                <span style="float: left;">Contact ( WhatsApp | Gmail )</span>
+                <span style="float: right;">التواصل</span>
+                <span style="float: left;">Contact</span>
             </label>
             <input type="text" name="contact">        
 
@@ -178,12 +157,12 @@
             </label>
             <textarea name="message" style="height: 100px;"></textarea>  
             
-            <button type="submit" id="my-form-button">إرسال الطلب / Order Now</button>
+            <button type="submit" id="my-form-button">إرسال الطلب | Order Now</button>
 
         </form>
         <!-- تحت زر الإرسال مباشرة في قسم اطلب الآن -->
 <div id="form-success-msg" style="display: none; text-align: center; margin-top: 15px; color: #2ecc71; font-size: 1.1rem; font-weight: bold;">
-    ✓ تم إرسال طلبك بنجاح! سنتواصل معك قريباً 🚀
+تم إرسال الطلب | Order Sent
 </div>
         <p id="my-form-status" style="text-align: center; font-size: 20px;"></p>
     </section>
@@ -290,33 +269,7 @@
     <!-- قسم تقييم الزوار السريع -->
 <!-- قسم تقييم الزوار السريع -->
 <!-- قسم تقييم الزوار المطور -->
-<section id="visitor-rating" class="rating-section">
-    <h3> كيف كانت تجربتك في الموقع ؟ | ? How was your experience on the site </h3>
-    
-    <form id="rating-form" action="https://formspree.io/f/xeewdywy" method="POST">
-        <!-- حقل مخفي يحفظ نوع التقييم -->
-        <input type="hidden" name="rating_value" id="rating-input-value">
-        
-        <div class="emoji-container">
-            <button type="button" class="emoji-btn" onclick="handleEmojiClick('😡 زعلان / سيء', true)">😡</button>
-            <button type="button" class="emoji-btn" onclick="handleEmojiClick('😐 عادي / مقبول', false)">😐</button>
-            <button type="button" class="emoji-btn" onclick="handleEmojiClick('😍 أعجبني جداً / ممتاز', false)">😍</button>
-        </div>
 
-        <!-- خانة الملاحظات المخفية (تظهر فقط عند اختيار زعلان) -->
-        <div id="feedback-box" style="display: none; margin-top: 15px;">
-            <textarea name="visitor_feedback" placeholder="أخبرنا باختصار عن سبب استيائك لنقوم بتحسينه..." style="width: 100%; max-width: 400px; height: 80px; background: #000; color: #fff; border: 1px solid #c49b33; border-radius: 8px; padding: 10px; box-sizing: border-box;"></textarea>
-            <br>
-            <button type="button" onclick="submitRatingForm()" class="calc-submit-btn" style="margin-top: 10px; max-width: 200px;">إرسال الملاحظة</button>
-        </div>
-    </form>
-    <footer style="text-align: center; margin-top: 3rem; margin-bottom: 0.3rem;">
-        <p style="color: #66666662; font-size: 0.8rem; font-family: sans-serif;">
-            آخر تحديث : أغسطس 2026 | Last Updated : August 2026
-        </p>
-    </footer>
-    <p id="rating-status" style="margin-top: 10px; font-size: 0.9rem; color: #c49b33;"></p>
-</section>
 
     <!-- زر العودة للأعلى -->
     <button id="backToTop">↑</button>
