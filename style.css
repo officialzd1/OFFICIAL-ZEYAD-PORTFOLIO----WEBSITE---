@@ -381,7 +381,7 @@ h3 {
 /* نموذج الطلب */
 #order-form {
     max-width: 35rem;
-    margin: 4rem auto;
+    margin: 7rem auto;
     padding: 3rem 2rem;
     background: #111;
     border: 1px solid #c49b33;
@@ -644,7 +644,7 @@ h3 {
 /* الأزرار الثابتة (تواصل، حالة، عودة للأعلى) */
 .social-buttons {
     position: fixed;
-    bottom: 25px; 
+    bottom: 83px; 
     left: 50%; 
     transform: translateX(-50%); 
     display: flex; 
@@ -654,12 +654,12 @@ h3 {
 }
 
 .social-btn {
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 0.8rem;
     border-radius: 2rem;
     text-decoration: none;
     color: #000 !important;
     font-weight: bold;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
