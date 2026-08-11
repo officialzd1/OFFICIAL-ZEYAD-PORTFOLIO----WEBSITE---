@@ -154,10 +154,10 @@ setStatus(false);
 // 8. نظام تتبع المشاريع (Project Tracker Modal)
 const myProjects = {
 
-    "ZD1-8": { 
+    "ZD-8": { 
         name: "فلوق يوتيوب",
         status: "paused",
-        currentStage: 3, 
+        currentStage: 0, 
         stages: [
             { ar: "التنزيل", en: "Downloading" },
             { ar: "الترتيب", en: "Organizing" },
@@ -519,14 +519,15 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function toggleNote(event) {
-  event.stopPropagation();
-  const tooltip = event.currentTarget;
-  tooltip.classList.toggle('active');
-}
+function toggleNote(e) {
+    if (e) {
+        e.preventDefault();  // يمنع فتح الرابط
+        e.stopPropagation(); // يمنع وصول الضغطة للرابط الأب
+    }
 
-// إغلاق المستطيل إذا ضغط العميل في أي مكان آخر بالصفحة
-document.addEventListener('click', function() {
-  const activeTooltips = document.querySelectorAll('.info-tooltip.active');
-  activeTooltips.forEach(item => item.classList.remove('active'));
-});
+    // العثور على الزر وتفعيل/إلغاء التفعيل
+    const tooltip = e.currentTarget || e.target.closest('.info-tooltip');
+    if (tooltip) {
+        tooltip.classList.toggle('active');
+    }
+}
