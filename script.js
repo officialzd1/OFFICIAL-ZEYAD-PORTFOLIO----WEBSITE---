@@ -519,3 +519,14 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+function toggleNote(event) {
+  event.stopPropagation();
+  const tooltip = event.currentTarget;
+  tooltip.classList.toggle('active');
+}
+
+// إغلاق المستطيل إذا ضغط العميل في أي مكان آخر بالصفحة
+document.addEventListener('click', function() {
+  const activeTooltips = document.querySelectorAll('.info-tooltip.active');
+  activeTooltips.forEach(item => item.classList.remove('active'));
+});
