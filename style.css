@@ -83,6 +83,8 @@ to { opacity: 1; }}
 
 .logo {
 font-size: 3rem;
+letter-spacing: 0.3rem;
+
 font-weight: bold;
 font-family: 'Playfair Display', serif;
 background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
@@ -100,7 +102,7 @@ to { background-position: -200% center; }}
 .subtitle {
 font-size: 1rem;
 letter-spacing: 3rem;
-padding-left: 2.6rem;
+padding-left: 2.1rem;
 font-weight: 200;
 font-family: 'Arial', sans-serif;
 margin-top: 1rem;
@@ -752,7 +754,7 @@ to { background-position: -200% center; }}
 .subtitle {
 font-size: 0.5rem;
 letter-spacing: 1.8rem;
-padding-left: 1.6rem;
+padding-left: 1.2rem;
 font-weight: 200;
 font-family: 'Arial', sans-serif;
 margin-top: 1rem;
@@ -760,7 +762,7 @@ user-select: none;}
 
 .scroll-indicator {
 font-size: 1rem;
-padding-right: 0rem;
+padding-right: 0.4rem;
 margin-top: 0.9rem;
 animation: bounce 1.8s infinite;
 user-select: none;}
