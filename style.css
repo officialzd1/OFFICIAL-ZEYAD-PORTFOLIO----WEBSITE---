@@ -689,6 +689,133 @@ footer p {
   font-size: 0.8rem;
   font-family: sans-serif;
 }
+
+
+/* ==========================================================================
+   زر الملاحظات الخاص بقسم الطلب (Order Note) - تصميم مطابق للقديم 100%
+
+.order-note-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 1.2rem;
+  z-index: 10;
+}
+
+/* الأيقونة الدائرية الصفراء بنفس الأبعاد تماماً */
+.order-info-tooltip {
+  position: relative !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  min-width: 1.5rem !important;
+  max-width: 1.5rem !important;
+  background-color: #ffcc00 !important;
+  color: #000 !important;
+  border: none !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: bold;
+  font-size: 0.75rem;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0px 0px 3rem rgb(255, 196, 0);
+  transition: all 0.3s ease;
+  padding: 0 !important;
+  margin: 0 auto !important;
+}
+
+.order-info-tooltip:hover {
+  background-color: #ffffff;
+}
+
+/* صندوق الملاحظة بنفس مقاسات وتنسيق الصندوق القديم */
+.order-note-box {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 13rem;
+  max-width: 85vw;
+  background-color: #000000;
+  border: 1px solid #ffcc00b9;
+  border-radius: 1rem;
+  padding: 1rem 3rem;
+  box-shadow: 0px 0px 3rem rgba(255, 196, 0, 0.295);
+  z-index: 100;
+  cursor: default;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  pointer-events: none;
+}
+
+.order-info-tooltip.active .order-note-box {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.order-note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.1rem solid rgba(255, 204, 0, 0.2);
+  padding-bottom: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.order-note-ar {
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: #ffcc00;
+  direction: rtl;
+}
+
+.order-note-en {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: #ffcc00;
+  direction: ltr;
+}
+
+.order-note-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.order-note-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.33rem;
+}
+
+.order-text-ar {
+  direction: rtl;
+  text-align: right;
+  font-size: 0.6rem;
+  line-height: 1.35;
+  color: #999999;
+  margin: 0;
+  width: 50%;
+}
+
+.order-text-en {
+  direction: ltr;
+  text-align: left;
+  font-size: 0.55rem;
+  line-height: 1.35;
+  color: #999999;
+  margin: 0;
+  width: 50%;
+}
 /* ==========================================
    كود الميديا الخاص بالجوالات والشاشات الصغيرة
    ========================================== */
