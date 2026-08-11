@@ -676,7 +676,18 @@ box-shadow: 0px 0px 0.5rem rgba(255, 196, 0, 0.836);
   display: none !important;
 }
 
+/* تنسيق الفوتر الأساسي */
+footer {
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
 
+footer p {
+  color: #666668;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+}
 /* ==========================================
    كود الميديا الخاص بالجوالات والشاشات الصغيرة
    ========================================== */
@@ -892,6 +903,7 @@ user-select: none;}
     margin-top: 0.5rem;
     margin-bottom: 1.5rem;
     font-size: 0.5rem;
+    
   }
 
   #order-form button {
@@ -901,10 +913,10 @@ user-select: none;}
 
   /* 10. الأزرار العائمة والشارات (Floating UI) */
   #status-badge {
-    top: 1.5rem;
-    right: 1.3rem;
+    top: 2rem;
+    right: 2rem;
     padding: 0.4rem 0.8rem;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 
   #status-dot {
@@ -912,12 +924,31 @@ user-select: none;}
     height: 0.4rem;
   }
 
-  .track-btn {
-    bottom: 1rem;
-    left: 1rem;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.7rem;
-  }
+.track-btn {
+  position: fixed;
+  bottom: 3rem;
+  left: 9.6rem;
+  z-index: 9999;
+  background: rgb(0, 0, 0);
+  color: white;
+  border: 0.1rem solid #c49b33;  /* نفس لون إطار زر الحالة */
+ background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+background-size: 200% auto;
+animation: shine 4.8s linear infinite;
+transition: all 0.4s ease;
+color: black;
+border: none;
+border-radius: 2rem;
+cursor: pointer;
+font-size: 1.1rem;
+font-weight: bold;
+box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+  padding: 0.5rem 1rem;         /* ضبط الحواف الداخلية لتنسجم مع الانحناء */
+  border-radius: 3rem;          /* نفس انحناء زر الحالة تماماً */
+  cursor: pointer;
+  font-size: 0.5rem;
+  transition: all 0.5s ease;
+}
 
   .social-buttons {
     bottom: 1rem;
@@ -970,4 +1001,19 @@ user-select: none;}
     margin-top: 1.2rem;
     padding: 0.8rem;
   }
+
+  /* تنسيق الفوتر الأساسي */
+footer {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+footer p {
+  color: #666668;
+  font-size: 0.5rem;
+  font-family: sans-serif;
+}
+
+
 }
