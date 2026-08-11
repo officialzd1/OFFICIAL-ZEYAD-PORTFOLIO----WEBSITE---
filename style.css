@@ -1055,7 +1055,8 @@ user-select: none;}
 .track-btn {
   position: fixed;
   bottom: 3rem;
-  left: 9.3rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 9999;
   background: rgb(0, 0, 0);
   color: white;
