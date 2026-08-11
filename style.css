@@ -676,7 +676,298 @@ box-shadow: 0px 0px 0.5rem rgba(255, 196, 0, 0.836);
   display: none !important;
 }
 
-@media screen and (max-width: 1024px), (pointer: coarse) {
-body > *:not(.mobile-blocker) {
-display: none !important;
-}}
+
+/* ==========================================
+   كود الميديا الخاص بالجوالات والشاشات الصغيرة
+   ========================================== */
+@media (max-width: 768px) {
+
+  /* 1. إعدادات الصفحة الرئيسية */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* 2. شريط التنقل (Navbar) */
+  nav {
+    top: 0;
+    padding: 1rem 1rem;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: none;
+  }
+
+  nav a {
+    font-size: 0.8rem;
+    letter-spacing: 0.15rem;
+  }
+
+  nav a:hover {
+    transform: scale(1.05);
+  }
+
+  nav a::after {
+    height: 0.1rem;
+  }
+
+.container {
+position: relative;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+animation: fadeIn 1.8s ease-in-out;}
+
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }}
+
+.logo {
+font-size: 2.3rem;
+font-weight: bold;
+font-family: 'Playfair Display', serif;
+background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+background-size: 200% auto;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: shine 3.8s linear infinite;
+transition: all 0.4s ease;
+cursor: default;
+margin: 0.3rem;}
+
+@keyframes shine {
+to { background-position: -200% center; }}
+
+.subtitle {
+font-size: 0.5rem;
+letter-spacing: 1.8rem;
+padding-left: 1.6rem;
+font-weight: 200;
+font-family: 'Arial', sans-serif;
+margin-top: 1rem;
+user-select: none;}
+
+.scroll-indicator {
+font-size: 1rem;
+padding-right: 0rem;
+margin-top: 0.9rem;
+animation: bounce 1.8s infinite;
+user-select: none;}
+
+@keyframes bounce {
+0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+40% { transform: translateY(-0.5rem); }}
+
+  /* 4. عناوين الأقسام العامة */
+  #clients {
+    transform: scale(0.85);       /* تصغير القسم كاملاً بنسبة 15% دفعة واحدة */
+  transform-origin: center top;
+    padding: 2rem 1rem;
+    min-height: auto;
+  }
+
+  #clients h2, 
+  .works-section h2 {
+    font-size: 1rem;
+    margin-bottom: 3rem; /* تقليل المسافة الضخمة لتناسب الشاشة */
+    margin-top: 1.5rem;
+  }
+
+  /* 5. قسم العملاء (Clients) */
+  .clients-grid {
+    gap: 1.5rem;
+  }
+
+  .clients-grid img {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  /* 6. أزرار الفلترة (Filter Buttons) */
+  .filter-buttons {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .filter-btn {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.75rem;
+    border-radius: 0.8rem;
+  }
+
+  /* 7. معرض الأعمال (Works Section & Grid) */
+  .works-section {
+    padding: 5rem 1rem;
+  }
+
+  .portfolios-container {
+    grid-template-columns: 1fr; /* عرض كارت واحد في كل سطر للوضوح */
+    gap: 3rem;
+    padding: 3rem;
+  }
+
+  .thumbnail-link {
+    border-radius: 0.8rem;
+  }
+
+  /* 8. كروت الملاحظات والأيقونات (Tooltip & Note Box) */
+  .portfolio-item-wrapper {
+    margin-bottom: 0.5rem;
+  }
+
+  .portfolio-item-wrapper::before {
+    height: 0.6rem;
+  }
+
+  .info-tooltip {
+    top: calc(100% + 0.6rem);
+    width: 1.1rem;
+    height: 1.1rem;
+    font-size: 0.55rem;
+  }
+
+  .note-box {
+    width: 85vw; /* جعل الملاحظة تتكيف مع عرض شاشة الجوال */
+    max-width: 15rem;
+    padding: 0.8rem;
+    top: 1.8rem;
+  }
+
+  .note-header {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .note-ar, .note-en {
+    font-size: 0.75rem;
+  }
+
+  .note-body {
+    gap: 0.6rem;
+  }
+
+  .note-row {
+    gap: 0.8rem;
+  }
+
+  .text-ar, .editor-ar,
+  .text-en, .editor-en {
+    font-size: 0.55rem;
+  }
+
+  .editor-link {
+    font-size: 0.55rem;
+  }
+
+  .proof-wrapper {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .proof-img {
+    max-height: 8rem;
+  }
+
+  /* 9. نموذج الطلب (Order Form) */
+#order-form {
+    transform: scale(0.85);       /* تصغير القسم كاملاً بنسبة 15% دفعة واحدة */
+  transform-origin: center top;
+  max-width: 92%;           /* زيادة العرض من 80% إلى 92% ليأخذ راحته */
+  max-height: none;
+  margin: 4rem auto;
+  padding: 1.5rem 0.8rem;   /* تقليل الحواف الداخلية لزيادة المساحة */
+}
+
+/* 2. ضبط مقاس العنوان ليناسب العرض بتمام والكمال */
+#order-form h2 {
+  font-size: 1.05rem;       /* المقاس الذهبي الذي يملأ السطر بدون قص */
+  white-space: nowrap;      /* يمنع النزول لسطر جديد */
+  margin-bottom: 1.8rem;
+  margin-top: 1rem;
+}
+  #order-form input, 
+  #order-form select {
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.5rem;
+  }
+
+  #order-form button {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  /* 10. الأزرار العائمة والشارات (Floating UI) */
+  #status-badge {
+    top: 1.5rem;
+    right: 1.3rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  #status-dot {
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+
+  .track-btn {
+    bottom: 1rem;
+    left: 1rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .social-buttons {
+    bottom: 1rem;
+    gap: 0.5rem;
+    display: none;
+  }
+
+  .social-btn {
+    padding: 0.6rem 0.7rem;
+    font-size: 0.7rem;
+    border-radius: 1rem;
+  }
+
+  #backToTop {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    display: none;
+  }
+
+  /* 11. النوافذ المنبثقة (Modals) */
+  .modal-content {
+    width: 90%;
+    min-width: unset;
+    padding: 1.5rem 1rem;
+  }
+
+  .modal-content h3 {
+    font-size: 0.85rem;
+    white-space: normal; /* السماح بالتفاف العنوان إذا كان طويلاً */
+  }
+
+  .new-close-btn {
+    font-size: 2.2rem;
+  }
+
+  #project-code {
+    width: 90%;
+    padding: 0.6rem;
+    margin: 1rem 0;
+  }
+
+  .check-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  #project-status {
+    margin-top: 1.2rem;
+    padding: 0.8rem;
+  }
+}
