@@ -704,30 +704,23 @@ footer p {
 
 /* الأيقونة الدائرية الصفراء بنفس الأبعاد تماماً */
 .order-info-tooltip {
-  position: relative !important;
-  width: 1.5rem !important;
-  height: 1.5rem !important;
-  min-width: 1.5rem !important;
-  max-width: 1.5rem !important;
-  background-color: #00000073 !important;
-  color: #000 !important;
-  border: none !important;
-  border-radius: 50% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-weight: bold;
-  font-size: 0.75rem;
-  cursor: pointer;
-  z-index: 5;
-  box-shadow: 0px 0px 3rem rgb(255, 196, 0);
-  transition: all 0.3s ease;
-  padding: 0 !important;
-  margin: 0 auto !important;
-}
-
-.order-info-tooltip:hover {
-  background-color: #ffffff;
+    position: relative;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    color: #ffcc00b9 !important;            /* لون حرف التعجب رمادي */
+    border: 1px solid #ffcc00b9 !important;  /* إطار رمادي بدلاً من الذهبي */
+    background: #222222 !important;        /* خلفية رمادية غامقة ثابته */
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 5;
+    box-shadow: none !important;            /* إلغاء التوهج/الظل الذهبي */
+    animation: none !important;             /* إيقاف أي حركة انيميشن */
+    padding: 0.3rem !important;
+    margin: 0 auto !important;
 }
 
 /* صندوق الملاحظة بنفس مقاسات وتنسيق الصندوق القديم */
