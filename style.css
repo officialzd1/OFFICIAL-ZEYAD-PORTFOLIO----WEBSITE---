@@ -691,8 +691,6 @@ footer p {
 }
 
 
-/* ==========================================================================
-   زر الملاحظات الخاص بقسم الطلب (Order Note) - تصميم مطابق للقديم 100%
 
 .order-note-wrapper {
   position: relative;
@@ -1057,7 +1055,7 @@ user-select: none;}
 .track-btn {
   position: fixed;
   bottom: 3rem;
-  left: 9.6rem;
+  left: 8rem;
   z-index: 9999;
   background: rgb(0, 0, 0);
   color: white;
