@@ -48,38 +48,44 @@ gtag('config', 'G-1GF2S0JGBB');
 
 
 
-<a href="https://www.instagram.com/reel/..." target="_blank" class="thumbnail-link portfolio-item-wrapper" data-category="Re-Edits">
-    <img src="WORKS/017" alt="Re-Edit">
+<div class="portfolio-item-wrapper" data-category="Re-Edits">
+    <!-- أضفنا data-category هنا أيضاً ليقرأها الجافاسكربت فوراً -->
+    <a href="https://www.instagram.com/reel/Db1D8RByxoc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="Re-Edits">
+        <img src="WORKS/017" alt="Re-Edit">
+    </a>
 
-    <!-- الزر والملاحظة بداخل الكارت مباشرة -->
-<div class="info-tooltip" onclick="event.preventDefault(); event.stopPropagation(); toggleNote(event);">        <span class="info-icon">!</span>
+    <button type="button" class="info-tooltip" aria-label="Toggle Project Notes" onclick="toggleNote(event)">
+        <span class="info-icon" aria-hidden="true">!</span>
+        
         <div class="note-box">
             <div class="note-header">
                 <span class="note-ar">ملاحظة</span>
                 <span class="note-en">Note</span>
             </div>
+            
             <div class="note-body">
                 <div class="note-row">
                     <p class="text-ar">هذا العمل ترويجي وإضافي (غير مطلوب) لبرنامج السبت الممتاز</p>
                     <p class="text-en">This is a promotional & extra (unrequested) Re-Edit for El-Sabt El-Momtaz show</p>
                 </div>
+                
                 <div class="note-row editor-row">
                     <div class="editor-ar">
                         <span>الـ Editor الأساسي :</span>
-                        <span class="editor-link">ahmedpabllo@</span>
-                    </div>
+<a href="https://www.instagram.com/ahmedpabllo" target="_blank" rel="noopener noreferrer" class="editor-link" onclick="event.stopPropagation();">ahmedpabllo@</a>                    </div>
                     <div class="editor-en">
                         <span>Original Editor :</span>
-                        <span class="editor-link">@ahmedpabllo</span>
+                        <a href="https://www.instagram.com/ahmedpabllo" target="_blank" rel="noopener noreferrer" class="editor-link" onclick="event.stopPropagation();">@ahmedpabllo@</a>
                     </div>
                 </div>
+                
                 <div class="proof-wrapper">
-                    <img src="AhmedPabllo_Screenshot.jpg" alt="Editor Like Proof" class="proof-img">
+                    <img src="AhmedPabllo_Screenshot.jpg" alt="Proof of original editor approval" class="proof-img" loading="lazy">
                 </div>
             </div>
         </div>
-    </div>
-</a>
+    </button>
+</div>
 
 
 <a href="https://youtu.be/DNW3pVBPlKg?si=qolXZ4xJYDGI9hM3" target="_blank" class="thumbnail-link" data-category="vlog"><img src="WORKS/016" alt=" فلوق سفرة ماربيا مع ‏الأهل | Marbella Family Trip 🇪🇸🏝️😍 "></a>
