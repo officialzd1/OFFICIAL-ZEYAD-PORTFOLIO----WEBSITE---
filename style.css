@@ -1014,7 +1014,7 @@ user-select: none;}
   transform-origin: center top;
   max-width: 92%;           /* زيادة العرض من 80% إلى 92% ليأخذ راحته */
   max-height: none;
-  margin: 4rem auto;
+  margin: 7rem auto;
   padding: 1.5rem 0.8rem;   /* تقليل الحواف الداخلية لزيادة المساحة */
 }
 
@@ -1055,7 +1055,7 @@ user-select: none;}
 .track-btn {
   position: fixed;
   bottom: 3rem;
-  left: 8rem;
+  left: 9.6rem;
   z-index: 9999;
   background: rgb(0, 0, 0);
   color: white;
@@ -1068,7 +1068,7 @@ color: black;
 border: none;
 border-radius: 2rem;
 cursor: pointer;
-font-size: 1.1rem;
+font-size: 0.8rem;
 font-weight: bold;
 box-shadow: 0 0rem 1rem rgb(0, 0, 0);
   padding: 0.5rem 1rem;         /* ضبط الحواف الداخلية لتنسجم مع الانحناء */
