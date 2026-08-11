@@ -709,7 +709,7 @@ footer p {
   height: 1.5rem !important;
   min-width: 1.5rem !important;
   max-width: 1.5rem !important;
-  background-color: #ffcc00 !important;
+  background-color: #00000073 !important;
   color: #000 !important;
   border: none !important;
   border-radius: 50% !important;
@@ -848,6 +848,7 @@ footer p {
   }
 
 .container {
+  
 position: relative;
 display: flex;
 flex-direction: column;
@@ -862,8 +863,6 @@ to { opacity: 1; }}
 
 .logo {
 font-size: 2.3rem;
-padding-right: -1rem;
-padding-left: 0.1rem;
 font-weight: bold;
 font-family: 'Playfair Display', serif;
 background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
@@ -873,7 +872,8 @@ background-size: 200% auto;
 animation: shine 3.8s linear infinite;
 transition: all 0.4s ease;
 cursor: default;
-margin: 0.3rem;}
+margin: 0.3rem;
+}
 
 @keyframes shine {
 to { background-position: -200% center; }}
