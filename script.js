@@ -59,7 +59,8 @@ const myProjects = {
     "ZD-8": { 
         name: "فلوق يوتيوب",
         status: "paused",
-        currentStage: 0, 
+        currentStage: 8, 
+        driveUrl: "https://drive.google.com/file/d/YOUR_VIDEO_ID/view", // <-- أضف رابط الدرايف هنا
         stages: [
             { ar: "التنزيل", en: "Downloading" },
             { ar: "الترتيب", en: "Organizing" },
@@ -153,15 +154,30 @@ function checkProject() {
                 </li>`;
         });
         
-        timelineHTML += `</ul></div></div>`;
+timelineHTML += `</ul></div></div>`;
 
-        display.innerHTML = `
-        <div style="background: rgba(0,0,0,0.6); padding: 15px; border-radius: 10px; border: 1px solid rgba(197,160,89,0.3); text-align: center;">
+    // 1. تجهيز زر الاستلام
+    let downloadButton = "";
+    if (project.driveUrl && project.driveUrl.trim() !== "") {
+        downloadButton = `
+            <div style="text-align: center; margin-top: 15px;">
+                <a href="${project.driveUrl}" target="_blank" class="drive-btn">
+                     إستلام الفيديو 📥 Get Video
+                </a>
+            </div>
+        `;
+    }
+
+    // 2. طباعة الواجهة مع الزر
+    display.innerHTML = `
+        <div style="background: rgba(0, 0, 0, 0.6); padding: 15px; border-radius: 10px; border: 1px solid rgba(197, 160, 85, 0.3); text-align: center;">
             <div style="margin-bottom: 12px; text-align: center;">
-                <strong style="color: #fcf6ba; font-size: 1rem;">مشروع : ${project.name}</strong>
+                <strong>المشروع : <span style="color: #ffffff; font-size: 1rem;">${project.name}</span></strong>
             </div>
             ${timelineHTML}
-        </div>`;
+            ${downloadButton}
+        </div>
+    `;
     } else {
         display.innerHTML = `<p style="color:red; text-align: center; padding: 10px;">كود غير صحيح | Invalid Code</p>`;
     }

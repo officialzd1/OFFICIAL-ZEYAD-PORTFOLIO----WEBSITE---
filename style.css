@@ -807,6 +807,25 @@ footer p {
   margin: 0;
   width: 50%;
 }
+
+.drive-btn {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: linear-gradient(90deg, #aa761c, #fcf06a, #aa761c);
+    background-size: 200% auto;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(252, 240, 106, 0.3);
+}
+
+.drive-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(252, 240, 106, 0.6);
+}
 /* ==========================================
    كود الميديا الخاص بالجوالات والشاشات الصغيرة
    ========================================== */
