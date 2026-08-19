@@ -58,15 +58,13 @@ function toggleNote(e) {
 const myProjects = {
 
 "ZD-743": { 
-        name: "سفرة جدة",
+        name: " سفرة جدة ",
         status: "paused",
         currentStage: 0, 
         driveUrl: "", // <-- أضف رابط الدرايف هنا
         stages: [
             { ar: "التنزيل", en: "Downloading" },
             { ar: "المقدمة", en: "Intro" },
-            { ar: "المؤثرات الصوتية", en: "Sound Effects" },
-
             { ar: "الانتقالات", en: "Transitions" },
             { ar: "التصدير", en: "Exporting" },
             { ar: "التسليم", en: "Final Delivery" }
@@ -230,7 +228,7 @@ timelineHTML += `</ul></div></div>`;
     display.innerHTML = `
         <div style="background: rgba(0, 0, 0, 0.6); padding: 15px; border-radius: 10px; border: 1px solid rgba(197, 160, 85, 0.3); text-align: center;">
             <div style="margin-bottom: 12px; text-align: center;">
-                <strong>المشروع : <span style="color: #ffffff; font-size: 1rem;">${project.name}</span></strong>
+                <strong> المشروع : <span style="color: #ffffff; font-size: 1rem;">${project.name}</span></strong>
             </div>
             ${timelineHTML}
             ${downloadButton}
