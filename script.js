@@ -56,6 +56,64 @@ function toggleNote(e) {
    ========================================================================== */
 
 const myProjects = {
+
+"ZD-743": { 
+        name: "سفرة جدة",
+        status: "paused",
+        currentStage: 0, 
+        driveUrl: "", // <-- أضف رابط الدرايف هنا
+        stages: [
+            { ar: "التنزيل", en: "Downloading" },
+            { ar: "المقدمة", en: "Intro" },
+            { ar: "المؤثرات الصوتية", en: "Sound Effects" },
+
+            { ar: "الانتقالات", en: "Transitions" },
+            { ar: "التصدير", en: "Exporting" },
+            { ar: "التسليم", en: "Final Delivery" }
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "ZD-8": { 
         name: "فلوق يوتيوب",
         status: "paused",
