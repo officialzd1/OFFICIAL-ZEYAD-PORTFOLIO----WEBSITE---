@@ -884,16 +884,21 @@ background-size: 200% auto;
 animation: shine 3.8s linear infinite;
 transition: all 0.4s ease;
 cursor: default;
-margin: 0.3rem;
+
+  text-align: center;
+  width: 100%; /* لضمان التوسيط الكامل داخل الحاوية */
+
 }
 
 @keyframes shine {
 to { background-position: -200% center; }}
 
 .subtitle {
+  text-align: center;
+  width: 100%;
 font-size: 0.5rem;
 letter-spacing: 1.8rem;
-padding-left: 1.2rem;
+padding-left: 1.1rem;
 font-weight: 200;
 font-family: 'Arial', sans-serif;
 margin-top: 1rem;
