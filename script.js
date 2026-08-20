@@ -59,43 +59,23 @@ const myProjects = {
 
 "ZD-743": { 
         name: " سفرة جدة ",
+        deliveryDate: "8:00AM | 21 August 2026",
         status: "paused",
         currentStage: 6, 
         driveUrl: "", // <-- أضف رابط الدرايف هنا
         stages: [
             { ar: "التنزيل", en: "Downloading" },
+            { ar: "الترتيب", en: "Organizing" },
             { ar: "القص", en: "Cutting" },
             { ar: "التلوين", en: "Coloring" },
-            { ar: "الموسيقى", en: "Music" },
             { ar: "المقدمة", en: "Intro" },
-            { ar: "الانتقالات", en: "Transitions" },
-            { ar: "المؤثرات الصوتية", en: "Sound Effects" },
+            { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effevts & Transtion" },
+            { ar: "المؤثرات الصوتية و الموسيقى", en: "Sound Effects & Music" },
             { ar: "المراجعة", en: "Review" },
             { ar: "التصدير", en: "Exporting" },
             { ar: "التسليم", en: "Final Delivery" }
         ]
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -156,6 +136,9 @@ const myProjects = {
     }
 };
 
+// متغير عام لإيقاف المؤقت السابق حتى لا تتداخل المؤشرات عند البحث عن كود آخر
+let countdownInterval = null;
+
 function toggleInfo() {
     const modal = document.getElementById('info-modal');
     if (modal) modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
@@ -168,16 +151,84 @@ function toggleTracker() {
     }
 }
 
+// دالة تحويل صيغة التاريخ الخاصة بك إلى تاريخ يفهمه المتصفح
+function parseDeliveryDate(dateStr) {
+    if (!dateStr) return null;
+    
+    // محاولة قراءة صيغة مثل "8:00AM | 21 August 2026" أو "8:03 AM | 21 August 2026"
+    const regex = /(\d{1,2}):(\d{2})\s*(AM|PM)?\s*\|\s*(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})/i;
+    const match = dateStr.match(regex);
+
+    if (match) {
+        let [_, hours, minutes, period, day, month, year] = match;
+        hours = parseInt(hours, 10);
+        
+        if (period) {
+            period = period.toUpperCase();
+            if (period === 'PM' && hours < 12) hours += 12;
+            if (period === 'AM' && hours === 12) hours = 0;
+        }
+
+        const formattedHours = hours < 10 ? '0' + hours : hours;
+        return new Date(`${month} ${day}, ${year} ${formattedHours}:${minutes}:00`);
+    }
+
+    // إذا كان التاريخ مكتوباً بالصيغة القياسية العادية
+    return new Date(dateStr.replace('|', '').trim());
+}
+
+function startCountdown(dateString) {
+    if (countdownInterval) clearInterval(countdownInterval);
+
+    function updateTimer() {
+        const timerElement = document.getElementById('delivery-countdown');
+        if (!timerElement) return;
+
+        const targetDate = parseDeliveryDate(dateString);
+
+        if (!targetDate || isNaN(targetDate.getTime())) {
+            timerElement.innerHTML = `<span style="color: #ff4d4d; font-size: 0.75rem;">(صيغة التاريخ غير صحيحة)</span>`;
+            return;
+        }
+
+        const now = new Date().getTime();
+        const diff = targetDate.getTime() - now;
+
+        if (diff <= 0) {
+            timerElement.innerHTML = `<span style="color: #00ff22; font-weight: bold;">تم موعد التسليم!</span>`;
+            clearInterval(countdownInterval);
+            return;
+        }
+
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        const hStr = hours < 10 ? '0' + hours : hours;
+        const mStr = minutes < 10 ? '0' + minutes : minutes;
+        const sStr = seconds < 10 ? '0' + seconds : seconds;
+
+        timerElement.innerHTML = `المتبقي : <span style="color: #ffb000; font-weight: bold; font-family: monospace; font-size: 0.95rem;">${hStr}:${mStr}:${sStr}</span>`;
+    }
+
+    updateTimer();
+    countdownInterval = setInterval(updateTimer, 1000);
+}
+
 function checkProject() {
     const codeInput = document.getElementById('project-code');
     const display = document.getElementById('project-status');
     if (!codeInput || !display) return;
 
+    if (countdownInterval) clearInterval(countdownInterval);
+
     const code = codeInput.value.trim().toUpperCase();
     const project = myProjects[code];
 
     if (project) { 
-        let timelineHTML = `<div style="display: flex; flex-direction: column; align-items: center; margin-top: 15px; max-height: 260px; overflow-y: auto; width: 100%; box-sizing: border-box; padding: 10px 0;">`;
+        // تقليل الـ max-height ليبقى هناك متسع كافٍ لزر الاستلام الثابت
+        let timelineHTML = `<div style="display: flex; flex-direction: column; align-items: center; margin-top: 15px; max-height: 210px; overflow-y: auto; width: 100%; box-sizing: border-box; padding: 10px 0;">`;
+        
         timelineHTML += `<div style="position: relative; width: 100%; margin-top: 5px;">`;
         timelineHTML += `<div style="position: absolute; top: 10px; bottom: 10px; left: 50%; transform: translateX(-50%); width: 2px; background: rgba(255, 255, 255, 0.15);"></div>`;
         timelineHTML += `<ul style="list-style: none; padding: 0; margin: 0; position: relative; width: 100%;">`;
@@ -205,8 +256,11 @@ function checkProject() {
             let arText = typeof stage === 'object' ? stage.ar : stage;
             let enText = typeof stage === 'object' ? stage.en : '';
 
+            const isLast = index === project.stages.length - 1;
+            const marginBottom = isLast ? '0px' : '20px';
+
             timelineHTML += `
-                <li style="position: relative; margin-bottom: 20px; font-size: 0.82em; display: flex; align-items: center; justify-content: space-between; width: 100%; direction: ltr; box-sizing: border-box; padding: 0 10px;">
+                <li style="position: relative; margin-bottom: ${marginBottom}; font-size: 0.82em; display: flex; align-items: center; justify-content: space-between; width: 100%; direction: ltr; box-sizing: border-box; padding: 0 10px;">
                     <span style="width: 42%; text-align: right; color: ${enColor}; box-sizing: border-box;">${enText}</span>
                     <div style="width: 16%; display: flex; justify-content: center; position: relative;">
                         <span style="width: 12px; height: 12px; background-color: ${circleColor}; border-radius: 50%; box-shadow: ${glow}; border: 2px solid #111; z-index: 2;"></span>
@@ -215,30 +269,45 @@ function checkProject() {
                 </li>`;
         });
         
-timelineHTML += `</ul></div></div>`;
+        timelineHTML += `</ul></div>`;
 
-    // 1. تجهيز زر الاستلام
-    let downloadButton = "";
-    if (project.driveUrl && project.driveUrl.trim() !== "") {
-        downloadButton = `
-            <div style="text-align: center; margin-top: 15px;">
-                <a href="${project.driveUrl}" target="_blank" class="drive-btn">
-                     إستلام الفيديو 📥 Get Video
-                </a>
+        if (project.deliveryDate) {
+            timelineHTML += `
+                <div style="margin-top: 25px; margin-bottom: 10px; text-align: center; color: #ffffff; font-size: 0.85rem; width: 100%;">
+                    <div>الوقت المتوقع للتسليم : <span style="color: #ffb000;">${project.deliveryDate}</span></div>
+                    <div id="delivery-countdown" style="margin-top: 6px; font-size: 0.85rem; color: #ffffff;"></div>
+                </div>`;
+        }
+
+        // إغلاق منطقة الـ scroll
+        timelineHTML += `</div>`;
+
+        // زر الاستلام مفصول خارج الـ scroll ليبقى ثابتاً في الأسفل
+        let downloadButton = "";
+        if (project.driveUrl && project.driveUrl.trim() !== "") {
+            downloadButton = `
+                <div style="text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <a href="${project.driveUrl}" target="_blank" class="drive-btn">
+                         إستلام الفيديو 📥 Get Video
+                    </a>
+                </div>
+            `;
+        }
+
+        display.innerHTML = `
+            <div style="background: rgba(0, 0, 0, 0.6); padding: 15px; border-radius: 10px; border: 1px solid rgba(197, 160, 85, 0.3); text-align: center;">
+                <div style="margin-bottom: 12px; text-align: center;">
+                    <strong> المشروع : <span style="color: #ffffff; font-size: 1rem;">${project.name}</span></strong>
+                </div>
+                ${timelineHTML}
+                ${downloadButton}
             </div>
         `;
-    }
 
-    // 2. طباعة الواجهة مع الزر
-    display.innerHTML = `
-        <div style="background: rgba(0, 0, 0, 0.6); padding: 15px; border-radius: 10px; border: 1px solid rgba(197, 160, 85, 0.3); text-align: center;">
-            <div style="margin-bottom: 12px; text-align: center;">
-                <strong> المشروع : <span style="color: #ffffff; font-size: 1rem;">${project.name}</span></strong>
-            </div>
-            ${timelineHTML}
-            ${downloadButton}
-        </div>
-    `;
+        if (project.deliveryDate) {
+            startCountdown(project.deliveryDate);
+        }
+
     } else {
         display.innerHTML = `<p style="color:red; text-align: center; padding: 10px;">كود غير صحيح | Invalid Code</p>`;
     }
