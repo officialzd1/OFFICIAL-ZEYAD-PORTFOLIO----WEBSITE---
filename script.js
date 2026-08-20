@@ -60,12 +60,14 @@ const myProjects = {
 "ZD-743": { 
         name: " سفرة جدة ",
         status: "paused",
-        currentStage: 0, 
+        currentStage: 1, 
         driveUrl: "", // <-- أضف رابط الدرايف هنا
         stages: [
             { ar: "التنزيل", en: "Downloading" },
+            { ar: "القص", en: "cutting" },
             { ar: "المقدمة", en: "Intro" },
             { ar: "الانتقالات", en: "Transitions" },
+            { ar: "المراجعة", en: "Review" },
             { ar: "التصدير", en: "Exporting" },
             { ar: "التسليم", en: "Final Delivery" }
         ]
