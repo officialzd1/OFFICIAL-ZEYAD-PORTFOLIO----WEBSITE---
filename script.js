@@ -61,7 +61,7 @@ const myProjects = {
         name: " سفرة جدة ",
         deliveryDate: "8:00AM | 21 August 2026",
         status: "paused",
-        currentStage: 6, 
+        currentStage: 8, 
         driveUrl: "", // <-- أضف رابط الدرايف هنا
         stages: [
             { ar: "التنزيل", en: "Downloading" },
@@ -72,6 +72,7 @@ const myProjects = {
             { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effevts & Transtion" },
             { ar: "المؤثرات الصوتية و الموسيقى", en: "Sound Effects & Music" },
             { ar: "المراجعة", en: "Review" },
+            { ar: "التعديلات", en: "Amendments" },
             { ar: "التصدير", en: "Exporting" },
             { ar: "التسليم", en: "Final Delivery" }
         ]
@@ -312,6 +313,84 @@ function checkProject() {
         display.innerHTML = `<p style="color:red; text-align: center; padding: 10px;">كود غير صحيح | Invalid Code</p>`;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ==========================================================================
