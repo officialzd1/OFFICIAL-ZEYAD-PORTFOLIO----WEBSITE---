@@ -60,7 +60,7 @@ const myProjects = {
 "ZD-743": { 
         name: " سفرة جدة ",
         status: "paused",
-        currentStage: 2, 
+        currentStage: 4, 
         driveUrl: "", // <-- أضف رابط الدرايف هنا
         stages: [
             { ar: "التنزيل", en: "Downloading" },
