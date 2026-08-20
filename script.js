@@ -64,7 +64,8 @@ const myProjects = {
         driveUrl: "", // <-- أضف رابط الدرايف هنا
         stages: [
             { ar: "التنزيل", en: "Downloading" },
-            { ar: "القص", en: "cutting" },
+            { ar: "القص", en: "Cutting" },
+            { ar: "التلوين", en: "Coloring" },
             { ar: "الموسيقى", en: "Music" },
             { ar: "المقدمة", en: "Intro" },
             { ar: "الانتقالات", en: "Transitions" },
