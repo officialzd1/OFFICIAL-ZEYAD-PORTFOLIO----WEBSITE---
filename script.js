@@ -61,7 +61,7 @@ const myProjects = {
         name: " سفرة جدة ",
         deliveryDate: "8:00AM | 21 August 2026",
         status: "paused",
-        currentStage: 8, 
+        currentStage: 10, 
         driveUrl: "", // <-- أضف رابط الدرايف هنا
         stages: [
             { ar: "التنزيل", en: "Downloading" },
