@@ -196,7 +196,7 @@ function startCountdown(dateString) {
         const diff = targetDate.getTime() - now;
 
         if (diff <= 0) {
-            timerElement.innerHTML = `<span style="color: #00ff22; font-weight: bold;">تم موعد التسليم!</span>`;
+            timerElement.innerHTML = `<span style="color: #00ff22; font-weight: bold;">تم موعد التسليم !</span>`;
             clearInterval(countdownInterval);
             return;
         }
