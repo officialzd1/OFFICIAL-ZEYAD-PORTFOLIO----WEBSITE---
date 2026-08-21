@@ -62,7 +62,7 @@ const myProjects = {
         deliveryDate: "8:00AM | 21 August 2026",
         status: "paused",
         currentStage: 10, 
-        driveUrl: "", // <-- أضف رابط الدرايف هنا
+        driveUrl: "https://drive.google.com/file/d/1J5HcDznmWwVGupDLKjaUn4pIVy9Mewan/view?usp=sharing", // <-- أضف رابط الدرايف هنا
         stages: [
             { ar: "التنزيل", en: "Downloading" },
             { ar: "الترتيب", en: "Organizing" },
