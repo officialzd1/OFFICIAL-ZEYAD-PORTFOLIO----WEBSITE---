@@ -38,7 +38,7 @@ function setStatus(isBusy) {
 }
 setStatus(false);
 
-// إظهار وإخفاء التلميحات الملاحظات
+// إظهار وإخفاء التلميحات والملاحظات
 function toggleNote(e) {
     if (e) {
         e.preventDefault();
@@ -50,26 +50,36 @@ function toggleNote(e) {
     }
 }
 
+function toggleOrderNote(e) {
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    const tooltip = e.currentTarget || e.target.closest('.order-info-tooltip');
+    if (tooltip) {
+        tooltip.classList.toggle('active');
+    }
+}
+
 
 /* ==========================================================================
    2. نظام تتبع المشاريع (Project Tracker Modal)
    ========================================================================== */
 
 const myProjects = {
-
-"ZD-743": { 
-        name: " سفرة جدة ",
+    "ZD-743": { 
+        name: "سفرة جدة",
         deliveryDate: "8:00AM | 21 August 2026",
         status: "paused",
         currentStage: 10, 
-        driveUrl: "https://drive.google.com/file/d/1J5HcDznmWwVGupDLKjaUn4pIVy9Mewan/view?usp=sharing", // <-- أضف رابط الدرايف هنا
+        driveUrl: "https://drive.google.com/file/d/1J5HcDznmWwVGupDLKjaUn4pIVy9Mewan/view?usp=sharing",
         stages: [
             { ar: "التنزيل", en: "Downloading" },
             { ar: "الترتيب", en: "Organizing" },
             { ar: "القص", en: "Cutting" },
             { ar: "التلوين", en: "Coloring" },
             { ar: "المقدمة", en: "Intro" },
-            { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effevts & Transtion" },
+            { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effects & Transition" },
             { ar: "المؤثرات الصوتية و الموسيقى", en: "Sound Effects & Music" },
             { ar: "المراجعة", en: "Review" },
             { ar: "التعديلات", en: "Amendments" },
@@ -77,32 +87,11 @@ const myProjects = {
             { ar: "التسليم", en: "Final Delivery" }
         ]
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     "ZD-8": { 
         name: "فلوق يوتيوب",
         status: "paused",
         currentStage: 8, 
-        driveUrl: "https://drive.google.com/file/d/YOUR_VIDEO_ID/view", // <-- أضف رابط الدرايف هنا
+        driveUrl: "https://drive.google.com/file/d/YOUR_VIDEO_ID/view",
         stages: [
             { ar: "التنزيل", en: "Downloading" },
             { ar: "الترتيب", en: "Organizing" },
@@ -115,7 +104,7 @@ const myProjects = {
     "ZD1": { 
         name: "فلوق يوتيوب", 
         status: "paused",
-        statusMsg: " تم الإنتهاء | Finished ",
+        statusMsg: "تم الإنتهاء | Finished",
         currentStage: 14, 
         previewUrl: "your-video1.mp4",        
         stages: [
@@ -129,15 +118,14 @@ const myProjects = {
             "مؤثرات صوتية SFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
             "التصدير Exporting <span style='color: #2ecc71;'>100%</span>",
             "التسليم ✓ Final Delivery",
-            " فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
-            " فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
-            " فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
+            "فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
+            "فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
+            "فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
             "التسليم ✓ Final Delivery"
         ]
     }
 };
 
-// متغير عام لإيقاف المؤقت السابق حتى لا تتداخل المؤشرات عند البحث عن كود آخر
 let countdownInterval = null;
 
 function toggleInfo() {
@@ -152,11 +140,9 @@ function toggleTracker() {
     }
 }
 
-// دالة تحويل صيغة التاريخ الخاصة بك إلى تاريخ يفهمه المتصفح
 function parseDeliveryDate(dateStr) {
     if (!dateStr) return null;
     
-    // محاولة قراءة صيغة مثل "8:00AM | 21 August 2026" أو "8:03 AM | 21 August 2026"
     const regex = /(\d{1,2}):(\d{2})\s*(AM|PM)?\s*\|\s*(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})/i;
     const match = dateStr.match(regex);
 
@@ -174,7 +160,6 @@ function parseDeliveryDate(dateStr) {
         return new Date(`${month} ${day}, ${year} ${formattedHours}:${minutes}:00`);
     }
 
-    // إذا كان التاريخ مكتوباً بالصيغة القياسية العادية
     return new Date(dateStr.replace('|', '').trim());
 }
 
@@ -196,7 +181,7 @@ function startCountdown(dateString) {
         const diff = targetDate.getTime() - now;
 
         if (diff <= 0) {
-            timerElement.innerHTML = `<span style="color: #00ff22; font-weight: bold;"> انتهى موعد التسليم | Deadline Passed </span>`;
+            timerElement.innerHTML = `<span style="color: #00ff22; font-weight: bold;">انتهى موعد التسليم | Deadline Passed</span>`;
             clearInterval(countdownInterval);
             return;
         }
@@ -227,7 +212,6 @@ function checkProject() {
     const project = myProjects[code];
 
     if (project) { 
-        // تقليل الـ max-height ليبقى هناك متسع كافٍ لزر الاستلام الثابت
         let timelineHTML = `<div style="display: flex; flex-direction: column; align-items: center; margin-top: 15px; max-height: 210px; overflow-y: auto; width: 100%; box-sizing: border-box; padding: 10px 0;">`;
         
         timelineHTML += `<div style="position: relative; width: 100%; margin-top: 5px;">`;
@@ -280,10 +264,8 @@ function checkProject() {
                 </div>`;
         }
 
-        // إغلاق منطقة الـ scroll
         timelineHTML += `</div>`;
 
-        // زر الاستلام مفصول خارج الـ scroll ليبقى ثابتاً في الأسفل
         let downloadButton = "";
         if (project.driveUrl && project.driveUrl.trim() !== "") {
             downloadButton = `
@@ -298,7 +280,7 @@ function checkProject() {
         display.innerHTML = `
             <div style="background: rgba(0, 0, 0, 0.6); padding: 15px; border-radius: 10px; border: 1px solid rgba(197, 160, 85, 0.3); text-align: center;">
                 <div style="margin-bottom: 12px; text-align: center;">
-                    <strong> المشروع : <span style="color: #ffffff; font-size: 1rem;">${project.name}</span></strong>
+                    <strong>المشروع : <span style="color: #ffffff; font-size: 1rem;">${project.name}</span></strong>
                 </div>
                 ${timelineHTML}
                 ${downloadButton}
@@ -313,84 +295,6 @@ function checkProject() {
         display.innerHTML = `<p style="color:red; text-align: center; padding: 10px;">كود غير صحيح | Invalid Code</p>`;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* ==========================================================================
@@ -486,13 +390,13 @@ updateCountdown();
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- أ. نموذج الطلب المباشر (Formspree AJAX) ---
+    // أ. نموذج الطلب المباشر (Formspree AJAX)
     const orderForm = document.getElementById("my-form");
     const successMsg = document.getElementById("form-success-msg");
 
     if (orderForm) {
         orderForm.addEventListener("submit", function (e) {
-            e.preventDefault(); // يمنع فتح النافذة الجديدة وإعادة التوجيه نهائياً
+            e.preventDefault();
 
             const data = new FormData(orderForm);
 
@@ -518,7 +422,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- ب. مشغل الصوت والموجات الصوتية (Audio & Waveform) ---
+    // ب. مشغل الصوت والموجات الصوتية (Audio & Waveform)
     const audio = document.getElementById('my-audio');
     const playBtn = document.getElementById('play-btn');
     const waveform = document.getElementById('waveform');
@@ -567,7 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.onended = () => { playBtn.textContent = '▶'; };
     }
 
-    // --- ج. ظهور الأقسام بسلاسة (Intersection Observer) ---
+    // ج. ظهور الأقسام بسلاسة (Intersection Observer)
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -580,7 +484,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // --- د. زر العودة للأعلى (Back to Top) ---
+    // د. زر العودة للأعلى (Back to Top)
     const backToTopButton = document.getElementById('backToTop');
     if (backToTopButton) {
         window.addEventListener('scroll', () => {
@@ -596,7 +500,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- هـ. تفاعل الاسم والصورة الشخصية (Blur & Profile Toggle) ---
+    // هـ. تفاعل الاسم والصورة الشخصية (Blur & Profile Toggle)
     const nameTrigger = document.getElementById('nameTrigger');
     const myPhoto = document.getElementById('myPhoto');
     const blurArea = document.querySelector('.blur-area');
@@ -623,12 +527,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- و. أغلاق روابط القائمة الجوالة عند النقر ---
+    // و. إغلاق روابط القائمة الجوالة عند النقر
     document.querySelectorAll('#mobile-nav a').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
 
-    // --- ز. تقويم حجز المواعيد (Booking Calendar) ---
+    // ز. تقويم حجز المواعيد (Booking Calendar)
     const daysGrid = document.getElementById('days-grid');
     const bookingModal = document.getElementById('booking-modal');
     const selectedDateText = document.getElementById('selected-date-text');
@@ -680,7 +584,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- ح. تصفية معرض الأعمال (Portfolio Filter) ---
+    // ح. تصفية معرض الأعمال (Portfolio Filter)
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.thumbnail-link');
 
@@ -704,18 +608,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-function toggleOrderNote(e) {
-    if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    const tooltip = e.currentTarget || e.target.closest('.order-info-tooltip');
-    if (tooltip) {
-        tooltip.classList.toggle('active');
-    }
-}
-
-
-
-

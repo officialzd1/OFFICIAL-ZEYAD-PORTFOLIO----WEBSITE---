@@ -1,715 +1,541 @@
+/* ==========================================
+   1. الإعدادات العامة والمتغيرات الأساسية
+   ========================================== */
 html { 
-scroll-behavior: smooth;}
+    scroll-behavior: smooth;
+}
 
 body {
-overflow-x: hidden;
-background-color: black;
-color: rgb(255, 255, 255);
-margin: 0;
-font-family: 'monospace', sans-serif;}
-
-nav {
-position: fixed;
-top: 1.8rem;
-width: 100%;
-box-sizing: border-box;
-padding: 3rem 3rem;
-display: flex;
-justify-content: center;
-gap: 5rem;
-z-index: 9999;
-background: rgba(0, 0, 0, 0.838);
-backdrop-filter: blur(0.8rem);}
-
-nav a {
-color: rgb(255, 255, 255);
-text-decoration: none;
-font-size: 1rem;
-letter-spacing: 0.3rem;
-text-transform: uppercase;
-position: relative;
-opacity: 1;
-transition: all 0.3s ease;
-display: inline-block;}
-
-nav a:hover {
-opacity: 1;
-transform: scale(1.1); 
-cursor: pointer;
-color: #ffffff;}
-
-nav a::after {
-content: '';
-position: absolute;
-width: 0; 
-height: 0.1rem;
-bottom: -0.3rem; 
-left: 50%;
-transition: all 0.3s ease;
-background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-background-size: 200% auto;
--webkit-text-fill-color: transparent;
-animation: shine 3.8s linear infinite;
-text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);}
-
-nav a:hover::after {
-width: 100%; 
-left: 0;}
-
-#scrollProgress {
-position: fixed !important;
-top: 0 !important;
-left: 0 !important;
-height: 4px !important;
-z-index: 99999 !important;
-background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-background-size: 200% auto;
--webkit-text-fill-color: transparent;
-animation: shine 3.8s linear infinite;
-text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);}
-
-.container {
-position: relative;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-min-height: 100vh;
-animation: fadeIn 1.8s ease-in-out;}
+    overflow-x: hidden;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    font-family: 'monospace', sans-serif;
+}
 
 @keyframes fadeIn {
-from { opacity: 0; }
-to { opacity: 1; }}
-
-.logo {
-font-size: 3rem;
-letter-spacing: 0.3rem;
-
-font-weight: bold;
-font-family: 'Playfair Display', serif;
-background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-background-size: 200% auto;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-animation: shine 3.8s linear infinite;
-transition: all 0.4s ease;
-cursor: default;
-margin: 0.3rem;}
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
 @keyframes shine {
-to { background-position: -200% center; }}
-
-.subtitle {
-font-size: 1rem;
-letter-spacing: 3rem;
-padding-left: 2.1rem;
-font-weight: 200;
-font-family: 'Arial', sans-serif;
-margin-top: 1rem;
-user-select: none;}
-
-.scroll-indicator {
-font-size: 1.8rem;
-padding-right: 0rem;
-margin-top: 1.8rem;
-animation: bounce 1.8s infinite;
-user-select: none;}
+    to { background-position: -200% center; }
+}
 
 @keyframes bounce {
-0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-40% { transform: translateY(-0.5rem); }}
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-0.5rem); }
+}
 
-#clients {
-min-height: 100vh; 
-display: flex; 
-flex-direction: column; 
-justify-content: center; 
-align-items: center;
-padding: 4rem 1rem;
-box-sizing: border-box;}
+@keyframes blink {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
 
-#clients h2, .works-section h2, #order-form h2 {
-font-size: 1.8rem;
-margin-bottom: 8rem;
-background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-background-size: 200% auto;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-animation: shine 4.8s linear infinite;
-transition: all 0.4s ease;
-cursor: default;
-margin: 3rem;}
 
-.clients-grid {
-display: flex;
-justify-content: center;
-gap: 3rem;
-flex-wrap: wrap;
-max-width: 1200rem;}
+/* ==========================================
+   2. شريط التنقل العلوي (Navbar)
+   ========================================== */
+nav {
+    position: fixed;
+    top: 1.8rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 3rem 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.838);
+    backdrop-filter: blur(0.8rem);
+}
 
-.clients-grid img {
-width: 6rem;
-height: 6rem;
-border-radius: 100%;
-object-fit: cover;
-border: 0.2rem solid #c49b33;
-transition: transform 0.5s ease, box-shadow 0.5s ease;}
+nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    position: relative;
+    opacity: 1;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
 
-.clients-grid img:hover {
-transform: scale(1.1); 
-box-shadow: 0 0 2rem rgba(255, 183, 0, 0.6);
-cursor: pointer;}
+nav a:hover {
+    opacity: 1;
+    transform: scale(1.1); 
+    cursor: pointer;
+    color: #ffffff;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0; 
+    height: 0.1rem;
+    bottom: -0.3rem; 
+    left: 50%;
+    transition: all 0.3s ease;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3.8s linear infinite;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+nav a:hover::after {
+    width: 100%; 
+    left: 0;
+}
+
+
+/* ==========================================
+   3. القسم الرئيسي (Hero Section)
+   ========================================== */
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    animation: fadeIn 1.8s ease-in-out;
+}
+
+.logo {
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3.8s linear infinite;
+    transition: all 0.4s ease;
+    cursor: default;
+    margin: 0.3rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    letter-spacing: 3rem;
+    padding-left: 2.1rem;
+    font-weight: 200;
+    font-family: 'Arial', sans-serif;
+    margin-top: 1rem;
+    user-select: none;
+}
+
+.scroll-indicator {
+    font-size: 1.8rem;
+    padding-right: 0rem;
+    margin-top: 1.8rem;
+    animation: bounce 1.8s infinite;
+    user-select: none;
+}
+
+
+/* ==========================================
+   4. قسم الأعمال (Works Section)
+   ========================================== */
+.works-section {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: #000000;
+    color: rgba(15, 15, 15, 0.164);
+}
+
+.works-section h2, 
+#clients h2, 
+#order-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8rem;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4.8s linear infinite;
+    transition: all 0.4s ease;
+    cursor: default;
+    margin: 3rem;
+}
 
 .filter-buttons {
-display: flex;
-justify-content: center;
-gap: 0.8rem;
-margin-bottom: 3rem;
-flex-wrap: wrap;}
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
 
 .filter-btn {
-background-color: #000000;
-color: #aaaaaa;
-border: 0.1rem solid #333;
-padding: 0.5rem 0.8rem;
-border-radius: 1rem;
-cursor: pointer;
-font-size: 0.8rem;
-transition: all 0.5s ease;}
+    background-color: #000000;
+    color: #aaaaaa;
+    border: 0.1rem solid #333;
+    padding: 0.5rem 0.8rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.5s ease;
+}
 
 .filter-btn:hover {
-border-color: #d4af37;
-color: #fff;}
+    border-color: #d4af37;
+    color: #fff;
+}
 
 .filter-btn.active {
-background-color: #d4af37;
-color: #000;
-border-color: #d4af37;
-font-weight: bold;}
-
-/* 1. الحاوية الرئيسية للشبكة (Grid) */
-.works-section {
-  text-align: center;
-  padding: 6rem 2rem;
-  background: #000000;
-  color: rgba(15, 15, 15, 0.164);
+    background-color: #d4af37;
+    color: #000;
+    border-color: #d4af37;
+    font-weight: bold;
 }
 
 .portfolios-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-  gap: 2.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
 }
 
-/* 2. كارت الثمبنيل الرئيسي (إطار الصورة المنحني) */
 .thumbnail-link {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9; /* توحيد أبعاد كل الصور بنسبة 16:9 */
-  position: relative;
-  overflow: hidden;     /* لقص زوايا الصورة وتطبيق الانحناء بدقة */
-  border-radius: 1rem;  /* انحناء الحواف المتناسق */
-  border: 1px solid #333;
-  background: #111;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 1px solid #333;
+    background: #111;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* 3. الصورة بداخل الكارت */
 .thumbnail-link img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;    /* ملء الكارت كاملاً بدون تمطيط */
-  display: block;
-  filter: grayscale(38%);
-  transition: transform 0.5s ease, filter 0.5s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(38%);
+    transition: transform 0.5s ease, filter 0.5s ease;
 }
 
-/* 4. تأثيرات الـ Hover (التمرير بالماوس) */
 .thumbnail-link:hover {
-  border-color: #c49b33;
-  box-shadow: 0 0 2rem rgba(196, 155, 51, 0.3);
+    border-color: #c49b33;
+    box-shadow: 0 0 2rem rgba(196, 155, 51, 0.3);
 }
 
 .thumbnail-link:hover img {
-  filter: grayscale(0%);
-  transform: scale(1.03); /* تكبير خفيف واحترافي للصورة عند الهوفر */
+    filter: grayscale(0%);
+    transform: scale(1.03);
 }
 
-/* 5. إخفاء الكروت عند الفلترة */
 .thumbnail-link.hidden,
 .portfolio-item-wrapper.hidden {
-  display: none !important;
+    display: none !important;
 }
 
-#order-form {
-max-width: 38rem;
-max-height: 83rem;
-margin: 15rem auto;
-padding: 3rem 3rem;
-background: #13131338;
-border: 0.1rem solid #c49b33;
-border-radius: 1rem;
-color: white;
-box-sizing: border-box;
-box-shadow: 0 0rem 2rem rgba(196, 155, 51, 0.3);}
-
-#order-form input, 
-#order-form select {
-width: 100%;
-padding: 1rem;
-margin-top: 1rem;
-margin-bottom: 3rem;
-border: 1px solid #333;
-border-radius: 0.5rem;
-background: #000;
-color: white;
-box-sizing: border-box;
-font-size: 1rem;
-transition: border-color 0.3s;}
-
-#order-form input:focus, 
-#order-form select:focus {
-border-color: #c49b33;
-outline: none;
-box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);}
-
-#order-form button {
-width: 100%;
-padding: 1rem;
-background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-background-size: 200% auto;
-animation: shine 4.8s linear infinite;
-transition: all 0.4s ease;
-color: black;
-border: none;
-border-radius: 2rem;
-cursor: pointer;
-font-size: 1.1rem;
-font-weight: bold;
-transition: transform 0.3s, opacity 0.3s;
-box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);}
-
-#order-form button:hover {
-opacity: 1;
-transform: scale(1.03);}
-
-@keyframes blink {
-0%, 100% { opacity: 0.2; }
-50% { opacity: 1; }}
-
-.social-buttons {
-position: fixed;
-bottom: 4rem; 
-left: 50%; 
-transform: translateX(-50%); 
-display: flex; 
-flex-direction: row;
-gap: 1rem; 
-z-index: 9999;}
-
-.social-btn {
-padding: 0.8rem 0.8rem;
-border-radius: 1.3rem;
-text-decoration: none;
-color: #000 !important;
-font-weight: bold;
-font-size: 0.8rem;
-transition: transform 0.3s ease, box-shadow 0.3s ease;}
-
-.whatsapp { background-color: #00ff5e; }
-.instagram { background-color: #ff0055; }
-
-.social-btn:hover {
-transform: scale(1.08);
-box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);}
-
-#status-badge {
-position: fixed;
-top: 3rem;
-right: 3rem;
-background: rgba(0, 0, 0, 0.8);
-padding: 0.5rem 1rem;
-border-radius: 3rem;
-cursor: pointer;
-display: flex;
-align-items: center;
-gap: 8px;
-z-index: 10000;
-border: 0.1rem solid #c49b33;
-user-select: none;
-font-size: 0.8rem;}
-
-#status-dot {
-width: 0.5rem;
-height: 0.5rem;
-border-radius: 50%;
-background: #ff0000;
-box-shadow: 0 0 0.5rem #ff0000;}
-
-#backToTop {
-position: fixed;
-bottom: 4.5rem;
-right: 2rem;
-padding: 0.4rem 0.8rem;
-background: rgba(0, 0, 0, 0.6);
-color: rgb(255, 255, 255);
-border: 1px solid #c49b33;
-cursor: pointer;
-border-radius: 3rem;
-font-size: 1rem;
-opacity: 0;
-visibility: hidden;
-transition: all 0.5s ease;
-z-index: 99999;}
-
-#backToTop.show {
-opacity: 1;
-visibility: visible;}
-
-#backToTop:hover {
-background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-background-size: 300% auto;
-animation: shine 8s linear infinite;
-box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
-color: #000;
-transform: scale(1.1);}
-
-.modal {
-display: none;
-position: fixed;
-top: 0; left: 0; width: 100%; height: 100%;
-background: rgba(0,0,0,0.85);
-z-index: 9999;
-justify-content: center;
-align-items: center;
-user-select: none;}
-
-.new-close-btn {
-font-size: 3rem;
-font-weight: bold;
-color: #c49b33;
-cursor: pointer;
-display: block;
-text-align: right;
-margin: -1rem 0 0rem 0;
-transition: color 0.3s ease;}
-
-.new-close-btn:hover {
-color: #ffffff;}
-
-.track-btn {
-position: fixed;
-bottom: 4.1rem;
-left: 3rem;
-z-index: 9999;
-background: rgba(0, 0, 0, 0.8);
-color: white;
-border: 0.1rem solid #c5a059;
-padding: 0.5rem 1rem;
-cursor: pointer;
-border-radius: 0.3rem;
-font-size: 0.8rem;
-transition: all 0.5s;}
-
-.track-btn:hover {
-background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-background-size: 300% auto;
-animation: shine 8s linear infinite;
-color: black;}
-
-.modal {
-display: none;
-position: fixed;
-top: 0; left: 0; width: 100%; height: 100%;
-background: rgba(0,0,0,0.8);
-z-index: 9999;
-justify-content: center;
-align-items: center;}
-
-.modal-content h3 {
-white-space: nowrap;
-display: inline-block;
-font-size: 1rem;
-margin: 0 auto;
-background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-text-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
-background-size: 200% auto;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-animation: shine 3.8s linear infinite;
-transition: all 0.4s ease;
-cursor: default;
-margin: 0.1rem;}
-
-.modal-content {
-background: #000 !important;
-border: 0.1rem solid #c5a059 !important;
-color: white !important;
-width: auto;
-min-width: 18rem;
-padding: 3rem;
-width: 38rem;
-text-align: center;
-border-radius: 1rem;
-box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);}
-
-#info-modal {
-background: #000;
-border: 1rem solid #000000;}
-
-#project-code {
-width: 83%;
-padding: 0.8rem;
-margin: 1.8rem 0;
-background: #000000;
-border: 1px solid #c5a059;
-color: white;
-border-radius: 5rem;
-text-align: center;}
-
-.check-btn {
-background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-background-size: 500% auto;
-animation: shine 13s linear infinite;
-transition: all 0.4s ease;
-cursor: default;
-color: black;
-border: none;
-padding: 10px 20px;
-cursor: pointer;
-font-weight: bold;
-border-radius: 5rem;}
-
-#project-status {
-margin-top: 2rem;
-padding: 1rem;
-border-top: 0.1rem solid #444;}
-
 .portfolio-item-wrapper {
-position: relative;
-display: flex;
-flex-direction: column;
-align-items: center;
-overflow: visible !important;
-margin-bottom: 0rem; /* زيادة المسافة بين الكروت عشان الزر يأخذ راحته */
-z-index: 2; /* رفع الكارت ليكون فوق العناصر التي تحته */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible !important;
+    margin-bottom: 0rem;
+    z-index: 2;
 }
 
 .portfolio-item-wrapper .thumbnail-link {
-position: relative;
-z-index: 9999;
-width: 100%;
-display: block;
-border-radius: 1rem; /* تعديل الانحناء ليكون خفيف ومسحوب صح */
-overflow: hidden;
+    position: relative;
+    z-index: 9999;
+    width: 100%;
+    display: block;
+    border-radius: 1rem;
+    overflow: hidden;
 }
 
 .portfolio-item-wrapper .thumbnail-link img {
-width: 100%;
-display: block;
+    width: 100%;
+    display: block;
 }
 
 .portfolio-item-wrapper::before {
-  content: "";
-  position: absolute;
-  top: 100%; /* يبدأ من حافة أسفل الصورة فوراً */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0.1rem;
-  height: 0.8rem; /* طول الخط */
-  background-color: #ffcc00;
-  z-index: 0;
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.1rem;
+    height: 0.8rem;
+    background-color: #ffcc00;
+    z-index: 0;
+}
+
+.portfolio-item-wrapper:has(.thumbnail-link.hidden),
+.portfolio-item-wrapper.hidden {
+    display: none !important;
+}
+
+
+/* ==========================================
+   5. قسم العملاء (Clients Section)
+   ========================================== */
+#clients {
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    padding: 4rem 1rem;
+    box-sizing: border-box;
+}
+
+.clients-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: 1200rem;
+}
+
+.clients-grid img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 0.2rem solid #c49b33;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.clients-grid img:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 0 2rem rgba(255, 183, 0, 0.6);
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   6. نموذج الطلب والملاحظات (Order Form & Tooltips)
+   ========================================== */
+#order-form {
+    max-width: 38rem;
+    max-height: 83rem;
+    margin: 15rem auto;
+    padding: 3rem 3rem;
+    background: #13131338;
+    border: 0.1rem solid #c49b33;
+    border-radius: 1rem;
+    color: white;
+    box-sizing: border-box;
+    box-shadow: 0 0rem 2rem rgba(196, 155, 51, 0.3);
+}
+
+#order-form input, 
+#order-form select {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background: #000;
+    color: white;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#order-form input:focus, 
+#order-form select:focus {
+    border-color: #c49b33;
+    outline: none;
+    box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+}
+
+#order-form button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    animation: shine 4.8s linear infinite;
+    transition: all 0.4s ease;
+    color: black;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+}
+
+#order-form button:hover {
+    opacity: 1;
+    transform: scale(1.03);
 }
 
 .info-tooltip {
-  position: absolute;
-  top: calc(100% + 0.8rem); /* يوضع تحت الصورة بمسافة مساوية للخط الأصفر */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1.2rem;
-  height: 1.2rem;
-  background-color: #ffcc00;
-  color: #000;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 0.6rem;
-  cursor: pointer;
-  z-index: 5;
-  box-shadow: 0px 0px 1rem rgba(255, 196, 0, 0.836);
-  transition: background-color 0.3s ease;
+    position: absolute;
+    top: calc(100% + 0.8rem);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: #ffcc00;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.6rem;
+    cursor: pointer;
+    z-index: 5;
+    box-shadow: 0px 0px 1rem rgba(255, 196, 0, 0.836);
+    transition: background-color 0.3s ease;
 }
 
 .info-tooltip:hover {
-  background-color: #ffffff;
+    background-color: #ffffff;
 }
 
 .note-box {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 16rem;
-  max-width: 85vw;
-  background-color: #000000;
-  border: 1px solid #ffcc00b9;
-  border-radius: 1rem;
-  padding: 1rem;
-  box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.8);
-  z-index: 100;
-  cursor: default;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-  pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 13rem;
+    max-width: 85vw;
+    background-color: #000000;
+    border: 1px solid #ffcc00b9;
+    border-radius: 1rem;
+    padding: 1rem 3rem;
+    box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    cursor: default;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    pointer-events: none;
 }
 
 .info-tooltip.active .note-box {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .note-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 0.1rem solid rgba(255, 204, 0, 0.2);
-  padding-bottom: 0.8rem;
-  margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.1rem solid rgba(255, 204, 0, 0.2);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
 }
 
 .note-ar {
-  font-family: inherit;
-  font-weight: bold;
-  font-size: 0.8rem;
-  color: #ffcc00;
-  direction: rtl;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #ffcc00;
+    direction: rtl;
 }
 
 .note-en {
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 0.8rem;
-  color: #ffcc00;
-  direction: ltr;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #ffcc00;
+    direction: ltr;
 }
 
-.note-box {
-width: 13rem;
-padding: 1rem 3rem;}
-
 .note-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .note-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1.33rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.33rem;
 }
 
 .editor-row {
-  padding-top: 0.8rem;
-  border-top: 0.1rem dashed rgba(255, 255, 255, 0.12);
+    padding-top: 0.8rem;
+    border-top: 0.1rem dashed rgba(255, 255, 255, 0.12);
 }
 
 .text-ar, .editor-ar {
-  direction: rtl;
-  text-align: right;
-  font-size: 0.6rem;
-  line-height: 1.35;
-  color: #999999;
-  margin: 0;
-  width: 50%;
+    direction: rtl;
+    text-align: right;
+    font-size: 0.6rem;
+    line-height: 1.35;
+    color: #999999;
+    margin: 0;
+    width: 50%;
 }
 
 .text-en, .editor-en {
-  direction: ltr;
-  text-align: left;
-  font-size: 0.55rem;
-  line-height: 1.35;
-  color: #999999;
-  margin: 0;
-  width: 50%;
+    direction: ltr;
+    text-align: left;
+    font-size: 0.55rem;
+    line-height: 1.35;
+    color: #999999;
+    margin: 0;
+    width: 50%;
 }
 
 .editor-link {
-  color: #ffcc00;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.5rem;
-  display: inline-block;
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.5rem;
+    display: inline-block;
 }
 
 .editor-link:hover {
-  text-decoration: underline;
-  color: #ffffff;
+    text-decoration: underline;
+    color: #ffffff;
 }
 
 .proof-wrapper {
-  margin-top: 0.8rem;
-  padding-top: 0.8rem;
-  border-top: 0.1rem dashed rgba(255, 255, 255, 0.12);
-  text-align: center;
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 0.1rem dashed rgba(255, 255, 255, 0.12);
+    text-align: center;
 }
 
 .proof-img {
-  width: 100%;
-  max-height: 10rem;
-  object-fit: contain;
-  border-radius: 0.3rem;
-  border: 0.1rem solid rgba(255, 204, 0, 0.61);
-box-shadow: 0px 0px 0.5rem rgba(255, 196, 0, 0.836);
+    width: 100%;
+    max-height: 10rem;
+    object-fit: contain;
+    border-radius: 0.3rem;
+    border: 0.1rem solid rgba(255, 204, 0, 0.61);
+    box-shadow: 0px 0px 0.5rem rgba(255, 196, 0, 0.836);
 }
-
-/* إخفاء غلاف الملاحظة بالكامل عند إخفاء الصورة في الفلترة */
-.portfolio-item-wrapper:has(.thumbnail-link.hidden),
-.portfolio-item-wrapper.hidden {
-  display: none !important;
-}
-
-/* تنسيق الفوتر الأساسي */
-footer {
-  text-align: center;
-  margin-top: 5rem;
-  margin-bottom: 2rem;
-}
-
-footer p {
-  color: #666668;
-  font-size: 0.8rem;
-  font-family: sans-serif;
-}
-
-
 
 .order-note-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-top: 1.2rem;
-  z-index: 10;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1.2rem;
+    z-index: 10;
 }
 
-/* الأيقونة الدائرية الصفراء بنفس الأبعاد تماماً */
 .order-info-tooltip {
     position: relative;
     width: 1.5rem !important;
     height: 1.5rem !important;
-    color: #ffcc00b9 !important;            /* لون حرف التعجب رمادي */
-    border: 1px solid #ffcc00b9 !important;  /* إطار رمادي بدلاً من الذهبي */
-    background: #222222 !important;        /* خلفية رمادية غامقة ثابته */
+    color: #ffcc00b9 !important;
+    border: 1px solid #ffcc00b9 !important;
+    background: #222222 !important;
     border-radius: 50% !important;
     display: flex !important;
     align-items: center !important;
@@ -717,95 +543,225 @@ footer p {
     font-weight: bold;
     cursor: pointer;
     z-index: 5;
-    box-shadow: none !important;            /* إلغاء التوهج/الظل الذهبي */
-    animation: none !important;             /* إيقاف أي حركة انيميشن */
+    box-shadow: none !important;
+    animation: none !important;
     padding: 0.3rem !important;
     margin: 0 auto !important;
 }
 
-/* صندوق الملاحظة بنفس مقاسات وتنسيق الصندوق القديم */
 .order-note-box {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 13rem;
-  max-width: 85vw;
-  background-color: #000000;
-  border: 1px solid #ffcc00b9;
-  border-radius: 1rem;
-  padding: 1rem 3rem;
-  box-shadow: 0px 0px 3rem rgba(255, 196, 0, 0.295);
-  z-index: 100;
-  cursor: default;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-  pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 13rem;
+    max-width: 85vw;
+    background-color: #000000;
+    border: 1px solid #ffcc00b9;
+    border-radius: 1rem;
+    padding: 1rem 3rem;
+    box-shadow: 0px 0px 3rem rgba(255, 196, 0, 0.295);
+    z-index: 100;
+    cursor: default;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    pointer-events: none;
 }
 
 .order-info-tooltip.active .order-note-box {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .order-note-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 0.1rem solid rgba(255, 204, 0, 0.2);
-  padding-bottom: 0.8rem;
-  margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.1rem solid rgba(255, 204, 0, 0.2);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
 }
 
 .order-note-ar {
-  font-family: inherit;
-  font-weight: bold;
-  font-size: 0.8rem;
-  color: #ffcc00;
-  direction: rtl;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #ffcc00;
+    direction: rtl;
 }
 
 .order-note-en {
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 0.8rem;
-  color: #ffcc00;
-  direction: ltr;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #ffcc00;
+    direction: ltr;
 }
 
 .order-note-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .order-note-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1.33rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.33rem;
 }
 
 .order-text-ar {
-  direction: rtl;
-  text-align: right;
-  font-size: 0.6rem;
-  line-height: 1.35;
-  color: #999999;
-  margin: 0;
-  width: 50%;
+    direction: rtl;
+    text-align: right;
+    font-size: 0.6rem;
+    line-height: 1.35;
+    color: #999999;
+    margin: 0;
+    width: 50%;
 }
 
 .order-text-en {
-  direction: ltr;
-  text-align: left;
-  font-size: 0.55rem;
-  line-height: 1.35;
-  color: #999999;
-  margin: 0;
-  width: 50%;
+    direction: ltr;
+    text-align: left;
+    font-size: 0.55rem;
+    line-height: 1.35;
+    color: #999999;
+    margin: 0;
+    width: 50%;
+}
+
+
+/* ==========================================
+   7. الأزرار والعناصر العائمة (Floating UI)
+   ========================================== */
+#scrollProgress {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 4px !important;
+    z-index: 99999 !important;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3.8s linear infinite;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.social-buttons {
+    position: fixed;
+    bottom: 4rem; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex; 
+    flex-direction: row;
+    gap: 1rem; 
+    z-index: 9999;
+}
+
+.social-btn {
+    padding: 0.8rem 0.8rem;
+    border-radius: 1.3rem;
+    text-decoration: none;
+    color: #000 !important;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp { background-color: #00ff5e; }
+.instagram { background-color: #ff0055; }
+
+.social-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+}
+
+#status-badge {
+    position: fixed;
+    top: 3rem;
+    right: 3rem;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10000;
+    border: 0.1rem solid #c49b33;
+    user-select: none;
+    font-size: 0.8rem;
+}
+
+#status-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #ff0000;
+    box-shadow: 0 0 0.5rem #ff0000;
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 4.5rem;
+    right: 2rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: rgb(255, 255, 255);
+    border: 1px solid #c49b33;
+    cursor: pointer;
+    border-radius: 3rem;
+    font-size: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    z-index: 99999;
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#backToTop:hover {
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 300% auto;
+    animation: shine 8s linear infinite;
+    box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+    color: #000;
+    transform: scale(1.1);
+}
+
+.track-btn {
+    position: fixed;
+    bottom: 4.1rem;
+    left: 3rem;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: 0.1rem solid #c5a059;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    transition: all 0.5s;
+}
+
+.track-btn:hover {
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 300% auto;
+    animation: shine 8s linear infinite;
+    color: black;
+}
+
+.payment-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 150px;
+    z-index: 1000;
 }
 
 .drive-btn {
@@ -828,437 +784,414 @@ footer p {
 }
 
 
-
-
-
-
-
-
-.payment-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 150px; /* اضبط المسافة أو الموضع الذي يناسبك تماماً بعيداً عن الزر الأول */
-  z-index: 1000;
+/* ==========================================
+   8. النوافذ المنبثقة (Modals)
+   ========================================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.modal-content {
+    background: #000 !important;
+    border: 0.1rem solid #c5a059 !important;
+    color: white !important;
+    width: 38rem;
+    min-width: 18rem;
+    padding: 3rem;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+}
+
+.modal-content h3 {
+    white-space: nowrap;
+    display: inline-block;
+    font-size: 1rem;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    text-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3.8s linear infinite;
+    transition: all 0.4s ease;
+    cursor: default;
+    margin: 0.1rem;
+}
+
+.new-close-btn {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #c49b33;
+    cursor: pointer;
+    display: block;
+    text-align: right;
+    margin: -1rem 0 0rem 0;
+    transition: color 0.3s ease;
+}
+
+.new-close-btn:hover {
+    color: #ffffff;
+}
+
+#info-modal {
+    background: #000;
+    border: 1rem solid #000000;
+}
+
+#project-code {
+    width: 83%;
+    padding: 0.8rem;
+    margin: 1.8rem 0;
+    background: #000000;
+    border: 1px solid #c5a059;
+    color: white;
+    border-radius: 5rem;
+    text-align: center;
+}
+
+.check-btn {
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 500% auto;
+    animation: shine 13s linear infinite;
+    transition: all 0.4s ease;
+    cursor: default;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5rem;
+    cursor: pointer;
+}
+
+#project-status {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 0.1rem solid #444;
+}
 
 
 /* ==========================================
-   كود الميديا الخاص بالجوالات والشاشات الصغيرة
+   9. الفوتر (Footer)
    ========================================== */
-@media (max-width: 768px) {
-
-  /* 1. إعدادات الصفحة الرئيسية */
-  html, body {
-    overflow-x: hidden;
-  }
-
-  /* 2. شريط التنقل (Navbar) */
-  nav {
-    top: 0;
-    padding: 1rem 1rem;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    display: none;
-  }
-
-  nav a {
-    font-size: 0.8rem;
-    letter-spacing: 0.15rem;
-  }
-
-  nav a:hover {
-    transform: scale(1.05);
-  }
-
-  nav a::after {
-    height: 0.1rem;
-  }
-
-.container {
-  
-position: relative;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-min-height: 100vh;
-animation: fadeIn 1.8s ease-in-out;}
-
-@keyframes fadeIn {
-from { opacity: 0; }
-to { opacity: 1; }}
-
-.logo {
-font-size: 2.3rem;
-font-weight: bold;
-font-family: 'Playfair Display', serif;
-background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-background-size: 200% auto;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-animation: shine 3.8s linear infinite;
-transition: all 0.4s ease;
-cursor: default;
-
-  text-align: center;
-  width: 100%; /* لضمان التوسيط الكامل داخل الحاوية */
-
-}
-
-@keyframes shine {
-to { background-position: -200% center; }}
-
-.subtitle {
-  text-align: center;
-  width: 100%;
-font-size: 0.5rem;
-letter-spacing: 1.8rem;
-padding-left: 1.1rem;
-font-weight: 200;
-font-family: 'Arial', sans-serif;
-margin-top: 1rem;
-user-select: none;}
-
-.scroll-indicator {
-font-size: 1rem;
-padding-right: 0.4rem;
-margin-top: 0.9rem;
-animation: bounce 1.8s infinite;
-user-select: none;}
-
-@keyframes bounce {
-0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-40% { transform: translateY(-0.5rem); }}
-
-  /* 4. عناوين الأقسام العامة */
-  #clients {
-    transform: scale(0.85);       /* تصغير القسم كاملاً بنسبة 15% دفعة واحدة */
-  transform-origin: center top;
-    padding: 2rem 1rem;
-    min-height: auto;
-  }
-
-  #clients h2, 
-  .works-section h2 {
-    font-size: 1rem;
-    margin-bottom: 3rem; /* تقليل المسافة الضخمة لتناسب الشاشة */
-    margin-top: 1.5rem;
-  }
-
-  /* 5. قسم العملاء (Clients) */
-  .clients-grid {
-    gap: 1.5rem;
-  }
-
-  .clients-grid img {
-    width: 4.5rem;
-    height: 4.5rem;
-  }
-
-  /* 6. أزرار الفلترة (Filter Buttons) */
-  .filter-buttons {
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .filter-btn {
-    padding: 0.4rem 0.7rem;
-    font-size: 0.75rem;
-    border-radius: 0.8rem;
-  }
-
-  /* 7. معرض الأعمال (Works Section & Grid) */
-  .works-section {
-    padding: 5rem 1rem;
-  }
-
-  .portfolios-container {
-    grid-template-columns: 1fr; /* عرض كارت واحد في كل سطر للوضوح */
-    gap: 3rem;
-    padding: 3rem;
-  }
-
-  .thumbnail-link {
-    border-radius: 0.8rem;
-  }
-
-  /* 8. كروت الملاحظات والأيقونات (Tooltip & Note Box) */
-  .portfolio-item-wrapper {
-    margin-bottom: 0.5rem;
-  }
-
-  .portfolio-item-wrapper::before {
-    height: 0.6rem;
-  }
-
-  .info-tooltip {
-    top: calc(100% + 0.6rem);
-    width: 1.1rem;
-    height: 1.1rem;
-    font-size: 0.55rem;
-  }
-
-  .note-box {
-    width: 85vw; /* جعل الملاحظة تتكيف مع عرض شاشة الجوال */
-    max-width: 15rem;
-    padding: 0.8rem;
-    top: 1.8rem;
-  }
-
-  .note-header {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.6rem;
-  }
-
-  .note-ar, .note-en {
-    font-size: 0.75rem;
-  }
-
-  .note-body {
-    gap: 0.6rem;
-  }
-
-  .note-row {
-    gap: 0.8rem;
-  }
-
-  .text-ar, .editor-ar,
-  .text-en, .editor-en {
-    font-size: 0.55rem;
-  }
-
-  .editor-link {
-    font-size: 0.55rem;
-  }
-
-  .proof-wrapper {
-    margin-top: 0.5rem;
-    padding-top: 0.5rem;
-  }
-
-  .proof-img {
-    max-height: 8rem;
-  }
-
-  /* 9. نموذج الطلب (Order Form) */
-#order-form {
-    transform: scale(0.85);       /* تصغير القسم كاملاً بنسبة 15% دفعة واحدة */
-  transform-origin: center top;
-  max-width: 92%;           /* زيادة العرض من 80% إلى 92% ليأخذ راحته */
-  max-height: none;
-  margin: 7rem auto;
-  padding: 1.5rem 0.8rem;   /* تقليل الحواف الداخلية لزيادة المساحة */
-}
-
-/* 2. ضبط مقاس العنوان ليناسب العرض بتمام والكمال */
-#order-form h2 {
-  font-size: 1.05rem;       /* المقاس الذهبي الذي يملأ السطر بدون قص */
-  white-space: nowrap;      /* يمنع النزول لسطر جديد */
-  margin-bottom: 1.8rem;
-  margin-top: 1rem;
-}
-  #order-form input, 
-  #order-form select {
-    padding: 0.8rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
-    font-size: 0.5rem;
-    
-  }
-
-  #order-form button {
-    padding: 0.8rem;
-    font-size: 1rem;
-  }
-
-  /* 10. الأزرار العائمة والشارات (Floating UI) */
-  #status-badge {
-    top: 2rem;
-    right: 2rem;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.6rem;
-  }
-
-  #status-dot {
-    width: 0.4rem;
-    height: 0.4rem;
-  }
-
-.track-btn {
-  position: fixed;
-  bottom: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999;
-  background: rgb(0, 0, 0);
-  color: white;
-  border: 0.1rem solid #c49b33;  /* نفس لون إطار زر الحالة */
- background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-background-size: 200% auto;
-animation: shine 4.8s linear infinite;
-transition: all 0.4s ease;
-color: black;
-border: none;
-border-radius: 2rem;
-cursor: pointer;
-font-size: 0.8rem;
-font-weight: bold;
-box-shadow: 0 0rem 1rem rgb(0, 0, 0);
-  padding: 0.5rem 1rem;         /* ضبط الحواف الداخلية لتنسجم مع الانحناء */
-  border-radius: 3rem;          /* نفس انحناء زر الحالة تماماً */
-  cursor: pointer;
-  font-size: 0.5rem;
-  transition: all 0.5s ease;
-}
-
-  .social-buttons {
-    bottom: 1rem;
-    gap: 0.5rem;
-    display: none;
-  }
-
-  .social-btn {
-    padding: 0.6rem 0.7rem;
-    font-size: 0.7rem;
-    border-radius: 1rem;
-  }
-
-  #backToTop {
-    bottom: 1rem;
-    right: 1rem;
-    padding: 0.3rem 0.6rem;
-    font-size: 0.8rem;
-    display: none;
-  }
-
-  /* 11. النوافذ المنبثقة (Modals) */
-  .modal-content {
-    width: 90%;
-    min-width: unset;
-    padding: 1.5rem 1rem;
-  }
-
-  .modal-content h3 {
-    font-size: 0.85rem;
-    white-space: normal; /* السماح بالتفاف العنوان إذا كان طويلاً */
-  }
-
-  .new-close-btn {
-    font-size: 2.2rem;
-  }
-
-  #project-code {
-    width: 90%;
-    padding: 0.6rem;
-    margin: 1rem 0;
-  }
-
-  .check-btn {
-    padding: 8px 16px;
-    font-size: 0.85rem;
-  }
-
-  #project-status {
-    margin-top: 1.2rem;
-    padding: 0.8rem;
-  }
-
-  /* تنسيق الفوتر الأساسي */
 footer {
-  text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
 }
 
 footer p {
-  color: #666668;
-  font-size: 0.5rem;
-  font-family: sans-serif;
+    color: #666668;
+    font-size: 0.8rem;
+    font-family: sans-serif;
 }
 
 
+/* ==========================================
+   10. التصميم المتجاوب للشاشات الصغيرة (Media Queries)
+   ========================================== */
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+    }
+
+    nav {
+        top: 0;
+        padding: 1rem 1rem;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        display: none;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+        letter-spacing: 0.15rem;
+    }
+
+    nav a:hover {
+        transform: scale(1.05);
+    }
+
+    nav a::after {
+        height: 0.1rem;
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .logo {
+        font-size: 2.3rem;
+        font-weight: bold;
+        font-family: 'Playfair Display', serif;
+        background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 3.8s linear infinite;
+        transition: all 0.4s ease;
+        cursor: default;
+        text-align: center;
+        width: 100%;
+    }
+
+    .subtitle {
+        text-align: center;
+        width: 100%;
+        font-size: 0.5rem;
+        letter-spacing: 1.8rem;
+        padding-left: 1.1rem;
+        font-weight: 200;
+        font-family: 'Arial', sans-serif;
+        margin-top: 1rem;
+        user-select: none;
+    }
+
+    .scroll-indicator {
+        font-size: 1rem;
+        padding-right: 0.4rem;
+        margin-top: 0.9rem;
+        animation: bounce 1.8s infinite;
+        user-select: none;
+    }
+
+    #clients {
+        transform: scale(0.85);
+        transform-origin: center top;
+        padding: 2rem 1rem;
+        min-height: auto;
+    }
+
+    #clients h2, 
+    .works-section h2 {
+        font-size: 1rem;
+        margin-bottom: 3rem;
+        margin-top: 1.5rem;
+    }
+
+    .clients-grid {
+        gap: 1.5rem;
+    }
+
+    .clients-grid img {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    .filter-buttons {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.75rem;
+        border-radius: 0.8rem;
+    }
+
+    .works-section {
+        padding: 5rem 1rem;
+    }
+
+    .portfolios-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 3rem;
+    }
+
+    .thumbnail-link {
+        border-radius: 0.8rem;
+    }
+
+    .portfolio-item-wrapper {
+        margin-bottom: 0.5rem;
+    }
+
+    .portfolio-item-wrapper::before {
+        height: 0.6rem;
+    }
+
+    .info-tooltip {
+        top: calc(100% + 0.6rem);
+        width: 1.1rem;
+        height: 1.1rem;
+        font-size: 0.55rem;
+    }
+
+    .note-box {
+        width: 85vw;
+        max-width: 15rem;
+        padding: 0.8rem;
+        top: 1.8rem;
+    }
+
+    .note-header {
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .note-ar, .note-en {
+        font-size: 0.75rem;
+    }
+
+    .note-body {
+        gap: 0.6rem;
+    }
+
+    .note-row {
+        gap: 0.8rem;
+    }
+
+    .text-ar, .editor-ar,
+    .text-en, .editor-en {
+        font-size: 0.55rem;
+    }
+
+    .editor-link {
+        font-size: 0.55rem;
+    }
+
+    .proof-wrapper {
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
+    }
+
+    .proof-img {
+        max-height: 8rem;
+    }
+
+    #order-form {
+        transform: scale(0.85);
+        transform-origin: center top;
+        max-width: 92%;
+        max-height: none;
+        margin: 7rem auto;
+        padding: 1.5rem 0.8rem;
+    }
+
+    #order-form h2 {
+        font-size: 1.05rem;
+        white-space: nowrap;
+        margin-bottom: 1.8rem;
+        margin-top: 1rem;
+    }
+
+    #order-form input, 
+    #order-form select {
+        padding: 0.8rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.5rem;
+    }
+
+    #order-form button {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    #status-badge {
+        top: 2rem;
+        right: 2rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.6rem;
+    }
+
+    #status-dot {
+        width: 0.4rem;
+        height: 0.4rem;
+    }
+
+    .track-btn {
+        position: fixed;
+        bottom: 3rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+        background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+        background-size: 200% auto;
+        animation: shine 4.8s linear infinite;
+        color: black;
+        border: none;
+        border-radius: 3rem;
+        cursor: pointer;
+        font-size: 0.5rem;
+        font-weight: bold;
+        box-shadow: 0 0rem 1rem rgb(0, 0, 0);
+        padding: 0.5rem 1rem;
+        transition: all 0.5s ease;
+    }
+
+    .social-buttons {
+        bottom: 1rem;
+        gap: 0.5rem;
+        display: none;
+    }
+
+    .social-btn {
+        padding: 0.6rem 0.7rem;
+        font-size: 0.7rem;
+        border-radius: 1rem;
+    }
+
+    #backToTop {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+        display: none;
+    }
+
+    .modal-content {
+        width: 90%;
+        min-width: unset;
+        padding: 1.5rem 1rem;
+    }
+
+    .modal-content h3 {
+        font-size: 0.85rem;
+        white-space: normal;
+    }
+
+    .new-close-btn {
+        font-size: 2.2rem;
+    }
+
+    #project-code {
+        width: 90%;
+        padding: 0.6rem;
+        margin: 1rem 0;
+    }
+
+    .check-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    #project-status {
+        margin-top: 1.2rem;
+        padding: 0.8rem;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    footer p {
+        color: #666668;
+        font-size: 0.5rem;
+        font-family: sans-serif;
+    }
 }
