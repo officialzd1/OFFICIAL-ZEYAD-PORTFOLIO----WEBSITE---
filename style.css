@@ -922,6 +922,24 @@ footer p {
         height: 0.1rem;
     }
 
+    #status-badge {
+    position: fixed;
+    top: 3rem;
+    right: 3rem;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10000;
+    border: 0.1rem solid #c49b33;
+    user-select: none;
+    font-size: 0.8rem;
+    display: none;
+    }
+
     .container {
         position: relative;
         display: flex;
@@ -929,6 +947,8 @@ footer p {
         align-items: center;
         justify-content: center;
         min-height: 100vh;
+        left: 0.3rem;
+        bottom: 0.8rem;
     }
 
     .logo {
