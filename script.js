@@ -682,3 +682,13 @@ function toggleProjectBrief() {
         arrowIcon.style.transform = 'rotate(0deg)'; // يرجعه لتحت
     }
 }
+
+// دالة إظهار وإخفاء ملاحظة مدة الفيديو الخام
+function toggleRawNote() {
+    const noteBox = document.getElementById('raw-note-box');
+    if (noteBox.style.display === 'none' || noteBox.style.display === '') {
+        noteBox.style.display = 'block';
+    } else {
+        noteBox.style.display = 'none';
+    }
+}

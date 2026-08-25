@@ -1476,4 +1476,23 @@ footer p {
 .close-policy-btn:hover {
     background: #fff;
 }
+
+/* تصغير وتنسيق مربع الإقرار والنص الخاص به على الجوال */
+form input[type="checkbox"] {
+    width: 14px !important;
+    height: 14px !important;
+    vertical-align: middle;
+}
+
+form label input[type="checkbox"] + span,
+form label {
+    font-size: 1.8vmin !important; /* تصغير حجم الخط على الجوال */
+}
+
+/* تحكم بمسافة وصندوق جملة الإقرار */
+form div:has(input[type="checkbox"]) {
+    font-size: 1.7vmin !important;
+    text-align: center;
+    margin: 10px 0 !important;
+}
 }
