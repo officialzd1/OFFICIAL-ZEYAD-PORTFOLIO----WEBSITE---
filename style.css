@@ -1625,9 +1625,9 @@ form label {
 
 /* تحكم بمسافة وصندوق جملة الإقرار */
 form div:has(input[type="checkbox"]) {
-    font-size: 1.7vmin !important;
+    font-size: 1.8vmin !important;
     text-align: center;
-    margin: 10px 0 !important;
+    margin: 18px 0 !important;
 }
 
 .status-dot-glowing {
