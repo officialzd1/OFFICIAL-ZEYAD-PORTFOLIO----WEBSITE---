@@ -891,6 +891,171 @@ footer p {
     font-family: sans-serif;
 }
 
+/* تنسيق قسم السياسة داخل الفورم */
+.policy-section-wrapper {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+}
+
+.policy-trigger-btn {
+    background: rgba(212, 175, 55, 0.1);
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    width: 100%;
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.policy-trigger-btn:hover {
+    background: #d4af37;
+    color: #000;
+}
+
+.policy-checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 12px 0 18px 0;
+    width: 100%;
+    direction: rtl;
+    text-align: right;
+} 
+
+.policy-checkbox-container input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #d4af37; /* لون ذهبي متناسق مع موقعك */
+    margin: 0;
+}
+
+.policy-checkbox-container label {
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+    font-family: inherit;
+}
+
+/* تنسيق الـ Modal وهيدر تبديل اللغة */
+.policy-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(6px);
+}
+
+.policy-modal-content {
+    background: #111;
+    border: 2px solid #d4af37;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 580px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 30px;
+    color: #fff;
+    direction: rtl;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+    position: relative;
+    text-align: right;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+}
+
+.modal-header h3 {
+    color: #d4af37;
+    margin: 0;
+    font-size: 18px;
+}
+
+#lang-switch-btn {
+    background: transparent;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#lang-switch-btn:hover {
+    background: #d4af37;
+    color: #000;
+}
+
+.policy-modal-content h4 {
+    color: #e5c158;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.policy-modal-content ul {
+    padding-right: 20px;
+    margin: 5px 0 15px 0;
+}
+
+.policy-modal-content li, .policy-modal-content p {
+    font-size: 13.5px;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.close-policy-btn {
+    background: #d4af37;
+    color: #000;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 25px auto 0 auto;
+    transition: 0.3s;
+}
+
+.close-policy-btn:hover {
+    background: #fff;
+}
+
+.policy-link-text {
+    color: #d4af37;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.policy-link-text:hover {
+    color: #fff;
+}
 
 /* ==========================================
    10. التصميم المتجاوب للشاشات الصغيرة (Media Queries)
@@ -1214,4 +1379,101 @@ footer p {
         font-size: 0.5rem;
         font-family: sans-serif;
     }
+
+    .policy-modal-content {
+    /* -- الأبعاد والمسافات الجديدة (هنا السر في التصغير) -- */
+    background: #111;
+    border: 1px solid #d4af37;
+    border-radius: 8px; /* تصغير الحواف */
+    
+    /* -- استخدام vvmin لجعل الحجم متناسباً ويصغر تلقائياً -- */
+    width: 60vmin !important; /* كان 580px، الآن 60% من أصغر بعد للشاشة */
+    min-width: 280px; /* لضمان عدم صغره جداً على الشاشات الضيقة جداً */
+    max-width: 600px; /* منع كبر حجمه على الشاشات الكبيرة جداً */
+    max-height: 85vh; 
+    overflow-y: auto;
+    
+    /* -- تصغير الهوامش الداخلية والخارجية -- */
+    padding: 8vmin !important; /* تصغير الـ padding بشكل كبير */
+    margin: 38px auto;
+    
+    color: #fff;
+    direction: rtl;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    position: relative;
+    text-align: right;
+}
+
+/* -- هيدر المودل وزر اللغة -- */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 3vmin !important; /* تصغير المسافة */
+    margin-bottom: 3vmin !important; /* تصغير المسافة */
+}
+
+.modal-header h3 {
+    color: #d4af37;
+    margin: 0;
+    font-size: 2.5vmin !important; /* تصغير حجم الخط الرئيسي */
+}
+
+#lang-switch-btn {
+    background: transparent;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 0.5vmin 1.5vmin !important; /* تصغير زر اللغة */
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 2vmin !important; /* تصغير حجم خط الزر */
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#lang-switch-btn:hover {
+    background: #d4af37;
+    color: #000;
+}
+
+/* -- العناوين الفرعية (H4) -- */
+.policy-modal-content h4 {
+    color: #e5c158;
+    margin-top: 2vmin !important;
+    margin-bottom: 1vmin !important;
+    font-size: 2.2vmin !important; /* تصغير العناوين الفرعية */
+}
+
+/* -- القوائم والفقرات (UL, LI, P) -- */
+.policy-modal-content ul {
+    padding-right: 15px;
+    margin: 0 0 1.5vmin 0 !important;
+}
+
+.policy-modal-content li, 
+.policy-modal-content p {
+    font-size: 2vmin !important; /* تصغير حجم خط النص الأساسي */
+    color: #ccc;
+    line-height: 1.5;
+    margin-bottom: 0.8vmin !important;
+}
+
+/* -- زر الإغلاق -- */
+.close-policy-btn {
+    background: #d4af37;
+    color: #000;
+    border: none;
+    padding: 1vmin 3vmin !important; /* تصغير زر الإغلاق */
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 2vmin auto 0 auto !important; /* تصغير المسافة فوق الزر */
+    transition: 0.3s;
+}
+
+.close-policy-btn:hover {
+    background: #fff;
+}
 }

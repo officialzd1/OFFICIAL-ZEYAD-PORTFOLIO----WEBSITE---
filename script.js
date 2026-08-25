@@ -609,3 +609,76 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+const modal = document.getElementById('policyModal');
+const openBtn = document.getElementById('open-policy-btn');
+const checkbox = document.getElementById('policy-checkbox');
+const form = document.getElementById('my-form');
+
+// متغير لتتبع اللغة الحالية داخل الـ Modal (افتراضي عربي: 'ar')
+let currentLang = 'ar';
+
+// فتح الـ Modal
+openBtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+});
+
+function openPolicyModal() {
+    modal.style.display = 'flex';
+}
+
+// إغلاق الـ Modal
+function closePolicyModal() {
+    modal.style.display = 'none';
+}
+
+// إغلاق عند الضغط خارج المودال
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+// دالة تبديل اللغة داخل الـ Modal
+function togglePolicyLanguage() {
+    const title = document.getElementById('modal-title');
+    const contentAr = document.getElementById('policy-content-ar');
+    const contentEn = document.getElementById('policy-content-en');
+    const langBtn = document.getElementById('lang-switch-btn');
+
+    if (currentLang === 'ar') {
+        currentLang = 'en';
+        contentAr.style.display = 'none';
+        contentEn.style.display = 'block';
+        title.textContent = 'Payment Policy';
+        langBtn.textContent = 'العربية';
+    } else {
+        currentLang = 'ar';
+        contentEn.style.display = 'none';
+        contentAr.style.display = 'block';
+        title.textContent = 'سياسة الدفع';
+        langBtn.textContent = 'English';
+    }
+}
+
+// منع إرسال الفورم إذا لم يتم تحديد المربع
+form.addEventListener('submit', (e) => {
+    if (!checkbox.checked) {
+        e.preventDefault();
+        alert(currentLang === 'ar' ? 'عذراً، يجب عليك قراءة والموافقة على سياسة الدفع أولاً.' : 'Please read and agree to the payment policy first.');
+        checkbox.focus();
+    }
+});
+
+// دالة فتح وإغلاق تفاصيل المشروع الإضافية بالسهم
+function toggleProjectBrief() {
+    const briefBox = document.getElementById('extra-brief-box');
+    const arrowIcon = document.getElementById('arrow-icon');
+    
+    if (briefBox.style.display === 'none' || briefBox.style.display === '') {
+        briefBox.style.display = 'block';
+        arrowIcon.style.transform = 'rotate(180deg)'; // يقلب السهم على فوق
+    } else {
+        briefBox.style.display = 'none';
+        arrowIcon.style.transform = 'rotate(0deg)'; // يرجعه لتحت
+    }
+}

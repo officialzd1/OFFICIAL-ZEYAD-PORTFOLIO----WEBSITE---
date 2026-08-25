@@ -191,7 +191,67 @@
                 <span style="float: left;"> Contact </span>
             </label>
             <input type="text" name="contact">         
+
             
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- خانة الموافقة (عربي - مربع الصح - إنجليزي في نفس السطر) -->
+<div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0 18px 0; width: 100%; direction: rtl;">
+    
+    <!-- النص العربي (يمين) -->
+    <label for="policy-checkbox" style="color: #fff; font-size: 11.5px; cursor: pointer; text-align: right;">
+        أقر بأنني قرأت <span onclick="openPolicyModal()" style="color: #d4af37; text-decoration: underline; cursor: pointer;">سياسة الدفع</span>
+    </label>
+
+    <!-- مربع الصح (في المنتصف) -->
+    <input type="checkbox" id="policy-checkbox" required style="width: 15px; height: 15px; cursor: pointer; accent-color: #d4af37; margin: 0; flex-shrink: 0;">
+
+    <!-- النص الإنجليزي (يسار) -->
+    <label for="policy-checkbox" style="color: #fff; font-size: 11px; cursor: pointer; text-align: left; direction: ltr;">
+        I Read The <span onclick="openPolicyModal()" style="color: #d4af37; text-decoration: underline; cursor: pointer;">Payment Policy</span>
+    </label>
+</div>
+
+</div>
+
             <button type="submit" id="my-form-button"> إرسال الطلب | Order Now </button>
         </form>
 
@@ -212,6 +272,8 @@
                 </div>
             </button>
         </div>
+
+        
 
         <div id="form-success-msg" style="display: none; text-align: center; margin-top: 15px; color: #2ecc71; font-size: 1.1rem; font-weight: bold;">
             تم إرسال الطلب | Order Sent
@@ -241,6 +303,50 @@
             <div id="project-status"></div>
         </div>
     </div>
+
+    <!-- Modal سياسة الدفع مع خيار تبديل اللغة -->
+<div id="policyModal" class="policy-modal-overlay">
+    <div class="policy-modal-content">
+        
+        <!-- هيدر الـ Modal ويحتوي على العنوان وزر تغيير اللغة -->
+        <div class="modal-header">
+            <h3 id="modal-title">سياسة الدفع</h3>
+            <button type="button" id="lang-switch-btn" onclick="togglePolicyLanguage()">English</button>
+        </div>
+
+        <!-- المحتوى العربي -->
+        <div id="policy-content-ar" class="policy-lang-pane">
+            <h4>العملاء الجدد :</h4>
+            <ul>
+                <li>بعد استلام تفاصيل المشروع وتأكيد السعر ، يتم تحديد قيمة المشروع .</li>
+                <li>يبدأ العمل بعد استلام دفعة أولى .</li>
+                <li>يتم دفع المبلغ المتبقي عند اكتمال المشروع وقبل تسليم النسخة النهائية .</li>
+                <li>الدفعة الأولى غير مستردة بعد بدء العمل ، لأنها تغطي الوقت والجهد المبذول في المشروع .</li>
+            </ul>
+            <p><strong>ملاحظة هامة :</strong> يتم دفع 50% مقدمًا عند تأكيد المشروع ، والـ50% المتبقية عند اكتمال المشروع وقبل تسليم الملفات النهائية .</p>
+
+            <h4>العملاء الدائمون :</h4>
+            <p>يمكن الدفع بعد اكتمال المشروع ، حسب طبيعة التعاون والاتفاق بين الطرفين .</p>
+        </div>
+
+        <!-- المحتوى الإنجليزي -->
+        <div id="policy-content-en" class="policy-lang-pane" style="display: none; direction: ltr; text-align: left;">
+            <h4>New Clients :</h4>
+            <ul>
+                <li>After receiving project details and confirming the price , the project value is determined .</li>
+                <li>Work begins after receiving an initial deposit .</li>
+                <li>The remaining amount is paid upon project completion and before delivering the final version .</li>
+                <li>The initial deposit is non-refundable after work begins , as it covers the time and effort invested .</li>
+            </ul>
+            <p><strong>Important Note :</strong> 50% is paid in advance upon project confirmation , and the remaining 50% upon completion before final files delivery .</p>
+
+            <h4>Regular Clients :</h4>
+            <p>Payment can be made after project completion , depending on the nature of cooperation and agreement between both parties .</p>
+        </div>
+
+        <button type="button" class="close-policy-btn" onclick="closePolicyModal()">فهمت | Got it</button>
+    </div>
+</div>
 
     <button id="backToTop">↑</button>
 
