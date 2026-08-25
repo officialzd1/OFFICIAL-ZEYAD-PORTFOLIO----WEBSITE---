@@ -692,3 +692,4 @@ function toggleRawNote() {
         noteBox.style.display = 'none';
     }
 }
+

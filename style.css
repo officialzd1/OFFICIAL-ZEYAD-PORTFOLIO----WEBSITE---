@@ -5,6 +5,7 @@ html {
     scroll-behavior: smooth;
 }
 
+
 body {
     overflow-x: hidden;
     background-color: black;
@@ -41,6 +42,9 @@ body {
 
 
 
+
+
+
 /* الشكل الافتراضي (أخضر - فاضي) */
 .status-dot-glowing {
     width: 8px;
@@ -54,6 +58,7 @@ body {
     left: 3rem;
     z-index: 999999999;
     animation: pulse-green 3s infinite;
+    display: none;
 }
 
 /* لو أضفت كلاس busy تتحول تلقائياً لأحمر (مشغول) */
@@ -1127,6 +1132,65 @@ footer p {
     color: #fff;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ==========================================
    10. التصميم المتجاوب للشاشات الصغيرة (Media Queries)
    ========================================== */
@@ -1182,7 +1246,7 @@ footer p {
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-        left: 0.3rem;
+        left: 0.2rem;
         bottom: 0.8rem;
     }
 
@@ -1578,6 +1642,7 @@ form div:has(input[type="checkbox"]) {
     left: 3rem;
     z-index: 999999999;
     animation: pulse-green 1.5s infinite;
+    display: none;
 }
 
 /* لو أضفت كلاس busy تتحول تلقائياً لأحمر (مشغول) */
