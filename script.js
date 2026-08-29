@@ -74,7 +74,7 @@ const myProjects = {
         name: "صرت دكتور - Ome.tv",
         deliveryDate: "8:00AM | 31 August 2026",
         status: "paused",
-        currentStage: 0, 
+        currentStage: 1, 
         driveUrl: "",
         stages: [
             { ar: "التنزيل", en: "Downloading" },
