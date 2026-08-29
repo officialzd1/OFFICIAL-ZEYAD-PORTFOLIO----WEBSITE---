@@ -67,6 +67,85 @@ function toggleOrderNote(e) {
    ========================================================================== */
 
 const myProjects = {
+
+
+
+"ZD-113": { 
+        name: "صرت دكتور - Ome.tv",
+        deliveryDate: "8:00AM | 31 August 2026",
+        status: "paused",
+        currentStage: 0, 
+        driveUrl: "",
+        stages: [
+            { ar: "التنزيل", en: "Downloading" },
+            { ar: "القص", en: "Cutting" },
+            { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effects & Transition" },
+            { ar: "المؤثرات الصوتية و الموسيقى", en: "Sound Effects & Music" },
+            { ar: "المراجعة", en: "Review" },
+            { ar: "التعديلات", en: "Amendments" },
+            { ar: "التصدير", en: "Exporting" },
+            { ar: "التسليم", en: "Final Delivery" }
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "ZD-743": { 
         name: "سفرة جدة",
         deliveryDate: "8:00AM | 21 August 2026",
