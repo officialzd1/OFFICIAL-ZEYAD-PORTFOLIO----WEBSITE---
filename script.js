@@ -78,6 +78,7 @@ const myProjects = {
         driveUrl: "",
         stages: [
             { ar: "التنزيل", en: "Downloading" },
+            { ar: "المقدمة", en: "Intro" },
             { ar: "القص", en: "Cutting" },
             { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effects & Transition" },
             { ar: "المؤثرات الصوتية و الموسيقى", en: "Sound Effects & Music" },
