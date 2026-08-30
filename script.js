@@ -72,9 +72,9 @@ const myProjects = {
 
 "ZD-113": { 
         name: "صرت دكتور - Ome.tv",
-        deliveryDate: "8:00PM | 31 August 2026 | Monday",
+        deliveryDate: "9:30AM | 31 August 2026 | Monday",
         status: "paused",
-        currentStage: 4, 
+        currentStage: 6, 
         driveUrl: "",
         stages: [
             { ar: "التنزيل", en: "Downloading" },
