@@ -451,6 +451,16 @@ nav a:hover::after {
     transform: scale(1.03);
 }
 
+.portfolio-item-wrapper {
+    position: relative;
+    z-index: 1000; /* إعطاء ترتيب افتراضي عادي */
+}
+
+/* حين فتح الملاحظة، نرفع ترتيب الكارت كاملاً ليكون أعلى من باقي الكروت */
+.portfolio-item-wrapper:has(.info-tooltip.active),
+.portfolio-item-wrapper:hover {
+    z-index: 10000;
+}
 .info-tooltip {
     position: absolute;
     top: calc(100% + 0.8rem);
@@ -475,6 +485,8 @@ nav a:hover::after {
 .info-tooltip:hover {
     background-color: #ffffff;
 }
+
+
 
 .note-box {
     opacity: 0;
