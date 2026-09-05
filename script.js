@@ -90,64 +90,6 @@ const myProjects = {
         ]
     },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     "ZD-743": { 
         name: "سفرة جدة",
         deliveryDate: "8:00AM | 21 August 2026",
@@ -773,4 +715,3 @@ function toggleRawNote() {
         noteBox.style.display = 'none';
     }
 }
-

@@ -1,0 +1,1624 @@
+/* ==========================================
+   1. الإعدادات العامة والمتغيرات الأساسية
+   ========================================== */
+html { 
+    scroll-behavior: smooth;
+}
+
+
+body {
+    overflow-x: hidden;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    font-family: 'monospace', sans-serif;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes shine {
+    to { background-position: -200% center; }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-0.5rem); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* الشكل الافتراضي (أخضر - فاضي) */
+.status-dot-glowing {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: block;
+    background-color: #00ff00; 
+    box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    position: fixed;
+    top: 3rem;
+    left: 3rem;
+    z-index: 999999999;
+    animation: pulse-green 3s infinite;
+    display: none;
+}
+
+/* لو أضفت كلاس busy تتحول تلقائياً لأحمر (مشغول) */
+.status-dot-glowing.busy {
+    background-color: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    animation: pulse-red 1.5s infinite;
+}
+
+/* أنيميشن الأخضر */
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; transform: scale(0.95); }
+    70% { box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00; transform: scale(1.05); }
+    100% { box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; transform: scale(0.95); }
+}
+
+/* أنيميشن الأحمر */
+@keyframes pulse-red {
+    0% { box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; transform: scale(0.95); }
+    70% { box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000; transform: scale(1.05); }
+    100% { box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; transform: scale(0.95); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   2. شريط التنقل العلوي (Navbar)
+   ========================================== */
+nav {
+    position: fixed;
+    top: 1.8rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 3rem 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.838);
+    backdrop-filter: blur(0.8rem);
+}
+
+nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    position: relative;
+    opacity: 1;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+nav a:hover {
+    opacity: 1;
+    transform: scale(1.1); 
+    cursor: pointer;
+    color: #ffffff;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0; 
+    height: 0.1rem;
+    bottom: -0.3rem; 
+    left: 50%;
+    transition: all 0.3s ease;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3.8s linear infinite;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+nav a:hover::after {
+    width: 100%; 
+    left: 0;
+}
+
+
+/* ==========================================
+   3. القسم الرئيسي (Hero Section)
+   ========================================== */
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    animation: fadeIn 1.8s ease-in-out;
+}
+
+.logo {
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3.8s linear infinite;
+    transition: all 0.4s ease;
+    cursor: default;
+    margin: 0.3rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    letter-spacing: 3rem;
+    padding-left: 2.1rem;
+    font-weight: 200;
+    font-family: 'Arial', sans-serif;
+    margin-top: 1rem;
+    user-select: none;
+}
+
+.scroll-indicator {
+    font-size: 1.8rem;
+    padding-right: 0rem;
+    margin-top: 1.8rem;
+    animation: bounce 1.8s infinite;
+    user-select: none;
+}
+
+
+/* ==========================================
+   4. قسم الأعمال (Works Section)
+   ========================================== */
+.works-section {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: #000000;
+    color: rgba(15, 15, 15, 0.164);
+}
+
+.works-section h2, 
+#clients h2, 
+#order-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8rem;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4.8s linear infinite;
+    transition: all 0.4s ease;
+    cursor: default;
+    margin: 3rem;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: #000000;
+    color: #aaaaaa;
+    border: 0.1rem solid #333;
+    padding: 0.5rem 0.8rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.5s ease;
+}
+
+.filter-btn:hover {
+    border-color: #d4af37;
+    color: #fff;
+}
+
+.filter-btn.active {
+    background-color: #d4af37;
+    color: #000;
+    border-color: #d4af37;
+    font-weight: bold;
+}
+
+.portfolios-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.thumbnail-link {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 1px solid #333;
+    background: #111;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.thumbnail-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(38%);
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.thumbnail-link:hover {
+    border-color: #c49b33;
+    box-shadow: 0 0 2rem rgba(196, 155, 51, 0.3);
+}
+
+.thumbnail-link:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+}
+
+.thumbnail-link.hidden,
+.portfolio-item-wrapper.hidden {
+    display: none !important;
+}
+
+.portfolio-item-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible !important;
+    margin-bottom: 0rem;
+    z-index: 2;
+}
+
+.portfolio-item-wrapper .thumbnail-link {
+    position: relative;
+    z-index: 9999;
+    width: 100%;
+    display: block;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.portfolio-item-wrapper .thumbnail-link img {
+    width: 100%;
+    display: block;
+}
+
+.portfolio-item-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.1rem;
+    height: 0.8rem;
+    background-color: #ffcc00;
+    z-index: 0;
+}
+
+.portfolio-item-wrapper:has(.thumbnail-link.hidden),
+.portfolio-item-wrapper.hidden {
+    display: none !important;
+}
+
+
+/* ==========================================
+   5. قسم العملاء (Clients Section)
+   ========================================== */
+#clients {
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    padding: 4rem 1rem;
+    box-sizing: border-box;
+}
+
+.clients-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: 1200rem;
+}
+
+.clients-grid img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 0.2rem solid #c49b33;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.clients-grid img:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 0 2rem rgba(255, 183, 0, 0.6);
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   6. نموذج الطلب والملاحظات (Order Form & Tooltips)
+   ========================================== */
+#order-form {
+    max-width: 38rem;
+    max-height: 83rem;
+    margin: 15rem auto;
+    padding: 3rem 3rem;
+    background: #13131338;
+    border: 0.1rem solid #c49b33;
+    border-radius: 1rem;
+    color: white;
+    box-sizing: border-box;
+    box-shadow: 0 0rem 2rem rgba(196, 155, 51, 0.3);
+}
+
+#order-form input, 
+#order-form select {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background: #000;
+    color: white;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#order-form input:focus, 
+#order-form select:focus {
+    border-color: #c49b33;
+    outline: none;
+    box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+}
+
+#order-form button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    animation: shine 4.8s linear infinite;
+    transition: all 0.4s ease;
+    color: black;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+}
+
+#order-form button:hover {
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+.portfolio-item-wrapper {
+    position: relative;
+    z-index: 1000; /* إعطاء ترتيب افتراضي عادي */
+}
+
+/* حين فتح الملاحظة، نرفع ترتيب الكارت كاملاً ليكون أعلى من باقي الكروت */
+.portfolio-item-wrapper:has(.info-tooltip.active),
+.portfolio-item-wrapper:hover {
+    z-index: 10000;
+}
+.info-tooltip {
+    position: absolute;
+    top: calc(100% + 0.8rem);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: #ffcc00;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.6rem;
+    cursor: pointer;
+    z-index: 5;
+    box-shadow: 0px 0px 1rem rgba(255, 196, 0, 0.836);
+    transition: background-color 0.3s ease;
+}
+
+.info-tooltip:hover {
+    background-color: #ffffff;
+}
+
+
+
+.note-box {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 13rem;
+    max-width: 85vw;
+    background-color: #000000;
+    border: 1px solid #ffcc00b9;
+    border-radius: 1rem;
+    padding: 1rem 3rem;
+    box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    cursor: default;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    pointer-events: none;
+}
+
+.info-tooltip.active .note-box {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.1rem solid rgba(255, 204, 0, 0.2);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.note-ar {
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #ffcc00;
+    direction: rtl;
+}
+
+.note-en {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #ffcc00;
+    direction: ltr;
+}
+
+.note-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.note-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.33rem;
+}
+
+.editor-row {
+    padding-top: 0.8rem;
+    border-top: 0.1rem dashed rgba(255, 255, 255, 0.12);
+}
+
+.text-ar, .editor-ar {
+    direction: rtl;
+    text-align: right;
+    font-size: 0.6rem;
+    line-height: 1.35;
+    color: #999999;
+    margin: 0;
+    width: 50%;
+}
+
+.text-en, .editor-en {
+    direction: ltr;
+    text-align: left;
+    font-size: 0.55rem;
+    line-height: 1.35;
+    color: #999999;
+    margin: 0;
+    width: 50%;
+}
+
+.editor-link {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.5rem;
+    display: inline-block;
+}
+
+.editor-link:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+.proof-wrapper {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 0.1rem dashed rgba(255, 255, 255, 0.12);
+    text-align: center;
+}
+
+.proof-img {
+    width: 100%;
+    max-height: 10rem;
+    object-fit: contain;
+    border-radius: 0.3rem;
+    border: 0.1rem solid rgba(255, 204, 0, 0.61);
+    box-shadow: 0px 0px 0.5rem rgba(255, 196, 0, 0.836);
+}
+
+.order-note-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1.2rem;
+    z-index: 10;
+}
+
+.order-info-tooltip {
+    position: relative;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    color: #ffcc00b9 !important;
+    border: 1px solid #ffcc00b9 !important;
+    background: #222222 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 5;
+    box-shadow: none !important;
+    animation: none !important;
+    padding: 0.3rem !important;
+    margin: 0 auto !important;
+}
+
+.order-note-box {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 13rem;
+    max-width: 85vw;
+    background-color: #000000;
+    border: 1px solid #ffcc00b9;
+    border-radius: 1rem;
+    padding: 1rem 3rem;
+    box-shadow: 0px 0px 3rem rgba(255, 196, 0, 0.295);
+    z-index: 100;
+    cursor: default;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    pointer-events: none;
+}
+
+.order-info-tooltip.active .order-note-box {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.order-note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.1rem solid rgba(255, 204, 0, 0.2);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.order-note-ar {
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #ffcc00;
+    direction: rtl;
+}
+
+.order-note-en {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #ffcc00;
+    direction: ltr;
+}
+
+.order-note-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.order-note-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.33rem;
+}
+
+.order-text-ar {
+    direction: rtl;
+    text-align: right;
+    font-size: 0.6rem;
+    line-height: 1.35;
+    color: #999999;
+    margin: 0;
+    width: 50%;
+}
+
+.order-text-en {
+    direction: ltr;
+    text-align: left;
+    font-size: 0.55rem;
+    line-height: 1.35;
+    color: #999999;
+    margin: 0;
+    width: 50%;
+}
+
+
+/* ==========================================
+   7. الأزرار والعناصر العائمة (Floating UI)
+   ========================================== */
+#scrollProgress {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 4px !important;
+    z-index: 99999 !important;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3.8s linear infinite;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.social-buttons {
+    position: fixed;
+    bottom: 4rem; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex; 
+    flex-direction: row;
+    gap: 1rem; 
+    z-index: 9999;
+}
+
+.social-btn {
+    padding: 0.8rem 0.8rem;
+    border-radius: 1.3rem;
+    text-decoration: none;
+    color: #000 !important;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp { background-color: #00ff5e; }
+.instagram { background-color: #ff0055; }
+
+.social-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+}
+
+#status-badge {
+    position: fixed;
+    top: 3rem;
+    right: 3rem;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10000;
+    border: 0.1rem solid #c49b33;
+    user-select: none;
+    font-size: 0.8rem;
+}
+
+#status-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #2bff00;
+    box-shadow: 0 0 0.5rem #2bff00;
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 4.5rem;
+    right: 2rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: rgb(255, 255, 255);
+    border: 1px solid #c49b33;
+    cursor: pointer;
+    border-radius: 3rem;
+    font-size: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    z-index: 99999;
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#backToTop:hover {
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 300% auto;
+    animation: shine 8s linear infinite;
+    box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+    color: #000;
+    transform: scale(1.1);
+}
+
+.track-btn {
+    position: fixed;
+    bottom: 4.1rem;
+    left: 3rem;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: 0.1rem solid #c5a059;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    transition: all 0.5s;
+}
+
+.track-btn:hover {
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 300% auto;
+    animation: shine 8s linear infinite;
+    color: black;
+}
+
+.payment-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 150px;
+    z-index: 1000;
+}
+
+.drive-btn {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: linear-gradient(90deg, #aa761c, #fcf06a, #aa761c);
+    background-size: 200% auto;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(252, 240, 106, 0.3);
+}
+
+.drive-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(252, 240, 106, 0.6);
+}
+
+
+/* ==========================================
+   8. النوافذ المنبثقة (Modals)
+   ========================================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999999999999999999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #000 !important;
+    border: 0.1rem solid #c5a059 !important;
+    color: white !important;
+    width: 38rem;
+    min-width: 18rem;
+    padding: 3rem;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+}
+
+.modal-content h3 {
+    white-space: nowrap;
+    display: inline-block;
+    font-size: 1rem;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    text-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3.8s linear infinite;
+    transition: all 0.4s ease;
+    cursor: default;
+    margin: 0.1rem;
+}
+
+.new-close-btn {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #c49b33;
+    cursor: pointer;
+    display: block;
+    text-align: right;
+    margin: -1rem 0 0rem 0;
+    transition: color 0.3s ease;
+}
+
+.new-close-btn:hover {
+    color: #ffffff;
+}
+
+#info-modal {
+    background: #000;
+    border: 1rem solid #000000;
+}
+
+#project-code {
+    width: 83%;
+    padding: 0.8rem;
+    margin: 1.8rem 0;
+    background: #000000;
+    border: 1px solid #c5a059;
+    color: white;
+    border-radius: 5rem;
+    text-align: center;
+}
+
+.check-btn {
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 500% auto;
+    animation: shine 13s linear infinite;
+    transition: all 0.4s ease;
+    cursor: default;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5rem;
+    cursor: pointer;
+}
+
+#project-status {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 0.1rem solid #444;
+}
+
+
+/* ==========================================
+   9. الفوتر (Footer)
+   ========================================== */
+footer {
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+
+footer p {
+    color: #666668;
+    font-size: 0.8rem;
+    font-family: sans-serif;
+}
+
+/* تنسيق قسم السياسة داخل الفورم */
+.policy-section-wrapper {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+}
+
+.policy-trigger-btn {
+    background: rgba(212, 175, 55, 0.1);
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    width: 100%;
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.policy-trigger-btn:hover {
+    background: #d4af37;
+    color: #000;
+}
+
+.policy-checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 12px 0 18px 0;
+    width: 100%;
+    direction: rtl;
+    text-align: right;
+} 
+
+.policy-checkbox-container input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #d4af37; /* لون ذهبي متناسق مع موقعك */
+    margin: 0;
+}
+
+.policy-checkbox-container label {
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+    font-family: inherit;
+}
+
+/* تنسيق الـ Modal وهيدر تبديل اللغة */
+.policy-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 999999999999999;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(6px);
+}
+
+.policy-modal-content {
+    background: #111;
+    border: 2px solid #d4af37;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 580px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 30px;
+    color: #fff;
+    direction: rtl;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+    position: relative;
+    text-align: right;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+}
+
+.modal-header h3 {
+    color: #d4af37;
+    margin: 0;
+    font-size: 18px;
+}
+
+#lang-switch-btn {
+    background: transparent;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#lang-switch-btn:hover {
+    background: #d4af37;
+    color: #000;
+}
+
+.policy-modal-content h4 {
+    color: #e5c158;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.policy-modal-content ul {
+    padding-right: 20px;
+    margin: 5px 0 15px 0;
+}
+
+.policy-modal-content li, .policy-modal-content p {
+    font-size: 13.5px;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.close-policy-btn {
+    background: #d4af37;
+    color: #000;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 25px auto 0 auto;
+    transition: 0.3s;
+}
+
+.close-policy-btn:hover {
+    background: #fff;
+}
+
+.policy-link-text {
+    color: #d4af37;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.policy-link-text:hover {
+    color: #fff;
+}
+
+
+
+
+/* ==========================================
+   10. التصميم المتجاوب للشاشات الصغيرة (Media Queries)
+   ========================================== */
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+    }
+
+    nav {
+        top: 0;
+        padding: 1rem 1rem;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        display: none;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+        letter-spacing: 0.15rem;
+    }
+
+    nav a:hover {
+        transform: scale(1.05);
+    }
+
+    nav a::after {
+        height: 0.1rem;
+    }
+
+    #status-badge {
+    position: fixed;
+    top: 3rem;
+    right: 3rem;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10000;
+    border: 0.1rem solid #c49b33;
+    user-select: none;
+    font-size: 0.8rem;
+    display: none;
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        left: 0.2rem;
+        bottom: 0.8rem;
+    }
+
+    .logo {
+        font-size: 2.3rem;
+        font-weight: bold;
+        font-family: 'Playfair Display', serif;
+        background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 3.8s linear infinite;
+        transition: all 0.4s ease;
+        cursor: default;
+        text-align: center;
+        width: 100%;
+    }
+
+    .subtitle {
+        text-align: center;
+        width: 100%;
+        font-size: 0.5rem;
+        letter-spacing: 1.8rem;
+        padding-left: 1.1rem;
+        font-weight: 200;
+        font-family: 'Arial', sans-serif;
+        margin-top: 1rem;
+        user-select: none;
+    }
+
+    .scroll-indicator {
+        font-size: 1rem;
+        padding-right: 0.4rem;
+        margin-top: 0.9rem;
+        animation: bounce 1.8s infinite;
+        user-select: none;
+    }
+
+    #clients {
+        transform: scale(0.85);
+        transform-origin: center top;
+        padding: 2rem 1rem;
+        min-height: auto;
+    }
+
+    #clients h2, 
+    .works-section h2 {
+        font-size: 1rem;
+        margin-bottom: 3rem;
+        margin-top: 1.5rem;
+    }
+
+    .clients-grid {
+        gap: 1.5rem;
+    }
+
+    .clients-grid img {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    .filter-buttons {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.75rem;
+        border-radius: 0.8rem;
+    }
+
+    .works-section {
+        padding: 5rem 1rem;
+    }
+
+    .portfolios-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 3rem;
+    }
+
+    .thumbnail-link {
+        border-radius: 0.8rem;
+    }
+
+    .portfolio-item-wrapper {
+        margin-bottom: 0.5rem;
+    }
+
+    .portfolio-item-wrapper::before {
+        height: 0.6rem;
+    }
+
+    .info-tooltip {
+        top: calc(100% + 0.6rem);
+        width: 1.1rem;
+        height: 1.1rem;
+        font-size: 0.55rem;
+    }
+
+    .note-box {
+        width: 85vw;
+        max-width: 15rem;
+        padding: 0.8rem;
+        top: 1.8rem;
+    }
+
+    .note-header {
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .note-ar, .note-en {
+        font-size: 0.75rem;
+    }
+
+    .note-body {
+        gap: 0.6rem;
+    }
+
+    .note-row {
+        gap: 0.8rem;
+    }
+
+    .text-ar, .editor-ar,
+    .text-en, .editor-en {
+        font-size: 0.55rem;
+    }
+
+    .editor-link {
+        font-size: 0.55rem;
+    }
+
+    .proof-wrapper {
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
+    }
+
+    .proof-img {
+        max-height: 8rem;
+    }
+
+    #order-form {
+        transform: scale(0.85);
+        transform-origin: center top;
+        max-width: 92%;
+        max-height: none;
+        margin: 7rem auto;
+        padding: 1.5rem 0.8rem;
+    }
+
+    #order-form h2 {
+        font-size: 1.05rem;
+        white-space: nowrap;
+        margin-bottom: 1.8rem;
+        margin-top: 1rem;
+    }
+
+    #order-form input, 
+    #order-form select {
+        padding: 0.8rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.5rem;
+    }
+
+    #order-form button {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    #status-badge {
+        top: 2rem;
+        right: 2rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.6rem;
+    }
+
+    #status-dot {
+        width: 0.4rem;
+        height: 0.4rem;
+    }
+
+    .track-btn {
+        position: fixed;
+        bottom: 3rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+        background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+        background-size: 200% auto;
+        animation: shine 4.8s linear infinite;
+        color: black;
+        border: none;
+        border-radius: 3rem;
+        cursor: pointer;
+        font-size: 0.5rem;
+        font-weight: bold;
+        box-shadow: 0 0rem 1rem rgb(0, 0, 0);
+        padding: 0.5rem 1rem;
+        transition: all 0.5s ease;
+    }
+
+    .social-buttons {
+        bottom: 1rem;
+        gap: 0.5rem;
+        display: none;
+    }
+
+    .social-btn {
+        padding: 0.6rem 0.7rem;
+        font-size: 0.7rem;
+        border-radius: 1rem;
+    }
+
+    #backToTop {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+        display: none;
+    }
+
+    .modal-content {
+        width: 90%;
+        min-width: unset;
+        padding: 1.5rem 1rem;
+    }
+
+    .modal-content h3 {
+        font-size: 0.85rem;
+        white-space: normal;
+    }
+
+    .new-close-btn {
+        font-size: 2.2rem;
+    }
+
+    #project-code {
+        width: 90%;
+        padding: 0.6rem;
+        margin: 1rem 0;
+    }
+
+    .check-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    #project-status {
+        margin-top: 1.2rem;
+        padding: 0.8rem;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    footer p {
+        color: #666668;
+        font-size: 0.5rem;
+        font-family: sans-serif;
+    }
+
+    .policy-modal-content {
+    /* -- الأبعاد والمسافات الجديدة (هنا السر في التصغير) -- */
+    background: #111;
+    border: 1px solid #d4af37;
+    border-radius: 8px; /* تصغير الحواف */
+    
+    /* -- استخدام vvmin لجعل الحجم متناسباً ويصغر تلقائياً -- */
+    width: 60vmin !important; /* كان 580px، الآن 60% من أصغر بعد للشاشة */
+    min-width: 280px; /* لضمان عدم صغره جداً على الشاشات الضيقة جداً */
+    max-width: 600px; /* منع كبر حجمه على الشاشات الكبيرة جداً */
+    max-height: 85vh; 
+    overflow-y: auto;
+    
+    /* -- تصغير الهوامش الداخلية والخارجية -- */
+    padding: 8vmin !important; /* تصغير الـ padding بشكل كبير */
+    margin: 38px auto;
+    
+    color: #fff;
+    direction: rtl;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    position: relative;
+    text-align: right;
+}
+
+/* -- هيدر المودل وزر اللغة -- */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 3vmin !important; /* تصغير المسافة */
+    margin-bottom: 3vmin !important; /* تصغير المسافة */
+}
+
+.modal-header h3 {
+    color: #d4af37;
+    margin: 0;
+    font-size: 2.5vmin !important; /* تصغير حجم الخط الرئيسي */
+}
+
+#lang-switch-btn {
+    background: transparent;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 0.5vmin 1.5vmin !important; /* تصغير زر اللغة */
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 2vmin !important; /* تصغير حجم خط الزر */
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#lang-switch-btn:hover {
+    background: #d4af37;
+    color: #000;
+}
+
+/* -- العناوين الفرعية (H4) -- */
+.policy-modal-content h4 {
+    color: #e5c158;
+    margin-top: 2vmin !important;
+    margin-bottom: 1vmin !important;
+    font-size: 2.2vmin !important; /* تصغير العناوين الفرعية */
+}
+
+/* -- القوائم والفقرات (UL, LI, P) -- */
+.policy-modal-content ul {
+    padding-right: 15px;
+    margin: 0 0 1.5vmin 0 !important;
+}
+
+.policy-modal-content li, 
+.policy-modal-content p {
+    font-size: 2vmin !important; /* تصغير حجم خط النص الأساسي */
+    color: #ccc;
+    line-height: 1.5;
+    margin-bottom: 0.8vmin !important;
+}
+
+/* -- زر الإغلاق -- */
+.close-policy-btn {
+    background: #d4af37;
+    color: #000;
+    border: none;
+    padding: 1vmin 3vmin !important; /* تصغير زر الإغلاق */
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 2vmin auto 0 auto !important; /* تصغير المسافة فوق الزر */
+    transition: 0.3s;
+}
+
+.close-policy-btn:hover {
+    background: #fff;
+}
+
+/* تصغير وتنسيق مربع الإقرار والنص الخاص به على الجوال */
+form input[type="checkbox"] {
+    width: 14px !important;
+    height: 14px !important;
+    vertical-align: middle;
+}
+
+form label input[type="checkbox"] + span,
+form label {
+    font-size: 1.8vmin !important; /* تصغير حجم الخط على الجوال */
+}
+
+/* تحكم بمسافة وصندوق جملة الإقرار */
+form div:has(input[type="checkbox"]) {
+    font-size: 1.8vmin !important;
+    text-align: center;
+    margin: 18px 0 !important;
+}
+
+.status-dot-glowing {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: block;
+    background-color: #00ff00; 
+    box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    position: fixed;
+    top: 3rem;
+    left: 3rem;
+    z-index: 999999999;
+    animation: pulse-green 1.5s infinite;
+    display: none;
+}
+
+/* لو أضفت كلاس busy تتحول تلقائياً لأحمر (مشغول) */
+.status-dot-glowing.busy {
+    background-color: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    animation: pulse-red 3s infinite;
+}
+
+/* أنيميشن الأخضر */
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; transform: scale(0.95); }
+    70% { box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00; transform: scale(1.05); }
+    100% { box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; transform: scale(0.95); }
+}
+
+/* أنيميشن الأحمر */
+@keyframes pulse-red {
+    0% { box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; transform: scale(0.95); }
+    70% { box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000; transform: scale(1.05); }
+    100% { box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; transform: scale(0.95); }
+}
+}

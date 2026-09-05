@@ -61,16 +61,12 @@
             <button class="filter-btn" data-filter="Experiments"> تجارب | Experiments</button>
             <button class="filter-btn" data-filter="Teaser"> ترويج | Teasers</button>
             <button class="filter-btn" data-filter="Re-Edits"> إعادة تحرير | Re-Edits</button>
-            <button class="filter-btn" data-filter="Entertainment"> ترفيه | Entertainment</button>
-
         </div>
 
 
         <div class="portfolios-container" id="slider">
 
-<a href="https://www.youtube.com/watch?v=9FVaz2_qDec" target="_blank" class="thumbnail-link" data-category="Entertainment">
-                <img src="WORKS/020" alt=" قررت اصير دكتور😂🩺واعالج اغرب مجتمع ome tv😨!+16 ">
-            </a>
+
 
 
 
