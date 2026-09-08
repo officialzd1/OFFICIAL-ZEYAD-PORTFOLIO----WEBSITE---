@@ -58,7 +58,6 @@ body {
     left: 3rem;
     z-index: 999999999;
     animation: pulse-green 3s infinite;
-    display: none;
 }
 
 /* لو أضفت كلاس busy تتحول تلقائياً لأحمر (مشغول) */
@@ -123,7 +122,6 @@ nav {
     z-index: 9999;
     background: rgba(0, 0, 0, 0.838);
     backdrop-filter: blur(0.8rem);
-    display: none;
 }
 
 nav a {
@@ -218,26 +216,60 @@ nav a:hover::after {
    ========================================== */
 .works-section {
     text-align: center;
-    padding: 6rem 2rem;
+    padding: 13rem 2rem;
     background: #000000;
     color: rgba(15, 15, 15, 0.164);
-    display: none; /* إخفاء القسم بشكل افتراضي */
 }
 
-.works-section h2, 
-#clients h2, 
-#order-form h2 {
-    font-size: 1.8rem;
-    margin-bottom: 8rem;
+.works-section h2 {
+font-size: 2rem;
+padding-bottom: 3rem;
+    letter-spacing: 0.3rem;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
     background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shine 4.8s linear infinite;
+    animation: shine 8s linear infinite;
     transition: all 0.4s ease;
     cursor: default;
-    margin: 3rem;
-    display: none;
+    margin: 0.3rem;
+    }
+
+
+#clients h2 {
+    font-size: 2rem;
+    padding-bottom: 3rem;
+    letter-spacing: 0.3rem;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 8s linear infinite;
+    transition: all 0.4s ease;
+    cursor: default;
+    margin: 0.3rem;
+}
+
+
+#order-form h2 {
+    font-size: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    letter-spacing: 0.3rem;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 8s linear infinite;
+    transition: all 0.4s ease;
+    cursor: default;
+    margin: 0.3rem;
 }
 
 .filter-buttons {
@@ -377,7 +409,6 @@ nav a:hover::after {
     gap: 3rem;
     flex-wrap: wrap;
     max-width: 1200rem;
-    display: none; /* إخفاء القسم بشكل افتراضي */
 }
 
 .clients-grid img {
@@ -385,13 +416,13 @@ nav a:hover::after {
     height: 6rem;
     border-radius: 100%;
     object-fit: cover;
-    border: 0.2rem solid #c49b33;
+    border: 0rem solid #c49b33;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .clients-grid img:hover {
     transform: scale(1.1); 
-    box-shadow: 0 0 2rem rgba(255, 183, 0, 0.6);
+    box-shadow: 0 0 1rem rgba(255, 183, 0, 0.6);
     cursor: pointer;
 }
 
@@ -400,9 +431,10 @@ nav a:hover::after {
    6. نموذج الطلب والملاحظات (Order Form & Tooltips)
    ========================================== */
 #order-form {
+
     max-width: 38rem;
     max-height: 83rem;
-    margin: 15rem auto;
+    margin: 13rem auto;
     padding: 3rem 3rem;
     background: #13131338;
     border: 0.1rem solid #c49b33;
@@ -410,7 +442,6 @@ nav a:hover::after {
     color: white;
     box-sizing: border-box;
     box-shadow: 0 0rem 2rem rgba(196, 155, 51, 0.3);
-    display: none; /* إخفاء الفورم بشكل افتراضي */
 }
 
 #order-form input, 
@@ -812,6 +843,7 @@ nav a:hover::after {
     visibility: hidden;
     transition: all 0.5s ease;
     z-index: 99999;
+    display: none; /* إخفاء الزر بشكل افتراضي */
 }
 
 #backToTop.show {
@@ -830,23 +862,26 @@ nav a:hover::after {
 
 .track-btn {
     position: fixed;
-    bottom: 4.1rem;
-    left: 3rem;
+    bottom: 4rem;
+        left: 50%;
+        transform: translateX(-50%);
     z-index: 9999;
     background: rgba(0, 0, 0, 0.8);
     color: white;
     border: 0.1rem solid #c5a059;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    border-radius: 0.3rem;
+    border-radius: 1rem;
     font-size: 0.8rem;
     transition: all 0.5s;
 }
 
+
+
 .track-btn:hover {
     background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-    background-size: 300% auto;
-    animation: shine 8s linear infinite;
+    background-size: 500% auto;
+    animation: shine 18s linear infinite;
     color: black;
 }
 

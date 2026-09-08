@@ -34,14 +34,13 @@
     
     <div id="scrollProgress"></div>
 
-<div class="status-dot-glowing"> </div>
-
+    <div class="status-dot-glowing"> </div>
 
     <nav class="navbar">
-        <a href="#order-form">اطلب الآن | Order</a>
-        <a href="#clients" style="display: none;">العملاء | Clients</a>
-        <a href="#works" style="display: none;">الأعمال | Works</a>
-        <a href="#hero">الرئيسية | Home</a>
+        <a href="#order-form" style="display: block;">اطلب الآن | Order</a>
+        <a href="#clients" style="display: block;">العملاء | Clients</a>
+        <a href="#works" style="display: block;">الأعمال | Works</a>
+        <a href="#hero" style="display: block;">الرئيسية | Home</a>
     </nav>
 
     <div class="container" id="hero">
@@ -60,22 +59,17 @@
             <button class="filter-btn" data-filter="Pranks"> مقالب | Pranks</button>
             <button class="filter-btn" data-filter="Experiments"> تجارب | Experiments</button>
             <button class="filter-btn" data-filter="Teaser"> ترويج | Teasers</button>
-            <button class="filter-btn" data-filter="Re-Edits"> إعادة تحرير | Re-Edits</button>
+            <button class="filter-btn" data-filter="Re-Edits" style="display: none;"> إعادة تحرير | Re-Edits</button>
             <button class="filter-btn" data-filter="Entertainment"> ترفيه | Entertainment</button>
-
         </div>
-
 
         <div class="portfolios-container" id="slider">
 
-<a href="https://www.youtube.com/watch?v=9FVaz2_qDec" target="_blank" class="thumbnail-link" data-category="Entertainment">
+            <a href="https://www.youtube.com/watch?v=9FVaz2_qDec" target="_blank" class="thumbnail-link" data-category="Entertainment">
                 <img src="WORKS/020" alt=" قررت اصير دكتور😂🩺واعالج اغرب مجتمع ome tv😨!+16 ">
             </a>
 
-
-
-
-<div class="portfolio-item-wrapper" data-category="Re-Edits">
+            <div class="portfolio-item-wrapper" data-category="Re-Edits" style="display: none;">
                 <a href="https://www.instagram.com/reel/DctpW_BSreE/?utm_source=ig_web_button_share_sheet&igsi=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="Re-Edits">
                     <img src="WORKS/019" alt="Re-Edit">
                 </a>
@@ -89,28 +83,21 @@
                         <div class="note-body">
                             <div class="note-row">
                                 <p class="text-ar">هذا العمل ترويجي وإضافي (غير مطلوب) لبرنامج "اتقدم" من بيس كيك</p>
-<p class="text-en">This is a promotional and extra (unrequested) re-edit for the "etadem" show by Peace Cake</p>
+                                <p class="text-en">This is a promotional and extra (unrequested) re-edit for the "etadem" show by Peace Cake</p>
                             </div>      
-                           
-                             <div class="proof-wrapper">
+                            <div class="proof-wrapper">
                                 <img src="Et2adem_Screenshot.jpg" alt="Proof of original editor approval" class="proof-img" loading="lazy">
                             </div>
-                            
-
-                             
-                            
                         </div>
                     </div>
                 </button>
             </div>
 
-
-
             <a href="https://youtu.be/uo6fzuzxGLQ?si=nKHmAK3JzIc02mtH" target="_blank" class="thumbnail-link" data-category="vlog">
                 <img src="WORKS/018" alt=" فلوق سفرة جدة مع الشباب😂شريت مشط ذهبي ب٧٠😱 ">
             </a>
 
-            <div class="portfolio-item-wrapper" data-category="Re-Edits">
+            <div class="portfolio-item-wrapper" data-category="Re-Edits" style="display: none;">
                 <a href="https://www.instagram.com/reel/Db1D8RByxoc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="Re-Edits">
                     <img src="WORKS/017" alt="Re-Edit">
                 </a>
@@ -129,7 +116,7 @@
                             <div class="note-row editor-row">
                                 <div class="editor-ar">
                                     <span>الـ Editor الأساسي :</span>
-                                    <a href="https://www.instagram.com/ahmedpabllo" target="_blank" rel="noopener noreferrer" class="editor-link" onclick="event.stopPropagation();">ahmedpabllo@</a>                 
+                                    <a href="https://www.instagram.com/ahmedpabllo" target="_blank" rel="noopener noreferrer" class="editor-link" onclick="event.stopPropagation();">ahmedpabllo@</a>                
                                 </div>
                                 <div class="editor-en">
                                     <span>Original Editor :</span>
@@ -238,27 +225,21 @@
             </label>
             <input type="text" name="contact">         
 
+            <!-- خانة الموافقة (عربي - مربع الصح - إنجليزي في نفس السطر) -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0 18px 0; width: 100%; direction: rtl;">
+                <!-- النص العربي (يمين) -->
+                <label for="policy-checkbox" style="color: #fff; font-size: 11.5px; cursor: pointer; text-align: right;">
+                    أقر بأنني قرأت <span onclick="openPolicyModal()" style="color: #d4af37; text-decoration: underline; cursor: pointer;">سياسة الدفع</span>
+                </label>
 
+                <!-- مربع الصح (في المنتصف) -->
+                <input type="checkbox" id="policy-checkbox" required style="width: 15px; height: 15px; cursor: pointer; accent-color: #d4af37; margin: 0; flex-shrink: 0;">
 
-
-<!-- خانة الموافقة (عربي - مربع الصح - إنجليزي في نفس السطر) -->
-<div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0 18px 0; width: 100%; direction: rtl;">
-    
-    <!-- النص العربي (يمين) -->
-    <label for="policy-checkbox" style="color: #fff; font-size: 11.5px; cursor: pointer; text-align: right;">
-        أقر بأنني قرأت <span onclick="openPolicyModal()" style="color: #d4af37; text-decoration: underline; cursor: pointer;">سياسة الدفع</span>
-    </label>
-
-    <!-- مربع الصح (في المنتصف) -->
-    <input type="checkbox" id="policy-checkbox" required style="width: 15px; height: 15px; cursor: pointer; accent-color: #d4af37; margin: 0; flex-shrink: 0;">
-
-    <!-- النص الإنجليزي (يسار) -->
-    <label for="policy-checkbox" style="color: #fff; font-size: 11px; cursor: pointer; text-align: left; direction: ltr;">
-        I Read The <span onclick="openPolicyModal()" style="color: #d4af37; text-decoration: underline; cursor: pointer;">Payment Policy</span>
-    </label>
-</div>
-
-</div>
+                <!-- النص الإنجليزي (يسار) -->
+                <label for="policy-checkbox" style="color: #fff; font-size: 11px; cursor: pointer; text-align: left; direction: ltr;">
+                    I Read The <span onclick="openPolicyModal()" style="color: #d4af37; text-decoration: underline; cursor: pointer;">Payment Policy</span>
+                </label>
+            </div>
 
             <button type="submit" id="my-form-button"> إرسال الطلب | Order Now </button>
         </form>
@@ -281,21 +262,16 @@
             </button>
         </div>
 
-        
-
         <div id="form-success-msg" style="display: none; text-align: center; margin-top: 15px; color: #2ecc71; font-size: 1.1rem; font-weight: bold;">
             تم إرسال الطلب | Order Sent
         </div>
         <p id="my-form-status" style="text-align: center; font-size: 3px;"></p>
     </section>
 
-    
     <div id="contact" class="social-buttons">
         <a href="https://wa.me/966560260300" class="social-btn whatsapp" target="_blank"> WhatsApp </a>
         <a href="https://www.instagram.com/zd1edit/" class="social-btn instagram" target="_blank"> Instagram </a>
     </div>    
-
-    
 
     <button class="track-btn" onclick="toggleTracker()"> تتبع المشروع | Track Project </button>
 
@@ -310,49 +286,48 @@
     </div>
 
     <!-- Modal سياسة الدفع مع خيار تبديل اللغة -->
-<div id="policyModal" class="policy-modal-overlay">
-    <div class="policy-modal-content">
-        
-        <!-- هيدر الـ Modal ويحتوي على العنوان وزر تغيير اللغة -->
-        <div class="modal-header">
-            <h3 id="modal-title">سياسة الدفع</h3>
-            <button type="button" id="lang-switch-btn" onclick="togglePolicyLanguage()">English</button>
+    <div id="policyModal" class="policy-modal-overlay">
+        <div class="policy-modal-content">
+            
+            <!-- هيدر الـ Modal ويحتوي على العنوان وزر تغيير اللغة -->
+            <div class="modal-header">
+                <h3 id="modal-title">سياسة الدفع</h3>
+                <button type="button" id="lang-switch-btn" onclick="togglePolicyLanguage()">English</button>
+            </div>
+
+            <!-- المحتوى العربي -->
+            <div id="policy-content-ar" class="policy-lang-pane">
+                <h4>العملاء الجدد :</h4>
+                <ul>
+                    <li>بعد استلام تفاصيل المشروع وتأكيد السعر ، يتم تحديد قيمة المشروع .</li>
+                    <li>يبدأ العمل بعد استلام دفعة أولى .</li>
+                    <li>يتم دفع المبلغ المتبقي عند اكتمال المشروع وقبل تسليم النسخة النهائية .</li>
+                    <li>الدفعة الأولى غير مستردة بعد بدء العمل ، لأنها تغطي الوقت والجهد المبذول في المشروع .</li>
+                </ul>
+                <p><strong>ملاحظة هامة :</strong> يتم دفع 50% مقدمًا عند تأكيد المشروع ، والـ50% المتبقية عند اكتمال المشروع وقبل تسليم الملفات النهائية .</p>
+
+                <h4>العملاء الدائمون :</h4>
+                <p>يمكن الدفع بعد اكتمال المشروع ، حسب طبيعة التعاون والاتفاق بين الطرفين .</p>
+            </div>
+
+            <!-- المحتوى الإنجليزي -->
+            <div id="policy-content-en" class="policy-lang-pane" style="display: none; direction: ltr; text-align: left;">
+                <h4>New Clients :</h4>
+                <ul>
+                    <li>After receiving project details and confirming the price , the project value is determined .</li>
+                    <li>Work begins after receiving an initial deposit .</li>
+                    <li>The remaining amount is paid upon project completion and before delivering the final version .</li>
+                    <li>The initial deposit is non-refundable after work begins , as it covers the time and effort invested .</li>
+                </ul>
+                <p><strong>Important Note :</strong> 50% is paid in advance upon project confirmation , and the remaining 50% upon completion before final files delivery .</p>
+
+                <h4>Regular Clients :</h4>
+                <p>Payment can be made after project completion , depending on the nature of cooperation and agreement between both parties .</p>
+            </div>
+
+            <button type="button" class="close-policy-btn" onclick="closePolicyModal()">فهمت | Got it</button>
         </div>
-
-        <!-- المحتوى العربي -->
-        <div id="policy-content-ar" class="policy-lang-pane">
-            <h4>العملاء الجدد :</h4>
-            <ul>
-                <li>بعد استلام تفاصيل المشروع وتأكيد السعر ، يتم تحديد قيمة المشروع .</li>
-                <li>يبدأ العمل بعد استلام دفعة أولى .</li>
-                <li>يتم دفع المبلغ المتبقي عند اكتمال المشروع وقبل تسليم النسخة النهائية .</li>
-                <li>الدفعة الأولى غير مستردة بعد بدء العمل ، لأنها تغطي الوقت والجهد المبذول في المشروع .</li>
-            </ul>
-            <p><strong>ملاحظة هامة :</strong> يتم دفع 50% مقدمًا عند تأكيد المشروع ، والـ50% المتبقية عند اكتمال المشروع وقبل تسليم الملفات النهائية .</p>
-
-            <h4>العملاء الدائمون :</h4>
-            <p>يمكن الدفع بعد اكتمال المشروع ، حسب طبيعة التعاون والاتفاق بين الطرفين .</p>
-        </div>
-
-        <!-- المحتوى الإنجليزي -->
-        <div id="policy-content-en" class="policy-lang-pane" style="display: none; direction: ltr; text-align: left;">
-            <h4>New Clients :</h4>
-            <ul>
-                <li>After receiving project details and confirming the price , the project value is determined .</li>
-                <li>Work begins after receiving an initial deposit .</li>
-                <li>The remaining amount is paid upon project completion and before delivering the final version .</li>
-                <li>The initial deposit is non-refundable after work begins , as it covers the time and effort invested .</li>
-            </ul>
-            <p><strong>Important Note :</strong> 50% is paid in advance upon project confirmation , and the remaining 50% upon completion before final files delivery .</p>
-
-            <h4>Regular Clients :</h4>
-            <p>Payment can be made after project completion , depending on the nature of cooperation and agreement between both parties .</p>
-        </div>
-
-        <button type="button" class="close-policy-btn" onclick="closePolicyModal()">فهمت | Got it</button>
     </div>
-</div>
-
 
     <button id="backToTop">↑</button>
 
