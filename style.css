@@ -123,6 +123,7 @@ nav {
     z-index: 9999;
     background: rgba(0, 0, 0, 0.838);
     backdrop-filter: blur(0.8rem);
+    display: none;
 }
 
 nav a {
@@ -220,6 +221,7 @@ nav a:hover::after {
     padding: 6rem 2rem;
     background: #000000;
     color: rgba(15, 15, 15, 0.164);
+    display: none; /* إخفاء القسم بشكل افتراضي */
 }
 
 .works-section h2, 
@@ -235,6 +237,7 @@ nav a:hover::after {
     transition: all 0.4s ease;
     cursor: default;
     margin: 3rem;
+    display: none;
 }
 
 .filter-buttons {
@@ -374,6 +377,7 @@ nav a:hover::after {
     gap: 3rem;
     flex-wrap: wrap;
     max-width: 1200rem;
+    display: none; /* إخفاء القسم بشكل افتراضي */
 }
 
 .clients-grid img {
@@ -406,6 +410,7 @@ nav a:hover::after {
     color: white;
     box-sizing: border-box;
     box-shadow: 0 0rem 2rem rgba(196, 155, 51, 0.3);
+    display: none; /* إخفاء الفورم بشكل افتراضي */
 }
 
 #order-form input, 
@@ -746,6 +751,7 @@ nav a:hover::after {
     flex-direction: row;
     gap: 1rem; 
     z-index: 9999;
+    display: none; /* إخفاء الأزرار بشكل افتراضي */
 }
 
 .social-btn {
