@@ -1291,7 +1291,6 @@ footer p {
     border: 0.1rem solid #c49b33;
     user-select: none;
     font-size: 0.8rem;
-    display: none;
     }
 
     .container {
@@ -1693,11 +1692,10 @@ form div:has(input[type="checkbox"]) {
     background-color: #00ff00; 
     box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
     position: fixed;
-    top: 3rem;
-    left: 3rem;
+    top: 2rem;
+    left: 2rem;
     z-index: 999999999;
     animation: pulse-green 1.5s infinite;
-    display: none;
 }
 
 /* لو أضفت كلاس busy تتحول تلقائياً لأحمر (مشغول) */
