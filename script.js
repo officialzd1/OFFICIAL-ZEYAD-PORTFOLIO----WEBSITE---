@@ -70,7 +70,7 @@ const myProjects = {
 
 
     "ZD-783": { 
-        name: "عشت 24 ساعة بدون فلوس",
+        name: "بدأت يومي بـ 0 ريال وحاولت أجمع مبلغ يكفيني",
         deliveryDate: "8:30PM | 22 September 2026 | Sunday",
         status: "paused",
         currentStage: 0, 
