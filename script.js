@@ -71,7 +71,7 @@ const myProjects = {
 
     "ZD-783": { 
         name: "بدأت يومي بـ 0 ريال وحاولت أجمع مبلغ يكفيني",
-        deliveryDate: "8:30PM | 22 September 2026 | Sunday",
+        deliveryDate: "8:30PM | 22 September 2026",
         status: "paused",
         currentStage: 0, 
         driveUrl: "",
