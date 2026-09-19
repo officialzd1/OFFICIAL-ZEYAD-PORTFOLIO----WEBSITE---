@@ -69,6 +69,26 @@ function toggleOrderNote(e) {
 const myProjects = {
 
 
+    "ZD-783": { 
+        name: "عشت 24 ساعة بدون فلوس",
+        deliveryDate: "8:30PM | 22 September 2026 | Sunday",
+        status: "paused",
+        currentStage: 0, 
+        driveUrl: "",
+        stages: [
+            { ar: "التنزيل", en: "Downloading" },
+            { ar: "المقدمة", en: "Intro" },
+            { ar: "القص", en: "Cutting" },
+            { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effects & Transition" },
+            { ar: "المؤثرات الصوتية", en: "Sound Effects" },
+            { ar: "المراجعة", en: "Review" },
+            { ar: "التعديلات", en: "Amendments" },
+            { ar: "التصدير", en: "Exporting" },
+            { ar: "التسليم", en: "Final Delivery" }
+        ]
+    },
+
+
 
 "ZD-113": { 
         name: "صرت دكتور - Ome.tv",
