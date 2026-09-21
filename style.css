@@ -58,6 +58,7 @@ body {
     left: 3rem;
     z-index: 999999999;
     animation: pulse-green 3s infinite;
+    display: none; /* إخفاء الدائرة بشكل افتراضي */
 }
 
 /* لو أضفت كلاس busy تتحول تلقائياً لأحمر (مشغول) */
