@@ -73,7 +73,7 @@ const myProjects = {
         name: "بدأت يومي بـ 0 ريال وحاولت أجمع مبلغ يكفيني",
         deliveryDate: "12:30PM | 21 September 2026",
         status: "paused",
-        currentStage: 5, 
+        currentStage: 6, 
         driveUrl: "",
         stages: [
             { ar: "التنزيل", en: "Downloading" },
