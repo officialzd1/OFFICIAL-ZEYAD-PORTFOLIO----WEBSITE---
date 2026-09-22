@@ -3,14 +3,14 @@
    ========================================================================== */
 
 // شريط تقدم التمرير العلوي
-window.onscroll = function() {
-    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let progress = document.getElementById("scrollProgress");
-    if (progress) {
-        progress.style.width = (winScroll / height) * 100 + "%";
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = document.getElementById("scrollProgress");
+    if (progress && height > 0) {
+        progress.style.width = `${(winScroll / height) * 100}%`;
     }
-};
+});
 
 // إدارة القائمة الجوالة
 function toggleMenu() {
@@ -26,40 +26,26 @@ function closeMenu() {
 // إدارة حالة التوفر (متاح / مشغول)
 function setStatus(isBusy) {
     const badge = document.getElementById('status-badge');
-    const statusDot = document.getElementById('status-dot');
-    
-    if (badge && statusDot) {
-        if (isBusy) {
-            badge.classList.add('busy');
-        } else {
-            badge.classList.remove('busy');
-        }
+    if (badge) {
+        badge.classList.toggle('busy', isBusy);
     }
 }
 setStatus(false);
 
 // إظهار وإخفاء التلميحات والملاحظات
-function toggleNote(e) {
+function toggleTooltip(e, selector) {
     if (e) {
         e.preventDefault();
         e.stopPropagation();
     }
-    const tooltip = e.currentTarget || e.target.closest('.info-tooltip');
+    const tooltip = e.currentTarget || e.target.closest(selector);
     if (tooltip) {
         tooltip.classList.toggle('active');
     }
 }
 
-function toggleOrderNote(e) {
-    if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    const tooltip = e.currentTarget || e.target.closest('.order-info-tooltip');
-    if (tooltip) {
-        tooltip.classList.toggle('active');
-    }
-}
+function toggleNote(e) { toggleTooltip(e, '.info-tooltip'); }
+function toggleOrderNote(e) { toggleTooltip(e, '.order-info-tooltip'); }
 
 
 /* ==========================================================================
@@ -67,8 +53,6 @@ function toggleOrderNote(e) {
    ========================================================================== */
 
 const myProjects = {
-
-
     "ZD-783": { 
         name: "بدأت يومي بـ 0 ريال وحاولت أجمع مبلغ يكفيني",
         deliveryDate: "12:30PM | 21 September 2026",
@@ -87,10 +71,7 @@ const myProjects = {
             { ar: "التسليم", en: "Final Delivery" }
         ]
     },
-
-
-
-"ZD-113": { 
+    "ZD-113": { 
         name: "صرت دكتور - Ome.tv",
         deliveryDate: "9:30AM | 31 August 2026 | Monday",
         status: "paused",
@@ -109,7 +90,6 @@ const myProjects = {
             { ar: "التسليم", en: "Final Delivery" }
         ]
     },
-
     "ZD-743": { 
         name: "سفرة جدة",
         deliveryDate: "8:00AM | 21 August 2026",
@@ -134,7 +114,7 @@ const myProjects = {
         name: "فلوق يوتيوب",
         status: "paused",
         currentStage: 8, 
-        driveUrl: "https://drive.google.com/file/d/YOUR_VIDEO_ID/view",
+        driveUrl: "",
         stages: [
             { ar: "التنزيل", en: "Downloading" },
             { ar: "الترتيب", en: "Organizing" },
@@ -142,29 +122,6 @@ const myProjects = {
             { ar: "الانتقالات", en: "Transitions" },
             { ar: "التصدير", en: "Exporting" },
             { ar: "التسليم", en: "Final Delivery" }
-        ]
-    },
-    "ZD1": { 
-        name: "فلوق يوتيوب", 
-        status: "paused",
-        statusMsg: "تم الإنتهاء | Finished",
-        currentStage: 14, 
-        previewUrl: "your-video1.mp4",        
-        stages: [
-            "التنزيل Downloading <span style='color: #2ecc71;'>100%</span>",
-            "الترتيب Organizing <span style='color: #2ecc71;'>100%</span>",
-            "القص Cutting <span style='color: #2ecc71;'>100%</span>",
-            "إيقاف مؤقت Pausing",
-            "الترجمة Subtitling <span style='color: #2ecc71;'>92%</span>",
-            "الانتقالات Transitions <span style='color: #2ecc71;'>100%</span>",
-            "مؤثرات بصرية VFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
-            "مؤثرات صوتية SFX <small style='color: #ff0000; font-size: 0.7em;'>( ملغاة | Canceled )</small>",
-            "التصدير Exporting <span style='color: #2ecc71;'>100%</span>",
-            "التسليم ✓ Final Delivery",
-            "فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
-            "فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
-            "فيديو قصير | Short Video | <span style='color: #2ecc71;'>100%</span> <small style='color: #ff0000; font-size: 0.5em;'>( عمل مضاف | Extra work )</small>",
-            "التسليم ✓ Final Delivery"
         ]
     }
 };
@@ -178,14 +135,11 @@ function toggleInfo() {
 
 function toggleTracker() {
     const modal = document.getElementById('tracker-modal');
-    if (modal) {
-        modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
-    }
+    if (modal) modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
 }
 
 function parseDeliveryDate(dateStr) {
     if (!dateStr) return null;
-    
     const regex = /(\d{1,2}):(\d{2})\s*(AM|PM)?\s*\|\s*(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})/i;
     const match = dateStr.match(regex);
 
@@ -198,11 +152,9 @@ function parseDeliveryDate(dateStr) {
             if (period === 'PM' && hours < 12) hours += 12;
             if (period === 'AM' && hours === 12) hours = 0;
         }
-
         const formattedHours = hours < 10 ? '0' + hours : hours;
         return new Date(`${month} ${day}, ${year} ${formattedHours}:${minutes}:00`);
     }
-
     return new Date(dateStr.replace('|', '').trim());
 }
 
@@ -214,30 +166,23 @@ function startCountdown(dateString) {
         if (!timerElement) return;
 
         const targetDate = parseDeliveryDate(dateString);
-
         if (!targetDate || isNaN(targetDate.getTime())) {
             timerElement.innerHTML = `<span style="color: #ff4d4d; font-size: 0.75rem;">(صيغة التاريخ غير صحيحة)</span>`;
             return;
         }
 
-        const now = new Date().getTime();
-        const diff = targetDate.getTime() - now;
-
+        const diff = targetDate.getTime() - new Date().getTime();
         if (diff <= 0) {
             timerElement.innerHTML = `<span style="color: #00ff22; font-weight: bold;">انتهى موعد التسليم | Deadline Passed</span>`;
             clearInterval(countdownInterval);
             return;
         }
 
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        const hours = String(Math.floor(diff / (1000 * 60 * 60))).padStart(2, '0');
+        const minutes = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+        const seconds = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
 
-        const hStr = hours < 10 ? '0' + hours : hours;
-        const mStr = minutes < 10 ? '0' + minutes : minutes;
-        const sStr = seconds < 10 ? '0' + seconds : seconds;
-
-        timerElement.innerHTML = `المتبقي : <span style="color: #ffb000; font-weight: bold; font-family: monospace; font-size: 0.95rem;">${hStr}:${mStr}:${sStr}</span>`;
+        timerElement.innerHTML = `المتبقي : <span style="color: #ffb000; font-weight: bold; font-family: monospace; font-size: 0.95rem;">${hours}:${minutes}:${seconds}</span>`;
     }
 
     updateTimer();
@@ -254,89 +199,59 @@ function checkProject() {
     const code = codeInput.value.trim().toUpperCase();
     const project = myProjects[code];
 
-    if (project) { 
-        let timelineHTML = `<div style="display: flex; flex-direction: column; align-items: center; margin-top: 15px; max-height: 210px; overflow-y: auto; width: 100%; box-sizing: border-box; padding: 10px 0;">`;
-        
-        timelineHTML += `<div style="position: relative; width: 100%; margin-top: 5px;">`;
-        timelineHTML += `<div style="position: absolute; top: 10px; bottom: 10px; left: 50%; transform: translateX(-50%); width: 2px; background: rgba(255, 255, 255, 0.15);"></div>`;
-        timelineHTML += `<ul style="list-style: none; padding: 0; margin: 0; position: relative; width: 100%;">`;
-
-        project.stages.forEach((stage, index) => {
-            const isCompleted = index < project.currentStage;
-            const isActive = index === project.currentStage;
-            
-            let circleColor = "rgba(255, 255, 255, 0.2)"; 
-            let arColor = "#777777";
-            let enColor = "#777777";
-            let glow = "none";
-            
-            if (isCompleted) {
-                circleColor = "#00ff22"; 
-                arColor = "#ffffff";
-                enColor = "#ffffff";
-            } else if (isActive) {
-                circleColor = "#ffb000"; 
-                arColor = "#ffb000";
-                enColor = "#ffb000";
-                glow = "0 0 10px #ffb000";
-            }
-
-            let arText = typeof stage === 'object' ? stage.ar : stage;
-            let enText = typeof stage === 'object' ? stage.en : '';
-
-            const isLast = index === project.stages.length - 1;
-            const marginBottom = isLast ? '0px' : '20px';
-
-            timelineHTML += `
-                <li style="position: relative; margin-bottom: ${marginBottom}; font-size: 0.82em; display: flex; align-items: center; justify-content: space-between; width: 100%; direction: ltr; box-sizing: border-box; padding: 0 10px;">
-                    <span style="width: 42%; text-align: right; color: ${enColor}; box-sizing: border-box;">${enText}</span>
-                    <div style="width: 16%; display: flex; justify-content: center; position: relative;">
-                        <span style="width: 12px; height: 12px; background-color: ${circleColor}; border-radius: 50%; box-shadow: ${glow}; border: 2px solid #111; z-index: 2;"></span>
-                    </div>
-                    <span style="width: 42%; text-align: left; color: ${arColor}; box-sizing: border-box;">${arText}</span>
-                </li>`;
-        });
-        
-        timelineHTML += `</ul></div>`;
-
-        if (project.deliveryDate) {
-            timelineHTML += `
-                <div style="margin-top: 25px; margin-bottom: 10px; text-align: center; color: #ffffff; font-size: 0.85rem; width: 100%;">
-                    <div>الوقت المتوقع للتسليم : <span style="color: #ffb000;">${project.deliveryDate}</span></div>
-                    <div id="delivery-countdown" style="margin-top: 6px; font-size: 0.85rem; color: #ffffff;"></div>
-                </div>`;
-        }
-
-        timelineHTML += `</div>`;
-
-        let downloadButton = "";
-        if (project.driveUrl && project.driveUrl.trim() !== "") {
-            downloadButton = `
-                <div style="text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                    <a href="${project.driveUrl}" target="_blank" class="drive-btn">
-                         إستلام الفيديو 📥 Get Video
-                    </a>
-                </div>
-            `;
-        }
-
-        display.innerHTML = `
-            <div style="background: rgba(0, 0, 0, 0.6); padding: 15px; border-radius: 10px; border: 1px solid rgba(197, 160, 85, 0.3); text-align: center;">
-                <div style="margin-bottom: 12px; text-align: center;">
-                    <strong>المشروع : <span style="color: #ffffff; font-size: 1rem;">${project.name}</span></strong>
-                </div>
-                ${timelineHTML}
-                ${downloadButton}
-            </div>
-        `;
-
-        if (project.deliveryDate) {
-            startCountdown(project.deliveryDate);
-        }
-
-    } else {
+    if (!project) {
         display.innerHTML = `<p style="color:red; text-align: center; padding: 10px;">كود غير صحيح | Invalid Code</p>`;
+        return;
     }
+
+    let stagesHTML = project.stages.map((stage, index) => {
+        const isCompleted = index < project.currentStage;
+        const isActive = index === project.currentStage;
+        
+        let circleColor = isCompleted ? "#00ff22" : (isActive ? "#ffb000" : "rgba(255, 255, 255, 0.2)"); 
+        let textColor = isCompleted ? "#ffffff" : (isActive ? "#ffb000" : "#777777");
+        let glow = isActive ? "0 0 10px #ffb000" : "none";
+
+        let arText = typeof stage === 'object' ? stage.ar : stage;
+        let enText = typeof stage === 'object' ? stage.en : '';
+
+        return `
+            <li style="position: relative; margin-bottom: ${index === project.stages.length - 1 ? '0' : '20px'}; font-size: 0.82em; display: flex; align-items: center; justify-content: space-between; width: 100%; direction: ltr; box-sizing: border-box; padding: 0 10px;">
+                <span style="width: 42%; text-align: right; color: ${textColor};">${enText}</span>
+                <div style="width: 16%; display: flex; justify-content: center; position: relative;">
+                    <span style="width: 12px; height: 12px; background-color: ${circleColor}; border-radius: 50%; box-shadow: ${glow}; border: 2px solid #111; z-index: 2;"></span>
+                </div>
+                <span style="width: 42%; text-align: left; color: ${textColor};">${arText}</span>
+            </li>`;
+    }).join('');
+
+    let deliveryHTML = project.deliveryDate ? `
+        <div style="margin-top: 25px; margin-bottom: 10px; text-align: center; color: #ffffff; font-size: 0.85rem; width: 100%;">
+            <div>الوقت المتوقع للتسليم : <span style="color: #ffb000;">${project.deliveryDate}</span></div>
+            <div id="delivery-countdown" style="margin-top: 6px; font-size: 0.85rem; color: #ffffff;"></div>
+        </div>` : '';
+
+    let downloadButton = (project.driveUrl && project.driveUrl.trim() !== "") ? `
+        <div style="text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <a href="${project.driveUrl}" target="_blank" class="drive-btn">إستلام الفيديو 📥 Get Video</a>
+        </div>` : '';
+
+    display.innerHTML = `
+        <div style="background: rgba(0, 0, 0, 0.6); padding: 15px; border-radius: 10px; border: 1px solid rgba(197, 160, 85, 0.3); text-align: center;">
+            <div style="margin-bottom: 12px; text-align: center;">
+                <strong>المشروع : <span style="color: #ffffff; font-size: 1rem;">${project.name}</span></strong>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; margin-top: 15px; max-height: 210px; overflow-y: auto; width: 100%; padding: 10px 0;">
+                <div style="position: relative; width: 100%; margin-top: 5px;">
+                    <div style="position: absolute; top: 10px; bottom: 10px; left: 50%; transform: translateX(-50%); width: 2px; background: rgba(255, 255, 255, 0.15);"></div>
+                    <ul style="list-style: none; padding: 0; margin: 0; position: relative; width: 100%;">${stagesHTML}</ul>
+                </div>
+                ${deliveryHTML}
+            </div>
+            ${downloadButton}
+        </div>`;
+
+    if (project.deliveryDate) startCountdown(project.deliveryDate);
 }
 
 
@@ -370,10 +285,9 @@ function submitRatingForm() {
     fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
-        headers: {
-            'Accept': 'application/json'
-        }
-    }).then(response => {
+        headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
         if (response.ok) {
             if (statusElement) statusElement.textContent = "شكراً لك! تم استلام تقييمك بنجاح ❤️";
             const emojiContainer = document.querySelector('.emoji-container');
@@ -383,7 +297,8 @@ function submitRatingForm() {
         } else {
             if (statusElement) statusElement.textContent = "عذراً، حدث خطأ. حاول مرة أخرى.";
         }
-    }).catch(error => {
+    })
+    .catch(() => {
         if (statusElement) statusElement.textContent = "تأكد من اتصالك بالإنترنت.";
     });
 }
@@ -393,34 +308,29 @@ function submitRatingForm() {
    4. العداد التنازلي لإطلاق المشروع (Countdown)
    ========================================================================== */
 
-const targetDate = new Date("August 10, 2026 20:00:00").getTime();
+const launchTargetDate = new Date("August 10, 2026 20:00:00").getTime();
 
 function updateCountdown() {
     const countdownSection = document.getElementById("countdown-section");
     if (!countdownSection) return;
 
-    const now = new Date().getTime();
-    const timeLeft = targetDate - now;
+    const timeLeft = launchTargetDate - new Date().getTime();
 
     if (timeLeft < 0) {
         countdownSection.innerHTML = "<h2>تم إطلاق المشروع الآن! شاهد العمل في قسم الأعمال 🚀</h2>";
         return;
     }
 
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    const days = String(Math.floor(timeLeft / (1000 * 60 * 60 * 24))).padStart(2, '0');
+    const hours = String(Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+    const minutes = String(Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+    const seconds = String(Math.floor((timeLeft % (1000 * 60)) / 1000)).padStart(2, '0');
 
-    const dElem = document.getElementById("days");
-    const hElem = document.getElementById("hours");
-    const mElem = document.getElementById("minutes");
-    const sElem = document.getElementById("seconds");
-
-    if (dElem) dElem.textContent = String(days).padStart(2, '0');
-    if (hElem) hElem.textContent = String(hours).padStart(2, '0');
-    if (mElem) mElem.textContent = String(minutes).padStart(2, '0');
-    if (sElem) sElem.textContent = String(seconds).padStart(2, '0');
+    const updateText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+    updateText("days", days);
+    updateText("hours", hours);
+    updateText("minutes", minutes);
+    updateText("seconds", seconds);
 }
 
 setInterval(updateCountdown, 1000);
@@ -433,22 +343,17 @@ updateCountdown();
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // أ. نموذج الطلب المباشر (Formspree AJAX)
+    // أ. نموذج الطلب المباشر
     const orderForm = document.getElementById("my-form");
     const successMsg = document.getElementById("form-success-msg");
 
     if (orderForm) {
         orderForm.addEventListener("submit", function (e) {
             e.preventDefault();
-
-            const data = new FormData(orderForm);
-
             fetch(orderForm.action || "https://formspree.io/f/xowdynyw", {
                 method: "POST",
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                body: new FormData(orderForm),
+                headers: { 'Accept': 'application/json' }
             })
             .then(response => {
                 if (response.ok) {
@@ -465,12 +370,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ب. مشغل الصوت والموجات الصوتية (Audio & Waveform)
+    // ب. مشغل الصوت والموجات الصوتية
     const audio = document.getElementById('my-audio');
     const playBtn = document.getElementById('play-btn');
     const waveform = document.getElementById('waveform');
 
     if (waveform && audio && playBtn) {
+        waveform.innerHTML = '';
         for (let i = 0; i < 60; i++) {
             const bar = document.createElement('div');
             bar.classList.add('bar');
@@ -503,8 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!audio.paused) {
                 requestAnimationFrame(draw);
                 analyser.getByteFrequencyData(dataArray);
-                const bars = document.querySelectorAll('.bar');
-                bars.forEach((bar, i) => {
+                document.querySelectorAll('.bar').forEach((bar, i) => {
                     const height = (dataArray[i] / 255) * 45 + 5; 
                     bar.style.height = `${height}px`;
                 });
@@ -514,28 +419,20 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.onended = () => { playBtn.textContent = '▶'; };
     }
 
-    // ج. ظهور الأقسام بسلاسة (Intersection Observer)
+    // ج. ظهور الأقسام بسلاسة
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
-    });
+    document.querySelectorAll('section').forEach(section => observer.observe(section));
 
-    // د. زر العودة للأعلى (Back to Top)
+    // د. زر العودة للأعلى
     const backToTopButton = document.getElementById('backToTop');
     if (backToTopButton) {
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
-            }
+            backToTopButton.classList.toggle('show', window.scrollY > 300);
         });
 
         backToTopButton.addEventListener('click', () => {
@@ -543,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // هـ. تفاعل الاسم والصورة الشخصية (Blur & Profile Toggle)
+    // هـ. تفاعل الاسم والصورة الشخصية
     const nameTrigger = document.getElementById('nameTrigger');
     const myPhoto = document.getElementById('myPhoto');
     const blurArea = document.querySelector('.blur-area');
@@ -553,9 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nameTrigger && myPhoto && blurArea) {
         nameTrigger.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (clickSound) {
-                clickSound.play().catch(err => console.log("الصوت يحتاج تفاعل المستخدم أولاً"));
-            }
+            if (clickSound) clickSound.play().catch(() => {});
             blurArea.classList.add('active');
             myPhoto.classList.add('show');
             if (subTitle) subTitle.classList.add('hidden');
@@ -570,12 +465,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // و. إغلاق روابط القائمة الجوالة عند النقر
+    // و. إغلاق القائمة الجوالة عند النقر
     document.querySelectorAll('#mobile-nav a').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
 
-    // ز. تقويم حجز المواعيد (Booking Calendar)
+    // ز. تقويم حجز المواعيد
     const daysGrid = document.getElementById('days-grid');
     const bookingModal = document.getElementById('booking-modal');
     const selectedDateText = document.getElementById('selected-date-text');
@@ -604,7 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 dayCell.classList.add('busy');
             } else {
                 dayCell.classList.add('available');
-                dayCell.addEventListener('click', function() {
+                dayCell.addEventListener('click', () => {
                     selectedDate = `أغسطس ${day}, 2026`;
                     if (selectedDateText) selectedDateText.textContent = selectedDate;
                     bookingModal.style.display = 'block';
@@ -614,24 +509,22 @@ document.addEventListener('DOMContentLoaded', () => {
             daysGrid.appendChild(dayCell);
         }
 
-        bookingForm.addEventListener('submit', function(e) {
+        bookingForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const clientName = document.getElementById('client-name').value;
             const projectType = document.getElementById('project-type').value;
             const myWhatsAppNumber = "966560260300"; 
             
             const message = `مرحباً زياد، أرغب بحجز موعد مشروع مونتاج:\n- التاريخ: ${selectedDate}\n- الاسم: ${clientName}\n- نوع المشروع: ${projectType}`;
-            const encodedMessage = encodeURIComponent(message);
-
-            window.open(`https://wa.me/${myWhatsAppNumber}?text=${encodedMessage}`, '_blank');
+            window.open(`https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(message)}`, '_blank');
         });
     }
 
-    // ح. تصفية معرض الأعمال (Portfolio Filter)
+    // ح. تصفية معرض الأعمال
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.thumbnail-link');
 
-    if (filterButtons.length > 0 && portfolioItems.length > 0) {
+    if (filterButtons.length && portfolioItems.length) {
         filterButtons.forEach(button => {
             button.addEventListener('click', function() {
                 filterButtons.forEach(btn => btn.classList.remove('active'));
@@ -641,97 +534,85 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 portfolioItems.forEach(item => {
                     const itemCategory = item.getAttribute('data-category');
-                    if (filterValue === 'all' || itemCategory === filterValue) {
-                        item.classList.remove('hidden');
-                    } else {
-                        item.classList.add('hidden');
-                    }
+                    item.classList.toggle('hidden', !(filterValue === 'all' || itemCategory === filterValue));
                 });
             });
         });
     }
-});
 
-const modal = document.getElementById('policyModal');
-const openBtn = document.getElementById('open-policy-btn');
-const checkbox = document.getElementById('policy-checkbox');
-const form = document.getElementById('my-form');
+    // ط. سياسة الدفع (Policy Modal Event Listeners)
+    const policyModal = document.getElementById('policyModal');
+    const openPolicyBtn = document.getElementById('open-policy-btn');
+    const policyCheckbox = document.getElementById('policy-checkbox');
 
-// متغير لتتبع اللغة الحالية داخل الـ Modal (افتراضي عربي: 'ar')
-let currentLang = 'ar';
+    if (openPolicyBtn && policyModal) {
+        openPolicyBtn.addEventListener('click', () => {
+            policyModal.style.display = 'flex';
+        });
+    }
 
-// فتح الـ Modal
-openBtn.addEventListener('click', () => {
-    modal.style.display = 'flex';
-});
+    if (policyModal) {
+        window.addEventListener('click', (e) => {
+            if (e.target === policyModal) policyModal.style.display = 'none';
+        });
+    }
 
-function openPolicyModal() {
-    modal.style.display = 'flex';
-}
-
-// إغلاق الـ Modal
-function closePolicyModal() {
-    modal.style.display = 'none';
-}
-
-// إغلاق عند الضغط خارج المودال
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
+    if (orderForm && policyCheckbox) {
+        orderForm.addEventListener('submit', (e) => {
+            if (!policyCheckbox.checked) {
+                e.preventDefault();
+                alert(currentLang === 'ar' ? 'عذراً، يجب عليك قراءة والموافقة على سياسة الدفع أولاً.' : 'Please read and agree to the payment policy first.');
+                policyCheckbox.focus();
+            }
+        });
     }
 });
 
-// دالة تبديل اللغة داخل الـ Modal
+
+/* ==========================================================================
+   6. دوال عامة لسياسة الدفع والملخصات (Global Helpers)
+   ========================================================================== */
+
+let currentLang = 'ar';
+
+function openPolicyModal() {
+    const modal = document.getElementById('policyModal');
+    if (modal) modal.style.display = 'flex';
+}
+
+function closePolicyModal() {
+    const modal = document.getElementById('policyModal');
+    if (modal) modal.style.display = 'none';
+}
+
 function togglePolicyLanguage() {
     const title = document.getElementById('modal-title');
     const contentAr = document.getElementById('policy-content-ar');
     const contentEn = document.getElementById('policy-content-en');
     const langBtn = document.getElementById('lang-switch-btn');
 
-    if (currentLang === 'ar') {
-        currentLang = 'en';
-        contentAr.style.display = 'none';
-        contentEn.style.display = 'block';
-        title.textContent = 'Payment Policy';
-        langBtn.textContent = 'العربية';
-    } else {
-        currentLang = 'ar';
-        contentEn.style.display = 'none';
-        contentAr.style.display = 'block';
-        title.textContent = 'سياسة الدفع';
-        langBtn.textContent = 'English';
-    }
+    if (!title || !contentAr || !contentEn || !langBtn) return;
+
+    currentLang = currentLang === 'ar' ? 'en' : 'ar';
+    contentAr.style.display = currentLang === 'ar' ? 'block' : 'none';
+    contentEn.style.display = currentLang === 'en' ? 'block' : 'none';
+    title.textContent = currentLang === 'ar' ? 'سياسة الدفع' : 'Payment Policy';
+    langBtn.textContent = currentLang === 'ar' ? 'English' : 'العربية';
 }
 
-// منع إرسال الفورم إذا لم يتم تحديد المربع
-form.addEventListener('submit', (e) => {
-    if (!checkbox.checked) {
-        e.preventDefault();
-        alert(currentLang === 'ar' ? 'عذراً، يجب عليك قراءة والموافقة على سياسة الدفع أولاً.' : 'Please read and agree to the payment policy first.');
-        checkbox.focus();
-    }
-});
-
-// دالة فتح وإغلاق تفاصيل المشروع الإضافية بالسهم
 function toggleProjectBrief() {
     const briefBox = document.getElementById('extra-brief-box');
     const arrowIcon = document.getElementById('arrow-icon');
-    
-    if (briefBox.style.display === 'none' || briefBox.style.display === '') {
-        briefBox.style.display = 'block';
-        arrowIcon.style.transform = 'rotate(180deg)'; // يقلب السهم على فوق
-    } else {
-        briefBox.style.display = 'none';
-        arrowIcon.style.transform = 'rotate(0deg)'; // يرجعه لتحت
+    if (briefBox && arrowIcon) {
+        const isHidden = briefBox.style.display === 'none' || briefBox.style.display === '';
+        briefBox.style.display = isHidden ? 'block' : 'none';
+        arrowIcon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
     }
 }
 
-// دالة إظهار وإخفاء ملاحظة مدة الفيديو الخام
 function toggleRawNote() {
     const noteBox = document.getElementById('raw-note-box');
-    if (noteBox.style.display === 'none' || noteBox.style.display === '') {
-        noteBox.style.display = 'block';
-    } else {
-        noteBox.style.display = 'none';
+    if (noteBox) {
+        noteBox.style.display = (noteBox.style.display === 'none' || noteBox.style.display === '') ? 'block' : 'none';
     }
 }
