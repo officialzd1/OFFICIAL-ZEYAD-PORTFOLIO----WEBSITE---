@@ -1,47 +1,40 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <!-- الأساسيات والترميز -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OFFICIAL ZEYAD PORTFOLIO</title>
+    <meta name="description" content="Welcome to the official portfolio of Zeyad. Explore my latest projects, skills, and work.">
     
-    <!-- محركات البحث (SEO) -->
-    <meta name="description" content="Welcome to the official portfolio of Zeyad. Explore my latest video editing projects, skills, and work.">
-    <link rel="canonical" href="https://officialzd1.com/">
-
-    <!-- لون شريط المتصفح على الجوال (يمكنك تغييره ليناسب تصميمك) -->
-    <meta name="theme-color" content="#000000">
-
-    <!-- Open Graph (معاينة الرابط في الواتساب وتليجرام وفيسبوك) -->
-    <meta property="og:title" content="OFFICIAL ZEYAD PORTFOLIO">
-    <meta property="og:description" content="Professional Video Editing & Content Creation Services">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Zeyad Portfolio">
+    <meta property="og:description" content="Professional Video Editing Services">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://officialzd1.com/">
     <meta property="og:image" content="https://officialzd1.com/thumbnail.jpg">
 
-    <!-- Twitter Cards (معاينة الرابط في منصة X / تويتر) -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="OFFICIAL ZEYAD PORTFOLIO">
-    <meta name="twitter:description" content="Professional Video Editing & Content Creation Services">
-    <meta name="twitter:image" content="https://officialzd1.com/thumbnail.jpg">
-
-    <!-- الأيقونات (Favicon & Mobile Icons) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
 
-    <!-- تسريع الاتصال بالسيرفرات الخارجية (Performance) -->
+    <!-- Fonts & Styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-    <!-- الخطوط الخارجية (Google Fonts) -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-
-    <!-- ملف التنسيق الرئيسي (CSS) -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Google Analytics (تحليلات الزوار) -->
+<!-- مكتبة html2canvas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- مكتبة EmailJS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      // استبدل YOUR_PUBLIC_KEY بمفتاح الـ Public Key الخاص بك من حساب EmailJS
+      emailjs.init("AP0_KIWtw9YBJYsGV");
+   })();
+</script>
+
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GF2S0JGBB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -159,79 +152,141 @@
         </div>
     </section>
 
-    <section id="order-form" style="padding: 50px;">
-        <h2 style="text-align: center;"> اطلب الآن | Order Now </h2>
-        <form id="my-form" action="https://formspree.io/f/xeewdywy" method="POST">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="order-form" style="padding: 50px;">
+    <h2 style="text-align: center;"> اطلب الآن | Order Now </h2>
+<form id="my-form" action="https://formspree.io/f/xeewdywy" method="POST">
             <label style="display: block; overflow: hidden;">
-                <span style="float: right;"> الاسم </span>
-                <span style="float: left;"> Name </span>
+            <span style="float: right;"> الاسم </span>
+            <span style="float: left;"> Name </span>
+        </label>
+        <input type="text" id="input-name" name="name" required>
+
+        <label style="display: block; overflow: hidden;">
+            <span style="float: right;"> رابط الفيديو </span>
+            <span style="float: left;"> Video Link </span>
+        </label>
+        <input type="url" id="input-video-link" name="video_link" required>
+
+        <label style="display: block; overflow: hidden;">
+            <span style="float: right;"> نوع الفيديو </span>
+            <span style="float: left;"> Video Type </span>
+        </label>
+        <select id="input-video-type" name="video_type">
+            <option value="Short"> قصير | Short </option>
+            <option value="Teaser"> تشويقة | Teaser </option>
+            <option value="YouTube"> يوتيوب | YouTube </option>
+        </select>
+
+        
+        </select>
+
+        </select>
+
+
+        <label style="display: block; overflow: hidden; margin-top: 10px;">
+            <span style="float: right;"> التواصل </span>
+            <span style="float: left;"> Contact </span>
+        </label>
+        <input type="text" id="input-contact" name="contact" required>        
+
+        <!-- خانة الموافقة -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0 18px 0; width: 100%; direction: rtl;">
+            <label for="policy-checkbox" style="color: #fff; font-size: 11.5px; cursor: pointer; text-align: right;">
+                أقر بأنني قرأت <span onclick="openPolicyModal()" style="color: #d4af37; text-decoration: underline; cursor: pointer;">سياسة الدفع</span>
             </label>
-            <input type="text" name="name" required>
 
-            <label style="display: block; overflow: hidden;">
-                <span style="float: right;"> رابط الفيديو </span>
-                <span style="float: left;"> Video Link </span>
+            <input type="checkbox" id="policy-checkbox" required style="width: 15px; height: 15px; cursor: pointer; accent-color: #d4af37; margin: 0; flex-shrink: 0;">
+
+            <label for="policy-checkbox" style="color: #fff; font-size: 11px; cursor: pointer; text-align: left; direction: ltr;">
+                I Read The <span onclick="openPolicyModal()" style="color: #d4af37; text-decoration: underline; cursor: pointer;">Payment Policy</span>
             </label>
-            <input type="url" name="video-link">
+        </div>
 
-            <label style="display: block; overflow: hidden;">
-                <span style="float: right;"> نوع الفيديو </span>
-                <span style="float: left;"> Video Type </span>
-            </label>
-            <select name="video-type">
-                <option value="Short"> قصير | Short </option>
-                <option value="Teaser"> تشويقة | Teaser </option>
-                <option value="YouTube"> يوتيوب | YouTube </option>
-            </select>
+        <!-- أزرار التحكم -->
+        <!-- حاوية الأزرار مرتبة عمودياً -->
+<!-- حاوية الأزرار مرتبة عمودياً -->
+<div style="display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 420px; margin: 20px auto 0 auto;">
+    
+    <!-- 1. زر حفظ كصورة (في الأعلى) -->
+    <button type="button" id="btn-save-card" class="gold-btn" onclick="saveOrderAsImage()" style="width: 100%;">
+         حفظ كصورة | Save Card
+    </button>
 
-            <label style="display: block; overflow: hidden; margin-top: 10px;">
-                <span style="float: right;"> التواصل </span>
-                <span style="float: left;"> Contact </span>
-            </label>
-            <input type="text" name="contact">         
 
-            <!-- خانة الموافقة (عربي - مربع الصح - إنجليزي في نفس السطر) -->
-            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0 18px 0; width: 100%; direction: rtl;">
-                <!-- النص العربي (يمين) -->
-                <label for="policy-checkbox" style="color: #fff; font-size: 11.5px; cursor: pointer; text-align: right;">
-                    أقر بأنني قرأت <span onclick="openPolicyModal()" style="color: #d4af37; text-decoration: underline; cursor: pointer;">سياسة الدفع</span>
-                </label>
+</div>
+    </form>
 
-                <!-- مربع الصح (في المنتصف) -->
-                <input type="checkbox" id="policy-checkbox" required style="width: 15px; height: 15px; cursor: pointer; accent-color: #d4af37; margin: 0; flex-shrink: 0;">
-
-                <!-- النص الإنجليزي (يسار) -->
-                <label for="policy-checkbox" style="color: #fff; font-size: 11px; cursor: pointer; text-align: left; direction: ltr;">
-                    I Read The <span onclick="openPolicyModal()" style="color: #d4af37; text-decoration: underline; cursor: pointer;">Payment Policy</span>
-                </label>
-            </div>
-
-            <button type="submit" id="my-form-button"> إرسال الطلب | Order Now </button>
-        </form>
-
-        <div class="order-note-wrapper">
-            <button type="button" class="order-info-tooltip" aria-label="Toggle Project Notes" onclick="toggleOrderNote(event)">
-                <span aria-hidden="true">i</span>
-                <div class="order-note-box">
-                    <div class="order-note-header">
-                        <span class="order-note-ar">ملاحظة</span>
-                        <span class="order-note-en">Note</span>
-                    </div>
-                    <div class="order-note-body">
-                        <div class="order-note-row">
-                            <p class="order-text-ar">إدخال رابط الفيديو وتفاصيل الطلب عبر الموقع يُمثّل إثباتًا رسميًا للاتفاق على نطاق العمل بين الطرفين</p>
-                            <p class="order-text-en">Submitting the video link and order details through the website serves as official proof of agreement on the scope of work between both parties</p>
-                        </div>
+    <div class="order-note-wrapper">
+        <button type="button" class="order-info-tooltip" aria-label="Toggle Project Notes" onclick="toggleOrderNote(event)">
+            <span aria-hidden="true">i</span>
+            <div class="order-note-box">
+                <div class="order-note-header">
+                    <span class="order-note-ar">ملاحظة</span>
+                    <span class="order-note-en">Note</span>
+                </div>
+                <div class="order-note-body">
+                    <div class="order-note-row">
+                        <p class="order-text-ar">إدخال رابط الفيديو وتفاصيل الطلب عبر الموقع يُمثّل إثباتًا رسميًا للاتفاق على نطاق العمل بين الطرفين</p>
+                        <p class="order-text-en">Submitting the video link and order details through the website serves as official proof of agreement on the scope of work between both parties</p>
                     </div>
                 </div>
-            </button>
-        </div>
+            </div>
+        </button>
+    </div>
 
-        <div id="form-success-msg" style="display: none; text-align: center; margin-top: 15px; color: #2ecc71; font-size: 1.1rem; font-weight: bold;">
-            تم إرسال الطلب | Order Sent
-        </div>
-        <p id="my-form-status" style="text-align: center; font-size: 3px;"></p>
-    </section>
+    <div id="form-success-msg" style="display: none; text-align: center; margin-top: 15px; color: #2ecc71; font-size: 1.1rem; font-weight: bold;">
+        تم إرسال الطلب | Order Sent
+    </div>
+    <p id="my-form-status" style="text-align: center; font-size: 0.9rem; margin-top: 10px;"></p>
+</section>
+
+      
+
+
+
 
 <!-- زر الطلب السريع العائم (للجوال فقط) -->
 <a href="#order-form" class="floating-order-btn" aria-label="طلب جديد">
@@ -243,6 +298,44 @@
 
 
 
+
+
+<!-- زر التواصل السريع عبر الواتساب (يمين - للجوال فقط) -->
+<a href="https://wa.me/966500000000" target="_blank" class="floating-contact-btn" aria-label="تواصل عبر الواتساب">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+    </svg>
+</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <button class="track-btn" onclick="toggleTracker()"> تتبع المشروع | Track Project </button>
 
     <div id="tracker-modal" class="modal">
@@ -251,18 +344,9 @@
             <h3> تتبع المشروع | Track Project </h3>
             <input type="text" id="project-code" placeholder=" أدخل كود المشروع | Enter Project Code ">
             <button class="check-btn" onclick="checkProject()"> تحقق | Check </button>
-            
             <div id="project-status"></div>
         </div>
     </div>
-
-    <!-- زر التواصل السريع عبر الواتساب (يمين - للجوال فقط) -->
-<a href="https://wa.me/966560260300" target="_blank" class="floating-contact-btn" aria-label="تواصل عبر الواتساب">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-    </svg>
-</a>
-
 
     <!-- Modal سياسة الدفع مع خيار تبديل اللغة -->
     <div id="policyModal" class="policy-modal-overlay">
@@ -308,11 +392,49 @@
         </div>
     </div>
 
+    <!-- بطاقة تصدير الطلب المخفية (معدلة) -->
+<div id="export-card-template" dir="rtl" style="position: absolute; left: -9999px; top: -9999px; width: 520px; background: #000000; border: 1.5px solid #c5a055; border-radius: 18px; padding: 35px 30px; font-family: 'Tajawal', 'Segoe UI', Tahoma, sans-serif; color: #ffffff; box-shadow: 0 0 25px rgba(197, 160, 85, 0.15);">
+    
+    <!-- العنوان الرئيسي والفاصل الذهبي الناعم -->
+    <div style="text-align: center; margin-bottom: 25px;">
+        <h2 style="margin: 0; color: #ffffff; font-size: 1.4rem; font-weight: 700; direction: ltr; display: inline-block;">
+            Project Details <span style="color: #c5a055; margin: 0 5px;">|</span> تفاصيل المشروع
+        </h2>
+        
+        <!-- الفاصل الذهبي الناعم -->
+        <div style="height: 2px; width: 100%; background: linear-gradient(90deg, transparent 0%, #c5a055 50%, transparent 100%); margin-top: 12px;"></div>
+    </div>
+
+    <!-- قائمة البيانات -->
+    <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem;">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(197, 160, 85, 0.15); padding: 12px 16px; border-radius: 10px;">
+            <span style="color: #a0a0a0;">الاسم | Name</span>
+            <span id="card-out-name" style="color: #ffffff; font-weight: 700;">-</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(197, 160, 85, 0.15); padding: 12px 16px; border-radius: 10px;">
+            <span style="color: #a0a0a0;">نوع الفيديو | Video Type</span>
+            <span id="card-out-type" style="color: #c5a055; font-weight: 700;">-</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(197, 160, 85, 0.15); padding: 12px 16px; border-radius: 10px;">
+            <span style="color: #a0a0a0;">التواصل | Contact</span>
+            <span id="card-out-contact" style="color: #ffffff; font-weight: 700;">-</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 6px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(197, 160, 85, 0.15); padding: 12px 16px; border-radius: 10px;">
+            <span style="color: #a0a0a0;">رابط الفيديو | Video Link</span>
+            <span id="card-out-link" style="color: #ffb000; word-break: break-all; font-size: 0.82rem; direction: ltr; text-align: left;">-</span>
+        </div>
+    </div>
+</div>
 
     <footer>
         <p>آخر تحديث : سبتمبر 2026 | Last Updated : September 2026</p>
     </footer>
-
+<!-- مكتبة html2canvas لتحويل الكارت إلى صورة -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

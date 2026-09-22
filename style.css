@@ -582,7 +582,7 @@ nav a:hover::after {
 
 
 
-    background: #13131338;
+    background: #00000038;
     border: 0.1rem solid #c49b33;
     border-radius: 1rem;
     color: white;
@@ -1010,7 +1010,7 @@ nav a:hover::after {
 }
 
 .policy-modal-content {
-    background: #111;
+    background: #000000;
     border: 2px solid #d4af37;
     border-radius: 14px;
     width: 90%;
@@ -1030,7 +1030,7 @@ nav a:hover::after {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #000000;
     padding-bottom: 12px;
     margin-bottom: 18px;
 }
@@ -1130,7 +1130,7 @@ footer p {
     display: none; /* مخفي في البي سي */
     position: fixed;
     bottom: 2.9rem;
-    left: 7rem;
+    left: 6.7rem;
     width: 1.6rem;
     height: 1.6rem;
     background-color: rgba(10, 10, 10, 0.85);
@@ -1176,7 +1176,7 @@ footer p {
     display: none; /* مخفي في البي سي */
     position: fixed;
     bottom: 2.9rem;
-    left: 18rem;
+    left: 18.3rem;
     width: 1.6rem;
     height: 1.6rem;
     background-color: rgba(10, 10, 10, 0.85);
@@ -1211,6 +1211,10 @@ footer p {
         display: flex;
     }
 }
+
+
+
+
 
 @media (max-width: 768px) {
     html, body {
@@ -1413,7 +1417,7 @@ footer p {
     }
 
     #order-form {
-            scroll-margin-top: 8rem;
+            scroll-margin-top: 1.8rem;
 
         transform: scale(0.85);
         transform-origin: center top;
@@ -1630,35 +1634,5 @@ footer p {
         margin: 18px 0 !important;
     }
 
-    .status-dot-glowing {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        display: block;
-        background-color: #00ff00; 
-        box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
-        position: fixed;
-        top: 2rem;
-        left: 2rem;
-        z-index: 999999999;
-        animation: pulse-green 1.5s infinite;
-    }
-
-    .status-dot-glowing.busy {
-        background-color: #ff0000;
-        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
-        animation: pulse-red 3s infinite;
-    }
-
-    @keyframes pulse-green {
-        0% { box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; transform: scale(0.95); }
-        70% { box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00; transform: scale(1.05); }
-        100% { box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; transform: scale(0.95); }
-    }
-
-    @keyframes pulse-red {
-        0% { box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; transform: scale(0.95); }
-        70% { box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000; transform: scale(1.05); }
-        100% { box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; transform: scale(0.95); }
-    }
+    
 }

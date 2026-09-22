@@ -343,34 +343,7 @@ updateCountdown();
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // أ. نموذج الطلب المباشر
-    const orderForm = document.getElementById("my-form");
-    const successMsg = document.getElementById("form-success-msg");
-
-    if (orderForm) {
-        orderForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-            fetch(orderForm.action || "https://formspree.io/f/xowdynyw", {
-                method: "POST",
-                body: new FormData(orderForm),
-                headers: { 'Accept': 'application/json' }
-            })
-            .then(response => {
-                if (response.ok) {
-                    orderForm.reset();
-                    if (successMsg) successMsg.style.display = "block";
-                } else {
-                    alert("حدث خطأ أثناء إرسال الطلب، يرجى المحاولة لاحقاً.");
-                }
-            })
-            .catch(error => {
-                console.error("خطأ الإرسال:", error);
-                alert("تأكد من الاتصال بالإنترنت والمحاولة مجدداً.");
-            });
-        });
-    }
-
-    // ب. مشغل الصوت والموجات الصوتية
+    // أ. مشغل الصوت والموجات الصوتية
     const audio = document.getElementById('my-audio');
     const playBtn = document.getElementById('play-btn');
     const waveform = document.getElementById('waveform');
@@ -419,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.onended = () => { playBtn.textContent = '▶'; };
     }
 
-    // ج. ظهور الأقسام بسلاسة
+    // ب. ظهور الأقسام بسلاسة
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -428,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('section').forEach(section => observer.observe(section));
 
-    // د. زر العودة للأعلى
+    // ج. زر العودة للأعلى
     const backToTopButton = document.getElementById('backToTop');
     if (backToTopButton) {
         window.addEventListener('scroll', () => {
@@ -440,7 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // هـ. تفاعل الاسم والصورة الشخصية
+    // د. تفاعل الاسم والصورة الشخصية
     const nameTrigger = document.getElementById('nameTrigger');
     const myPhoto = document.getElementById('myPhoto');
     const blurArea = document.querySelector('.blur-area');
@@ -465,12 +438,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // و. إغلاق القائمة الجوالة عند النقر
+    // هـ. إغلاق القائمة الجوالة عند النقر
     document.querySelectorAll('#mobile-nav a').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
 
-    // ز. تقويم حجز المواعيد
+    // و. تقويم حجز المواعيد
     const daysGrid = document.getElementById('days-grid');
     const bookingModal = document.getElementById('booking-modal');
     const selectedDateText = document.getElementById('selected-date-text');
@@ -520,7 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ح. تصفية معرض الأعمال
+    // ز. تصفية معرض الأعمال
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.thumbnail-link');
 
@@ -540,10 +513,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ط. سياسة الدفع (Policy Modal Event Listeners)
+    // ح. سياسة الدفع (Policy Modal Event Listeners)
     const policyModal = document.getElementById('policyModal');
     const openPolicyBtn = document.getElementById('open-policy-btn');
-    const policyCheckbox = document.getElementById('policy-checkbox');
 
     if (openPolicyBtn && policyModal) {
         openPolicyBtn.addEventListener('click', () => {
@@ -557,20 +529,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (orderForm && policyCheckbox) {
-        orderForm.addEventListener('submit', (e) => {
-            if (!policyCheckbox.checked) {
-                e.preventDefault();
-                alert(currentLang === 'ar' ? 'عذراً، يجب عليك قراءة والموافقة على سياسة الدفع أولاً.' : 'Please read and agree to the payment policy first.');
-                policyCheckbox.focus();
-            }
-        });
+    // ط. إعداد نموذج الطلب عبر Formspree
+    const orderForm = document.getElementById("my-form");
+    if (orderForm) {
+        orderForm.addEventListener("submit", handleOrderSubmit);
     }
 });
 
 
 /* ==========================================================================
-   6. دوال عامة لسياسة الدفع والملخصات (Global Helpers)
+   6. دوال عامة لسياسة الدفع والطلب (Global Helpers)
    ========================================================================== */
 
 let currentLang = 'ar';
@@ -600,19 +568,136 @@ function togglePolicyLanguage() {
     langBtn.textContent = currentLang === 'ar' ? 'English' : 'العربية';
 }
 
-function toggleProjectBrief() {
-    const briefBox = document.getElementById('extra-brief-box');
-    const arrowIcon = document.getElementById('arrow-icon');
-    if (briefBox && arrowIcon) {
-        const isHidden = briefBox.style.display === 'none' || briefBox.style.display === '';
-        briefBox.style.display = isHidden ? 'block' : 'none';
-        arrowIcon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+// 1. دالة حفظ تفاصيل الطلب كصورة
+function saveOrderAsImage() {
+    const formElement = document.getElementById('my-form');
+    const saveBtn = document.getElementById('btn-save-card');
+
+    if (!formElement) return;
+
+    if (saveBtn) saveBtn.innerText = 'جاري الحفظ... | Saving...';
+
+    if (typeof html2canvas === 'undefined') {
+        alert('مكتبة html2canvas غير مضافة في ملف HTML!');
+        if (saveBtn) saveBtn.innerText = '📷 حفظ كصورة | Save Card';
+        return;
     }
+
+    html2canvas(formElement, {
+        backgroundColor: '#0a0a0a',
+        scale: 2
+    }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'Project_Order_ZD1.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+
+        if (saveBtn) saveBtn.innerText = ' حفظ كصورة | Save Card';
+    }).catch(err => {
+        console.error('Error:', err);
+        alert('حدث خطأ أثناء تنزيل الصورة.');
+        if (saveBtn) saveBtn.innerText = ' حفظ كصورة | Save Card';
+    });
 }
 
-function toggleRawNote() {
-    const noteBox = document.getElementById('raw-note-box');
-    if (noteBox) {
-        noteBox.style.display = (noteBox.style.display === 'none' || noteBox.style.display === '') ? 'block' : 'none';
+async function handleOrderSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formStatus = document.getElementById("my-form-status");
+    const sendBtn = document.getElementById("my-form-button");
+    const successMsg = document.getElementById("form-success-msg");
+    const checkbox = document.getElementById('policy-checkbox');
+
+    if (checkbox && !checkbox.checked) {
+        alert('يرجى الموافقة على سياسة الدفع أولاً | Please agree to payment policy');
+        return;
     }
+
+    const data = new FormData(form);
+
+    fetch(form.action, {
+        method: form.method || 'POST',
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            // إخفاء النص السفلي وتفعيل رسالة النجاح الرئيسية فقط
+            if (formStatus) formStatus.innerHTML = ""; 
+            if (successMsg) successMsg.style.display = 'block';
+
+            form.reset();
+            setTimeout(() => {
+                if (sendBtn) {
+                    sendBtn.innerText = " إرسال الطلب | Order Now";
+                    sendBtn.disabled = false;
+                }
+            }, 3000);
+        } else {
+            if (successMsg) successMsg.style.display = 'none';
+            response.json().then(data => {
+                if (formStatus) {
+                    formStatus.style.color = "#e74c3c";
+                    if (Object.hasOwn(data, 'errors')) {
+                        formStatus.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                    } else {
+                        formStatus.innerHTML = "حدث خطأ أثناء الإرسال، حاول مرة أخرى.";
+                    }
+                }
+            });
+            if (sendBtn) {
+                sendBtn.innerText = "🚀 إرسال الطلب | Order Now";
+                sendBtn.disabled = false;
+            }
+        }
+    }).catch(error => {
+        if (successMsg) successMsg.style.display = 'none';
+        if (formStatus) {
+            formStatus.style.color = "#e74c3c";
+            formStatus.innerHTML = "حدث خطأ في الاتصال، حاول لاحقاً.";
+        }
+        if (sendBtn) {
+            sendBtn.innerText = "🚀 إرسال الطلب | Order Now";
+            sendBtn.disabled = false;
+        }
+    });
+}
+
+function saveOrderAsImage() {
+    const saveBtn = document.getElementById('btn-save-card');
+    
+    const nameVal = document.getElementById('input-name')?.value.trim() || 'غير محدد';
+    const linkVal = document.getElementById('input-video-link')?.value.trim() || 'لا يوجد رابط';
+    const typeVal = document.getElementById('input-content-type')?.value || 'غير محدد';
+    const contactVal = document.getElementById('input-contact')?.value.trim() || 'غير محدد';
+
+    document.getElementById('card-out-name').innerText = nameVal;
+    document.getElementById('card-out-type').innerText = typeVal;
+    document.getElementById('card-out-contact').innerText = contactVal;
+    document.getElementById('card-out-link').innerText = linkVal;
+
+    const cardElement = document.getElementById('export-card-template');
+    if (!cardElement) return;
+
+    if (saveBtn) saveBtn.innerText = 'جاري الحفظ... | Saving...';
+
+    // استخدام خيارات تصوير تمنع تقطيع الخطوط
+    html2canvas(cardElement, {
+    backgroundColor: '#000000',
+    scale: 3,
+    useCORS: true,
+    letterRendering: true
+}).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `Project_Details_ZD1.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+
+        if (saveBtn) saveBtn.innerText = '📷 حفظ كصورة | Save Card';
+    }).catch(err => {
+        console.error(err);
+        if (saveBtn) saveBtn.innerText = '📷 حفظ كصورة | Save Card';
+    });
 }
