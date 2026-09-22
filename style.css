@@ -44,8 +44,11 @@ font-family: 'monospace', sans-serif;}
 
 
 
-
-
+h1, h2, h3, .nav-links, .section-title {
+font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 0.5px; /* مسافة ناعمة بين الحروف الإنجليزية */
+}
 
 
 
