@@ -1423,19 +1423,19 @@ footer p {
     }
 
     #order-form {
-            scroll-margin-top: 13rem;
+            scroll-margin-top: 5.8rem;
 
-        transform: scale(0.7);
+        transform: scale(0.9);
         transform-origin: center top;
         max-width: 30rem;
         max-height: 130rem;
         margin: 7rem auto;
-        padding: 1.5rem 0.8rem;
+        padding: 3rem 0.8rem;
 
         background: #00000038;
     border: 0.1rem solid #c49b3300;
         border-radius: 1rem;
-box-shadow: 0 0rem 2rem rgba(196, 155, 51, 0.3);
+box-shadow: 0 0rem 2rem rgba(196, 155, 51, 0);
 
 color: white;
     }
@@ -1443,26 +1443,25 @@ color: white;
 
 /* الفاصل الذهبي الناعم */
 .gold-divider {
-    height: 2px;
+    height: 0.001rem;
     width: 100%;
     background: linear-gradient(90deg, transparent 0%, #c5a055 50%, transparent 100%);
-    margin: 1rem 0 3rem 0;
+    margin: 0rem 0rem 3rem 0;
 }
 
 
 
     #order-form h2 {
-        font-size: 1.5rem;
+        font-size: 1rem;
         white-space: nowrap;
-        margin-bottom: 1.8rem;
-        margin-top: 1rem;
+        margin: 0rem 0 0rem 0;
         font-family: 'Playfair Display', serif;
     }
 
     #order-form input, 
     #order-form select {
         padding: 0.8rem;
-        margin-top: 0.5rem;
+        margin-top: 1rem;
         margin-bottom: 1.5rem;
         font-size: 0.5rem;
     }
