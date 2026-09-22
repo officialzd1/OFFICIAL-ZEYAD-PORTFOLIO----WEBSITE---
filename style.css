@@ -1534,7 +1534,7 @@ footer p {
     }
 
     .policy-modal-content {
-        background: #111;
+        background: #000000;
         border: 1px solid #d4af37;
         border-radius: 8px;
         width: 60vmin !important;
