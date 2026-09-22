@@ -1209,7 +1209,14 @@ footer p {
 }
 
 
-
+/* الفاصل الذهبي الناعم */
+.gold-divider {
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent 0%, #c5a055 50%, transparent 100%);
+    margin: 18px 0 3rem 0;
+    
+}
 
 
 @media (max-width: 768px) {
@@ -1423,10 +1430,28 @@ footer p {
         max-height: 130rem;
         margin: 7rem auto;
         padding: 1.5rem 0.8rem;
+
+        background: #00000038;
+    border: 0.1rem solid #c49b3300;
+        border-radius: 1rem;
+box-shadow: 0 0rem 2rem rgba(196, 155, 51, 0.3);
+
+color: white;
     }
 
+
+/* الفاصل الذهبي الناعم */
+.gold-divider {
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent 0%, #c5a055 50%, transparent 100%);
+    margin: 1rem 0 3rem 0;
+}
+
+
+
     #order-form h2 {
-        font-size: 1.05rem;
+        font-size: 1.5rem;
         white-space: nowrap;
         margin-bottom: 1.8rem;
         margin-top: 1rem;
