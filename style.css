@@ -3,12 +3,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* 1. تطبيق الخصائص الأساسية لمنع تكسر النصوص */
-* {
-    -webkit-font-smoothing: antialiased; /* لتنعيم الحروف في أجهزة آبل والآيفون */
-    -moz-osx-font-smoothing: grayscale; /* لتنعيم الحروف في متصفح فايرفوكس */
-    text-rendering: optimizeLegibility; /* تحسين قراءة الحروف وتناسقها */
-}
+
 
 
 
@@ -17,8 +12,7 @@ body {
     background-color: black;
     color: rgb(255, 255, 255);
     margin: 0;
-font-family: 'Almarai', sans-serif !important;    
-}
+font-family: 'monospace', sans-serif;}
 
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -43,11 +37,7 @@ font-family: 'Almarai', sans-serif !important;
 
 
 
-h2, h3, .nav-links, .section-title {
-    font-family: 'Almarai', sans-serif !important;
-    font-weight: 700;
-    letter-spacing: 0.5px; /* مسافة ناعمة بين الحروف الإنجليزية */
-}
+
 
 
 
