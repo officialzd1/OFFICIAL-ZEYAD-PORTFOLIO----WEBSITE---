@@ -3,6 +3,7 @@ html {
     scroll-behavior: smooth;
 }
 
+
 body {
     overflow-x: hidden;
     background-color: black;
@@ -29,6 +30,33 @@ body {
     0%, 100% { opacity: 0.2; }
     50% { opacity: 1; }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ==========================================
    1. شريط التنقل العلوي (Navbar & Navigation Links)
