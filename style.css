@@ -48,6 +48,7 @@ h1, h2, h3, .nav-links, .section-title {
 font-family: 'Playfair Display', serif;
     font-weight: 700;
     letter-spacing: 0.5px; /* مسافة ناعمة بين الحروف الإنجليزية */
+    
 }
 
 
@@ -1129,8 +1130,8 @@ footer p {
     width: 1.6rem;
     height: 1.6rem;
     background-color: rgba(0, 0, 0, 0.8);
-    color: #c5a059;
-    border: 0.01rem solid rgb(0, 0, 0);
+    color: #cc9734;
+    border: 0rem solid rgb(0, 0, 0);
     border-radius: 50%;
     
     /* ضبط التوسيط الدقيق للأيقونة */
@@ -1139,9 +1140,9 @@ footer p {
     justify-content: center;
     
     line-height: 0;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 0 12px rgba(197, 160, 89, 0.2);
+    backdrop-filter: blur(0.1rem);
+    -webkit-backdrop-filter: blur(0.1rem);
+    box-shadow: 0 0px 1rem rgba(182, 126, 53, 0.411), 0 0 0.8rem rgba(0, 0, 0, 0.6);
     z-index: 9999;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1171,19 +1172,19 @@ footer p {
     display: none; /* مخفي في البي سي */
     position: fixed;
     bottom: 2rem;
-    left: 18.1rem;
+    left: 18.4rem;
     width: 1.6rem;
     height: 1.6rem;
     background-color: rgba(0, 0, 0, 0.8);
-    color: #c5a059;
-    border: 0.01rem solid rgb(0, 0, 0);
+    color: #cc9734;
+    border: 0rem solid rgb(0, 0, 0);
     border-radius: 50%;
     align-items: center;
     justify-content: center;
     line-height: 0;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0), 0 0 12px rgba(197, 160, 89, 0.2);
+    backdrop-filter: blur(0.1rem);
+    -webkit-backdrop-filter: blur(0.1rem);
+    box-shadow: 0 0px 1rem rgba(182, 126, 53, 0.411), 0 0 0.8rem rgb(0, 0, 0);
     z-index: 9999;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1284,6 +1285,7 @@ footer p {
         cursor: default;
         text-align: center;
         width: 100%;
+        
     }
 
     .subtitle {
@@ -1296,6 +1298,7 @@ footer p {
         font-family: 'Arial', sans-serif;
         margin-top: 1rem;
         user-select: none;
+        
     }
 
     .scroll-indicator {
@@ -1412,7 +1415,7 @@ footer p {
     }
 
     #order-form {
-            scroll-margin-top: 1.8rem;
+            scroll-margin-top: 13rem;
 
         transform: scale(0.7);
         transform-origin: center top;
@@ -1443,10 +1446,8 @@ footer p {
     }
 
     .track-btn {
-        width: 8rem;
-    height: 1.8rem;
         position: fixed;
-        bottom: 2rem;
+        bottom: 2.1rem;
         left: 50%;
         transform: translateX(-50%);
         z-index: 9999;
@@ -1459,7 +1460,7 @@ footer p {
         cursor: pointer;
         font-size: 0.5rem;
         font-weight: bold;
-        box-shadow: 0 0rem 1rem rgb(0, 0, 0);
+    box-shadow: 0 0px 1rem rgba(182, 126, 53, 0.411), 0 0 0.8rem rgba(0, 0, 0, 0.6);
         padding: 0.5rem 1rem;
         transition: all 0.5s ease;
     }
