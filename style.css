@@ -17,8 +17,7 @@ body {
     background-color: black;
     color: rgb(255, 255, 255);
     margin: 0;
-    font-family: 'monospace', sans-serif;
-    
+font-family: 'Tajawal', 'Poppins', sans-serif !important;    
 }
 
 @keyframes fadeIn {
@@ -49,7 +48,11 @@ body {
 
 
 
-
+h2, h3, .nav-links, .section-title {
+    font-family: 'Alexandria', sans-serif !important;
+    font-weight: 700;
+    letter-spacing: 0.5px; /* مسافة ناعمة بين الحروف الإنجليزية */
+}
 
 
 
