@@ -1072,7 +1072,7 @@ footer p {
     content: "قريباً | SOON";
     position: fixed;
     top: 50%;
-    transform: translate(1%, -50%);
+    transform: translate(-1%, -50%);
     color: #ffffff;
     font-size: 24px;
     font-weight: bold;
