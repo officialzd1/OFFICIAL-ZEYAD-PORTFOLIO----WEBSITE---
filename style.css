@@ -1246,6 +1246,7 @@ transform: translateY(-9px) rotate(-45deg);}
   font-size: 1.1rem !important;
   padding-bottom: 0.1rem !important;
   margin-bottom: 0 !important;
+  margin-top: 1rem;
 
 font-family: 'El Messiri', sans-serif;
     font-size: 1.8rem;
@@ -1282,10 +1283,33 @@ font-family: 'El Messiri', sans-serif;
 }
 
 
-/* تصغير زر الإغلاق X */
 #tracker-modal .new-close-btn {
-  font-size: 1.8rem !important;
-  margin: -0.5rem 0 0 0 !important;
+  position: absolute !important;
+  top: 12px !important;
+  left: 5.8% !important;
+  transform: translateX(-50%) !important;
+  
+  /* إجبار الحجم على عدم التمدد مطلقاً */
+  width: max-content !important;
+  height: auto !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  
+  display: inline-block !important;
+  line-height: 1 !important;
+  font-size: 1.2rem !important;
+  cursor: pointer;
+  background: transparent !important;
+}
+
+/* في حال كان زر الـ X داخله أيقونة i أو نص */
+#tracker-modal .new-close-btn i,
+#tracker-modal .new-close-btn span {
+  display: inline-block !important;
+  width: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 /* تصغير خانة إدخال الكود */
