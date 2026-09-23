@@ -1307,19 +1307,7 @@ footer p {
     
 
 
-@media (max-width: 768px) {
-    .filter-buttons {
-        display: flex !important;
-        flex-direction: row-reverse !important; /* هذا السطر هو الذي يقلب بداية السطر لليمين واليسار صح */
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        direction: ltr !important;
-    }
 
-    .filter-btn {
-        direction: rtl !important;
-    }
-}
    
 
     .portfolios-container {
@@ -1459,7 +1447,30 @@ footer p {
 
 
 
+@media (max-width: 768px) {
+    .filter-buttons {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-content: flex-start !important; /* يجبر الصفوف تبدأ من فوق لتحت */
+        direction: ltr !important;            /* يمنع قلبت الأسطر */
+        width: 100% !important;
+    }
 
+    .filter-btn {
+        direction: rtl !important;           /* يخلي النص جوا الزر عربي مظبوط */
+    }
+
+    /* ضمان ترتيب أزرار الفلترة صريحاً من 1 إلى الأخير حسب ظهورها في الـ HTML */
+    .filter-btn:nth-child(1) { order: 1 !important; } /* زر الكل - ينزل أول واحد فوق على اليسار */
+    .filter-btn:nth-child(2) { order: 2 !important; }
+    .filter-btn:nth-child(3) { order: 3 !important; }
+    .filter-btn:nth-child(4) { order: 4 !important; }
+    .filter-btn:nth-child(5) { order: 5 !important; }
+    .filter-btn:nth-child(6) { order: 6 !important; }
+    .filter-btn:nth-child(7) { order: 7 !important; }
+    .filter-btn:nth-child(8) { order: 8 !important; }
+}
 
 
 
@@ -1906,4 +1917,16 @@ color: white;
     }
 
     
+}
+
+/* يوضع في نهاية ملف style.css تماماً */
+.filter-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    direction: ltr !important;
+}
+
+.filter-btn {
+    direction: rtl !important;
 }
