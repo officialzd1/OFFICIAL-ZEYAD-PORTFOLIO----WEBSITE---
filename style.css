@@ -27,8 +27,11 @@ body {
 }
 
 @keyframes shine {
-  to { 
-    background-position: -200% center; 
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: -200% center; /* تحريك التدرج دورة كاملة للمحافظة على الاتصال */
   }
 }
 
@@ -760,9 +763,9 @@ nav a:hover::after {
 }
 
 .check-btn {
-    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-    background-size: 500% auto;
-    animation: shine 13s linear infinite;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
+background-size: 200% auto !important;
+    animation: shine 3s linear infinite;
     transition: all 0.4s ease;
     color: black;
     border: none;
@@ -1274,6 +1277,28 @@ font-family: 'El Messiri', sans-serif;
   font-family: 'El Messiri', sans-serif !important;
   font-size: 0.85rem !important;
   font-weight: bold !important;
+
+
+
+  background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
+background-size: -200% auto !important;
+    animation: shine 3s linear infinite;
+    transition: all 0.4s ease;
+    color: black;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border-radius: 5rem;
+    cursor: pointer;
+    margin-top: 2rem;
+
+
+
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
+  background-size: 200% auto !important;
+  
+  animation: shine 5.8s !important;
+  transition: transform 0.2s ease, opacity 0.2s ease !important;
 }
 
 #tracker-modal #project-status {
