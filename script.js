@@ -425,3 +425,12 @@ function checkProject() {
 
     if (project.deliveryDate) startCountdown(project.deliveryDate);
 }
+
+
+
+
+
+
+
+
+

@@ -1056,9 +1056,9 @@ footer p {
 }
 
 @media screen and (max-width: 768px) {
-  body > * {
-    display: none !important;
-  }
+  body > *:not(.soon-mobile-menu) {
+  display: none !important;
+}
 
   body {
     background-color: #000000 !important;
@@ -1092,7 +1092,9 @@ font-family: 'El Messiri', sans-serif;
 
 
 
-
+letter-spacing: normal !important; /* يلغي تباعد الحروف الذي يقطع العربي */
+  direction: rtl;                     /* يحدد اتجاه النص من اليمين للشمال */
+  unicode-bidi: isolate;
 
 
 
@@ -1100,7 +1102,6 @@ font-family: 'El Messiri', sans-serif;
 
 
 font-size: 1.8rem;
-  letter-spacing: 0.3rem;
   font-weight: bold;
   font-family: 'Playfair Display', serif;
   background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
@@ -1125,3 +1126,4 @@ filter: drop-shadow(0 0 3px #000000)
 
 }
 }
+
