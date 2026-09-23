@@ -1183,8 +1183,10 @@ transform: translateY(-9px) rotate(-45deg);}
   justify-content: center;
 }
 
-/* تطبيق التدرج الذهبي على الأيقونة نفسها مباشرة */
+/* حل مشكلة قص أطراف الأيقونات */
 .menu-icon-btn i {
+  display: inline-block !important; /* للسماح بحساب الأبعاد بشكل صحيح */
+  padding: 0.15em !important;        /* يعطي مساحة للأطراف عشان ما تتقص */
   font-size: 1.4rem;
   background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
   background-size: 200% auto;
