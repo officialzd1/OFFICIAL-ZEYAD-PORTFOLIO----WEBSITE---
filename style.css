@@ -1122,10 +1122,17 @@ footer p {
 }
 
 .burger-toggle span {
-    transform-origin: center; /* يضمن التدوير من منتصف الخط */
-  display: block;
+display: block;
   width: 100%;
   height: 2px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center; /* يضمن التدوير من السنتر بالضبط */
+
+
+
+
+
     background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
         background-size: 430% auto;
     animation: shine 13.8s linear infinite;
@@ -1134,10 +1141,7 @@ footer p {
   transition: all 0.3s ease;
 
 
-  filter: drop-shadow(0 0 3px #000000) 
-            drop-shadow(0 0 10px #ffd90000) 
-            drop-shadow(0 0 25px #ffffff00) 
-            drop-shadow(0 0 45px #ffffff00);
+  filter: none !important;
 }
 
 /* تحويل البرجر إلى علامة X عند التفعيل */
@@ -1153,14 +1157,24 @@ transform: translateY(-9px) rotate(-45deg);}
 
 /* قائمة العناصر المنبثقة (زر التواصل) */
 .menu-items {
-  display: flex;
-  flex-direction: column;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
   gap: 15px;
   margin-top: 20px;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
   transition: all 0.3s ease;
+
+  margin-left: -0.2rem !important;
+  
+  gap: 1rem !important;
+  margin-top: 1rem !important; 
+         /* المسافة بين زر الـ X والدائرة الأولى */
+
+
+         transform-origin: top center !important;
 }
 
 /* إظهار القائمة عند التفعيل */
@@ -1174,32 +1188,43 @@ transform: translateY(-9px) rotate(-45deg);}
 .menu-icon-btn,
 .menu-icon-btn:visited,
 .menu-icon-btn:active {
-  text-decoration: none;
-  background: transparent;
-  border: none;
+  width: 2.8rem;
+  height: 2.8rem;
+  background: rgba(20, 20, 20, 0.363) !important; /* خلفية سوداء/رمادية داكنة شبه شفافة */
+  border: 1px solid rgba(197, 160, 89, 0.3) !important; /* إطار ذهبي خفيف وناعم */
+  border-radius: 50% !important; /* تحويل الزر إلى دائرة متناسقة */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-decoration: none;
+  backdrop-filter: blur(8px); /* ضبابية خلفية الزر */
+  /* إضافة ظلال خارجية وداخلية مميزة لتعميق شكل الزر */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6),
+              0 0 10px rgba(197, 160, 89, 0.15);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 /* حل مشكلة قص أطراف الأيقونات */
+/* تنسيق وتلوين الأيقونات بداخل الدوائر بدون قص للحواف */
 .menu-icon-btn i {
-  display: inline-block !important; /* للسماح بحساب الأبعاد بشكل صحيح */
-  padding: 0.15em !important;        /* يعطي مساحة للأطراف عشان ما تتقص */
-  font-size: 1.4rem;
-  background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 5.8s linear infinite;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  display: inline-block !important;
+  font-size: 1.1rem !important;
+  padding: 0.2em !important; /* مساحة حرة تمنع قص حواف التدرج الذهبي */
+  background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  animation: shine 5.8s !important;
+  transition: transform 0.2s ease, opacity 0.2s ease !important;
 }
 
-.menu-icon-btn:hover i {
-  opacity: 0.8;
+.menu-icon-btn:hover {
   transform: scale(1.1);
+  border-color: rgba(252, 246, 186, 0.7) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8),
+              0 0 15px rgba(197, 160, 89, 0.35);
 }
 
 
@@ -1217,6 +1242,8 @@ transform: translateY(-9px) rotate(-45deg);}
   
   /* دعم متصفحات Safari و iOS */
   zoom: 0.75 !important;
+
+  
 }
 
 /* تصغير عنوان النافذة */
@@ -1224,7 +1251,41 @@ transform: translateY(-9px) rotate(-45deg);}
   font-size: 1.1rem !important;
   padding-bottom: 0.1rem !important;
   margin-bottom: 0 !important;
+
+font-family: 'El Messiri', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    direction: rtl;
+    unicode-bidi: isolate;
+    letter-spacing: normal !important;
+
 }
+
+
+#tracker-modal #project-code {
+  font-family: 'El Messiri', sans-serif !important;
+  font-size: 0.85rem !important;
+  color: #ffffff !important;
+}
+
+#tracker-modal #project-code::placeholder {
+  font-family: 'El Messiri', sans-serif !important;
+  font-size: 0.75rem !important;
+  color: #888888 !important;
+}
+
+#tracker-modal .check-btn {
+  font-family: 'El Messiri', sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: bold !important;
+}
+
+#tracker-modal #project-status {
+  font-family: 'El Messiri', sans-serif !important;
+  font-size: 0.8rem !important;
+  line-height: 1.6 !important;
+}
+
 
 /* تصغير زر الإغلاق X */
 #tracker-modal .new-close-btn {
@@ -1287,5 +1348,7 @@ transform: translateY(-9px) rotate(-45deg);}
 #tracker-modal .gold-divider {
   margin: 1rem auto 0.8rem auto !important;
 }
+
+
 
 }
