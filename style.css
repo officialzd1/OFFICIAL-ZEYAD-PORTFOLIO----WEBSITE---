@@ -1117,9 +1117,9 @@ font-size: 1.8rem;
 
 /* توهج نيون ثابت وفخم حول الحروف مباشرة */
 filter: drop-shadow(0 0 3px #000000) 
-        drop-shadow(0 0 10px #ffd90059) 
-        drop-shadow(0 0 25px #c69b5d) 
-        drop-shadow(0 0 45px #c69b5d);
+        drop-shadow(0 0 10px #ffd90000) 
+        drop-shadow(0 0 25px #c69a5d00) 
+        drop-shadow(0 0 45px #c69a5d);
 
 
 
