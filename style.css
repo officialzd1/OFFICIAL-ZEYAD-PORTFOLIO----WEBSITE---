@@ -1086,4 +1086,110 @@ footer p {
             drop-shadow(0 0 25px #c69a5d00) 
             drop-shadow(0 0 45px #c69a5d);
   }
+
+  /* حاوية القائمة أعلى اليسار */
+.soon-mobile-menu {
+  position: fixed;
+  top: 3rem;
+  left: 3rem;
+  z-index: 9999999999999999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* تصميم زر البرجر */
+.burger-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 1.8rem;
+  height: 1.3rem;
+  z-index: 999;
+  margin-left: -0.3rem;
+}
+
+.burger-toggle span {
+    transform-origin: center; /* يضمن التدوير من منتصف الخط */
+  display: block;
+  width: 100%;
+  height: 2px;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+        background-size: 430% auto;
+    animation: shine 13.8s linear infinite;
+
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+
+
+  filter: drop-shadow(0 0 3px #000000) 
+            drop-shadow(0 0 10px #ffd90000) 
+            drop-shadow(0 0 25px #ffffff00) 
+            drop-shadow(0 0 45px #ffffff00);
+}
+
+/* تحويل البرجر إلى علامة X عند التفعيل */
+.burger-toggle.active span:nth-child(1) {
+transform: translateY(6px) rotate(45deg);}
+
+.burger-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-toggle.active span:nth-child(3) {
+transform: translateY(-9px) rotate(-45deg);}
+
+/* قائمة العناصر المنبثقة (زر التواصل) */
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+/* إظهار القائمة عند التفعيل */
+.menu-items.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* تصميم وتلوين الزر والأيقونة باللون الذهبي */
+.menu-icon-btn,
+.menu-icon-btn:visited,
+.menu-icon-btn:active {
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* تطبيق التدرج الذهبي على الأيقونة نفسها مباشرة */
+.menu-icon-btn i {
+  font-size: 1.4rem;
+  background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5.8s linear infinite;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-icon-btn:hover i {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
 }

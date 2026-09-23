@@ -434,3 +434,14 @@ function checkProject() {
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const burgerToggle = document.getElementById('burgerToggle');
+  const menuItems = document.getElementById('menuItems');
+
+  if (burgerToggle && menuItems) {
+    burgerToggle.addEventListener('click', () => {
+      burgerToggle.classList.toggle('active');
+      menuItems.classList.toggle('show');
+    });
+  }
+});
