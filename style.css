@@ -1103,7 +1103,13 @@ letter-spacing: normal !important; /* يلغي تباعد الحروف الذي 
 
 font-size: 1.8rem;
   font-weight: bold;
-  font-family: 'Playfair Display', serif;
+
+
+
+
+
+
+
   background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
   background-size: 200% auto;
   -webkit-background-clip: text;
