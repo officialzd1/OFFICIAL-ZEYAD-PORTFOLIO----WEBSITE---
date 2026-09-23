@@ -672,6 +672,32 @@ nav a:hover::after {
 
 }
 
+
+#tracker-modal {
+  display: flex !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999999999999999999;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* حالة الفتح عند الضغط على الزر */
+#tracker-modal.modal-open {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+
+
+
 .drive-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(252, 240, 106, 0.6);
@@ -1038,9 +1064,10 @@ footer p {
 }
 
 @media screen and (max-width: 768px) {
-  body > *:not(.soon-mobile-menu):not(#tracker-modal) {
-    display: none !important;
-  }
+  /* إخفاء كل عناصر الـ body في الجوال باستثناء القائمة الجانبية، المودال، وقسم الطلب */
+body > *:not(.soon-mobile-menu):not(#tracker-modal):not(#order-form) {
+  display: none !important;
+}
 
   /* إخفاء الزر الأصلي بالأسفل */
   .track-btn {
@@ -1053,7 +1080,8 @@ footer p {
   /* إعدادات خلفية الشاشة */
   body {
     background-color: #000000 !important;
-    overflow: hidden !important;
+    overflow-x: hidden !important;
+  overflow-y: scroll !important; /* إجبار المتصفح على تفعيل التمرير العمودي */
     margin: 0 !important;
     padding: 0 !important;
     height: 100vh !important;
@@ -1062,41 +1090,37 @@ footer p {
 
   /* نص "قريباً | SOON" - متوسط 100% في كافة الشاشات */
   body::before {
-    content: "قريباً | SOON";
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: max-content;
-    max-width: 90vw;
-    text-align: center;
-    z-index: 9999999999;
-    cursor: default;
-    margin: 0;
+  content: "قريباً | SOON";
+  position: absolute !important; /* تحويلها لـ absolute بدلاً من fixed */
+  top: 28rem !important;          /* تثبيتها في منتصف القسم الأول */
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: max-content !important;
+  max-width: 90vw !important;
+  text-align: center !important;
+  z-index: 1 !important;
+  cursor: default !important;
+  margin: 0 !important;
+  gap: 5rem;
 
-    /* الخط واللغة */
-    font-family: 'El Messiri', sans-serif;
-    font-size: 1.8rem;
-    font-weight: bold;
-    direction: rtl;
-    unicode-bidi: isolate;
-    letter-spacing: normal !important;
+  font-family: 'El Messiri', sans-serif !important;
+  font-size: 1.8rem !important;
+  font-weight: bold !important;
+  direction: rtl !important;
 
-    /* التدرج الذهبي والأنيميشن */
-    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 5.8s linear infinite;
-    transition: all 0.4s ease;
+background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+        background-size: 430% auto;
+    animation: shine 13.8s linear infinite;  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  animation: shine 5.8s linear infinite !important;
 
-    /* توهج النيون */
-    filter: drop-shadow(0 0 3px #000000) 
-            drop-shadow(0 0 10px #ffd90000) 
-            drop-shadow(0 0 25px #c69a5d00) 
-            drop-shadow(0 0 45px #c69a5d);
-  }
+  filter: drop-shadow(0 0 3px #000000) 
+          drop-shadow(0 0 10px #ffd90000) 
+          drop-shadow(0 0 25px #c69a5d00) 
+          drop-shadow(0 0 45px #c69a5d) !important;
+}
 
   /* حاوية القائمة أعلى اليسار */
 .soon-mobile-menu {
@@ -1224,7 +1248,23 @@ transform: translateY(-9px) rotate(-45deg);}
 }
 
 
+/* رفع النافذة المنبثقة فوق جميع عناصر الصفحة وتفعيل اللمس */
+#tracker-modal, 
+.modal, 
+.modal-overlay {
+  z-index: 999999 !important; /* ضمان العرض أعلى من body::before ومن قسم الطلب */
+  pointer-events: auto !important;
+}
 
+/* زر الإغلاق X */
+#tracker-modal .close-btn,
+.modal .close,
+.close-modal {
+  z-index: 1000000 !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  padding: 10px !important; /* توسيع مساحة اللمس بالجوال */
+}
 
 
 /* تصغير النافذة المنبثقة بالكامل دفعة واحدة */
@@ -1402,5 +1442,123 @@ transition: transform 0.35s , opacity 0.35s ease !important;
 }
 
 
+/* إظهار قسم الطلب على شاشات الجوال */
+#order-form,
+.order-form,
+#order {
+  display: block !important; /* أو display: flex حسب تنسيقه الأساسي */
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+}
+
+
+
+#order-form {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: visible !important;
+
+  /* --- تقليل المسافة بين كلمة قريباً وقسم الطلب --- */
+  margin-top: 58rem !important;     /* تقليل القيمة جداً لتصعد بالفورم بالقرب من كلمة قريباً */
+  margin-bottom: 2rem !important;  /* مسافة بسيطة ومريحة في نهاية الصفحة */
+
+  transform: scale(0.7) !important;
+  transform-origin: top center !important;
+
+  width: 90% !important;
+  max-width: 480px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 1.2rem 0.8rem !important;
+
+  position: relative !important;
+  z-index: 5 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  
+}
+
+
+
+
+/* إلغاء أي ارتفاع زائد من القسم الأب للجوال */
+.hero-section, 
+section:has(#order-form) {
+  min-height: auto !important;
+  height: auto !important;
+  padding-bottom: 2rem !important;
+}
+
+/* تصغير الخطوط والمدخلات والنموذج */
+#order-form h2 {
+
+  font-family: 'El Messiri', sans-serif !important;
+  font-size: 1.3rem !important;
+  font-weight: bold !important;
+  direction: rtl !important;
+
+background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+        background-size: 430% auto;
+    animation: shine 13.8s linear infinite;  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  animation: shine 5.8s linear infinite !important;
+}
+
+#order-form #my-form {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.6rem !important;
+}
+
+#order-form label {
+  font-size: 0.8rem !important;
+}
+
+/* إجبار الحاوية على السطر الواحد وتوسيطها بالملي لليسار */
+#order-form div:has(input[type="checkbox"]),
+#order-form .policy-container,
+#order-form label[for="policy"] {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: nowrap !important;
+  
+  width: max-content !important;
+  min-width: 100% !important;
+  
+  /* الإزاحة لليسار للتوسيط الدقيق */
+  transform: translateX(2.3rem) !important; /* عدّل الرقم (-15px أو -20px) لزيادة التزحيف لليسار */
+  
+  margin: 0.5rem auto !important;
+  white-space: nowrap !important;
+  gap: 0.3rem !important;
+}
+
+/* 3. تثبيت كل النصوص بداخل الحاوية على سطر واحد بدون أي التواء */
+#order-form label[for="policy"] *,
+#order-form .policy-container *,
+#order-form label[for="policy"] span,
+#order-form label[for="policy"] a {
+  white-space: nowrap !important;
+  display: inline-block !important;
+  font-family: 'Cairo', 'Tajawal', sans-serif !important;
+  font-size: 0.65rem !important;      /* حجم الخط */
+}
+
+/* 4. ضبط المربع */
+#order-form input[type="checkbox"] {
+  width: 13px !important;
+  height: 13px !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+}
 
 }

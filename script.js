@@ -447,20 +447,41 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
 function toggleTracker() {
   const modal = document.getElementById('tracker-modal');
   const menuItems = document.getElementById('menuItems');
   const burgerToggle = document.querySelector('.burger-toggle');
 
   if (modal) {
-    // 1. فتح / إغلاق نافذة التتبع
     modal.classList.toggle('modal-open');
 
-    // 2. إذا انفتحت نافذة التتبع، نقفل قائمة البرجر ونرجع الزر لشكله الأصلي
+    // إغلاق القائمة الجانبية لو كانت مفتوحة في الجوال فقط
     if (modal.classList.contains('modal-open')) {
       if (menuItems) menuItems.classList.remove('show');
       if (burgerToggle) burgerToggle.classList.remove('active');
     }
   }
 }
+
+
+// تحديد العناصر
+const trackerModal = document.getElementById('tracker-modal');
+const closeModalBtn = document.querySelector('.close-btn') || document.querySelector('.close');
+
+// 1. عند الضغط على زر X
+if (closeModalBtn) {
+  closeModalBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    trackerModal.style.display = 'none';
+    // أو إذا كنت تستخدم class لإظهاره:
+    // trackerModal.classList.remove('show');
+  });
+}
+
+// 2. عند الضغط في أي مكان خارج النافذة (على الخلفية السوداء)
+window.addEventListener('click', function(e) {
+  if (e.target === trackerModal) {
+    trackerModal.style.display = 'none';
+    // trackerModal.classList.remove('show');
+  }
+});
