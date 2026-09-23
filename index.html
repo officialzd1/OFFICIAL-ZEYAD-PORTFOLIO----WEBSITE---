@@ -1,270 +1,261 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OFFICIAL ZEYAD PORTFOLIO</title>
-    <meta name="description" content="Welcome to the official portfolio of Zeyad. Explore my latest projects, skills, and work.">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Zeyad Portfolio">
-    <meta property="og:description" content="Professional Video Editing Services">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://officialzd1.com/thumbnail.jpg">
+  <!-- 1. تحديد ترميز الفونت وطريقة الاستجابة مع الشاشات المخلفة (الهواتف والكمبيوتر) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
+  <!-- 2. عنوان الصفحة المكتوب في تبويب المتصفح -->
+  <title>OFFICIAL ZEYAD PORTFOLIO</title>
 
-    <!-- Fonts & Styles -->
-    <!-- استدعاء خط Tajawal مع الأوزان المطلوبة -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
+  <!-- 3. وصف الموقع لوصف محركات البحث (SEO) -->
+  <meta name="description" content="Welcome to the official portfolio of Zeyad. Explore my latest projects, skills, and work.">
 
-<!-- مكتبة html2canvas -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <!-- 4. وسم Open Graph لتخصيص شكل المعاينة والصورة والعنوان عند مشاركة رابط الموقع على مواقع التواصل Social Media -->
+  <meta property="og:title" content="Zeyad Portfolio">
+  <meta property="og:description" content="Professional Video Editing Services">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://officialzd1.com/thumbnail.jpg">
 
-    <!-- مكتبة EmailJS -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-      // استبدل YOUR_PUBLIC_KEY بمفتاح الـ Public Key الخاص بك من حساب EmailJS
+  <!-- 5. أيقونة الموقع (Favicon) التي تظهر بجانب عنوان التبويب -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- 6. تسريع الاتصال بسيرفرات خطوط Google Fonts لتسريع التحميل -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- 7. استدعاء خط Tajawal من خطوط جوجـل -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <!-- 8. ربط ملف الـ CSS الأساسي لتنسيق وتصميم الموقع -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 9. مكتبة html2canvas لالتقاط الصور وتصوير عناصر الشاشة برمجياً -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <!-- 10. مكتبة EmailJS وتفعيل مفتاح API لإرسال الرسائل إلى بريدك مباشرة من الموقع -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
       emailjs.init("AP0_KIWtw9YBJYsGV");
-   })();
-</script>
+    })();
+  </script>
 
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GF2S0JGBB"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-1GF2S0JGBB');
-    </script>
+  <!-- 11. أداة تحليلات جوجل (Google Analytics) لتتبع وتعديد زوار الموقع والتفاعل -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GF2S0JGBB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1GF2S0JGBB');
+  </script>
 </head>
+
 <body>
-    
-    <div id="scrollProgress"></div>
 
-    <div class="status-dot-glowing"></div>
+<div id="scrollProgress"></div>
 
-    <nav class="navbar">
-        <a href="#order-form" style="display: block;">اطلب الآن | Order</a>
-        <a href="#clients" style="display: block;">العملاء | Clients</a>
-        <a href="#works" style="display: block;">الأعمال | Works</a>
-        <a href="#hero" style="display: block;">الرئيسية | Home</a>
-    </nav>
+<nav>
+  <a href="#order-form">اطلب الآن | Order</a>
+  <a href="#clients">العملاء | Clients</a>
+  <a href="#works">الأعمال | Works</a>
+  <a href="#hero">الرئيسية | Home</a>
+</nav>
 
-    <div class="container" id="hero">
-        <h2 class="logo" id="nameTrigger"> ZEYAD </h2>
-        <p class="subtitle"> PORTFOLIO </p>
-        <div class="scroll-indicator"> ↓ </div>
+<section class="hero-section" id="hero">
+  <div class="container">
+    <h1 class="logo" id="nameTrigger">ZEYAD</h1>
+    <p class="subtitle">PORTFOLIO</p>
+    <a href="#works" class="scroll-indicator" aria-label="Scroll down">↓</a>
+  </div>
+</section>
+
+<section id="works" class="works-section">
+    <h2>الأعمال | Works</h2>
+
+    <div class="gold-divider">
+            <div class="divider-line"></div>
+        </div>
+
+    <div class="filter-buttons">
+        <button class="filter-btn" data-filter="vlog">فلوقات | Vlogs</button>
+        <button class="filter-btn" data-filter="teaser">ترويج | Teasers</button>
+        <button class="filter-btn" data-filter="story">قصص | Stories</button>
+        <button class="filter-btn" data-filter="pranks">مقالب | Pranks</button>
+        <button class="filter-btn" data-filter="experiments">تجارب | Experiments</button>
+        <button class="filter-btn" data-filter="entertainment">ترفيه | Entertainment</button>
+        <button class="filter-btn" data-filter="challenge">تحديات | Challenges</button>
+        <button class="filter-btn active" data-filter="all">الكل | All</button>
     </div>
 
-    <section id="works" class="works-section">
-        <h2>الأعمال | Works</h2>
-        <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="all"> الكل | All</button>
-            <button class="filter-btn" data-filter="vlog"> فلوقات | Vlogs</button>
-            <button class="filter-btn" data-filter="challenge"> تحديات | Challenges</button>
-            <button class="filter-btn" data-filter="story"> قصص | Stories</button>
-            <button class="filter-btn" data-filter="Pranks"> مقالب | Pranks</button>
-            <button class="filter-btn" data-filter="Experiments"> تجارب | Experiments</button>
-            <button class="filter-btn" data-filter="Teaser"> ترويج | Teasers</button>
-            <button class="filter-btn" data-filter="Entertainment"> ترفيه | Entertainment</button>
+    <div class="portfolios-container" id="slider">
+
+        <a href="https://www.youtube.com/watch?v=ZsQmh_tuh8I" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="experiments">
+            <img src="WORKS/019" alt="ممنوع اصرف ولا ريال.. الا اذا كسبته !" loading="lazy">
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=9FVaz2_qDec" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="entertainment">
+            <img src="WORKS/018" alt="قررت اصير دكتور واعالج اغرب مجتمع ome tv" loading="lazy">
+        </a>
+
+        <a href="https://youtu.be/uo6fzuzxGLQ?si=nKHmAK3JzIc02mtH" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="vlog">
+            <img src="WORKS/017" alt="فلوق سفرة جدة مع الشباب شريت مشط ذهبي" loading="lazy">
+        </a>
+
+        <a href="https://youtu.be/DNW3pVBPlKg?si=qolXZ4xJYDGI9hM3" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="vlog">
+            <img src="WORKS/016" alt="فلوق سفرة ماربيا مع الأهل Marbella Family Trip" loading="lazy">
+        </a>
+
+        <a href="https://youtu.be/AmwNr7vQUy0?si=_5k7PZMLMzPbuR5N" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="vlog">
+            <img src="WORKS/015" alt="فلوق رحلة اتلانتا" loading="lazy">
+        </a>
+
+        <a href="https://youtu.be/tPpVBMyrqWE?si=s7bx2b11vZYSUXVY" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="experiments">
+            <img src="WORKS/014" alt="صرت باكستاني لمدة 24 ساعة في الطايف البلد" loading="lazy">
+        </a>
+
+        <a href="https://youtu.be/MKPA-BmoSkE?si=nMlvuTX8ed5fOBvR" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="challenge">
+            <img src="WORKS/013" alt="تحدي التناغم مع صليح و حمادة" loading="lazy">
+        </a>
+
+        <a href="https://x.com/Abo_treek1/status/1959275208365244815?s=20" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="teaser">
+            <img src="WORKS/012" alt="تشويقة تحدي التناغم مع صليح و حمادة" loading="lazy">
+        </a>
+
+        <a href="https://youtu.be/VZcWpZs6yzU?si=1S16UL8e_xjtoMr9" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="experiments">
+            <img src="WORKS/011" alt="مطاعم المشاهير ضد المطاعم المشهورة" loading="lazy">
+        </a>
+
+        <a href="https://x.com/ImSkelyy/status/1912251022942073250?s=20" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="teaser">
+            <img src="WORKS/010" alt="تشويقة مطاعم المشاهير ضد المطاعم المشهورة" loading="lazy">
+        </a>
+
+        <a href="https://youtu.be/CudNBlgTGnE?si=dItQxiBHh_kiPOqV" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="vlog">
+            <img src="WORKS/009" alt="دخلت سوق في وسط البحيرة زيارتي لكشمير الهند" loading="lazy">
+        </a>
+
+        <a href="https://youtu.be/sHPfm9vUaJw?si=bhwZtOCAm7FPD-qw" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="story">
+            <img src="WORKS/008" alt="حكاية اقوى ساحر سوداني حامد آدم" loading="lazy">
+        </a>
+
+        <a href="https://youtu.be/HOEXf71h7K4?si=bsH6IzRpTfRWXyci" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="challenge">
+            <img src="WORKS/007" alt="تحدي التنمر اللي انسجنت بسببه" loading="lazy">
+        </a>
+
+        <a href="https://youtu.be/n461_RB2fRU?si=WW9IrJlDk6-VytD3" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
+            <img src="WORKS/006" alt="مقلب التنمر في نجم التيك توك عبدالله نقال العلوم" loading="lazy">
+        </a>
+
+        <a href="https://youtu.be/2Z6B0Y5nWoY?si=AbgcqyI-nOw8Cv-P" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="story">
+            <img src="WORKS/005" alt="حركة بسيطة منك تقدر تغير العالم" loading="lazy">
+        </a>
+
+        <a href="https://youtu.be/MUuLRo9t-_g?si=22iCAj3ae0ksttBU" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
+            <img src="WORKS/004" alt="مقلب اتصل على امك وقلها فطورك مو عاجبني" loading="lazy">
+        </a>
+
+        <a href="https://youtu.be/nNBCm9JFWX8?si=J49B0JCYs-ecT04n" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
+            <img src="WORKS/003" alt="مقلب السكيورتي الحرامي" loading="lazy">
+        </a>
+
+        <a href="https://youtu.be/Hx6la0F4jOk?si=Fzj93cjRJVtiJBl0" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
+            <img src="WORKS/002" alt="مقلب في بنت الكورنيش نينو" loading="lazy">
+        </a>
+
+        <a href="https://youtu.be/UdCc1Npt840?si=fbUJojsGAWKnGH03" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
+            <img src="WORKS/001" alt="مقلب السواق النصاب" loading="lazy">
+        </a>
+
+    </div>
+</section>
+
+<section id="clients" class="clients-section">
+    <div class="container">
+        <h2>العملاء | Clients</h2>
+
+        <div class="gold-divider">
+            <div class="divider-line"></div>
         </div>
-
-        <div class="portfolios-container" id="slider">
-
-            <a href="https://www.youtube.com/watch?v=9FVaz2_qDec" target="_blank" class="thumbnail-link" data-category="Entertainment">
-                <img src="WORKS/020" alt="قررت اصير دكتور واعالج اغرب مجتمع ome tv">
-            </a>
-
-            
-
-            <a href="https://youtu.be/uo6fzuzxGLQ?si=nKHmAK3JzIc02mtH" target="_blank" class="thumbnail-link" data-category="vlog">
-                <img src="WORKS/018" alt="فلوق سفرة جدة مع الشباب شريت مشط ذهبي">
-            </a>
-
-            
-
-            <a href="https://youtu.be/DNW3pVBPlKg?si=qolXZ4xJYDGI9hM3" target="_blank" class="thumbnail-link" data-category="vlog">
-                <img src="WORKS/016" alt="فلوق سفرة ماربيا مع الأهل Marbella Family Trip">
-            </a>
-            <a href="https://youtu.be/AmwNr7vQUy0?si=_5k7PZMLMzPbuR5N" target="_blank" class="thumbnail-link" data-category="vlog">
-                <img src="WORKS/015" alt="فلوق رحلة اتلانتا">
-            </a>
-            <a href="https://youtu.be/tPpVBMyrqWE?si=s7bx2b11vZYSUXVY" target="_blank" class="thumbnail-link" data-category="Experiments">
-                <img src="WORKS/014" alt="صرت باكستاني لمدة 24 ساعة في الطايف البلد">
-            </a>
-            <a href="https://youtu.be/MKPA-BmoSkE?si=nMlvuTX8ed5fOBvR" target="_blank" class="thumbnail-link" data-category="challenge">
-                <img src="WORKS/013" alt="تحدي التناغم مع صليح و حمادة">
-            </a>
-            <a href="https://x.com/Abo_treek1/status/1959275208365244815?s=20" target="_blank" class="thumbnail-link" data-category="Teaser">
-                <img src="WORKS/012" alt="تشويقة تحدي التناغم مع صليح و حمادة">
-            </a>
-            <a href="https://youtu.be/VZcWpZs6yzU?si=1S16UL8e_xjtoMr9" target="_blank" class="thumbnail-link" data-category="Experiments">
-                <img src="WORKS/011" alt="مطاعم المشاهير ضد المطاعم المشهورة">
-            </a>
-            <a href="https://x.com/ImSkelyy/status/1912251022942073250?s=20" target="_blank" class="thumbnail-link" data-category="Teaser">
-                <img src="WORKS/010" alt="تشويقة مطاعم المشاهير ضد المطاعم المشهورة">
-            </a>
-            <a href="https://youtu.be/CudNBlgTGnE?si=dItQxiBHh_kiPOqV" target="_blank" class="thumbnail-link" data-category="vlog">
-                <img src="WORKS/009" alt="دخلت سوق في وسط البحيرة زيارتي لكشمير الهند">
-            </a>
-            <a href="https://youtu.be/sHPfm9vUaJw?si=bhwZtOCAm7FPD-qw" target="_blank" class="thumbnail-link" data-category="story">
-                <img src="WORKS/008" alt="حكاية اقوى ساحر سوداني حامد آدم">
-            </a>
-            <a href="https://youtu.be/HOEXf71h7K4?si=bsH6IzRpTfRWXyci" target="_blank" class="thumbnail-link" data-category="challenge">
-                <img src="WORKS/007" alt="تحدي التنمر اللي انسجنت بسببه">
-            </a>
-            <a href="https://youtu.be/n461_RB2fRU?si=WW9IrJlDk6-VytD3" target="_blank" class="thumbnail-link" data-category="Pranks">
-                <img src="WORKS/006" alt="مقلب التنمر في نجم التيك توك عبدالله نقال العلوم">
-            </a>
-            <a href="https://youtu.be/2Z6B0Y5nWoY?si=AbgcqyI-nOw8Cv-P" target="_blank" class="thumbnail-link" data-category="story">
-                <img src="WORKS/005" alt="حركة بسيطة منك تقدر تغير العالم">
-            </a>
-            <a href="https://youtu.be/MUuLRo9t-_g?si=22iCAj3ae0ksttBU" target="_blank" class="thumbnail-link" data-category="Pranks">
-                <img src="WORKS/004" alt="مقلب اتصل على امك وقلها فطورك مو عاجبني">
-            </a>
-            <a href="https://youtu.be/nNBCm9JFWX8?si=J49B0JCYs-ecT04n" target="_blank" class="thumbnail-link" data-category="Pranks">
-                <img src="WORKS/003" alt="مقلب السكيورتي الحرامي">
-            </a>
-            <a href="https://youtu.be/Hx6la0F4jOk?si=Fzj93cjRJVtiJBl0" target="_blank" class="thumbnail-link" data-category="Pranks">
-                <img src="WORKS/002" alt="مقلب في بنت الكورنيش نينو">
-            </a>
-            <a href="https://youtu.be/UdCc1Npt840?si=fbUJojsGAWKnGH03" target="_blank" class="thumbnail-link" data-category="Pranks">
-                <img src="WORKS/001" alt="مقلب السواق النصاب">
-            </a>
-        </div>
-    </section>
-
-    <section id="clients" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <h2> العملاء | Clients </h2>
-        <div class="clients-grid">
-            <a href="https://www.youtube.com/@HAMADALOMARII" target="_blank"><img src="client006" alt="Client 006"></a>
-            <a href="https://www.youtube.com/@abo_klod" target="_blank"><img src="client005" alt="Client 005"></a>
-            <a href="https://www.youtube.com/@Abo_treek1" target="_blank"><img src="client004" alt="Client 004"></a>
-            <a href="https://www.youtube.com/@Spaaiki" target="_blank"><img src="client003" alt="Client 003"></a>
-            <a href="https://www.youtube.com/@skelyy" target="_blank"><img src="client002" alt="Client 002"></a>
-            <a href="https://www.youtube.com/@M8LB" target="_blank"><img src="client001" alt="Client 001"></a>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section id="order-form" style="padding: 50px;">
-    <h2 style="text-align: center;"> اطلب الآن | Order Now </h2>
-
-    <!-- الفاصل الذهبي الناعم الاحترافي -->
-<div class="gold-divider">
-    <div style="height: 2px; width: 100%; background: linear-gradient(90deg, transparent 0%, #c5a055 50%, transparent 100%); margin-top: 12px;"></div>
-</div>
-
-
-<form id="my-form" action="https://formspree.io/f/xeewdywy" method="POST">
-            <label style="display: block; overflow: hidden;">
-            <span style="float: right;"> الاسم </span>
-            <span style="float: left;"> Name </span>
-        </label>
-        <input type="text" id="input-name" name="name" required>
-
-        <label style="display: block; overflow: hidden;">
-            <span style="float: right;"> رابط الفيديو </span>
-            <span style="float: left;"> Video Link </span>
-        </label>
-        <input type="url" id="input-video-link" name="video_link" required>
-
-        <label style="display: block; overflow: hidden;">
-            <span style="float: right;"> نوع الفيديو </span>
-            <span style="float: left;"> Video Type </span>
-        </label>
-        <select id="input-video-type" name="video_type">
-            <option value="Short"> قصير | Short </option>
-            <option value="Teaser"> تشويقة | Teaser </option>
-            <option value="YouTube"> يوتيوب | YouTube </option>
-        </select>
-
         
-        </select>
+        <div class="clients-grid">
+            <a href="https://www.youtube.com/@HAMADALOMARII" target="_blank" rel="noopener noreferrer">
+                <img src="client001" alt="Hamad Alomarii">
+            </a>
+            <a href="https://www.youtube.com/@abo_klod" target="_blank" rel="noopener noreferrer">
+                <img src="client002" alt="Abo Klod">
+            </a>
+            <a href="https://www.youtube.com/@Abo_treek1" target="_blank" rel="noopener noreferrer">
+                <img src="client003" alt="Abo Treeka">
+            </a>
+            <a href="https://www.youtube.com/@Spaaiki" target="_blank" rel="noopener noreferrer">
+                <img src="client004" alt="Spaaiki">
+            </a>
+            <a href="https://www.youtube.com/@skelyy" target="_blank" rel="noopener noreferrer">
+                <img src="client005" alt="Skelyy">
+            </a>
+            <a href="https://www.youtube.com/@M8LB" target="_blank" rel="noopener noreferrer">
+                <img src="client006" alt="M8LB">
+            </a>
+        </div>
+    </div>
+</section>
 
-        </select>
-
-
-        <label style="display: block; overflow: hidden; margin-top: 10px;">
-            <span style="float: right;"> التواصل </span>
-            <span style="float: left;"> Contact </span>
+<section id="order-form">
+    <h2>اطلب الآن | Order Now</h2>
+    
+    <!-- الفاصل الذهبي -->
+    <div class="gold-divider">
+        <div class="divider-line"></div>
+    </div>
+        
+    <form id="my-form" action="https://formspree.io/f/xeewdywy" method="POST">
+        <label>
+            <span class="label-ar">الاسم</span>
+            <span class="label-en">Name</span>
         </label>
-        <input type="text" id="input-contact" name="contact" required>        
+        <input type="text" name="name" required>
+
+        <label>
+            <span class="label-ar">رابط الفيديو</span>
+            <span class="label-en">Video Link</span>
+        </label>
+        <input type="url" name="video-link">
+
+        <label>
+            <span class="label-ar">نوع الفيديو</span>
+            <span class="label-en">Video Type</span>
+        </label>
+        <select name="video-type">
+            <option value="Short">قصير | Short</option>
+            <option value="Teaser">تشويقة | Teaser</option>
+            <option value="YouTube">يوتيوب | YouTube</option>
+        </select>
+
+        <label class="label-contact">
+            <span class="label-ar">التواصل</span>
+            <span class="label-en">Contact</span>
+        </label>
+        <input type="text" name="contact">        
 
         <!-- خانة الموافقة -->
-        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0 18px 0; width: 100%; direction: rtl;">
-            <label for="policy-checkbox" style="color: #fff; font-size: 11.5px; cursor: pointer; text-align: right;">
-                أقر بأنني قرأت <span onclick="openPolicyModal()" style="color: #d4af37; text-decoration: underline; cursor: pointer;">سياسة الدفع</span>
+        <div class="policy-checkbox-container">
+            <label for="policy-checkbox" class="policy-label-ar">
+                أقر بأنني قرأت <span onclick="openPolicyModal()" class="policy-link">سياسة الدفع</span>
             </label>
 
-            <input type="checkbox" id="policy-checkbox" required style="width: 15px; height: 15px; cursor: pointer; accent-color: #d4af37; margin: 0; flex-shrink: 0;">
+            <input type="checkbox" id="policy-checkbox" required class="custom-checkbox">
 
-            <label for="policy-checkbox" style="color: #fff; font-size: 11px; cursor: pointer; text-align: left; direction: ltr;">
-                I Read The <span onclick="openPolicyModal()" style="color: #d4af37; text-decoration: underline; cursor: pointer;">Payment Policy</span>
+            <label for="policy-checkbox" class="policy-label-en">
+                I Read The <span onclick="openPolicyModal()" class="policy-link">Payment Policy</span>
             </label>
         </div>
 
-        <!-- أزرار التحكم -->
-        <!-- حاوية الأزرار مرتبة عمودياً -->
-<!-- حاوية الأزرار مرتبة عمودياً -->
-<div style="display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 420px; margin: 20px auto 0 auto;">
-    
-    
-
-<button type="submit" id="my-form-button" class="gold-btn" style="width: 100%;">
-         إرسال الطلب | Order Now
-    </button>
-</div>
+        <button type="submit" id="my-form-button">إرسال الطلب | Order Now</button>
     </form>
 
+    <!-- ملاحظة الطلب التوضيحية -->
     <div class="order-note-wrapper">
         <button type="button" class="order-info-tooltip" aria-label="Toggle Project Notes" onclick="toggleOrderNote(event)">
             <span aria-hidden="true">i</span>
@@ -283,86 +274,27 @@
         </button>
     </div>
 
-    <div id="form-success-msg" style="display: none; text-align: center; margin-top: 15px; color: #2ecc71; font-size: 1.1rem; font-weight: bold;">
+    <!-- رسائل حالة النموذج -->
+    <div id="form-success-msg">
         تم إرسال الطلب | Order Sent
     </div>
-    <p id="my-form-status" style="text-align: center; font-size: 0.9rem; margin-top: 10px;"></p>
+    <p id="my-form-status"></p>
 </section>
 
-      
-
-
-
-
-<!-- زر الطلب السريع العائم (للجوال فقط) -->
-<a href="#order-form" class="floating-order-btn" aria-label="طلب جديد">
-    <svg width="13" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="12" y1="5" x2="12" y2="19"></line>
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-    </svg>
-</a>
-
-
-
-
-
-<!-- زر التواصل السريع عبر الواتساب (يمين - للجوال فقط) -->
-<a href="https://wa.me/966500000000" target="_blank" class="floating-contact-btn" aria-label="تواصل عبر الواتساب">
-    <svg width="13" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-    </svg>
-</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <button class="track-btn" onclick="toggleTracker()"> تتبع المشروع | Track Project </button>
-
-    <div id="tracker-modal" class="modal">
-        <div class="modal-content">
-            <span class="new-close-btn" onclick="toggleTracker()">&times;</span>
-            <h3> تتبع المشروع | Track Project </h3>
-            <input type="text" id="project-code" placeholder=" أدخل كود المشروع | Enter Project Code ">
-            <button class="check-btn" onclick="checkProject()"> تحقق | Check </button>
-            <div id="project-status"></div>
-        </div>
-    </div>
-
-    <!-- Modal سياسة الدفع مع خيار تبديل اللغة -->
     <div id="policyModal" class="policy-modal-overlay">
         <div class="policy-modal-content">
             
             <!-- هيدر الـ Modal ويحتوي على العنوان وزر تغيير اللغة -->
             <div class="modal-header">
                 <h3 id="modal-title">سياسة الدفع</h3>
+                
                 <button type="button" id="lang-switch-btn" onclick="togglePolicyLanguage()">English</button>
+                
             </div>
+
+            <div class="gold-divider">
+        <div class="divider-line"></div>
+    </div>
 
             <!-- المحتوى العربي -->
             <div id="policy-content-ar" class="policy-lang-pane">
@@ -398,49 +330,42 @@
         </div>
     </div>
 
-    <!-- بطاقة تصدير الطلب المخفية (معدلة) -->
-<div id="export-card-template" dir="rtl" style="position: absolute; left: -9999px; top: -9999px; width: 520px; background: #000000; border: 1.5px solid #c5a055; border-radius: 18px; padding: 35px 30px; font-family: 'Tajawal', 'Segoe UI', Tahoma, sans-serif; color: #ffffff; box-shadow: 0 0 25px rgba(197, 160, 85, 0.15);">
-    
-    <!-- العنوان الرئيسي والفاصل الذهبي الناعم -->
-    <div style="text-align: center; margin-bottom: 25px;">
-        <h2 style="margin: 0; color: #ffffff; font-size: 1.4rem; font-weight: 700; direction: ltr; display: inline-block;">
-            Project Details <span style="color: #c5a055; margin: 0 5px;">|</span> تفاصيل المشروع
-        </h2>
+<button class="track-btn" onclick="toggleTracker()"> تتبع المشروع | Track Project </button>
+
+    <div id="tracker-modal" class="modal">
+        <div class="modal-content">
+            <span class="new-close-btn" onclick="toggleTracker()">&times;</span>
+            <h3> تتبع المشروع | Track Project </h3>
+            <div class="gold-divider">
+        <div class="divider-line"></div>
+    </div>
+            <input type="text" id="project-code" placeholder=" أدخل كود المشروع | Enter Project Code ">
+            <button class="check-btn" onclick="checkProject()"> تحقق | Check </button>
+
+            
+            <div id="project-status"></div>
+            
+        </div>
         
-        <!-- الفاصل الذهبي الناعم -->
-        <div style="height: 2px; width: 100%; background: linear-gradient(90deg, transparent 0%, #c5a055 50%, transparent 100%); margin-top: 12px;"></div>
     </div>
 
-    <!-- قائمة البيانات -->
-    <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem;">
-        
-        <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(197, 160, 85, 0.15); padding: 12px 16px; border-radius: 10px;">
-            <span style="color: #a0a0a0;">الاسم | Name</span>
-            <span id="card-out-name" style="color: #ffffff; font-weight: 700;">-</span>
-        </div>
+    <a href="#order-form" class="floating-order-btn" aria-label="طلب جديد">
+        <svg width="13" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+    </a>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(197, 160, 85, 0.15); padding: 12px 16px; border-radius: 10px;">
-            <span style="color: #a0a0a0;">نوع الفيديو | Video Type</span>
-            <span id="card-out-type" style="color: #c5a055; font-weight: 700;">-</span>
-        </div>
-
-        <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(197, 160, 85, 0.15); padding: 12px 16px; border-radius: 10px;">
-            <span style="color: #a0a0a0;">التواصل | Contact</span>
-            <span id="card-out-contact" style="color: #ffffff; font-weight: 700;">-</span>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 6px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(197, 160, 85, 0.15); padding: 12px 16px; border-radius: 10px;">
-            <span style="color: #a0a0a0;">رابط الفيديو | Video Link</span>
-            <span id="card-out-link" style="color: #ffb000; word-break: break-all; font-size: 0.82rem; direction: ltr; text-align: left;">-</span>
-        </div>
-    </div>
-</div>
+    <a href="https://wa.me/966500000000" target="_blank" class="floating-contact-btn" aria-label="تواصل عبر الواتساب">
+        <svg width="13" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        </svg>
+    </a>
 
     <footer>
         <p>آخر تحديث : سبتمبر 2026 | Last Updated : September 2026</p>
     </footer>
-<!-- مكتبة html2canvas لتحويل الكارت إلى صورة -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,190 +1,178 @@
-
-html { 
-    scroll-behavior: smooth;
+:root {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --font-main: monospace, sans-serif;
 }
 
-
-
-
+html { 
+  scroll-behavior: smooth; 
+}
 
 body {
-    overflow-x: hidden;
-    background-color: black;
-    color: rgb(255, 255, 255);
-    margin: 0;
-font-family: 'monospace', sans-serif;}
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-main);
+}
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
+  }
 }
 
 @keyframes shine {
-    to { background-position: -200% center; }
+  to { 
+    background-position: -200% center; 
+  }
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-0.5rem); }
+  0%, 20%, 50%, 80%, 100% { 
+    transform: translateY(0); 
+  }
+  40% { 
+    transform: translateY(-0.5rem); 
+  }
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 1; }
+  0%, 100% { 
+    opacity: 0.2; 
+  }
+  50% { 
+    opacity: 1; 
+  }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-h1, h2, h3, .nav-links, .section-title {
-font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    letter-spacing: 0.5px; /* مسافة ناعمة بين الحروف الإنجليزية */
-    
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+  background-size: 200% auto;
+  animation: shine 3.8s linear infinite;
+  transition: width 0.1s ease-out;
+  z-index: 10000;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==========================================
-   1. شريط التنقل العلوي (Navbar & Navigation Links)
-   ========================================== */
-
-/* الحاوية الرئيسية لشريط التنقل العلوي الثابت */
 nav {
-    position: fixed;
-    top: 1.8rem;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 3rem 3rem;
-    display: flex;
-    justify-content: center;
-    gap: 5rem;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.85);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
-    mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
-    backdrop-filter: blur(0.3rem);
+  position: fixed;
+  top: 1.8rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  z-index: 999999999;
+  background: rgba(0, 0, 0, 0.85);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+  backdrop-filter: blur(0.3rem);
+  -webkit-backdrop-filter: blur(0.3rem);
 }
 
-/* روابط التنقل داخل الشريط */
 nav a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-size: 1rem;
-    letter-spacing: 0.3rem;
-    text-transform: uppercase;
-    position: relative;
-    opacity: 1;
-    transition: all 0.3s ease;
-    display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  position: relative;
+  opacity: 0.8;
+  display: inline-block;
+  transition: all 0.3s ease;
 }
 
-/* تأثير التمرير (Hover) على روابط التنقل */
 nav a:hover {
-    opacity: 1;
-    transform: scale(1.1); 
-    cursor: pointer;
-    color: #ffffff;
+  opacity: 1;
+  transform: scale(1.1);
+  color: #ffffff;
 }
 
-/* الخط السفلي الذهبي اللامع تحت روابط التنقل */
 nav a::after {
-    content: '';
-    position: absolute;
-    width: 0; 
-    height: 0.1rem;
-    bottom: -0.3rem; 
-    left: 50%;
-    transition: all 0.3s ease;
-    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-    background-size: 200% auto;
-    -webkit-text-fill-color: transparent;
-    animation: shine 3.8s linear infinite;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0.1rem;
+  bottom: -0.3rem;
+  left: 50%;
+  background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+  background-size: 200% auto;
+  animation: shine 3.8s linear infinite;
+  transition: all 0.3s ease;
 }
 
-/* تمدد الخط السفلي عند التمرير على رابط التنقل */
 nav a:hover::after {
-    width: 100%; 
-    left: 0;
+  width: 100%;
+  left: 0;
 }
 
+.hero-section {
+  position: relative;
+  width: 100%;
+}
 
-/* ==========================================
-   2. القسم الرئيسي واجهة الموقع (Hero Section)
-   ========================================== */
-
-/* الحاوية الرئيسية لوسط الشاشة */
 .container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    animation: fadeIn 1.8s ease-in-out;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  animation: fadeIn 1.8s ease-in-out;
 }
 
-/* شعار الموقع الذهبي المتوهج */
 .logo {
-    font-size: 3rem;
-    letter-spacing: 0.3rem;
-    font-weight: bold;
-    font-family: 'Playfair Display', serif;
-    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 3.8s linear infinite;
-    transition: all 0.4s ease;
-    cursor: default;
-    margin: 0.3rem;
+  font-size: 3rem;
+  letter-spacing: 0.3rem;
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3.8s linear infinite;
+  transition: all 0.4s ease;
+  cursor: default;
+  margin: 0.3rem;
 }
 
-/* العنوان الفرعي تحت الشعار */
 .subtitle {
-    font-size: 1rem;
-    letter-spacing: 3rem;
-    padding-left: 2.1rem;
-    font-weight: 200;
-    font-family: 'Arial', sans-serif;
-    margin-top: 1rem;
-    user-select: none;
+  font-size: 1rem;
+  letter-spacing: 3rem;
+  padding-left: 2.1rem;
+  font-weight: 200;
+  font-family: Arial, sans-serif;
+  margin-top: 1rem;
+  user-select: none;
 }
 
-/* مؤشر التمرير للأسفل (سهم/أيقونة الحركة) */
 .scroll-indicator {
-    font-size: 1.8rem;
-    padding-right: 0rem;
-    margin-top: 1.8rem;
-    animation: bounce 1.8s infinite;
-    user-select: none;
+  font-size: 1.8rem;
+  margin-top: 1.8rem;
+  color: #ffffff;
+  text-decoration: none;
+  animation: bounce 1.8s infinite;
+  user-select: none;
 }
 
+.gold-divider {
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent 0%, #c5a055 50%, transparent 100%);
+    margin: 18px 0 3rem 0;
+}
 
-/* ==========================================
-   3. قسم معرض الأعمال (Works Section)
-   ========================================== */
-
-/* الحاوية العامة لقسم الأعمال */
 .works-section {
     text-align: center;
     padding: 13rem 2rem;
@@ -192,24 +180,22 @@ nav a:hover::after {
     color: rgba(15, 15, 15, 0.164);
 }
 
-/* العنوان الرئيسي لقسم الأعمال */
 .works-section h2 {
-    font-size: 2rem;
-    padding-bottom: 3rem;
-    letter-spacing: 0.3rem;
-    font-weight: bold;
-    font-family: 'Playfair Display', serif;
-    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 8s linear infinite;
-    transition: all 0.4s ease;
-    cursor: default;
-    margin: 0.3rem;
+    font-size: 1.8rem;
+  letter-spacing: 0.3rem;
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3.8s linear infinite;
+  transition: all 0.4s ease;
+  cursor: default;
+  margin: 3rem;
 }
 
-/* حاوية أزرار فلترة الأعمال */
 .filter-buttons {
     display: flex;
     justify-content: center;
@@ -218,25 +204,23 @@ nav a:hover::after {
     flex-wrap: wrap;
 }
 
-/* أزرار الفلترة العادية */
 .filter-btn {
     background-color: #000000;
     color: #aaaaaa;
-    border: 0.1rem solid #333;
+    border: 0.1rem solid #000000;
     padding: 0.5rem 0.8rem;
     border-radius: 1rem;
     cursor: pointer;
     font-size: 0.8rem;
-    transition: all 0.5s ease;
+    transition: all 0.8s ease;
+    box-shadow: 0 0 1rem rgba(75, 60, 22, 0.411);
 }
 
-/* تأثير التمرير على زر الفلترة */
 .filter-btn:hover {
     border-color: #d4af37;
     color: #fff;
 }
 
-/* زر الفلترة المفعّل حالياً */
 .filter-btn.active {
     background-color: #d4af37;
     color: #000;
@@ -244,7 +228,6 @@ nav a:hover::after {
     font-weight: bold;
 }
 
-/* شبكة عرض كروت المعرض (Grid) */
 .portfolios-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
@@ -252,32 +235,24 @@ nav a:hover::after {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
+    direction: ltr; /* يبدأ ترتيب الكروت من أعلى اليسار بدلاً من اليمين */
 }
 
-/* غلاف عنصر العمل الواحد مع التحكم بالترتيب */
 .portfolio-item-wrapper {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: visible !important;
-    margin-bottom: 0rem;
+    margin-bottom: 0;
     z-index: 1000;
 }
 
-/* رفع ترتيب الكارت عند حوم الماوس أو تفعيل الملاحظة */
 .portfolio-item-wrapper:has(.info-tooltip.active),
 .portfolio-item-wrapper:hover {
     z-index: 10000;
 }
 
-/* إخفاء غلاف العمل عند تطبيق الفلترة */
-.portfolio-item-wrapper.hidden,
-.portfolio-item-wrapper:has(.thumbnail-link.hidden) {
-    display: none !important;
-}
-
-/* الخط الأصفر الممتد أسفل كارت العمل ليصل للملاحظة */
 .portfolio-item-wrapper::before {
     content: "";
     position: absolute;
@@ -290,7 +265,6 @@ nav a:hover::after {
     z-index: 0;
 }
 
-/* رابط ومستطيل الصورة المصغرة للعمل */
 .thumbnail-link {
     display: block;
     width: 100%;
@@ -300,31 +274,19 @@ nav a:hover::after {
     border-radius: 1rem;
     border: 1px solid #333;
     background: #111;
+    z-index: 9999;
     transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* ربط الصورة داخل غلاف العمل وتنسيق الترتيب */
-.portfolio-item-wrapper .thumbnail-link {
-    position: relative;
-    z-index: 9999;
-    width: 100%;
-    display: block;
-    border-radius: 1rem;
-    overflow: hidden;
-}
-
-/* صورة العمل المصغرة */
-.thumbnail-link img,
-.portfolio-item-wrapper .thumbnail-link img {
+.thumbnail-link img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    filter: grayscale(38%);
+    filter: grayscale(13.8%);
     transition: transform 0.5s ease, filter 0.5s ease;
 }
 
-/* تأثير التمرير على الصورة المصغرة */
 .thumbnail-link:hover {
     border-color: #c49b33;
     box-shadow: 0 0 2rem rgba(196, 155, 51, 0.3);
@@ -332,266 +294,86 @@ nav a:hover::after {
 
 .thumbnail-link:hover img {
     filter: grayscale(0%);
-    transform: scale(1.03);
+    transform: scale(1.01);
 }
 
-/* إخفاء رابط الصورة المصغرة */
+.portfolio-item-wrapper.hidden,
+.portfolio-item-wrapper:has(.thumbnail-link.hidden),
 .thumbnail-link.hidden {
     display: none !important;
 }
 
-
-/* ==========================================
-   4. تفاصيل ومعلومات المعرض (Tooltip & Note Box)
-   ========================================== */
-
-/* زر الأيقونة الدائرية (i) لعرض الملاحظات */
-.info-tooltip {
-    position: absolute;
-    top: calc(100% + 0.8rem);
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1.2rem;
-    height: 1.2rem;
-    background-color: #ffcc00;
-    color: #000;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 0.6rem;
-    cursor: pointer;
-    z-index: 5;
-    box-shadow: 0px 0px 1rem rgba(255, 196, 0, 0.836);
-    transition: background-color 0.3s ease;
-}
-
-.info-tooltip:hover {
-    background-color: #ffffff;
-}
-
-/* صندوق تفاصيل العمل والملاحظات */
-.note-box {
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 13rem;
-    max-width: 85vw;
-    background-color: #000000;
-    border: 1px solid #ffcc00b9;
-    border-radius: 1rem;
-    padding: 1rem 3rem;
-    box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.8);
-    z-index: 100;
-    cursor: default;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-    pointer-events: none;
-}
-
-/* إظهار صندوق التفاصيل عند تفعيل التولتيب */
-.info-tooltip.active .note-box {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-/* هيدر صندوق الملاحظات */
-.note-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 0.1rem solid rgba(255, 204, 0, 0.2);
-    padding-bottom: 0.8rem;
-    margin-bottom: 1rem;
-}
-
-/* عنوان الملاحظات بالعربي وبالإنجليزي */
-.note-ar {
-    font-family: inherit;
-    font-weight: bold;
-    font-size: 0.8rem;
-    color: #ffcc00;
-    direction: rtl;
-}
-
-.note-en {
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: 0.8rem;
-    color: #ffcc00;
-    direction: ltr;
-}
-
-/* محتوى الملاحظات الداخلي */
-.note-body {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.note-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1.33rem;
-}
-
-.editor-row {
-    padding-top: 0.8rem;
-    border-top: 0.1rem dashed rgba(255, 255, 255, 0.12);
-}
-
-/* النصوص العربية والإنجليزية داخل تفاصيل العمل */
-.text-ar, .editor-ar {
-    direction: rtl;
-    text-align: right;
-    font-size: 0.6rem;
-    line-height: 1.35;
-    color: #999999;
-    margin: 0;
-    width: 50%;
-}
-
-.text-en, .editor-en {
-    direction: ltr;
-    text-align: left;
-    font-size: 0.55rem;
-    line-height: 1.35;
-    color: #999999;
-    margin: 0;
-    width: 50%;
-}
-
-/* رابط اسم المونتير/المحرر */
-.editor-link {
-    color: #ffcc00;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.5rem;
-    display: inline-block;
-}
-
-.editor-link:hover {
-    text-decoration: underline;
-    color: #ffffff;
-}
-
-/* حاوية صوَر إثبات الملكية/المشروع */
-.proof-wrapper {
-    margin-top: 0.8rem;
-    padding-top: 0.8rem;
-    border-top: 0.1rem dashed rgba(255, 255, 255, 0.12);
-    text-align: center;
-}
-
-/* صورة إثبات المشروع */
-.proof-img {
-    width: 100%;
-    max-height: 10rem;
-    object-fit: contain;
-    border-radius: 0.3rem;
-    border: 0.1rem solid rgba(255, 204, 0, 0.61);
-    box-shadow: 0px 0px 0.5rem rgba(255, 196, 0, 0.836);
-}
-
-
-/* ==========================================
-   5. قسم العملاء (Clients Section)
-   ========================================== */
-
-/* الحاوية الرئيسية لقسم العملاء */
 #clients {
     min-height: 100vh; 
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
     align-items: center;
-    padding: 4rem 1rem;
+    padding: 0rem 0rem;
+    padding-bottom: 8rem;
     box-sizing: border-box;
 }
 
-/* عنوان قسم العملاء */
 #clients h2 {
-    font-size: 2rem;
-    padding-bottom: 3rem;
-    letter-spacing: 0.3rem;
-    font-weight: bold;
-    font-family: 'Playfair Display', serif;
-    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 8s linear infinite;
-    transition: all 0.4s ease;
-    cursor: default;
-    margin: 0.3rem;
+    font-size: 1.8rem;
+  letter-spacing: 0.3rem;
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3.8s linear infinite;
+  transition: all 0.4s ease;
+  cursor: default;
+  margin: 3rem;
 }
 
-/* شبكة شعارات العملاء */
 .clients-grid {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 3rem;
     flex-wrap: wrap;
-    max-width: 1200rem;
+    max-width: 1200px; /* تعديل من 1200rem إلى 1200px لضبط العرض الأقصى */
 }
 
-/* صور أفتارات/شعارات العملاء */
 .clients-grid img {
     width: 6rem;
     height: 6rem;
-    border-radius: 100%;
+    border-radius: 50%; /* استخدام 50% كمعيار لإنشاء دائرة متناسقة */
     object-fit: cover;
-    border: 0rem solid #c49b33;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    border: 2px solid transparent; /* إضافة إطار شفاف للجاهزية والتأثيرات */
+    transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
 }
 
 .clients-grid img:hover {
     transform: scale(1.1); 
     box-shadow: 0 0 1rem rgba(255, 183, 0, 0.6);
+    border-color: #c49b33;
     cursor: pointer;
 }
 
-
-/* ==========================================
-   6. نموذج الطلب (Order Form)
-   ========================================== */
-
-/* الصندوق الرئيسي لنموذج الطلب */
 #order-form {
-    scroll-margin-top: 13rem;
+    scroll-margin-top: 8rem;
+    max-width: 40rem;
     max-width: 50rem;
-    max-height: 80rem;
-
-
-
-    margin-top: 3rem auto;
-    margin-bottom: 3rem auto;
-    margin: 18rem auto;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    padding: 38rem;
-
-
-
-    background: #00000038;
-    border: 0.1rem solid #c49b33;
+    margin: 8rem auto;
+    padding: 8rem 8rem;
+    background: rgba(0, 0, 0, 0);
+    border: 0.1rem solid #c49b3300;
     border-radius: 1rem;
-    color: white;
+    color: #ffffff;
     box-sizing: border-box;
-    box-shadow: 0 0rem 2rem rgba(196, 155, 51, 0.3);
+    box-shadow: 0 0 2rem rgba(196, 155, 51, 0);
 }
 
-/* عنوان نموذج الطلب */
 #order-form h2 {
-    font-size: 2rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    letter-spacing: 0.3rem;
+    font-size: 1.8rem;
+    text-align: center;
+    padding-bottom: 1.2rem;
+    letter-spacing: 0.15rem;
     font-weight: bold;
     font-family: 'Playfair Display', serif;
     background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
@@ -601,55 +383,120 @@ nav a:hover::after {
     animation: shine 8s linear infinite;
     transition: all 0.4s ease;
     cursor: default;
-    margin: 0.3rem;
+    margin: 0;
 }
 
-/* حقول المدخلات والقوائم المنسدلة */
-#order-form input, 
+#order-form label {
+    display: block;
+    overflow: hidden;
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+}
+
+#order-form label.label-contact {
+    margin-top: 10px;
+}
+
+.label-ar {
+    float: right;
+}
+
+.label-en {
+    float: left;
+}
+
+#order-form input[type="text"], 
+#order-form input[type="url"], 
 #order-form select {
     width: 100%;
-    padding: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-    border: 1px solid #333;
+    padding: 0.8rem 1rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.8rem;
+    border: 1px solid #333333;
     border-radius: 0.5rem;
-    background: #000;
-    color: white;
+    background: #000000;
+    color: #ffffff;
     box-sizing: border-box;
-    font-size: 1rem;
-    transition: border-color 0.3s;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #order-form input:focus, 
 #order-form select:focus {
     border-color: #c49b33;
     outline: none;
-    box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+    box-shadow: 0 0 1rem rgba(196, 155, 51, 0.3);
 }
 
-/* زر إرسال نموذج الطلب */
-#order-form button {
+.policy-checkbox-container {
+    display: flex;
+    align-items: center; /* سنترة كل العناصر عمودياً */
+    justify-content: center;
+    gap: 8px;
+    margin: 12px 0 18px 0;
     width: 100%;
-    padding: 1rem;
+    direction: rtl;
+}
+
+.policy-label-ar, 
+.policy-label-en {
+    color: #ffffff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    line-height: 2; /* توحيد ارتفاع السطر لمنع ارتغاع النص عن المربع */
+    display: inline-flex;
+    align-items: center;
+}
+
+.policy-label-ar {
+    text-align: right;
+}
+
+.policy-label-en {
+    text-align: left;
+    direction: ltr;
+}
+
+.policy-link {
+    color: #d4af37;
+    text-decoration: underline;
+    cursor: pointer;
+    margin: 0 3px;
+}
+
+.custom-checkbox {
+    width: 15px !important;
+    height: 15px !important;
+    cursor: pointer;
+    accent-color: #d4af37;
+    margin: 0.8rem !important;
+    flex-shrink: 0;
+    vertical-align: middle;
+    position: relative;
+    top: 0.4rem; /* تحريك طفيف جداً لأسفل لسنترته مع الخطوط العربية والإنجليزي */
+}
+
+#my-form-button {
+    width: 100%;
+    padding: 0.9rem;
     background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
     background-size: 200% auto;
     animation: shine 4.8s linear infinite;
     transition: all 0.4s ease;
-    color: black;
+    color: #000000;
     border: none;
     border-radius: 2rem;
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: bold;
-    box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+    box-shadow: 0 0 1rem rgba(196, 155, 51, 0.3);
 }
 
-#order-form button:hover {
+#my-form-button:hover {
     opacity: 1;
     transform: scale(1.03);
 }
 
-/* ملاحظة نموذج الطلب التوضيحية */
 .order-note-wrapper {
     position: relative;
     display: flex;
@@ -666,7 +513,7 @@ nav a:hover::after {
     height: 1.5rem !important;
     color: #ffcc00b9 !important;
     border: 1px solid #ffcc00b9 !important;
-    background: #222222 !important;
+    background: #000000 !important;
     border-radius: 50% !important;
     display: flex !important;
     align-items: center !important;
@@ -690,10 +537,10 @@ nav a:hover::after {
     width: 13rem;
     max-width: 85vw;
     background-color: #000000;
-    border: 1px solid #ffcc00b9;
+    border: 1px solid #ffcc0000;
     border-radius: 1rem;
-    padding: 1rem 3rem;
-    box-shadow: 0px 0px 3rem rgba(255, 196, 0, 0.295);
+    padding: 1rem;
+    box-shadow: 0 0 3rem rgba(255, 196, 0, 0.295);
     z-index: 100;
     cursor: default;
     transition: opacity 0.4s ease, visibility 0.4s ease;
@@ -715,21 +562,25 @@ nav a:hover::after {
     margin-bottom: 1rem;
 }
 
-.order-note-ar {
-    font-family: inherit;
-    font-weight: bold;
+.order-note-ar, .order-note-en {
     font-size: 0.8rem;
-    color: #ffcc00;
-    direction: rtl;
+    text-align: center;
+    padding-bottom: 1.2rem;
+    letter-spacing: 0.15rem;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 8s linear infinite;
+    transition: all 0.4s ease;
+    cursor: default;
+    margin: 0;
 }
 
-.order-note-en {
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: 0.8rem;
-    color: #ffcc00;
-    direction: ltr;
-}
+.order-note-ar { direction: rtl; }
+.order-note-en { direction: ltr; }
 
 .order-note-body {
     display: flex;
@@ -764,26 +615,21 @@ nav a:hover::after {
     width: 50%;
 }
 
-
-/* ==========================================
-   7. الأزرار والعناصر العائمة (Floating UI)
-   ========================================== */
-
-/* شريط تقدم التمرير العلوي الممتاز */
-#scrollProgress {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    height: 4px !important;
-    z-index: 99999 !important;
-    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-    background-size: 200% auto;
-    -webkit-text-fill-color: transparent;
-    animation: shine 3.8s linear infinite;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+#form-success-msg {
+    display: none;
+    text-align: center;
+    margin-top: 15px;
+    color: #2ecc71;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
-/* زر تتبع الطلب العائم */
+#my-form-status {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
 .track-btn {
     position: fixed;
     bottom: 4rem;
@@ -807,20 +653,11 @@ nav a:hover::after {
     color: black;
 }
 
-/* زر الدفع العائم */
-.payment-btn {
-    position: fixed;
-    bottom: 20px;
-    left: 150px;
-    z-index: 1000;
-}
-
-/* زر التحميل أو ملفات جوجل درايف */
 .drive-btn {
     display: inline-block;
     padding: 0.6rem 1.5rem;
-    background: linear-gradient(90deg, #aa761c, #fcf06a, #aa761c);
-    background-size: 200% auto;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 500% auto;
     color: #000;
     font-weight: bold;
     text-decoration: none;
@@ -828,6 +665,8 @@ nav a:hover::after {
     font-size: 0.9rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 10px rgba(252, 240, 106, 0.3);
+        animation: shine 18s linear infinite;
+
 }
 
 .drive-btn:hover {
@@ -836,52 +675,69 @@ nav a:hover::after {
 }
 
 
+
+
 /* ==========================================
-   8. النوافذ المنبثقة والشروط (Modals & Policy)
+   2. النوافذ المنبثقة والشروط (Modals & Policy)
    ========================================== */
 
 /* الخلفية المظلمة الشاملة للنافذة المنبثقة */
 .modal {
     display: none;
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.295);
     z-index: 99999999999999999999;
     justify-content: center;
     align-items: center;
+        backdrop-filter: blur(6px);
+            background-color: rgba(0, 0, 0, 0.85);
+
+
 }
 
 /* محتوى النافذة المنبثقة الداخلي */
 .modal-content {
+    position: relative; /* ضروري عشان position: absolute للزر يظبط عليه */
     background: #000 !important;
-    border: 0.1rem solid #c5a059 !important;
+    border: 0.1rem solid #c59f5900 !important;
     color: white !important;
     width: 38rem;
     min-width: 18rem;
     padding: 3rem;
     text-align: center;
-    border-radius: 1rem;
-    box-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
+    border-radius: 1.8rem;
+    box-shadow: 0 0rem 3rem rgba(196, 155, 51, 0.548);
+    backdrop-filter: blur(6px);
 }
 
 .modal-content h3 {
-    white-space: nowrap;
-    display: inline-block;
-    font-size: 1rem;
+    font-size: 1.8rem;
+    text-align: center;
+    padding-bottom: 3.8rem;
+    letter-spacing: 0.15rem;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
     background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-    text-shadow: 0 0rem 1rem rgba(196, 155, 51, 0.3);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shine 3.8s linear infinite;
+    animation: shine 8s linear infinite;
     transition: all 0.4s ease;
     cursor: default;
-    margin: 0.1rem;
+    margin: 0;
 }
 
 /* زر إغلاق النافذة المنبثقة الجديد */
 .new-close-btn {
+
+   
+
     font-size: 3rem;
+    padding-left: 9rem;
     font-weight: bold;
     color: #c49b33;
     cursor: pointer;
@@ -899,6 +755,7 @@ nav a:hover::after {
 #info-modal {
     background: #000;
     border: 1rem solid #000000;
+    
 }
 
 /* حقل إدخال كود المشروع داخل المودال */
@@ -907,9 +764,10 @@ nav a:hover::after {
     padding: 0.8rem;
     margin: 1.8rem 0;
     background: #000000;
-    border: 1px solid #c5a059;
+    border: 0.1rem solid #ffffff44;
+    box-shadow: 0 0 3rem rgba(196, 155, 51, 0);
     color: white;
-    border-radius: 5rem;
+    border-radius: 9rem;
     text-align: center;
 }
 
@@ -921,17 +779,19 @@ nav a:hover::after {
     transition: all 0.4s ease;
     color: black;
     border: none;
-    padding: 10px 20px;
+    padding: 0.5rem 1rem;
     font-weight: bold;
     border-radius: 5rem;
     cursor: pointer;
+    margin-top: 2rem;
+    
 }
 
 /* منطقة عرض حالة المشروع */
 #project-status {
-    margin-top: 2rem;
+    margin-top: 1rem;
     padding: 1rem;
-    border-top: 0.1rem solid #444;
+    border-top: 0.1rem solid #44444400;
 }
 
 /* قسم السياسة والحق الشامل داخل النموذج */
@@ -1026,20 +886,31 @@ nav a:hover::after {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #00000000;
     padding-bottom: 12px;
     margin-bottom: 18px;
 }
 
 .modal-header h3 {
-    color: #d4af37;
+    font-size: 1.8rem;
+    text-align: center;
+    padding-bottom: 0.1rem;
+    letter-spacing: 0.15rem;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 8s linear infinite;
+    transition: all 0.4s ease;
+    cursor: default;
     margin: 0;
-    font-size: 18px;
 }
 
 #lang-switch-btn {
     background: transparent;
-    color: #d4af37;
+    color: #d4af3781;
     border: 1px solid #d4af37;
     padding: 5px 12px;
     border-radius: 6px;
@@ -1102,26 +973,7 @@ nav a:hover::after {
     color: #fff;
 }
 
-
-/* ==========================================
-   9. أسفل الصفحة (Footer)
-   ========================================== */
-
-/* الحاوية الرئيسية للفوتر */
-footer {
-    text-align: center;
-    margin-top: 5rem;
-    margin-bottom: 2rem;
-}
-
-/* نصوص الحقوق والفوتر */
-footer p {
-    color: #666668;
-    font-size: 0.8rem;
-    font-family: sans-serif;
-}
-
-/* الزر العائم المصمم بدقة ليطابق ثيم الموقع */
+/* الزر العائم المصمم بدقة (طلب جديد) */
 .floating-order-btn {
     display: none; /* مخفي في البي سي */
     position: fixed;
@@ -1133,12 +985,8 @@ footer p {
     color: #cc9734;
     border: 0rem solid rgb(0, 0, 0);
     border-radius: 50%;
-    
-    /* ضبط التوسيط الدقيق للأيقونة */
-    display: none; /* يتحول لـ flex في الجوال فقط */
     align-items: center;
     justify-content: center;
-    
     line-height: 0;
     backdrop-filter: blur(0.1rem);
     -webkit-backdrop-filter: blur(0.1rem);
@@ -1152,19 +1000,11 @@ footer p {
     transition: transform 0.3s ease;
 }
 
-/* تأثير الضغط للتركيز والتفاعل */
 .floating-order-btn:active {
     transform: scale(0.92);
     background-color: #c5a059;
     color: #000000;
     box-shadow: 0 0 18px rgba(197, 160, 89, 0.6);
-}
-
-/* يظهر في الجوال فقط مع التوسيط */
-@media (max-width: 768px) {
-    .floating-order-btn {
-        display: flex;
-    }
 }
 
 /* الزر العائم الأيمن للتواصل السريع */
@@ -1201,22 +1041,273 @@ footer p {
     box-shadow: 0 0 18px rgba(197, 160, 89, 0.6);
 }
 
-/* يظهر في الجوال فقط */
+/* إظهار أزرار الجوال العائمة عند الشاشات الصغيرة */
 @media (max-width: 768px) {
+    .floating-order-btn,
     .floating-contact-btn {
         display: flex;
     }
 }
 
+footer {
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
 
-/* الفاصل الذهبي الناعم */
-.gold-divider {
-    height: 2px;
-    width: 100%;
-    background: linear-gradient(90deg, transparent 0%, #c5a055 50%, transparent 100%);
-    margin: 18px 0 3rem 0;
+footer p {
+    color: #666668;
+    font-size: 0.8rem;
+    font-family: sans-serif;
+}
+
+
+/* ==========================================================================
+   4. الاستجابة مع الشاشات المختلفة (Responsive Design - Media Queries)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   أ. الشاشات الكبيرة جداً وشاشات الـ 4K (Ultra Wide Screens)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1400px) {
+    .portfolios-container {
+        max-width: 1400px; /* توسيع منطقة معرض الأعمال للشاشات الضخمة */
+        grid-template-columns: repeat(4, 1fr); /* عرض 4 كروت في الصف الواحد */
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   ب. الأجهزة اللوحية واللاب توب الصغير (Tablets & Small Laptops: <= 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    /* تعديل شريط التنقل العلوي */
+    nav {
+        padding: 1.5rem;
+        gap: 2.5rem;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+        letter-spacing: 0.15rem;
+    }
+
+    /* تعديل معرض الأعمال */
+    .works-section {
+        padding: 8rem 1.5rem;
+    }
+
+    .portfolios-container {
+        grid-template-columns: repeat(2, 1fr); /* كارتين في الصف */
+        gap: 2rem;
+    }
+
+    /* نموذج الطلب */
+    #order-form {
+        max-width: 90%;
+        margin: 5rem auto;
+        padding: 4rem 2rem;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   ج. الجوالات الكبيرة والتابلت العمودي (Mobile Landscape & Tablets: <= 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    /* 1. القائمة العلوية */
+    nav {
+        top: 0;
+        padding: 1rem;
+        gap: 1.2rem;
+        flex-wrap: wrap; /* السماح للعناصر بالنزول لسطر جديد إذا زاد العدد */
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 0.75rem;
+        letter-spacing: 0.1rem;
+    }
+
+    /* 2. القسم الرئيسي (Hero Section) */
+    .logo {
+        font-size: 2.2rem;
+        letter-spacing: 0.15rem;
+    }
+
+    .subtitle {
+        font-size: 0.75rem;
+        letter-spacing: 0.8rem; /* تقليل المسافات الكبيرة بين الحروف للجوال */
+        padding-left: 0.4rem;
+        text-align: center;
+    }
+
+    /* 3. معرض الأعمال */
+    .works-section {
+        padding: 5rem 1rem;
+    }
+
+    .works-section h2, 
+    #clients h2 {
+        font-size: 1.4rem;
+        letter-spacing: 0.15rem;
+        margin: 2rem 0;
+    }
+
+    .filter-buttons {
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .portfolios-container {
+        grid-template-columns: 1fr; /* كارت واحد في الصف للجوال */
+        gap: 1.8rem;
+    }
+
+    /* 4. قسم العملاء */
+    #clients {
+        padding-bottom: 4rem;
+    }
+
+    .clients-grid {
+        gap: 1.5rem;
+    }
+
+    .clients-grid img {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    /* 5. نموذج الطلب */
+    #order-form {
+        margin: 3rem auto;
+        padding: 2.5rem 1.2rem;
+    }
+
+    /* 6. النوافذ المنبثقة (Modals & Tracker) */
+    .modal-content {
+        width: 90%;
+        padding: 2rem 1.2rem;
+    }
+
+    .modal-content h3,
+    .modal-header h3 {
+        font-size: 1.3rem;
+        letter-spacing: 0.05rem;
+    }
+
+    .new-close-btn {
+        font-size: 2rem;
+        padding-left: 0; /* إلغاء البادينج الكبير ليتناسب مع الجوال */
+    }
+
+    #project-code {
+        width: 90%;
+    }
+
     
 }
+
+@media (max-width: 768px) {
+    /* أضف هذا الجزء الخاص بأزرار الفلترة */
+    .filter-buttons {
+        direction: ltr; /* يجبر الأزرار على الترتيب من اليسار لليمين مثل البي سي */
+        flex-direction: row; /* يضمن بقاء الاتجاه أفقي */
+        justify-content: center; /* يضمن سنترة الأزرار في منتصف شاشة الجوال */
+    }
+}
+/* --------------------------------------------------------------------------
+   د. الجوالات الصغيرة جداً (Small Mobile Screens: <= 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+    nav {
+        gap: 0.8rem;
+    }
+
+    nav a {
+        font-size: 0.65rem;
+        letter-spacing: 0.05rem;
+    }
+
+    .logo {
+        font-size: 1.7rem;
+    }
+
+    .subtitle {
+        font-size: 0.6rem;
+        letter-spacing: 0.4rem;
+        padding-left: 0;
+    }
+
+    /* موازنة الشيك بوكس والشروط في الشاشات الصغيرة */
+    .policy-checkbox-container {
+        flex-direction: row;
+        font-size: 0.8rem;
+    }
+
+    .policy-label-ar, 
+    .policy-label-en {
+        font-size: 0.85rem;
+    }
+
+    
+
+    .track-btn {
+        bottom: 1.5rem;
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 768px) {

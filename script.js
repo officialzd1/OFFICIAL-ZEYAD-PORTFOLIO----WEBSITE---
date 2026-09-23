@@ -1,18 +1,205 @@
 /* ==========================================================================
-   1. الوظائف العامة والأدوات (General Utilities)
+   1. شريط تقدم التمرير وتصفية الأعمال (Scroll Progress & Portfolio Filter)
    ========================================================================== */
 
-// شريط تقدم التمرير العلوي
+// شريط تقدم التمرير (Scroll Progress Bar)
 window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const progress = document.getElementById("scrollProgress");
+    
     if (progress && height > 0) {
         progress.style.width = `${(winScroll / height) * 100}%`;
     }
 });
 
-// إدارة القائمة الجوالة
+// تصفية معرض الأعمال (Portfolio Filter)
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.thumbnail-link');
+
+    if (filterButtons.length && portfolioItems.length) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // إزالة فئة النشاط من جميع الأزرار وتعيينها للزر المحدد
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                // جلب قيمة التصفية المطلوبة
+                const filterValue = this.getAttribute('data-filter');
+
+                // إظهار أو إخفاء عناصر الأعمال بناءً على القسم المحدد
+                portfolioItems.forEach(item => {
+                    const itemCategory = item.getAttribute('data-category');
+                    if (filterValue === 'all' || itemCategory === filterValue) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    }
+});
+
+
+/* ==========================================================================
+   2. نظام قسم الطلب وسياسة الدفع (Order Form & Payment Policy System)
+   ========================================================================== */
+
+let currentLang = 'ar';
+
+// التهيئة العامة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', () => {
+
+    // أ. فتح نافذة سياسة الدفع
+    const policyModal = document.getElementById('policyModal');
+    const openPolicyBtn = document.getElementById('open-policy-btn');
+
+    if (openPolicyBtn && policyModal) {
+        openPolicyBtn.addEventListener('click', () => {
+            policyModal.style.display = 'flex';
+        });
+    }
+
+    // ب. إغلاق نافذة سياسة الدفع عند النقر خارجها
+    if (policyModal) {
+        window.addEventListener('click', (e) => {
+            if (e.target === policyModal) policyModal.style.display = 'none';
+        });
+    }
+
+    // ج. ربط حدث إرسال نموذج الطلب
+    const orderForm = document.getElementById("my-form");
+    if (orderForm) {
+        orderForm.addEventListener("submit", handleOrderSubmit);
+    }
+
+    // د. ربط مراقب التمرير لظهور الأقسام بسلاسة (Intersection Observer)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(section => {
+        observer.observe(section);
+    });
+});
+
+// إظهار وإخفاء أداة التلميحات والملاحظات (Tooltip)
+function toggleTooltip(e, selector) {
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    const tooltip = e.currentTarget || e.target.closest(selector);
+    if (tooltip) {
+        tooltip.classList.toggle('active');
+    }
+}
+
+function toggleNote(e) { 
+    toggleTooltip(e, '.info-tooltip'); 
+}
+
+function toggleOrderNote(e) { 
+    toggleTooltip(e, '.order-info-tooltip'); 
+}
+
+// إدارة نافذة سياسة الدفع (Payment Policy Modal)
+function openPolicyModal() {
+    const modal = document.getElementById('policyModal');
+    if (modal) modal.style.display = 'flex';
+}
+
+function closePolicyModal() {
+    const modal = document.getElementById('policyModal');
+    if (modal) modal.style.display = 'none';
+}
+
+function togglePolicyLanguage() {
+    const title = document.getElementById('modal-title');
+    const contentAr = document.getElementById('policy-content-ar');
+    const contentEn = document.getElementById('policy-content-en');
+    const langBtn = document.getElementById('lang-switch-btn');
+
+    if (!title || !contentAr || !contentEn || !langBtn) return;
+
+    currentLang = currentLang === 'ar' ? 'en' : 'ar';
+    contentAr.style.display = currentLang === 'ar' ? 'block' : 'none';
+    contentEn.style.display = currentLang === 'en' ? 'block' : 'none';
+    title.textContent = currentLang === 'ar' ? 'سياسة الدفع' : 'Payment Policy';
+    langBtn.textContent = currentLang === 'ar' ? 'English' : 'العربية';
+}
+
+// معالجة إرسال نموذج الطلب (Formspree Submission)
+async function handleOrderSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formStatus = document.getElementById("my-form-status");
+    const sendBtn = document.getElementById("my-form-button");
+    const successMsg = document.getElementById("form-success-msg");
+    const checkbox = document.getElementById('policy-checkbox');
+
+    // التحقق من الموافقة على الشروط
+    if (checkbox && !checkbox.checked) {
+        alert('يرجى الموافقة على سياسة الدفع أولاً | Please agree to payment policy');
+        return;
+    }
+
+    const data = new FormData(form);
+
+    fetch(form.action, {
+        method: form.method || 'POST',
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            if (formStatus) formStatus.innerHTML = ""; 
+            if (successMsg) successMsg.style.display = 'block';
+
+            form.reset();
+            setTimeout(() => {
+                if (sendBtn) {
+                    sendBtn.innerText = "إرسال الطلب | Order Now";
+                    sendBtn.disabled = false;
+                }
+            }, 3000);
+        } else {
+            if (successMsg) successMsg.style.display = 'none';
+            response.json().then(data => {
+                if (formStatus) {
+                    formStatus.style.color = "#e74c3c";
+                    if (Object.hasOwn(data, 'errors')) {
+                        formStatus.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                    } else {
+                        formStatus.innerHTML = "حدث خطأ أثناء الإرسال، حاول مرة أخرى.";
+                    }
+                }
+            });
+            if (sendBtn) {
+                sendBtn.innerText = "إرسال الطلب | Order Now";
+                sendBtn.disabled = false;
+            }
+        }
+    }).catch(error => {
+        if (successMsg) successMsg.style.display = 'none';
+        if (formStatus) {
+            formStatus.style.color = "#e74c3c";
+            formStatus.innerHTML = "حدث خطأ في الاتصال، حاول لاحقاً.";
+        }
+        if (sendBtn) {
+            sendBtn.innerText = "إرسال الطلب | Order Now";
+            sendBtn.disabled = false;
+        }
+    });
+}
+
+// إدارة القائمة الجوالة (Mobile Navigation Menu)
 function toggleMenu() {
     const mobileNav = document.getElementById('mobile-nav');
     if (mobileNav) mobileNav.classList.toggle('active');
@@ -32,24 +219,9 @@ function setStatus(isBusy) {
 }
 setStatus(false);
 
-// إظهار وإخفاء التلميحات والملاحظات
-function toggleTooltip(e, selector) {
-    if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    const tooltip = e.currentTarget || e.target.closest(selector);
-    if (tooltip) {
-        tooltip.classList.toggle('active');
-    }
-}
-
-function toggleNote(e) { toggleTooltip(e, '.info-tooltip'); }
-function toggleOrderNote(e) { toggleTooltip(e, '.order-info-tooltip'); }
-
 
 /* ==========================================================================
-   2. نظام تتبع المشاريع (Project Tracker Modal)
+   3. نظام تتبع المشاريع (Project Tracker Modal System)
    ========================================================================== */
 
 const myProjects = {
@@ -252,452 +424,4 @@ function checkProject() {
         </div>`;
 
     if (project.deliveryDate) startCountdown(project.deliveryDate);
-}
-
-
-/* ==========================================================================
-   3. نظام التقييم (Rating Form)
-   ========================================================================== */
-
-function handleEmojiClick(ratingText, needsFeedback) {
-    const inputField = document.getElementById('rating-input-value');
-    if (inputField) inputField.value = ratingText;
-
-    const feedbackBox = document.getElementById('feedback-box');
-
-    if (needsFeedback) {
-        if (feedbackBox) feedbackBox.style.display = 'block';
-        const statusElem = document.getElementById('rating-status');
-        if (statusElem) statusElem.textContent = "يرجى كتابة ملاحظتك بالأسفل ثم اضغط إرسال:";
-    } else {
-        if (feedbackBox) feedbackBox.style.display = 'none';
-        submitRatingForm();
-    }
-}
-
-function submitRatingForm() {
-    const form = document.getElementById('rating-form');
-    const statusElement = document.getElementById('rating-status');
-
-    if (!form) return;
-    if (statusElement) statusElement.textContent = "جاري إرسال تقييمك، شكراً لك...";
-
-    fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-    })
-    .then(response => {
-        if (response.ok) {
-            if (statusElement) statusElement.textContent = "شكراً لك! تم استلام تقييمك بنجاح ❤️";
-            const emojiContainer = document.querySelector('.emoji-container');
-            if (emojiContainer) emojiContainer.style.display = 'none';
-            const feedbackBox = document.getElementById('feedback-box');
-            if (feedbackBox) feedbackBox.style.display = 'none';
-        } else {
-            if (statusElement) statusElement.textContent = "عذراً، حدث خطأ. حاول مرة أخرى.";
-        }
-    })
-    .catch(() => {
-        if (statusElement) statusElement.textContent = "تأكد من اتصالك بالإنترنت.";
-    });
-}
-
-
-/* ==========================================================================
-   4. العداد التنازلي لإطلاق المشروع (Countdown)
-   ========================================================================== */
-
-const launchTargetDate = new Date("August 10, 2026 20:00:00").getTime();
-
-function updateCountdown() {
-    const countdownSection = document.getElementById("countdown-section");
-    if (!countdownSection) return;
-
-    const timeLeft = launchTargetDate - new Date().getTime();
-
-    if (timeLeft < 0) {
-        countdownSection.innerHTML = "<h2>تم إطلاق المشروع الآن! شاهد العمل في قسم الأعمال 🚀</h2>";
-        return;
-    }
-
-    const days = String(Math.floor(timeLeft / (1000 * 60 * 60 * 24))).padStart(2, '0');
-    const hours = String(Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-    const minutes = String(Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-    const seconds = String(Math.floor((timeLeft % (1000 * 60)) / 1000)).padStart(2, '0');
-
-    const updateText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-    updateText("days", days);
-    updateText("hours", hours);
-    updateText("minutes", minutes);
-    updateText("seconds", seconds);
-}
-
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
-
-/* ==========================================================================
-   5. التهيئة الرئيسية بعد اكتمال تحميل عناصر الصفحة (DOM Ready)
-   ========================================================================== */
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    // أ. مشغل الصوت والموجات الصوتية
-    const audio = document.getElementById('my-audio');
-    const playBtn = document.getElementById('play-btn');
-    const waveform = document.getElementById('waveform');
-
-    if (waveform && audio && playBtn) {
-        waveform.innerHTML = '';
-        for (let i = 0; i < 60; i++) {
-            const bar = document.createElement('div');
-            bar.classList.add('bar');
-            waveform.appendChild(bar);
-        }
-
-        let audioCtx, analyser, dataArray;
-
-        playBtn.addEventListener('click', () => {
-            if (audio.paused) {
-                if (!audioCtx) {
-                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                    const source = audioCtx.createMediaElementSource(audio);
-                    analyser = audioCtx.createAnalyser();
-                    source.connect(analyser);
-                    analyser.connect(audioCtx.destination);
-                    analyser.fftSize = 128;
-                    dataArray = new Uint8Array(analyser.frequencyBinCount);
-                }
-                audio.play();
-                playBtn.textContent = '⏸';
-                draw();
-            } else {
-                audio.pause();
-                playBtn.textContent = '▶';
-            }
-        });
-
-        function draw() {
-            if (!audio.paused) {
-                requestAnimationFrame(draw);
-                analyser.getByteFrequencyData(dataArray);
-                document.querySelectorAll('.bar').forEach((bar, i) => {
-                    const height = (dataArray[i] / 255) * 45 + 5; 
-                    bar.style.height = `${height}px`;
-                });
-            }
-        }
-
-        audio.onended = () => { playBtn.textContent = '▶'; };
-    }
-
-    // ب. ظهور الأقسام بسلاسة
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('section').forEach(section => observer.observe(section));
-
-    // ج. زر العودة للأعلى
-    const backToTopButton = document.getElementById('backToTop');
-    if (backToTopButton) {
-        window.addEventListener('scroll', () => {
-            backToTopButton.classList.toggle('show', window.scrollY > 300);
-        });
-
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-
-    // د. تفاعل الاسم والصورة الشخصية
-    const nameTrigger = document.getElementById('nameTrigger');
-    const myPhoto = document.getElementById('myPhoto');
-    const blurArea = document.querySelector('.blur-area');
-    const subTitle = document.querySelector('.subtitle');
-    const clickSound = document.getElementById('clickSound');
-
-    if (nameTrigger && myPhoto && blurArea) {
-        nameTrigger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (clickSound) clickSound.play().catch(() => {});
-            blurArea.classList.add('active');
-            myPhoto.classList.add('show');
-            if (subTitle) subTitle.classList.add('hidden');
-            nameTrigger.style.pointerEvents = 'none';
-        });
-
-        document.body.addEventListener('click', () => {
-            blurArea.classList.remove('active');
-            myPhoto.classList.remove('show');
-            if (subTitle) subTitle.classList.remove('hidden');
-            nameTrigger.style.pointerEvents = 'auto';
-        });
-    }
-
-    // هـ. إغلاق القائمة الجوالة عند النقر
-    document.querySelectorAll('#mobile-nav a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-
-    // و. تقويم حجز المواعيد
-    const daysGrid = document.getElementById('days-grid');
-    const bookingModal = document.getElementById('booking-modal');
-    const selectedDateText = document.getElementById('selected-date-text');
-    const bookingForm = document.getElementById('booking-form');
-
-    if (daysGrid && bookingModal && bookingForm) {
-        let selectedDate = '';
-        const busyDays = [6, 10, 15, 20, 25]; 
-        const totalDays = 31;
-        const startDayOffset = 6; 
-
-        daysGrid.innerHTML = '';
-
-        for (let i = 0; i < startDayOffset; i++) {
-            const emptyCell = document.createElement('div');
-            emptyCell.classList.add('day-cell', 'empty');
-            daysGrid.appendChild(emptyCell);
-        }
-
-        for (let day = 1; day <= totalDays; day++) {
-            const dayCell = document.createElement('div');
-            dayCell.classList.add('day-cell');
-            dayCell.textContent = day;
-
-            if (busyDays.includes(day)) {
-                dayCell.classList.add('busy');
-            } else {
-                dayCell.classList.add('available');
-                dayCell.addEventListener('click', () => {
-                    selectedDate = `أغسطس ${day}, 2026`;
-                    if (selectedDateText) selectedDateText.textContent = selectedDate;
-                    bookingModal.style.display = 'block';
-                    bookingModal.scrollIntoView({ behavior: 'smooth' });
-                });
-            }
-            daysGrid.appendChild(dayCell);
-        }
-
-        bookingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const clientName = document.getElementById('client-name').value;
-            const projectType = document.getElementById('project-type').value;
-            const myWhatsAppNumber = "966560260300"; 
-            
-            const message = `مرحباً زياد، أرغب بحجز موعد مشروع مونتاج:\n- التاريخ: ${selectedDate}\n- الاسم: ${clientName}\n- نوع المشروع: ${projectType}`;
-            window.open(`https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(message)}`, '_blank');
-        });
-    }
-
-    // ز. تصفية معرض الأعمال
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.thumbnail-link');
-
-    if (filterButtons.length && portfolioItems.length) {
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-
-                const filterValue = this.getAttribute('data-filter');
-
-                portfolioItems.forEach(item => {
-                    const itemCategory = item.getAttribute('data-category');
-                    item.classList.toggle('hidden', !(filterValue === 'all' || itemCategory === filterValue));
-                });
-            });
-        });
-    }
-
-    // ح. سياسة الدفع (Policy Modal Event Listeners)
-    const policyModal = document.getElementById('policyModal');
-    const openPolicyBtn = document.getElementById('open-policy-btn');
-
-    if (openPolicyBtn && policyModal) {
-        openPolicyBtn.addEventListener('click', () => {
-            policyModal.style.display = 'flex';
-        });
-    }
-
-    if (policyModal) {
-        window.addEventListener('click', (e) => {
-            if (e.target === policyModal) policyModal.style.display = 'none';
-        });
-    }
-
-    // ط. إعداد نموذج الطلب عبر Formspree
-    const orderForm = document.getElementById("my-form");
-    if (orderForm) {
-        orderForm.addEventListener("submit", handleOrderSubmit);
-    }
-});
-
-
-/* ==========================================================================
-   6. دوال عامة لسياسة الدفع والطلب (Global Helpers)
-   ========================================================================== */
-
-let currentLang = 'ar';
-
-function openPolicyModal() {
-    const modal = document.getElementById('policyModal');
-    if (modal) modal.style.display = 'flex';
-}
-
-function closePolicyModal() {
-    const modal = document.getElementById('policyModal');
-    if (modal) modal.style.display = 'none';
-}
-
-function togglePolicyLanguage() {
-    const title = document.getElementById('modal-title');
-    const contentAr = document.getElementById('policy-content-ar');
-    const contentEn = document.getElementById('policy-content-en');
-    const langBtn = document.getElementById('lang-switch-btn');
-
-    if (!title || !contentAr || !contentEn || !langBtn) return;
-
-    currentLang = currentLang === 'ar' ? 'en' : 'ar';
-    contentAr.style.display = currentLang === 'ar' ? 'block' : 'none';
-    contentEn.style.display = currentLang === 'en' ? 'block' : 'none';
-    title.textContent = currentLang === 'ar' ? 'سياسة الدفع' : 'Payment Policy';
-    langBtn.textContent = currentLang === 'ar' ? 'English' : 'العربية';
-}
-
-// 1. دالة حفظ تفاصيل الطلب كصورة
-function saveOrderAsImage() {
-    const formElement = document.getElementById('my-form');
-    const saveBtn = document.getElementById('btn-save-card');
-
-    if (!formElement) return;
-
-    if (saveBtn) saveBtn.innerText = 'جاري الحفظ... | Saving...';
-
-    if (typeof html2canvas === 'undefined') {
-        alert('مكتبة html2canvas غير مضافة في ملف HTML!');
-        if (saveBtn) saveBtn.innerText = '📷 حفظ كصورة | Save Card';
-        return;
-    }
-
-    html2canvas(formElement, {
-        backgroundColor: '#0a0a0a',
-        scale: 2
-    }).then(canvas => {
-        const link = document.createElement('a');
-        link.download = 'Project_Order_ZD1.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-
-        if (saveBtn) saveBtn.innerText = ' حفظ كصورة | Save Card';
-    }).catch(err => {
-        console.error('Error:', err);
-        alert('حدث خطأ أثناء تنزيل الصورة.');
-        if (saveBtn) saveBtn.innerText = ' حفظ كصورة | Save Card';
-    });
-}
-
-async function handleOrderSubmit(event) {
-    event.preventDefault();
-
-    const form = event.target;
-    const formStatus = document.getElementById("my-form-status");
-    const sendBtn = document.getElementById("my-form-button");
-    const successMsg = document.getElementById("form-success-msg");
-    const checkbox = document.getElementById('policy-checkbox');
-
-    if (checkbox && !checkbox.checked) {
-        alert('يرجى الموافقة على سياسة الدفع أولاً | Please agree to payment policy');
-        return;
-    }
-
-    const data = new FormData(form);
-
-    fetch(form.action, {
-        method: form.method || 'POST',
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
-    }).then(response => {
-        if (response.ok) {
-            // إخفاء النص السفلي وتفعيل رسالة النجاح الرئيسية فقط
-            if (formStatus) formStatus.innerHTML = ""; 
-            if (successMsg) successMsg.style.display = 'block';
-
-            form.reset();
-            setTimeout(() => {
-                if (sendBtn) {
-                    sendBtn.innerText = " إرسال الطلب | Order Now";
-                    sendBtn.disabled = false;
-                }
-            }, 3000);
-        } else {
-            if (successMsg) successMsg.style.display = 'none';
-            response.json().then(data => {
-                if (formStatus) {
-                    formStatus.style.color = "#e74c3c";
-                    if (Object.hasOwn(data, 'errors')) {
-                        formStatus.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                    } else {
-                        formStatus.innerHTML = "حدث خطأ أثناء الإرسال، حاول مرة أخرى.";
-                    }
-                }
-            });
-            if (sendBtn) {
-                sendBtn.innerText = "🚀 إرسال الطلب | Order Now";
-                sendBtn.disabled = false;
-            }
-        }
-    }).catch(error => {
-        if (successMsg) successMsg.style.display = 'none';
-        if (formStatus) {
-            formStatus.style.color = "#e74c3c";
-            formStatus.innerHTML = "حدث خطأ في الاتصال، حاول لاحقاً.";
-        }
-        if (sendBtn) {
-            sendBtn.innerText = "🚀 إرسال الطلب | Order Now";
-            sendBtn.disabled = false;
-        }
-    });
-}
-
-function saveOrderAsImage() {
-    const saveBtn = document.getElementById('btn-save-card');
-    
-    const nameVal = document.getElementById('input-name')?.value.trim() || 'غير محدد';
-    const linkVal = document.getElementById('input-video-link')?.value.trim() || 'لا يوجد رابط';
-    const typeVal = document.getElementById('input-content-type')?.value || 'غير محدد';
-    const contactVal = document.getElementById('input-contact')?.value.trim() || 'غير محدد';
-
-    document.getElementById('card-out-name').innerText = nameVal;
-    document.getElementById('card-out-type').innerText = typeVal;
-    document.getElementById('card-out-contact').innerText = contactVal;
-    document.getElementById('card-out-link').innerText = linkVal;
-
-    const cardElement = document.getElementById('export-card-template');
-    if (!cardElement) return;
-
-    if (saveBtn) saveBtn.innerText = 'جاري الحفظ... | Saving...';
-
-    // استخدام خيارات تصوير تمنع تقطيع الخطوط
-    html2canvas(cardElement, {
-    backgroundColor: '#000000',
-    scale: 3,
-    useCORS: true,
-    letterRendering: true
-}).then(canvas => {
-        const link = document.createElement('a');
-        link.download = `Project_Details_ZD1.png`;
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-
-        if (saveBtn) saveBtn.innerText = '📷 حفظ كصورة | Save Card';
-    }).catch(err => {
-        console.error(err);
-        if (saveBtn) saveBtn.innerText = '📷 حفظ كصورة | Save Card';
-    });
 }
