@@ -1041,13 +1041,7 @@ nav a:hover::after {
     box-shadow: 0 0 18px rgba(197, 160, 89, 0.6);
 }
 
-/* إظهار أزرار الجوال العائمة عند الشاشات الصغيرة */
-@media (max-width: 768px) {
-    .floating-order-btn,
-    .floating-contact-btn {
-        display: flex;
-    }
-}
+
 
 footer {
     text-align: center;
@@ -1062,13 +1056,162 @@ footer p {
 }
 
 
-/* ==========================================================================
-   4. الاستجابة مع الشاشات المختلفة (Responsive Design - Media Queries)
-   ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   أ. الشاشات الكبيرة جداً وشاشات الـ 4K (Ultra Wide Screens)
-   -------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (min-width: 1400px) {
     .portfolios-container {
         max-width: 1400px; /* توسيع منطقة معرض الأعمال للشاشات الضخمة */
@@ -1076,6 +1219,13 @@ footer p {
     }
 }
 
+/* إظهار أزرار الجوال العائمة عند الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .floating-order-btn,
+    .floating-contact-btn {
+        display: flex;
+    }
+}
 
 /* --------------------------------------------------------------------------
    ب. الأجهزة اللوحية واللاب توب الصغير (Tablets & Small Laptops: <= 1024px)
@@ -1154,14 +1304,23 @@ footer p {
         margin: 2rem 0;
     }
 
+    
+
+
+@media (max-width: 768px) {
     .filter-buttons {
-        gap: 0.5rem;
+        display: flex !important;
+        flex-direction: row-reverse !important; /* هذا السطر هو الذي يقلب بداية السطر لليمين واليسار صح */
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        direction: ltr !important;
     }
 
     .filter-btn {
-        padding: 0.4rem 0.6rem;
-        font-size: 0.75rem;
+        direction: rtl !important;
     }
+}
+   
 
     .portfolios-container {
         grid-template-columns: 1fr; /* كارت واحد في الصف للجوال */
@@ -1213,13 +1372,13 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    /* أضف هذا الجزء الخاص بأزرار الفلترة */
-    .filter-buttons {
-        direction: ltr; /* يجبر الأزرار على الترتيب من اليسار لليمين مثل البي سي */
-        flex-direction: row; /* يضمن بقاء الاتجاه أفقي */
-        justify-content: center; /* يضمن سنترة الأزرار في منتصف شاشة الجوال */
+    
+
+    .filter-btn {
+        direction: rtl;          /* يرجع نص الزرار نفسه يتقري عربي صح */
     }
 }
+
 /* --------------------------------------------------------------------------
    د. الجوالات الصغيرة جداً (Small Mobile Screens: <= 480px)
    -------------------------------------------------------------------------- */
@@ -1431,10 +1590,7 @@ footer p {
         height: 4.5rem;
     }
 
-    .filter-buttons {
-        gap: 0.5rem;
-        margin-bottom: 2rem;
-    }
+    
 
     .filter-btn {
         padding: 0.4rem 0.7rem;
@@ -1516,7 +1672,7 @@ footer p {
     #order-form {
             scroll-margin-top: 3rem;
 
-        transform: scale(0.9);
+        transform: scale(0.8);
         transform-origin: center top;
         max-width: 30rem;
         max-height: 130rem;
