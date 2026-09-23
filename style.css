@@ -1036,7 +1036,30 @@ footer p {
 
 @media screen and (max-width: 768px) {
   /* إخفاء محتوى الصفحة في الجوال */
-  body > *:not(.soon-mobile-menu) *:not(#track-btn){
+  body > 
+  *:not(.soon-mobile-menu) 
+  
+  *:not(#track-btn)
+  
+  *:not(#modal)
+  
+    *:not(#modal-content)
+
+  *:not(#modal)
+  *:not(#modal)
+  *:not(#modal)
+  *:not(#modal)
+  *:not(#modal)
+  *:not(#modal)
+  *:not(#modal)
+  *:not(#modal)
+
+  
+  
+  
+  
+  
+  {
     display: none !important;
   }
 
