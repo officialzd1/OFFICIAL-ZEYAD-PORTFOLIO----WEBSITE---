@@ -1065,7 +1065,7 @@ footer p {
 
 @media screen and (max-width: 768px) {
   /* إخفاء كل عناصر الـ body في الجوال باستثناء القائمة الجانبية، المودال، وقسم الطلب */
-body > *:not(.soon-mobile-menu):not(#tracker-modal):not(#order-form) {
+body > *:not(.soon-mobile-menu):not(#tracker-modal){
   display: none !important;
 }
 
@@ -1080,6 +1080,7 @@ body > *:not(.soon-mobile-menu):not(#tracker-modal):not(#order-form) {
   /* إعدادات خلفية الشاشة */
   body {
     background-color: #000000 !important;
+    overflow: hidden !important; /* منع أي سحب أو سكرول بالجوال */
     overflow-x: hidden !important;
   overflow-y: scroll !important; /* إجبار المتصفح على تفعيل التمرير العمودي */
     margin: 0 !important;
@@ -1087,6 +1088,8 @@ body > *:not(.soon-mobile-menu):not(#tracker-modal):not(#order-form) {
     height: 100vh !important;
     width: 100vw !important;
   }
+
+  
 
   /* نص "قريباً | SOON" - متوسط 100% في كافة الشاشات */
   body::before {
@@ -1120,7 +1123,31 @@ background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
           drop-shadow(0 0 10px #ffd90000) 
           drop-shadow(0 0 25px #c69a5d00) 
           drop-shadow(0 0 45px #c69a5d) !important;
+
+
+
+
+
+
+
+
+
+
+          
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   /* حاوية القائمة أعلى اليسار */
 .soon-mobile-menu {
@@ -1442,123 +1469,5 @@ transition: transform 0.35s , opacity 0.35s ease !important;
 }
 
 
-/* إظهار قسم الطلب على شاشات الجوال */
-#order-form,
-.order-form,
-#order {
-  display: block !important; /* أو display: flex حسب تنسيقه الأساسي */
-  visibility: visible !important;
-  opacity: 1 !important;
-  width: 100% !important;
-}
-
-
-
-#order-form {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  overflow: visible !important;
-
-  /* --- تقليل المسافة بين كلمة قريباً وقسم الطلب --- */
-  margin-top: 58rem !important;     /* تقليل القيمة جداً لتصعد بالفورم بالقرب من كلمة قريباً */
-  margin-bottom: 2rem !important;  /* مسافة بسيطة ومريحة في نهاية الصفحة */
-
-  transform: scale(0.7) !important;
-  transform-origin: top center !important;
-
-  width: 90% !important;
-  max-width: 480px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding: 1.2rem 0.8rem !important;
-
-  position: relative !important;
-  z-index: 5 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-
-  
-}
-
-
-
-
-/* إلغاء أي ارتفاع زائد من القسم الأب للجوال */
-.hero-section, 
-section:has(#order-form) {
-  min-height: auto !important;
-  height: auto !important;
-  padding-bottom: 2rem !important;
-}
-
-/* تصغير الخطوط والمدخلات والنموذج */
-#order-form h2 {
-
-  font-family: 'El Messiri', sans-serif !important;
-  font-size: 1.3rem !important;
-  font-weight: bold !important;
-  direction: rtl !important;
-
-background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-        background-size: 430% auto;
-    animation: shine 13.8s linear infinite;  background-size: 200% auto !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  animation: shine 5.8s linear infinite !important;
-}
-
-#order-form #my-form {
-  width: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.6rem !important;
-}
-
-#order-form label {
-  font-size: 0.8rem !important;
-}
-
-/* إجبار الحاوية على السطر الواحد وتوسيطها بالملي لليسار */
-#order-form div:has(input[type="checkbox"]),
-#order-form .policy-container,
-#order-form label[for="policy"] {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-wrap: nowrap !important;
-  
-  width: max-content !important;
-  min-width: 100% !important;
-  
-  /* الإزاحة لليسار للتوسيط الدقيق */
-  transform: translateX(2.3rem) !important; /* عدّل الرقم (-15px أو -20px) لزيادة التزحيف لليسار */
-  
-  margin: 0.5rem auto !important;
-  white-space: nowrap !important;
-  gap: 0.3rem !important;
-}
-
-/* 3. تثبيت كل النصوص بداخل الحاوية على سطر واحد بدون أي التواء */
-#order-form label[for="policy"] *,
-#order-form .policy-container *,
-#order-form label[for="policy"] span,
-#order-form label[for="policy"] a {
-  white-space: nowrap !important;
-  display: inline-block !important;
-  font-family: 'Cairo', 'Tajawal', sans-serif !important;
-  font-size: 0.65rem !important;      /* حجم الخط */
-}
-
-/* 4. ضبط المربع */
-#order-form input[type="checkbox"] {
-  width: 13px !important;
-  height: 13px !important;
-  flex-shrink: 0 !important;
-  margin: 0 !important;
-}
 
 }
