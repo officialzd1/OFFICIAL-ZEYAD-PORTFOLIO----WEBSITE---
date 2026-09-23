@@ -1621,4 +1621,723 @@ form div:has(input[type="checkbox"]) {
     70% { box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000; transform: scale(1.05); }
     100% { box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; transform: scale(0.95); }
 }
+
+
+@media (min-width: 1400px) {
+    .portfolios-container {
+        max-width: 1400px; /* توسيع منطقة معرض الأعمال للشاشات الضخمة */
+        grid-template-columns: repeat(4, 1fr); /* عرض 4 كروت في الصف الواحد */
+    }
+}
+
+/* إظهار أزرار الجوال العائمة عند الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .floating-order-btn,
+    .floating-contact-btn {
+        display: flex;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   ب. الأجهزة اللوحية واللاب توب الصغير (Tablets & Small Laptops: <= 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    /* تعديل شريط التنقل العلوي */
+    nav {
+        padding: 1.5rem;
+        gap: 2.5rem;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+        letter-spacing: 0.15rem;
+    }
+
+    /* تعديل معرض الأعمال */
+    .works-section {
+        padding: 8rem 1.5rem;
+    }
+
+    .portfolios-container {
+        grid-template-columns: repeat(2, 1fr); /* كارتين في الصف */
+        gap: 2rem;
+    }
+
+    /* نموذج الطلب */
+    #order-form {
+        max-width: 90%;
+        margin: 5rem auto;
+        padding: 4rem 2rem;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   ج. الجوالات الكبيرة والتابلت العمودي (Mobile Landscape & Tablets: <= 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    /* 1. القائمة العلوية */
+    nav {
+        top: 0;
+        padding: 1rem;
+        gap: 1.2rem;
+        flex-wrap: wrap; /* السماح للعناصر بالنزول لسطر جديد إذا زاد العدد */
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 0.75rem;
+        letter-spacing: 0.1rem;
+    }
+
+    /* 2. القسم الرئيسي (Hero Section) */
+    .logo {
+        font-size: 2.2rem;
+        letter-spacing: 0.15rem;
+    }
+
+    .subtitle {
+        font-size: 0.75rem;
+        letter-spacing: 0.8rem; /* تقليل المسافات الكبيرة بين الحروف للجوال */
+        padding-left: 0.4rem;
+        text-align: center;
+    }
+
+    /* 3. معرض الأعمال */
+    .works-section {
+        padding: 5rem 1rem;
+    }
+
+    .works-section h2, 
+    #clients h2 {
+        font-size: 1.4rem;
+        letter-spacing: 0.15rem;
+        margin: 2rem 0;
+    }
+
+    
+
+
+
+   
+
+    .portfolios-container {
+        grid-template-columns: 1fr; /* كارت واحد في الصف للجوال */
+        gap: 1.8rem;
+    }
+
+    /* 4. قسم العملاء */
+    #clients {
+        padding-bottom: 4rem;
+    }
+
+    .clients-grid {
+        gap: 1.5rem;
+    }
+
+    .clients-grid img {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    /* 5. نموذج الطلب */
+    #order-form {
+        margin: 3rem auto;
+        padding: 2.5rem 1.2rem;
+    }
+
+    /* 6. النوافذ المنبثقة (Modals & Tracker) */
+    .modal-content {
+        width: 90%;
+        padding: 2rem 1.2rem;
+    }
+
+    .modal-content h3,
+    .modal-header h3 {
+        font-size: 1.3rem;
+        letter-spacing: 0.05rem;
+    }
+
+    .new-close-btn {
+        font-size: 2rem;
+        padding-left: 0; /* إلغاء البادينج الكبير ليتناسب مع الجوال */
+    }
+
+    #project-code {
+        width: 90%;
+    }
+
+    
+}
+
+@media (max-width: 768px) {
+    
+
+    .filter-btn {
+        direction: rtl;          /* يرجع نص الزرار نفسه يتقري عربي صح */
+    }
+}
+
+/* --------------------------------------------------------------------------
+   د. الجوالات الصغيرة جداً (Small Mobile Screens: <= 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+    nav {
+        gap: 0.8rem;
+    }
+
+    nav a {
+        font-size: 0.65rem;
+        letter-spacing: 0.05rem;
+    }
+
+    .logo {
+        font-size: 1.7rem;
+    }
+
+    .subtitle {
+        font-size: 0.6rem;
+        letter-spacing: 0.4rem;
+        padding-left: 0;
+    }
+
+    /* موازنة الشيك بوكس والشروط في الشاشات الصغيرة */
+    .policy-checkbox-container {
+        flex-direction: row;
+        font-size: 0.8rem;
+    }
+
+    .policy-label-ar, 
+    .policy-label-en {
+        font-size: 0.85rem;
+    }
+
+    
+
+    .track-btn {
+        bottom: 1.5rem;
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .filter-buttons {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-content: flex-start !important; /* يجبر الصفوف تبدأ من فوق لتحت */
+        direction: ltr !important;            /* يمنع قلبت الأسطر */
+        width: 100% !important;
+    }
+
+    .filter-btn {
+        direction: rtl !important;           /* يخلي النص جوا الزر عربي مظبوط */
+    }
+
+    /* ضمان ترتيب أزرار الفلترة صريحاً من 1 إلى الأخير حسب ظهورها في الـ HTML */
+    .filter-btn:nth-child(1) { order: 1 !important; } /* زر الكل - ينزل أول واحد فوق على اليسار */
+    .filter-btn:nth-child(2) { order: 2 !important; }
+    .filter-btn:nth-child(3) { order: 3 !important; }
+    .filter-btn:nth-child(4) { order: 4 !important; }
+    .filter-btn:nth-child(5) { order: 5 !important; }
+    .filter-btn:nth-child(6) { order: 6 !important; }
+    .filter-btn:nth-child(7) { order: 7 !important; }
+    .filter-btn:nth-child(8) { order: 8 !important; }
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+    }
+
+    nav {
+        top: 0;
+        padding: 1rem 1rem;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        display: none;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+        letter-spacing: 0.15rem;
+    }
+
+    nav a:hover {
+        transform: scale(1.05);
+    }
+
+    nav a::after {
+        height: 0.1rem;
+    }
+
+    #status-badge {
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 0.4rem 0.8rem;
+        border-radius: 3rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        z-index: 10000;
+        border: 0.1rem solid #c49b33;
+        user-select: none;
+        font-size: 0.6rem;
+    }
+
+    #status-dot {
+        width: 0.4rem;
+        height: 0.4rem;
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        left: 0.2rem;
+        bottom: 0.8rem;
+    }
+
+    .logo {
+        font-size: 2.3rem;
+        font-weight: bold;
+        font-family: 'Playfair Display', serif;
+        background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 3.8s linear infinite;
+        transition: all 0.4s ease;
+        cursor: default;
+        text-align: center;
+        width: 100%;
+        
+    }
+
+    .subtitle {
+        text-align: center;
+        width: 100%;
+        font-size: 0.5rem;
+        letter-spacing: 1.8rem;
+        padding-left: 1.1rem;
+        font-weight: 200;
+        font-family: 'Arial', sans-serif;
+        margin-top: 1rem;
+        user-select: none;
+        
+    }
+
+    .scroll-indicator {
+        font-size: 1rem;
+        padding-right: 0.4rem;
+        margin-top: 0.9rem;
+        animation: bounce 1.8s infinite;
+        user-select: none;
+    }
+
+    #clients {
+        transform: scale(0.85);
+        transform-origin: center top;
+        padding: 2rem 1rem;
+        min-height: auto;
+    }
+
+    #clients h2, 
+    .works-section h2 {
+        font-size: 1rem;
+        margin-bottom: 3rem;
+        margin-top: 1.5rem;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .clients-grid {
+        gap: 1.5rem;
+    }
+
+    .clients-grid img {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    
+
+    .filter-btn {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.75rem;
+        border-radius: 0.8rem;
+    }
+
+    .works-section {
+        padding: 5rem 1rem;
+    }
+
+    .portfolios-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 3rem;
+    }
+
+    .thumbnail-link {
+        border-radius: 0.8rem;
+    }
+
+    .portfolio-item-wrapper {
+        margin-bottom: 0.5rem;
+    }
+
+    .portfolio-item-wrapper::before {
+        height: 0.6rem;
+    }
+
+    .info-tooltip {
+        top: calc(100% + 0.6rem);
+        width: 1.1rem;
+        height: 1.1rem;
+        font-size: 0.55rem;
+    }
+
+    .note-box {
+        width: 85vw;
+        max-width: 15rem;
+        padding: 0.8rem;
+        top: 1.8rem;
+    }
+
+    .note-header {
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .note-ar, .note-en {
+        font-size: 0.75rem;
+    }
+
+    .note-body {
+        gap: 0.6rem;
+    }
+
+    .note-row {
+        gap: 0.8rem;
+    }
+
+    .text-ar, .editor-ar,
+    .text-en, .editor-en {
+        font-size: 0.55rem;
+    }
+
+    .editor-link {
+        font-size: 0.55rem;
+    }
+
+    .proof-wrapper {
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
+    }
+
+    .proof-img {
+        max-height: 8rem;
+    }
+
+    #order-form {
+            scroll-margin-top: 3rem;
+
+        transform: scale(0.8);
+        transform-origin: center top;
+        max-width: 30rem;
+        max-height: 130rem;
+        margin: 7rem auto;
+        padding: 3rem 0.8rem;
+
+        background: #00000038;
+    border: 0.1rem solid #c49b3300;
+        border-radius: 1rem;
+box-shadow: 0 0rem 2rem rgba(196, 155, 51, 0);
+
+color: white;
+    }
+
+
+/* الفاصل الذهبي الناعم */
+.gold-divider {
+    height: 0.001rem;
+    width: 100%;
+    background: linear-gradient(90deg, transparent 0%, #c5a055 50%, transparent 100%);
+    margin: 0rem 0rem 3rem 0;
+}
+
+
+
+    #order-form h2 {
+        font-size: 1rem;
+        white-space: nowrap;
+        margin: 0rem 0 0rem 0;
+        font-family: 'Playfair Display', serif;
+    }
+
+    #order-form input, 
+    #order-form select {
+        padding: 0.8rem;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.5rem;
+    }
+
+    #order-form button {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    .track-btn {
+        position: fixed;
+        bottom: 2.1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+        background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+        background-size: 200% auto;
+        animation: shine 4.8s linear infinite;
+        color: black;
+        border: none;
+        border-radius: 3rem;
+        cursor: pointer;
+        font-size: 0.5rem;
+        font-weight: bold;
+    box-shadow: 0 0px 0.8rem rgba(182, 126, 53, 0.411), 0 0 0.8rem rgba(0, 0, 0, 0.6);
+        padding: 0.5rem 1rem;
+        transition: all 0.5s ease;
+    }
+
+    .social-buttons {
+        bottom: 1rem;
+        gap: 0.5rem;
+        display: none;
+    }
+
+    .social-btn {
+        padding: 0.6rem 0.7rem;
+        font-size: 0.7rem;
+        border-radius: 1rem;
+    }
+
+    #backToTop {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+        display: none;
+    }
+
+    .modal-content {
+        width: 90%;
+        min-width: unset;
+        padding: 1.5rem 1rem;
+    }
+
+    .modal-content h3 {
+        font-size: 0.85rem;
+        white-space: normal;
+    }
+
+    .new-close-btn {
+        font-size: 2.2rem;
+    }
+
+    #project-code {
+        width: 90%;
+        padding: 0.6rem;
+        margin: 1rem 0;
+    }
+
+    .check-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    #project-status {
+        margin-top: 1.2rem;
+        padding: 0.8rem;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    footer p {
+        color: #666668;
+        font-size: 0.5rem;
+        font-family: sans-serif;
+    }
+
+    .policy-modal-content {
+        background: #000000;
+        border: 1px solid #d4af37;
+        border-radius: 8px;
+        width: 60vmin !important;
+        min-width: 280px;
+        max-width: 600px;
+        max-height: 85vh; 
+        overflow-y: auto;
+        padding: 8vmin !important;
+        margin: 38px auto;
+        color: #fff;
+        direction: rtl;
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        position: relative;
+        text-align: right;
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #333;
+        padding-bottom: 3vmin !important;
+        margin-bottom: 3vmin !important;
+    }
+
+    .modal-header h3 {
+        color: #d4af37;
+        margin: 0;
+        font-size: 2.5vmin !important;
+    }
+
+    #lang-switch-btn {
+        background: transparent;
+        color: #d4af37;
+        border: 1px solid #d4af37;
+        padding: 0.5vmin 1.5vmin !important;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 2vmin !important;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    #lang-switch-btn:hover {
+        background: #d4af37;
+        color: #000;
+    }
+
+    .policy-modal-content h4 {
+        color: #e5c158;
+        margin-top: 2vmin !important;
+        margin-bottom: 1vmin !important;
+        font-size: 2.2vmin !important;
+    }
+
+    .policy-modal-content ul {
+        padding-right: 15px;
+        margin: 0 0 1.5vmin 0 !important;
+    }
+
+    .policy-modal-content li, 
+    .policy-modal-content p {
+        font-size: 2vmin !important;
+        color: #ccc;
+        line-height: 1.5;
+        margin-bottom: 0.8vmin !important;
+    }
+
+    .close-policy-btn {
+        background: #d4af37;
+        color: #000;
+        border: none;
+        padding: 1vmin 3vmin !important;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        display: block;
+        margin: 2vmin auto 0 auto !important;
+        transition: 0.3s;
+    }
+
+    .close-policy-btn:hover {
+        background: #fff;
+    }
+
+    form input[type="checkbox"] {
+        width: 14px !important;
+        height: 14px !important;
+        vertical-align: middle;
+    }
+
+    form label input[type="checkbox"] + span,
+    form label {
+        font-size: 1.8vmin !important;
+    }
+
+    form div:has(input[type="checkbox"]) {
+        font-size: 1.8vmin !important;
+        text-align: center;
+        margin: 18px 0 !important;
+    }
+
+    
+}
+
+/* يوضع في نهاية ملف style.css تماماً */
+.filter-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    direction: ltr !important;
+}
+
+.filter-btn {
+    direction: rtl !important;
 }
