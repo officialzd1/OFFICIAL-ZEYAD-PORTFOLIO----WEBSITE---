@@ -445,3 +445,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+
+
+function toggleTracker() {
+  const modal = document.getElementById('tracker-modal');
+  if (modal) {
+    modal.classList.toggle('modal-open');
+  }
+}

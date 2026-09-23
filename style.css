@@ -1035,9 +1035,17 @@ footer p {
 }
 
 @media screen and (max-width: 768px) {
-  body > *:not(.soon-mobile-menu) {
+  body > *:not(.soon-mobile-menu):not(#tracker-modal) {
     display: none !important;
   }
+
+  /* إخفاء الزر الأصلي بالأسفل */
+  .track-btn {
+    display: none !important;
+  }
+  
+  /* باقي أكواد الميديا... */
+
 
   /* إعدادات خلفية الشاشة */
   body {
@@ -1190,6 +1198,92 @@ transform: translateY(-9px) rotate(-45deg);}
 .menu-icon-btn:hover i {
   opacity: 0.8;
   transform: scale(1.1);
+}
+
+
+
+/* تصغير النافذة المنبثقة بالكامل دفعة واحدة */
+#tracker-modal .modal-content {
+  width: 90% !important;
+  max-width: 360px !important;
+  padding: 1.5rem 1rem !important;
+  border-radius: 1.2rem !important;
+
+  /* نسبة التصغير للنافذة بكل محتوياتها (0.75 يعني تصغير بنسبة 25%) */
+  transform: scale(0.75) !important;
+  transform-origin: center center !important;
+  
+  /* دعم متصفحات Safari و iOS */
+  zoom: 0.75 !important;
+}
+
+/* تصغير عنوان النافذة */
+#tracker-modal .modal-content h3 {
+  font-size: 1.1rem !important;
+  padding-bottom: 0.1rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* تصغير زر الإغلاق X */
+#tracker-modal .new-close-btn {
+  font-size: 1.8rem !important;
+  margin: -0.5rem 0 0 0 !important;
+}
+
+/* تصغير خانة إدخال الكود */
+#tracker-modal #project-code {
+  width: 85% !important;
+  padding: 0.5rem !important;
+  margin: 0.8rem 0 !important;
+  font-size: 0.8rem !important;
+}
+
+/* تصغير زر التحقق */
+#tracker-modal .check-btn {
+  padding: 0.4rem 1.2rem !important;
+  margin-top: 0.5rem !important;
+  font-size: 0.8rem !important;
+}
+
+/* تصغير نصوص حالة المشروع والتفاصيل الداخلية */
+#tracker-modal #project-status {
+  font-size: 0.8rem !important;
+  margin-top: 0.6rem !important;
+  padding: 0.5rem 0 !important;
+}
+
+/* تصغير زر استلام الفيديو / Drive */
+#tracker-modal .drive-btn {
+  padding: 0.4rem 1rem !important;
+  font-size: 0.75rem !important;
+}
+
+/* إعدادات المودال الأساسية */
+#tracker-modal.modal {
+  display: flex !important;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* حركة المودال عند الفتح */
+#tracker-modal .modal-content {
+  transform: scale(0.8);
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* التفعيل عند الفتح */
+#tracker-modal.modal-open {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+#tracker-modal.modal-open .modal-content {
+  transform: scale(1) !important; /* نفس قيمة التصغير بالجوال */
+}
+
+#tracker-modal .gold-divider {
+  margin: 1rem auto 0.8rem auto !important;
 }
 
 }
