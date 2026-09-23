@@ -1356,7 +1356,7 @@ font-family: 'El Messiri', sans-serif;
 #tracker-modal .modal-content {
   /* scale(0.5) يعني النافذة تبدأ من نصف حجمها ثم تكبر */
   transform: scale(0.5) !important;
-transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.35s ease !important;
+transition: transform 0.35s , opacity 0.35s ease !important;
 }
 
 
