@@ -450,7 +450,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function toggleTracker() {
   const modal = document.getElementById('tracker-modal');
+  const menuItems = document.getElementById('menuItems');
+  const burgerToggle = document.querySelector('.burger-toggle');
+
   if (modal) {
+    // 1. فتح / إغلاق نافذة التتبع
     modal.classList.toggle('modal-open');
+
+    // 2. إذا انفتحت نافذة التتبع، نقفل قائمة البرجر ونرجع الزر لشكله الأصلي
+    if (modal.classList.contains('modal-open')) {
+      if (menuItems) menuItems.classList.remove('show');
+      if (burgerToggle) burgerToggle.classList.remove('active');
+    }
   }
 }
