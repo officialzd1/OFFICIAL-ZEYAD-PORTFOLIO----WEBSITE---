@@ -1035,31 +1035,7 @@ footer p {
 }
 
 @media screen and (max-width: 768px) {
-  /* إخفاء محتوى الصفحة في الجوال */
-  body > 
-  *:not(.soon-mobile-menu) 
-  
-  *:not(#track-btn)
-  
-  *:not(#modal)
-  
-    *:not(#modal-content)
-
-  *:not(#modal)
-  *:not(#modal)
-  *:not(#modal)
-  *:not(#modal)
-  *:not(#modal)
-  *:not(#modal)
-  *:not(#modal)
-  *:not(#modal)
-
-  
-  
-  
-  
-  
-  {
+  body > *:not(.soon-mobile-menu) {
     display: none !important;
   }
 
@@ -1070,19 +1046,22 @@ footer p {
     margin: 0 !important;
     padding: 0 !important;
     height: 100vh !important;
+    width: 100vw !important;
   }
 
-  /* نص "قريباً | SOON" */
+  /* نص "قريباً | SOON" - متوسط 100% في كافة الشاشات */
   body::before {
     content: "قريباً | SOON";
     position: fixed;
     top: 50%;
-    transform: translate(1%, -50%);
-    width: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    max-width: 90vw;
     text-align: center;
     z-index: 9999999999;
     cursor: default;
-    margin: 0.3rem;
+    margin: 0;
 
     /* الخط واللغة */
     font-family: 'El Messiri', sans-serif;
@@ -1107,59 +1086,4 @@ footer p {
             drop-shadow(0 0 25px #c69a5d00) 
             drop-shadow(0 0 45px #c69a5d);
   }
-
-  
-
-#track-btn {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  bottom: 4rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999999999;
-  background: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
-  border: 0.1rem solid #c5a059;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 1rem;
-  font-size: 0.8rem;
-  transition: all 0.5s ease;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
