@@ -674,14 +674,6 @@ nav a:hover::after {
     box-shadow: 0 0 15px rgba(252, 240, 106, 0.6);
 }
 
-
-
-
-/* ==========================================
-   2. النوافذ المنبثقة والشروط (Modals & Policy)
-   ========================================== */
-
-/* الخلفية المظلمة الشاملة للنافذة المنبثقة */
 .modal {
     display: none;
     position: fixed;
@@ -699,7 +691,6 @@ nav a:hover::after {
 
 }
 
-/* محتوى النافذة المنبثقة الداخلي */
 .modal-content {
     position: relative; /* ضروري عشان position: absolute للزر يظبط عليه */
     background: #000 !important;
@@ -731,7 +722,6 @@ nav a:hover::after {
     margin: 0;
 }
 
-/* زر إغلاق النافذة المنبثقة الجديد */
 .new-close-btn {
 
    
@@ -751,14 +741,12 @@ nav a:hover::after {
     color: #ffffff;
 }
 
-/* نافذة المعلومات المخصصة */
 #info-modal {
     background: #000;
     border: 1rem solid #000000;
     
 }
 
-/* حقل إدخال كود المشروع داخل المودال */
 #project-code {
     width: 83%;
     padding: 0.8rem;
@@ -771,7 +759,6 @@ nav a:hover::after {
     text-align: center;
 }
 
-/* زر فحص كود المشروع */
 .check-btn {
     background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
     background-size: 500% auto;
@@ -787,14 +774,12 @@ nav a:hover::after {
     
 }
 
-/* منطقة عرض حالة المشروع */
 #project-status {
     margin-top: 1rem;
     padding: 1rem;
     border-top: 0.1rem solid #44444400;
 }
 
-/* قسم السياسة والحق الشامل داخل النموذج */
 .policy-section-wrapper {
     margin: 20px 0;
     display: flex;
@@ -850,7 +835,6 @@ nav a:hover::after {
     font-family: inherit;
 }
 
-/* نافذة الشروط والأحكام المنبثقة (Policy Modal Overlay) */
 .policy-modal-overlay {
     display: none;
     position: fixed;
@@ -881,7 +865,6 @@ nav a:hover::after {
     text-align: right;
 }
 
-/* هيدر نافذة الشروط وزر اللغات */
 .modal-header {
     display: flex;
     justify-content: space-between;
@@ -973,7 +956,6 @@ nav a:hover::after {
     color: #fff;
 }
 
-/* الزر العائم المصمم بدقة (طلب جديد) */
 .floating-order-btn {
     display: none; /* مخفي في البي سي */
     position: fixed;
@@ -1007,7 +989,6 @@ nav a:hover::after {
     box-shadow: 0 0 18px rgba(197, 160, 89, 0.6);
 }
 
-/* الزر العائم الأيمن للتواصل السريع */
 .floating-contact-btn {
     display: none; /* مخفي في البي سي */
     position: fixed;
@@ -1041,8 +1022,6 @@ nav a:hover::after {
     box-shadow: 0 0 18px rgba(197, 160, 89, 0.6);
 }
 
-
-
 footer {
     text-align: center;
     margin-top: 5rem;
@@ -1056,10 +1035,12 @@ footer p {
 }
 
 @media screen and (max-width: 768px) {
-  body > *:not(.soon-mobile-menu) {
-  display: none !important;
-}
+  /* إخفاء محتوى الصفحة في الجوال */
+  body > *:not(.soon-mobile-menu) *:not(#track-btn){
+    display: none !important;
+  }
 
+  /* إعدادات خلفية الشاشة */
   body {
     background-color: #000000 !important;
     overflow: hidden !important;
@@ -1068,40 +1049,68 @@ footer p {
     height: 100vh !important;
   }
 
+  /* نص "قريباً | SOON" */
   body::before {
     content: "قريباً | SOON";
     position: fixed;
     top: 50%;
-    transform: translate(-1%, -50%);
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
+    transform: translate(1%, -50%);
     width: 100%;
+    text-align: center;
     z-index: 9999999999;
-    direction: rtl;
+    cursor: default;
+    margin: 0.3rem;
 
+    /* الخط واللغة */
+    font-family: 'El Messiri', sans-serif;
     font-size: 1.8rem;
-  letter-spacing: 0.3rem;
-  font-weight: bold;
-font-family: 'El Messiri', sans-serif;
+    font-weight: bold;
+    direction: rtl;
+    unicode-bidi: isolate;
+    letter-spacing: normal !important;
+
+    /* التدرج الذهبي والأنيميشن */
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5.8s linear infinite;
+    transition: all 0.4s ease;
+
+    /* توهج النيون */
+    filter: drop-shadow(0 0 3px #000000) 
+            drop-shadow(0 0 10px #ffd90000) 
+            drop-shadow(0 0 25px #c69a5d00) 
+            drop-shadow(0 0 45px #c69a5d);
+  }
+
+  
+
+#track-btn {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999999999;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  border: 0.1rem solid #c5a059;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  transition: all 0.5s ease;
+}
 
 
 
 
 
 
-letter-spacing: normal !important; /* يلغي تباعد الحروف الذي يقطع العربي */
-  direction: rtl;                     /* يحدد اتجاه النص من اليمين للشمال */
-  unicode-bidi: isolate;
-
-
-
-
-
-
-font-size: 1.8rem;
-  font-weight: bold;
 
 
 
@@ -1109,26 +1118,25 @@ font-size: 1.8rem;
 
 
 
-  background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 5.8s linear infinite;
-  transition: all 0.4s ease;
-  cursor: default;
-  margin: 0.3rem;
 
 
-/* توهج نيون ثابت وفخم حول الحروف مباشرة */
-filter: drop-shadow(0 0 3px #000000) 
-        drop-shadow(0 0 10px #ffd90000) 
-        drop-shadow(0 0 25px #c69a5d00) 
-        drop-shadow(0 0 45px #c69a5d);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 }
-}
-
