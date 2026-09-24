@@ -225,6 +225,29 @@ setStatus(false);
 
 const myProjects = {
 
+    "ZD-553": { 
+        name: "عرض وزارة الدفاع 2026",
+        deliveryDate: "10:00PM | 24 September 2026",
+        currentStage: 13, 
+        driveUrl: "https://drive.google.com/file/d/1md5sQm0TEO2tFAghKLO0wlwT-tNR0ejb/view?usp=sharing",
+        stages: [
+            { ar: "التنزيل", en: "Downloading" },
+            { ar: "الترتيب", en: "Organizing" },
+            { ar: "القص", en: "Cutting" },
+            { ar: "التلوين", en: "Coloring" },
+            { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effects & Transition" },
+            { ar: "تحسين الصوت بالذكاء الإصطناعي", en: "AI-Powered Audio Enhancement" },
+            { ar: "المؤثرات الصوتية والموسيقى", en: "Sound Effects & Music" },
+            { ar: "المراجعة", en: "Review" },
+            { ar: "التعديلات", en: "Amendments" },
+            { ar: "تصدير المعاينة", en: "Export Preview" },
+            { ar: "تسليم المعاينة", en: "Pre-delivery Inspection" },
+            { ar: "تعديلات العميل", en: "Client Revisions" },
+            { ar: "التصدير النهائي", en: "Final Export" },
+            { ar: "التسليم النهائي", en: "Final Delivery" }
+        ]
+    },
+
     "ZD-491": { 
         name: "عرض وزارة الدفاع 2026",
         deliveryDate: "10:00PM | 24 September 2026",
