@@ -1428,7 +1428,29 @@ background-size: -200% auto !important;
 /* تصغير زر استلام الفيديو / Drive */
 #tracker-modal .drive-btn {
   padding: 0.4rem 1rem !important;
-  font-size: 0.75rem !important;
+  font-size: 0.8rem !important;
+
+
+
+   background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
+background-size: -200% auto !important;
+    animation: shine 3s linear infinite;
+    transition: all 0.4s ease;
+    color: black;
+    border: none;
+    padding: 0.1rem 1rem;
+    font-weight: bold;
+    border-radius: 5rem;
+    cursor: pointer;
+    margin-top: 0.3rem;
+
+
+
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
+  background-size: 200% auto !important;
+  
+  animation: shine 5.8s !important;
+  transition: transform 0.2s ease, opacity 0.2s ease !important;
 }
 
 /* إعدادات المودال الأساسية */

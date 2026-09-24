@@ -225,6 +225,54 @@ setStatus(false);
    ========================================================================== */
 
 const myProjects = {
+
+
+
+
+
+
+    "ZD1": { 
+        name: "معاينة | Preview",
+        deliveryDate: "8:30PM | 24 September 2026",
+        currentStage: 8, 
+        driveUrl: "https://drive.google.com",
+        stages: [
+            { ar: "التنزيل", en: "Downloading" },
+            { ar: "الترتيب", en: "Organizing" },
+            { ar: "القص", en: "Cutting" },
+            { ar: "التلوين", en: "Coloring" },
+            { ar: "المقدمة", en: "Intro" },
+            { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effects & Transition" },
+            { ar: "المؤثرات الصوتية والموسيقى", en: "Sound Effects & Music" },
+            { ar: "المراجعة", en: "Review" },
+            { ar: "التعديلات", en: "Amendments" },
+            { ar: "التصدير", en: "Exporting" },
+            { ar: "التسليم", en: "Final Delivery" }
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "ZD-783": { 
         name: "بدأت يومي بـ 0 ريال وحاولت أجمع مبلغ يكفيني",
         deliveryDate: "12:30PM | 21 September 2026",
@@ -354,7 +402,7 @@ function startCountdown(dateString) {
         const minutes = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
         const seconds = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
 
-        timerElement.innerHTML = `المتبقي : <span style="color: #ffb000; font-weight: bold; font-family: monospace; font-size: 0.95rem;">${hours}:${minutes}:${seconds}</span>`;
+        timerElement.innerHTML = ` <span style="color: #ffb000; font-weight: bold; font-family: monospace; font-size: 0.95rem;">${hours}:${minutes}:${seconds}</span>`;
     }
 
     updateTimer();
@@ -399,7 +447,7 @@ function checkProject() {
 
     let deliveryHTML = project.deliveryDate ? `
         <div style="margin-top: 25px; margin-bottom: 10px; text-align: center; color: #ffffff; font-size: 0.85rem; width: 100%;">
-            <div>الوقت المتوقع للتسليم : <span style="color: #ffb000;">${project.deliveryDate}</span></div>
+            <div> <span style="color: #ffb000;">${project.deliveryDate}</span></div>
             <div id="delivery-countdown" style="margin-top: 6px; font-size: 0.85rem; color: #ffffff;"></div>
         </div>` : '';
 
@@ -411,7 +459,7 @@ function checkProject() {
     display.innerHTML = `
         <div style="background: rgba(0, 0, 0, 0.6); padding: 15px; border-radius: 10px; border: 1px solid rgba(197, 160, 85, 0.3); text-align: center;">
             <div style="margin-bottom: 12px; text-align: center;">
-                <strong>المشروع : <span style="color: #ffffff; font-size: 1rem;">${project.name}</span></strong>
+                <strong> <span style="color: #ffffff; font-size: 1rem;">${project.name}</span></strong>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center; margin-top: 15px; max-height: 210px; overflow-y: auto; width: 100%; padding: 10px 0;">
                 <div style="position: relative; width: 100%; margin-top: 5px;">
@@ -455,7 +503,6 @@ function toggleTracker() {
   if (modal) {
     modal.classList.toggle('modal-open');
 
-    // إغلاق القائمة الجانبية لو كانت مفتوحة في الجوال فقط
     if (modal.classList.contains('modal-open')) {
       if (menuItems) menuItems.classList.remove('show');
       if (burgerToggle) burgerToggle.classList.remove('active');
@@ -464,25 +511,20 @@ function toggleTracker() {
 }
 
 
-// تحديد العناصر
 const trackerModal = document.getElementById('tracker-modal');
 const closeModalBtn = document.querySelector('.close-btn') || document.querySelector('.close');
 
-// 1. عند الضغط على زر X
 if (closeModalBtn) {
   closeModalBtn.addEventListener('click', function(e) {
     e.stopPropagation();
     trackerModal.style.display = 'none';
-    // أو إذا كنت تستخدم class لإظهاره:
-    // trackerModal.classList.remove('show');
+    
   });
 }
 
-// 2. عند الضغط في أي مكان خارج النافذة (على الخلفية السوداء)
 window.addEventListener('click', function(e) {
   if (e.target === trackerModal) {
     trackerModal.style.display = 'none';
-    // trackerModal.classList.remove('show');
   }
 });
 
@@ -490,7 +532,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const modal = document.getElementById('tracker-modal') || document.querySelector('.modal');
   const closeBtn = document.querySelector('.close-btn') || document.querySelector('.close');
 
-  // 1. إغلاق النافذة عند الضغط على زر X
   if (closeBtn) {
     closeBtn.addEventListener('click', function (e) {
       e.preventDefault();
@@ -499,7 +540,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // 2. إغلاق النافذة عند الضغط في أي مكان خارج المودال
   window.addEventListener('click', function (e) {
     if (e.target === modal || e.target.classList.contains('modal-overlay')) {
       modal.style.display = 'none';
@@ -508,7 +548,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  // 1. ابحث عن أي حقل إدخال وأي زر تحقق داخل نافذة التتبع
   const inputField = document.querySelector('#tracker-modal input, .modal input, #tracker-form input');
   const checkBtn = document.querySelector('#tracker-modal button, .modal button, .check-btn');
 
