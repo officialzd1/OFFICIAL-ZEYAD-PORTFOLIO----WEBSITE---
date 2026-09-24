@@ -412,66 +412,81 @@ function startCountdown(dateString) {
 function checkProject() {
     const codeInput = document.getElementById('project-code');
     const display = document.getElementById('project-status');
+    const checkBtn = document.querySelector('.check-btn');
     if (!codeInput || !display) return;
 
-    if (countdownInterval) clearInterval(countdownInterval);
-
-    const code = codeInput.value.trim().toUpperCase();
-    const project = myProjects[code];
-
-    if (!project) {
-        display.innerHTML = `<p style="color:red; text-align: center; padding: 10px;">كود غير صحيح | Invalid Code</p>`;
-        return;
+    // 1. إخفاء النتيجة فوراً وتشغيل تأثير التحميل على الزر
+    display.innerHTML = "";
+    if (checkBtn) {
+        checkBtn.classList.add('loading');
     }
 
-    let stagesHTML = project.stages.map((stage, index) => {
-        const isCompleted = index < project.currentStage;
-        const isActive = index === project.currentStage;
-        
-        let circleColor = isCompleted ? "#00ff22" : (isActive ? "#ffb000" : "rgba(255, 255, 255, 0.2)"); 
-        let textColor = isCompleted ? "#ffffff" : (isActive ? "#ffb000" : "#777777");
-        let glow = isActive ? "0 0 10px #ffb000" : "none";
+    // 2. الانتظار لثزء من الثانية لمحاكاة البحث ومن ثم إظهار النتائج
+    setTimeout(function () {
+        if (checkBtn) {
+            checkBtn.classList.remove('loading');
+        }
 
-        let arText = typeof stage === 'object' ? stage.ar : stage;
-        let enText = typeof stage === 'object' ? stage.en : '';
+        if (countdownInterval) clearInterval(countdownInterval);
 
-        return `
-            <li style="position: relative; margin-bottom: ${index === project.stages.length - 1 ? '0' : '20px'}; font-size: 0.82em; display: flex; align-items: center; justify-content: space-between; width: 100%; direction: ltr; box-sizing: border-box; padding: 0 10px;">
-                <span style="width: 42%; text-align: right; color: ${textColor};">${enText}</span>
-                <div style="width: 16%; display: flex; justify-content: center; position: relative;">
-                    <span style="width: 12px; height: 12px; background-color: ${circleColor}; border-radius: 50%; box-shadow: ${glow}; border: 2px solid #111; z-index: 2;"></span>
+        const code = codeInput.value.trim().toUpperCase();
+        const project = myProjects[code];
+
+        if (!project) {
+            display.innerHTML = `<p style="color:red; text-align: center; padding: 10px;">كود غير صحيح | Invalid Code</p>`;
+            return;
+        }
+
+        let stagesHTML = project.stages.map((stage, index) => {
+            const isCompleted = index < project.currentStage;
+            const isActive = index === project.currentStage;
+            
+            let circleColor = isCompleted ? "#00ff22" : (isActive ? "#ffb000" : "rgba(255, 255, 255, 0.2)"); 
+            let textColor = isCompleted ? "#ffffff" : (isActive ? "#ffb000" : "#777777");
+            let glow = isActive ? "0 0 10px #ffb000" : "none";
+
+            let arText = typeof stage === 'object' ? stage.ar : stage;
+            let enText = typeof stage === 'object' ? stage.en : '';
+
+            return `
+                <li style="position: relative; margin-bottom: ${index === project.stages.length - 1 ? '0' : '20px'}; font-size: 0.82em; display: flex; align-items: center; justify-content: space-between; width: 100%; direction: ltr; box-sizing: border-box; padding: 0 10px;">
+                    <span style="width: 42%; text-align: right; color: ${textColor};">${enText}</span>
+                    <div style="width: 16%; display: flex; justify-content: center; position: relative;">
+                        <span style="width: 12px; height: 12px; background-color: ${circleColor}; border-radius: 50%; box-shadow: ${glow}; border: 2px solid #111; z-index: 2;"></span>
+                    </div>
+                    <span style="width: 42%; text-align: left; color: ${textColor};">${arText}</span>
+                </li>`;
+        }).join('');
+
+        let deliveryHTML = project.deliveryDate ? `
+            <div style="margin-top: 25px; margin-bottom: 10px; text-align: center; color: #ffffff; font-size: 0.85rem; width: 100%;">
+                <div> <span style="color: #ffb000;">${project.deliveryDate}</span></div>
+                <div id="delivery-countdown" style="margin-top: 6px; font-size: 0.85rem; color: #ffffff;"></div>
+            </div>` : '';
+
+        let downloadButton = (project.driveUrl && project.driveUrl.trim() !== "") ? `
+            <div style="text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                <a href="${project.driveUrl}" target="_blank" class="drive-btn">إستلام الفيديو 📥 Get Video</a>
+            </div>` : '';
+
+        display.innerHTML = `
+            <div style="background: rgba(0, 0, 0, 0.6); padding: 15px; border-radius: 10px; border: 1px solid rgba(197, 160, 85, 0.3); text-align: center;">
+                <div style="margin-bottom: 12px; text-align: center;">
+                    <strong> <span style="color: #ffffff; font-size: 1rem;">${project.name}</span></strong>
                 </div>
-                <span style="width: 42%; text-align: left; color: ${textColor};">${arText}</span>
-            </li>`;
-    }).join('');
-
-    let deliveryHTML = project.deliveryDate ? `
-        <div style="margin-top: 25px; margin-bottom: 10px; text-align: center; color: #ffffff; font-size: 0.85rem; width: 100%;">
-            <div> <span style="color: #ffb000;">${project.deliveryDate}</span></div>
-            <div id="delivery-countdown" style="margin-top: 6px; font-size: 0.85rem; color: #ffffff;"></div>
-        </div>` : '';
-
-    let downloadButton = (project.driveUrl && project.driveUrl.trim() !== "") ? `
-        <div style="text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-            <a href="${project.driveUrl}" target="_blank" class="drive-btn">إستلام الفيديو 📥 Get Video</a>
-        </div>` : '';
-
-    display.innerHTML = `
-        <div style="background: rgba(0, 0, 0, 0.6); padding: 15px; border-radius: 10px; border: 1px solid rgba(197, 160, 85, 0.3); text-align: center;">
-            <div style="margin-bottom: 12px; text-align: center;">
-                <strong> <span style="color: #ffffff; font-size: 1rem;">${project.name}</span></strong>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center; margin-top: 15px; max-height: 210px; overflow-y: auto; width: 100%; padding: 10px 0;">
-                <div style="position: relative; width: 100%; margin-top: 5px;">
-                    <div style="position: absolute; top: 10px; bottom: 10px; left: 50%; transform: translateX(-50%); width: 2px; background: rgba(255, 255, 255, 0.15);"></div>
-                    <ul style="list-style: none; padding: 0; margin: 0; position: relative; width: 100%;">${stagesHTML}</ul>
+                <div style="display: flex; flex-direction: column; align-items: center; margin-top: 15px; max-height: 210px; overflow-y: auto; width: 100%; padding: 10px 0;">
+                    <div style="position: relative; width: 100%; margin-top: 5px;">
+                        <div style="position: absolute; top: 10px; bottom: 10px; left: 50%; transform: translateX(-50%); width: 2px; background: rgba(255, 255, 255, 0.15);"></div>
+                        <ul style="list-style: none; padding: 0; margin: 0; position: relative; width: 100%;">${stagesHTML}</ul>
+                    </div>
+                    ${deliveryHTML}
                 </div>
-                ${deliveryHTML}
-            </div>
-            ${downloadButton}
-        </div>`;
+                ${downloadButton}
+            </div>`;
 
-    if (project.deliveryDate) startCountdown(project.deliveryDate);
+        if (project.deliveryDate) startCountdown(project.deliveryDate);
+
+    }, 800); // وقت التحميل بالملي ثانية
 }
 
 
@@ -565,6 +580,52 @@ document.addEventListener('DOMContentLoaded', function () {
           // حط دالة البحث حقك هنا لو عندك دالة مخصصة (مثلا: checkProject());
         }
       }
+    });
+  }
+});
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const checkBtn = document.querySelector('.check-btn') || document.querySelector('#check-btn');
+  const trackingInput = document.querySelector('input[type="text"]');
+  
+  // حدد عنصر قسم المراحل/النتيجة عندك (استبدل الكلاس أو الأيدي حسب ما هو موجود عندك)
+  const resultSection = document.querySelector('#tracker-result') || document.querySelector('.project-details');
+
+  // تأكد من إخفاء المراحل أول ما تنفتح الصفحة
+  if (resultSection) {
+    resultSection.style.display = 'none';
+  }
+
+  if (checkBtn) {
+    checkBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      // 1. إخفاء النتيجة القديمة لو كانت ظاهرة (لو بيغير الكود)
+      if (resultSection) {
+        resultSection.style.display = 'none';
+      }
+
+      // 2. تشغيل دائرة التحميل على الزر
+      checkBtn.classList.add('loading');
+
+      // 3. الانتظار حتى ينتهي التحميل (مثلاً 800 جزء من الألف من الثانية) وبعدها تظهر المراحل
+      setTimeout(function () {
+        // إيقاف دائرة التحميل
+        checkBtn.classList.remove('loading');
+        
+        // إظهار قسم المراحل والنتيجة الآن فقط!
+        if (resultSection) {
+          resultSection.style.display = 'block'; // أو flex حسب تصميمك
+        }
+        
+      }, 800); 
     });
   }
 });

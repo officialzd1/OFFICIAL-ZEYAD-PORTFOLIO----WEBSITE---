@@ -53,6 +53,7 @@ body {
   }
 }
 
+
 #scrollProgress {
   position: fixed;
   top: 0;
@@ -803,6 +804,33 @@ background-size: 200% auto !important;
     
 }
 
+.check-btn.loading {
+  pointer-events: none !important;
+  opacity: 0.7 !important;
+  position: relative !important;
+  color: transparent !important; /* إخفاء النص مؤقتاً أثناء التحميل */
+}
+
+/* إظهار علامة التحميل الدائرية */
+.check-btn.loading::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin: -8px 0 0 -8px !important;
+  border: 2px solid #000 !important;
+  border-top-color: transparent !important;
+  border-radius: 50% !important;
+  animation: button-loading-spin 0.6s linear infinite !important;
+}
+
+@keyframes button-loading-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 #project-status {
     margin-top: 1rem;
     padding: 1rem;
@@ -1467,7 +1495,11 @@ background-size: -200% auto !important;
 
 
 
-
+/* إجبار إخفاء قسم المراحل افتراضياً حتى يتم التحقق */
+.project-details, 
+#tracker-result {
+  display: none !important;
+}
 
 
 #tracker-modal .modal-content {
@@ -1493,6 +1525,32 @@ transition: transform 0.35s , opacity 0.35s ease !important;
   margin: 1rem auto 0.8rem auto !important;
 }
 
+/* تصميم زر التحقق أثناء حالة البحث */
+.check-btn.loading {
+  pointer-events: none !important;
+  opacity: 0.7 !important;
+  position: relative !important;
+  color: transparent !important; /* إخفاء النص مؤقتاً أثناء التحميل */
+}
 
+/* إظهار علامة التحميل الدائرية */
+.check-btn.loading::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin: -8px 0 0 -8px !important;
+  border: 2px solid #000 !important;
+  border-top-color: transparent !important;
+  border-radius: 50% !important;
+  animation: button-loading-spin 0.6s linear infinite !important;
+}
+
+@keyframes button-loading-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
 }
