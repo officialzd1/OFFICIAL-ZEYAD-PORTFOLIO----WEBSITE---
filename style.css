@@ -1082,7 +1082,6 @@ body > *:not(.soon-mobile-menu):not(#tracker-modal){
     background-color: #000000 !important;
     overflow: hidden !important; /* منع أي سحب أو سكرول بالجوال */
     overflow-x: hidden !important;
-  overflow-y: scroll !important; /* إجبار المتصفح على تفعيل التمرير العمودي */
     margin: 0 !important;
     padding: 0 !important;
     height: 100vh !important;
