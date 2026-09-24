@@ -506,3 +506,26 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  // 1. ابحث عن أي حقل إدخال وأي زر تحقق داخل نافذة التتبع
+  const inputField = document.querySelector('#tracker-modal input, .modal input, #tracker-form input');
+  const checkBtn = document.querySelector('#tracker-modal button, .modal button, .check-btn');
+
+  if (inputField) {
+    inputField.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.keyCode === 13) {
+        event.preventDefault(); // منع إعادة تحميل الصفحة لو كان داخل فورم
+        
+        // إذا وُجد زر التحقق، اضغط عليه برمجياً
+        if (checkBtn) {
+          checkBtn.click();
+        } else {
+          // بديل مباشر: لو ما لقينا الزر، نفذ الدالة البرمجية حق البحث هنا مباشرة
+          console.log("تم ضغط Enter، تنفيذ البحث...");
+          // حط دالة البحث حقك هنا لو عندك دالة مخصصة (مثلا: checkProject());
+        }
+      }
+    });
+  }
+});
