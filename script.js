@@ -227,7 +227,7 @@ const myProjects = {
 
     "ZD-491": { 
         name: "عرض وزارة الدفاع 2026",
-        deliveryDate: "10:30PM | 24 September 2026",
+        deliveryDate: "10:00PM | 24 September 2026",
         currentStage: 13, 
         driveUrl: "https://drive.google.com/file/d/1md5sQm0TEO2tFAghKLO0wlwT-tNR0ejb/view?usp=sharing",
         stages: [
