@@ -1094,7 +1094,7 @@ body > *:not(.soon-mobile-menu):not(#tracker-modal){
   body::before {
   content: "قريباً | SOON";
   position: absolute !important; /* تحويلها لـ absolute بدلاً من fixed */
-  top: 26.8rem !important;          /* تثبيتها في منتصف القسم الأول */
+  top: 27.3rem !important;          /* تثبيتها في منتصف القسم الأول */
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
   width: max-content !important;
