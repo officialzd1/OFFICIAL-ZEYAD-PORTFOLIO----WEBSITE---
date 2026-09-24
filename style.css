@@ -1420,10 +1420,14 @@ background-size: -200% auto !important;
 
 /* تصغير نصوص حالة المشروع والتفاصيل الداخلية */
 #tracker-modal #project-status {
-  font-size: 0.8rem !important;
+
+
+
+    font-size: 0.7rem !important;
   margin-top: 0.6rem !important;
   padding: 0.5rem 0 !important;
 }
+
 
 /* تصغير زر استلام الفيديو / Drive */
 #tracker-modal .drive-btn {
