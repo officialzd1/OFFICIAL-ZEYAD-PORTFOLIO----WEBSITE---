@@ -228,7 +228,7 @@ const myProjects = {
     "ZD-491": { 
         name: "عرض وزارة الدفاع 2026",
         deliveryDate: "8:30PM | 24 September 2026",
-        currentStage: 7, 
+        currentStage: 8, 
         driveUrl: "",
         stages: [
             { ar: "التنزيل", en: "Downloading" },
@@ -662,3 +662,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
