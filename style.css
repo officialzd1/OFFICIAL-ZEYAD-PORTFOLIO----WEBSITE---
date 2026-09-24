@@ -1623,6 +1623,8 @@ transition: transform 0.35s , opacity 0.35s ease !important;
 
 /* تصغير النافذة المنبثقة للطلب بالكامل دفعة واحدة (نفس إعدادات التتبع) */
 #order-modal .modal-content {
+
+    top: 3rem;
   width: 90% !important;
   max-width: 360px !important;
   padding: 1.5rem 1rem !important;
