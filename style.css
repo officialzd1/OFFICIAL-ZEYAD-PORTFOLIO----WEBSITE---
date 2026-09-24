@@ -1052,15 +1052,12 @@ footer p {
   display: none !important;
 }
 
-
-/* إخفاء القائمة في الشاشات الكبيرة (البي سي) فقط */
 @media screen and (min-width: 768px) {
   .soon-mobile-menu {
     display: none !important;
   }
 }
 
-/* إظهار القائمة في شاشات الجوال */
 @media screen and (max-width: 768px) {
   .soon-mobile-menu {
     display: flex !important;
