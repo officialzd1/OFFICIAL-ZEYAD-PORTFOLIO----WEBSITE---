@@ -53,7 +53,6 @@ body {
   }
 }
 
-
 #scrollProgress {
   position: fixed;
   top: 0;
@@ -239,7 +238,7 @@ nav a:hover::after {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
-    direction: ltr; /* يبدأ ترتيب الكروت من أعلى اليسار بدلاً من اليمين */
+    direction: ltr;
 }
 
 .portfolio-item-wrapper {
@@ -340,15 +339,15 @@ nav a:hover::after {
     align-items: center;
     gap: 3rem;
     flex-wrap: wrap;
-    max-width: 1200px; /* تعديل من 1200rem إلى 1200px لضبط العرض الأقصى */
+    max-width: 1200px;
 }
 
 .clients-grid img {
     width: 6rem;
     height: 6rem;
-    border-radius: 50%; /* استخدام 50% كمعيار لإنشاء دائرة متناسقة */
+    border-radius: 50%;
     object-fit: cover;
-    border: 2px solid transparent; /* إضافة إطار شفاف للجاهزية والتأثيرات */
+    border: 2px solid transparent;
     transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
 }
 
@@ -361,7 +360,6 @@ nav a:hover::after {
 
 #order-form {
     scroll-margin-top: 8rem;
-    max-width: 40rem;
     max-width: 50rem;
     margin: 8rem auto;
     padding: 8rem 8rem;
@@ -434,12 +432,13 @@ nav a:hover::after {
 
 .policy-checkbox-container {
     display: flex;
-    align-items: center; /* سنترة كل العناصر عمودياً */
+    align-items: center;
     justify-content: center;
     gap: 8px;
     margin: 12px 0 18px 0;
     width: 100%;
     direction: rtl;
+    text-align: right;
 }
 
 .policy-label-ar, 
@@ -447,7 +446,7 @@ nav a:hover::after {
     color: #ffffff;
     font-size: 1.1rem;
     cursor: pointer;
-    line-height: 2; /* توحيد ارتفاع السطر لمنع ارتغاع النص عن المربع */
+    line-height: 2;
     display: inline-flex;
     align-items: center;
 }
@@ -477,7 +476,7 @@ nav a:hover::after {
     flex-shrink: 0;
     vertical-align: middle;
     position: relative;
-    top: 0.4rem; /* تحريك طفيف جداً لأسفل لسنترته مع الخطوط العربية والإنجليزي */
+    top: 0.4rem;
 }
 
 #my-form-button {
@@ -669,10 +668,8 @@ nav a:hover::after {
     font-size: 0.9rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 10px rgba(252, 240, 106, 0.3);
-        animation: shine 18s linear infinite;
-
+    animation: shine 18s linear infinite;
 }
-
 
 #tracker-modal {
   display: flex !important;
@@ -690,14 +687,10 @@ nav a:hover::after {
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* حالة الفتح عند الضغط على الزر */
 #tracker-modal.modal-open {
   opacity: 1 !important;
   visibility: visible !important;
 }
-
-
-
 
 .drive-btn:hover {
     transform: scale(1.05);
@@ -711,18 +704,15 @@ nav a:hover::after {
     left: 0; 
     width: 100%; 
     height: 100%;
-    background: rgba(0, 0, 0, 0.295);
+    background: rgba(0, 0, 0, 0.85);
     z-index: 99999999999999999999;
     justify-content: center;
     align-items: center;
-        backdrop-filter: blur(6px);
-            background-color: rgba(0, 0, 0, 0.85);
-
-
+    backdrop-filter: blur(6px);
 }
 
 .modal-content {
-    position: relative; /* ضروري عشان position: absolute للزر يظبط عليه */
+    position: relative;
     background: #000 !important;
     border: 0.1rem solid #c59f5900 !important;
     color: white !important;
@@ -753,9 +743,6 @@ nav a:hover::after {
 }
 
 .new-close-btn {
-
-   
-
     font-size: 3rem;
     padding-left: 9rem;
     font-weight: bold;
@@ -774,7 +761,6 @@ nav a:hover::after {
 #info-modal {
     background: #000;
     border: 1rem solid #000000;
-    
 }
 
 #project-code {
@@ -791,7 +777,7 @@ nav a:hover::after {
 
 .check-btn {
     background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
-background-size: 200% auto !important;
+    background-size: 200% auto !important;
     animation: shine 3s linear infinite;
     transition: all 0.4s ease;
     color: black;
@@ -801,17 +787,15 @@ background-size: 200% auto !important;
     border-radius: 5rem;
     cursor: pointer;
     margin-top: 2rem;
-    
 }
 
 .check-btn.loading {
   pointer-events: none !important;
   opacity: 0.7 !important;
   position: relative !important;
-  color: transparent !important; /* إخفاء النص مؤقتاً أثناء التحميل */
+  color: transparent !important;
 }
 
-/* إظهار علامة التحميل الدائرية */
 .check-btn.loading::after {
   content: "" !important;
   position: absolute !important;
@@ -863,33 +847,6 @@ background-size: 200% auto !important;
 .policy-trigger-btn:hover {
     background: #d4af37;
     color: #000;
-}
-
-.policy-checkbox-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin: 12px 0 18px 0;
-    width: 100%;
-    direction: rtl;
-    text-align: right;
-} 
-
-.policy-checkbox-container input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
-    accent-color: #d4af37;
-    margin: 0;
-}
-
-.policy-checkbox-container label {
-    color: #fff;
-    font-size: 13px;
-    cursor: pointer;
-    user-select: none;
-    font-family: inherit;
 }
 
 .policy-modal-overlay {
@@ -1014,7 +971,7 @@ background-size: 200% auto !important;
 }
 
 .floating-order-btn {
-    display: none; /* مخفي في البي سي */
+    display: none;
     position: fixed;
     bottom: 2rem;
     left: 6.7rem;
@@ -1047,7 +1004,7 @@ background-size: 200% auto !important;
 }
 
 .floating-contact-btn {
-    display: none; /* مخفي في البي سي */
+    display: none;
     position: fixed;
     bottom: 2rem;
     left: 18.4rem;
@@ -1109,12 +1066,12 @@ footer p {
     display: flex !important;
   }
 }
+
 @media screen and (max-width: 768px) {
   /* إخفاء كل عناصر الـ body في الجوال باستثناء القائمة الجانبية، المودال، وقسم الطلب */
-body > *:not(.soon-mobile-menu):not(#tracker-modal):not(#order-modal) {
-  display: none !important;
-
-}
+  body > *:not(.soon-mobile-menu):not(#tracker-modal):not(#order-modal) {
+    display: none !important;
+  }
 
   /* إخفاء الزر الأصلي بالأسفل */
   .track-btn {
@@ -1122,7 +1079,6 @@ body > *:not(.soon-mobile-menu):not(#tracker-modal):not(#order-modal) {
   }
   
   /* باقي أكواد الميديا... */
-
 
   /* إعدادات خلفية الشاشة */
   body {
@@ -1135,250 +1091,215 @@ body > *:not(.soon-mobile-menu):not(#tracker-modal):not(#order-modal) {
     width: 100vw !important;
   }
 
-  
-
   /* نص "قريباً | SOON" - متوسط 100% في كافة الشاشات */
   body::before {
-  content: "قريباً | SOON";
-  position: absolute !important; /* تحويلها لـ absolute بدلاً من fixed */
-  top: 26.2rem !important;          /* تثبيتها في منتصف القسم الأول */
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: max-content !important;
-  max-width: 90vw !important;
-  text-align: center !important;
-  z-index: 1 !important;
-  cursor: default !important;
-  margin: 0 !important;
-  gap: 5rem;
-
-  font-family: 'El Messiri', sans-serif !important;
-  font-size: 1.8rem !important;
-  font-weight: bold !important;
-  direction: rtl !important;
-
-background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-        background-size: 430% auto;
-    animation: shine 13.8s linear infinite;  background-size: 200% auto !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  animation: shine 5.8s linear infinite !important;
-
-  filter: drop-shadow(0 0 3px #000000) 
-          drop-shadow(0 0 10px #ffd90000) 
-          drop-shadow(0 0 25px #c69a5d00) 
-          drop-shadow(0 0 45px #c69a5d) !important;
-
-
-          
-}
-
-
-
-
-
+    content: "قريباً | SOON";
+    position: absolute !important; /* تحويلها لـ absolute بدلاً من fixed */
+    top: 26.2rem !important;          /* تثبيتها في منتصف القسم الأول */
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: max-content !important;
+    max-width: 90vw !important;
+    text-align: center !important;
+    z-index: 1 !important;
+    cursor: default !important;
+    margin: 0 !important;
+    gap: 5rem;
+    font-family: 'El Messiri', sans-serif !important;
+    font-size: 1.8rem !important;
+    font-weight: bold !important;
+    direction: rtl !important;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 430% auto;
+    animation: shine 13.8s linear infinite;
+    background-size: 200% auto !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    animation: shine 5.8s linear infinite !important;
+    filter: drop-shadow(0 0 3px #000000) 
+            drop-shadow(0 0 10px #ffd90000) 
+            drop-shadow(0 0 25px #c69a5d00) 
+            drop-shadow(0 0 45px #c69a5d) !important;
+  }
 
   /* حاوية القائمة أعلى اليسار */
-.soon-mobile-menu {
-  position: fixed;
-  top: 3rem;
-  left: 2.8rem;
-  z-index: 99999999999999999999999999999999999999999999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  .soon-mobile-menu {
+    position: fixed;
+    top: 3rem;
+    left: 2.8rem;
+    z-index: 99999999999999999999999999999999999999999999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-/* تصميم زر البرجر */
-.burger-toggle {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0.1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 1.8rem;
-  height: 1.3rem;
-  z-index: 999;
-  margin-left: -0.3rem;
-}
+  /* تصميم زر البرجر */
+  .burger-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 1.8rem;
+    height: 1.3rem;
+    z-index: 999;
+    margin-left: -0.3rem;
+  }
 
-.burger-toggle span {
-display: block;
-  width: 100%;
-  height: 2px;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-  transform-origin: center; /* يضمن التدوير من السنتر بالضبط */
-
-
-
-
-
+  .burger-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center; /* يضمن التدوير من السنتر بالضبط */
     background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-        background-size: 430% auto;
-    
+    background-size: 430% auto;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    filter: none !important;
+  }
 
-  border-radius: 1rem;
-  transition: all 0.3s ease;
+  /* تحويل البرجر إلى علامة X عند التفعيل */
+  .burger-toggle.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
 
+  .burger-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
 
-  filter: none !important;
-}
+  .burger-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
 
-/* تحويل البرجر إلى علامة X عند التفعيل */
-.burger-toggle.active span:nth-child(1) {
-transform: translateY(6px) rotate(45deg);}
+  /* قائمة العناصر المنبثقة (زر التواصل) */
+  .menu-items {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px;
+    margin-top: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 99999999999999999999999;
+    margin-left: -0.2rem !important;
+    gap: 1rem !important;
+    margin-top: 1rem !important;          /* المسافة بين زر الـ X والدائرة الأولى */
+    transform-origin: top center !important;
+  }
 
-.burger-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
+  /* إظهار القائمة عند التفعيل */
+  .menu-items.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 
-.burger-toggle.active span:nth-child(3) {
-transform: translateY(-9px) rotate(-45deg);}
+  /* تصميم وتلوين الزر والأيقونة باللون الذهبي */
+  .menu-icon-btn,
+  .menu-icon-btn:visited,
+  .menu-icon-btn:active {
+    width: 2.3rem;
+    height: 2.3rem;
+    background: rgba(20, 20, 20, 0.363) !important; /* خلفية سوداء/رمادية داكنة شبه شفافة */
+    border: 1px solid rgba(197, 160, 89, 0.3) !important; /* إطار ذهبي خفيف وناعم */
+    border-radius: 50% !important; /* تحويل الزر إلى دائرة متناسقة */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer;
+    text-decoration: none;
+    backdrop-filter: blur(8px); /* ضبابية خلفية الزر */
+    /* إضافة ظلال خارجية وداخلية مميزة لتعميق شكل الزر */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6),
+                0 0 10px rgba(197, 160, 89, 0.15);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
 
-/* قائمة العناصر المنبثقة (زر التواصل) */
-.menu-items {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 15px;
-  margin-top: 20px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-z-index: 99999999999999999999999;
-  margin-left: -0.2rem !important;
-  
-  gap: 1rem !important;
-  margin-top: 1rem !important; 
-         /* المسافة بين زر الـ X والدائرة الأولى */
+  /* حل مشكلة قص أطراف الأيقونات */
+  /* تنسيق وتلوين الأيقونات بداخل الدوائر بدون قص للحواف */
+  .menu-icon-btn i {
+    display: inline-block !important;
+    font-size: 0.8rem !important;
+    padding: 0.2em !important; /* مساحة حرة تمنع قص حواف التدرج الذهبي */
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
+    background-size: 200% auto !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    animation: shine 5.8s !important;
+    transition: transform 0.2s ease, opacity 0.2s ease !important;
+  }
 
+  /* رفع النافذة المنبثقة فوق جميع عناصر الصفحة وتفعيل اللمس */
+  #tracker-modal, 
+  .modal, 
+  .modal-overlay {
+    z-index: 999999999999999999999999999999999999999999999 !important; /* ضمان العرض أعلى من body::before ومن قسم الطلب */
+    pointer-events: auto !important;
+  }
 
-         transform-origin: top center !important;
-}
+  /* زر الإغلاق X */
+  #tracker-modal .close-btn,
+  .modal .close,
+  .close-modal {
+    z-index: 9999999999999999999999999999999999999999999 !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    padding: 10px !important; /* توسيع مساحة اللمس بالجوال */
+  }
 
-/* إظهار القائمة عند التفعيل */
-.menu-items.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
+  /* تصغير النافذة المنبثقة بالكامل دفعة واحدة */
+  #tracker-modal .modal-content {
+    width: 90% !important;
+    max-width: 360px !important;
+    padding: 1.5rem 1rem !important;
+    border-radius: 1.2rem !important;
+    /* نسبة التصغير للنافذة بكل محتوياتها (0.75 يعني تصغير بنسبة 25%) */
+    transform: scale(0.75) !important;
+    transform-origin: center center !important;
+    /* دعم متصفحات Safari و iOS */
+    zoom: 0.75 !important;
+  }
 
-/* تصميم وتلوين الزر والأيقونة باللون الذهبي */
-.menu-icon-btn,
-.menu-icon-btn:visited,
-.menu-icon-btn:active {
-  width: 2.3rem;
-  height: 2.3rem;
-  background: rgba(20, 20, 20, 0.363) !important; /* خلفية سوداء/رمادية داكنة شبه شفافة */
-  border: 1px solid rgba(197, 160, 89, 0.3) !important; /* إطار ذهبي خفيف وناعم */
-  border-radius: 50% !important; /* تحويل الزر إلى دائرة متناسقة */
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer;
-  text-decoration: none;
-  backdrop-filter: blur(8px); /* ضبابية خلفية الزر */
-  /* إضافة ظلال خارجية وداخلية مميزة لتعميق شكل الزر */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6),
-              0 0 10px rgba(197, 160, 89, 0.15);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-/* حل مشكلة قص أطراف الأيقونات */
-/* تنسيق وتلوين الأيقونات بداخل الدوائر بدون قص للحواف */
-.menu-icon-btn i {
-  display: inline-block !important;
-  font-size: 0.8rem !important;
-  padding: 0.2em !important; /* مساحة حرة تمنع قص حواف التدرج الذهبي */
-  background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
-  background-size: 200% auto !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  animation: shine 5.8s !important;
-  transition: transform 0.2s ease, opacity 0.2s ease !important;
-}
-
-
-/* رفع النافذة المنبثقة فوق جميع عناصر الصفحة وتفعيل اللمس */
-#tracker-modal, 
-.modal, 
-.modal-overlay {
-  z-index: 999999999999999999999999999999999999999999999 !important; /* ضمان العرض أعلى من body::before ومن قسم الطلب */
-  pointer-events: auto !important;
-}
-
-/* زر الإغلاق X */
-#tracker-modal .close-btn,
-.modal .close,
-.close-modal {
-  z-index: 9999999999999999999999999999999999999999999 !important;
-  cursor: pointer !important;
-  pointer-events: auto !important;
-  padding: 10px !important; /* توسيع مساحة اللمس بالجوال */
-}
-
-
-/* تصغير النافذة المنبثقة بالكامل دفعة واحدة */
-#tracker-modal .modal-content {
-  width: 90% !important;
-  max-width: 360px !important;
-  padding: 1.5rem 1rem !important;
-  border-radius: 1.2rem !important;
-
-  /* نسبة التصغير للنافذة بكل محتوياتها (0.75 يعني تصغير بنسبة 25%) */
-  transform: scale(0.75) !important;
-  transform-origin: center center !important;
-  
-  /* دعم متصفحات Safari و iOS */
-  zoom: 0.75 !important;
-
-  
-}
-
-/* تصغير عنوان النافذة */
-#tracker-modal .modal-content h3 {
-  font-size: 1.1rem !important;
-  padding-bottom: 0.1rem !important;
-  margin-bottom: 0 !important;
-  margin-top: 1rem;
-
-font-family: 'El Messiri', sans-serif;
+  /* تصغير عنوان النافذة */
+  #tracker-modal .modal-content h3 {
+    font-size: 1.1rem !important;
+    padding-bottom: 0.1rem !important;
+    margin-bottom: 0 !important;
+    margin-top: 1rem;
+    font-family: 'El Messiri', sans-serif;
     font-size: 1.8rem;
     font-weight: bold;
     direction: rtl;
     unicode-bidi: isolate;
     letter-spacing: normal !important;
+  }
 
-}
+  #tracker-modal #project-code {
+    font-family: 'El Messiri', sans-serif !important;
+    font-size: 0.85rem !important;
+    color: #ffffff !important;
+  }
 
+  #tracker-modal #project-code::placeholder {
+    font-family: 'El Messiri', sans-serif !important;
+    font-size: 0.75rem !important;
+    color: #888888 !important;
+  }
 
-#tracker-modal #project-code {
-  font-family: 'El Messiri', sans-serif !important;
-  font-size: 0.85rem !important;
-  color: #ffffff !important;
-}
-
-#tracker-modal #project-code::placeholder {
-  font-family: 'El Messiri', sans-serif !important;
-  font-size: 0.75rem !important;
-  color: #888888 !important;
-}
-
-#tracker-modal .check-btn {
-  font-family: 'El Messiri', sans-serif !important;
-  font-size: 0.85rem !important;
-  font-weight: bold !important;
-
-
-
-  background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
-background-size: -200% auto !important;
+  #tracker-modal .check-btn {
+    font-family: 'El Messiri', sans-serif !important;
+    font-size: 0.85rem !important;
+    font-weight: bold !important;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
+    background-size: -200% auto !important;
     animation: shine 3s linear infinite;
     transition: all 0.4s ease;
     color: black;
@@ -1388,87 +1309,73 @@ background-size: -200% auto !important;
     border-radius: 5rem;
     cursor: pointer;
     margin-top: 2rem;
-
-
-
     background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
-  background-size: 200% auto !important;
-  
-  animation: shine 5.8s !important;
-  transition: transform 0.2s ease, opacity 0.2s ease !important;
-}
+    background-size: 200% auto !important;
+    animation: shine 5.8s !important;
+    transition: transform 0.2s ease, opacity 0.2s ease !important;
+  }
 
-#tracker-modal #project-status {
-  font-family: 'El Messiri', sans-serif !important;
-  font-size: 0.8rem !important;
-  line-height: 1.6 !important;
-}
+  #tracker-modal #project-status {
+    font-family: 'El Messiri', sans-serif !important;
+    font-size: 0.8rem !important;
+    line-height: 1.6 !important;
+  }
 
+  #tracker-modal .new-close-btn {
+    position: absolute !important;
+    top: 12px !important;
+    left: 5.8% !important;
+    transform: translateX(-50%) !important;
+    /* إجبار الحجم على عدم التمدد مطلقاً */
+    width: max-content !important;
+    height: auto !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: inline-block !important;
+    line-height: 1 !important;
+    font-size: 1.2rem !important;
+    cursor: pointer;
+    background: transparent !important;
+  }
 
-#tracker-modal .new-close-btn {
-  position: absolute !important;
-  top: 12px !important;
-  left: 5.8% !important;
-  transform: translateX(-50%) !important;
-  
-  /* إجبار الحجم على عدم التمدد مطلقاً */
-  width: max-content !important;
-  height: auto !important;
-  min-width: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  
-  display: inline-block !important;
-  line-height: 1 !important;
-  font-size: 1.2rem !important;
-  cursor: pointer;
-  background: transparent !important;
-}
+  /* في حال كان زر الـ X داخله أيقونة i أو نص */
+  #tracker-modal .new-close-btn i,
+  #tracker-modal .new-close-btn span {
+    display: inline-block !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
 
-/* في حال كان زر الـ X داخله أيقونة i أو نص */
-#tracker-modal .new-close-btn i,
-#tracker-modal .new-close-btn span {
-  display: inline-block !important;
-  width: auto !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
+  /* تصغير خانة إدخال الكود */
+  #tracker-modal #project-code {
+    width: 85% !important;
+    padding: 0.5rem !important;
+    margin: 0.8rem 0 !important;
+    font-size: 0.8rem !important;
+  }
 
-/* تصغير خانة إدخال الكود */
-#tracker-modal #project-code {
-  width: 85% !important;
-  padding: 0.5rem !important;
-  margin: 0.8rem 0 !important;
-  font-size: 0.8rem !important;
-}
+  /* تصغير زر التحقق */
+  #tracker-modal .check-btn {
+    padding: 0.4rem 1.2rem !important;
+    margin-top: 0.5rem !important;
+    font-size: 0.8rem !important;
+  }
 
-/* تصغير زر التحقق */
-#tracker-modal .check-btn {
-  padding: 0.4rem 1.2rem !important;
-  margin-top: 0.5rem !important;
-  font-size: 0.8rem !important;
-}
-
-/* تصغير نصوص حالة المشروع والتفاصيل الداخلية */
-#tracker-modal #project-status {
-
-
-
+  /* تصغير نصوص حالة المشروع والتفاصيل الداخلية */
+  #tracker-modal #project-status {
     font-size: 0.7rem !important;
-  margin-top: 0.6rem !important;
-  padding: 0.5rem 0 !important;
-}
+    margin-top: 0.6rem !important;
+    padding: 0.5rem 0 !important;
+  }
 
-
-/* تصغير زر استلام الفيديو / Drive */
-#tracker-modal .drive-btn {
-  padding: 0.4rem 1rem !important;
-  font-size: 0.8rem !important;
-
-
-
-   background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
-background-size: -200% auto !important;
+  /* تصغير زر استلام الفيديو / Drive */
+  #tracker-modal .drive-btn {
+    padding: 0.4rem 1rem !important;
+    font-size: 0.8rem !important;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
+    background-size: -200% auto !important;
     animation: shine 3s linear infinite;
     transition: all 0.4s ease;
     color: black;
@@ -1478,331 +1385,279 @@ background-size: -200% auto !important;
     border-radius: 5rem;
     cursor: pointer;
     margin-top: 0.3rem;
-
-
-
     background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
-  background-size: 200% auto !important;
-  
-  animation: shine 5.8s !important;
-  transition: transform 0.2s ease, opacity 0.2s ease !important;
-}
+    background-size: 200% auto !important;
+    animation: shine 5.8s !important;
+    transition: transform 0.2s ease, opacity 0.2s ease !important;
+  }
 
-/* إعدادات المودال الأساسية */
-#tracker-modal.modal {
-  display: flex !important;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
+  /* إعدادات المودال الأساسية */
+  #tracker-modal.modal {
+    display: flex !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
 
+  /* إجبار إخفاء قسم المراحل افتراضياً حتى يتم التحقق */
+  .project-details, 
+  #tracker-result {
+    display: none !important;
+  }
 
+  #tracker-modal .modal-content {
+    /* scale(0.5) يعني النافذة تبدأ من نصف حجمها ثم تكبر */
+    transform: scale(0.5) !important;
+    transition: transform 0.35s , opacity 0.35s ease !important;
+  }
 
-/* إجبار إخفاء قسم المراحل افتراضياً حتى يتم التحقق */
-.project-details, 
-#tracker-result {
-  display: none !important;
-}
+  /* التفعيل عند الفتح */
+  #tracker-modal.modal-open {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
 
+  #tracker-modal.modal-open .modal-content {
+    /* scale(1) يعني الحجم النهائي المستهدف للنافذة */
+    transform: scale(1) !important; 
+  }
 
-#tracker-modal .modal-content {
-  /* scale(0.5) يعني النافذة تبدأ من نصف حجمها ثم تكبر */
-  transform: scale(0.5) !important;
-transition: transform 0.35s , opacity 0.35s ease !important;
-}
+  #tracker-modal .gold-divider {
+    margin: 1rem auto 0.8rem auto !important;
+  }
 
+  /* تصميم زر التحقق أثناء حالة البحث */
+  .check-btn.loading {
+    pointer-events: none !important;
+    opacity: 0.7 !important;
+    position: relative !important;
+    color: transparent !important; /* إخفاء النص مؤقتاً أثناء التحميل */
+  }
 
+  /* إظهار علامة التحميل الدائرية */
+  .check-btn.loading::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 16px !important;
+    height: 16px !important;
+    margin: -8px 0 0 -8px !important;
+    border: 2px solid #000 !important;
+    border-top-color: transparent !important;
+    border-radius: 50% !important;
+    animation: button-loading-spin 0.6s linear infinite !important;
+  }
 
-/* التفعيل عند الفتح */
-#tracker-modal.modal-open {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
+  @keyframes button-loading-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
 
-#tracker-modal.modal-open .modal-content {
-  /* scale(1) يعني الحجم النهائي المستهدف للنافذة */
-  transform: scale(1) !important; 
-}
+  /* افتراضياً نافذة الجوال مخفية تماماً في البي سي والشاشات الكبيرة */
+  #order-modal {
+    display: none !important;
+  }
 
-#tracker-modal .gold-divider {
-  margin: 1rem auto 0.8rem auto !important;
-}
-
-/* تصميم زر التحقق أثناء حالة البحث */
-.check-btn.loading {
-  pointer-events: none !important;
-  opacity: 0.7 !important;
-  position: relative !important;
-  color: transparent !important; /* إخفاء النص مؤقتاً أثناء التحميل */
-}
-
-/* إظهار علامة التحميل الدائرية */
-.check-btn.loading::after {
-  content: "" !important;
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  width: 16px !important;
-  height: 16px !important;
-  margin: -8px 0 0 -8px !important;
-  border: 2px solid #000 !important;
-  border-top-color: transparent !important;
-  border-radius: 50% !important;
-  animation: button-loading-spin 0.6s linear infinite !important;
-}
-
-@keyframes button-loading-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-
-
-/* افتراضياً نافذة الجوال مخفية تماماً في البي سي والشاشات الكبيرة */
-#order-modal {
-  display: none !important;
-}
-
-/* في شاشات الجوال فقط */
-@media screen and (max-width: 768px) {
-
-    
-
-
-
-
-
-
-
-
-
-
-
+  /* في شاشات الجوال فقط */
+  @media screen and (max-width: 768px) {
     /* ==========================================
-   تنسيقات نافذة الطلب (مطابقة تماماً لتتبع المشروع)
-   ========================================== */
+       تنسيقات نافذة الطلب (مطابقة تماماً لتتبع المشروع)
+       ========================================== */
 
-/* رفع النافذة المنبثقة للطلب فوق جميع عناصر الصفحة وتفعيل اللمس */
-#order-modal, 
-#order-modal.modal, 
-#order-modal .modal-overlay {
-  z-index: 999999999999999999999999999999999999999999999 !important;
-  pointer-events: auto !important;
+    /* رفع النافذة المنبثقة للطلب فوق جميع عناصر الصفحة وتفعيل اللمس */
+    #order-modal, 
+    #order-modal.modal, 
+    #order-modal .modal-overlay {
+      z-index: 999999999999999999999999999999999999999999999 !important;
+      pointer-events: auto !important;
+    }
+
+    /* زر الإغلاق X الخاص بنافذة الطلب */
+    #order-modal .new-close-btn {
+      position: absolute !important;
+      top: 12px !important;
+      left: 5.8% !important;
+      transform: translateX(-50%) !important;
+      width: max-content !important;
+      height: auto !important;
+      min-width: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: inline-block !important;
+      line-height: 1 !important;
+      font-size: 1.2rem !important;
+      cursor: pointer !important;
+      background: transparent !important;
+      color: #c5a055 !important;
+      z-index: 9999999999999999999999999999999999999999999 !important;
+      pointer-events: auto !important;
+    }
+
+    #order-modal .new-close-btn i,
+    #order-modal .new-close-btn span {
+      display: inline-block !important;
+      width: auto !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    /* تصغير النافذة المنبثقة للطلب بالكامل دفعة واحدة (نفس إعدادات التتبع) */
+    #order-modal .modal-content {
+      top: 3rem;
+      width: 90% !important;
+      max-width: 360px !important;
+      padding: 1.5rem 1rem !important;
+      border-radius: 1.2rem !important;
+      background: #000000 !important;
+      border: 1px solid rgba(197, 160, 85, 0) !important;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 3rem rgba(199, 149, 48, 0.705) !important;
+      position: relative !important;
+      box-sizing: border-box !important;
+      /* نسبة التصغير للنافذة بكل محتوياتها */
+      transform: scale(0.5) !important;
+      transform-origin: center center !important;
+      transition: transform 0.35s ease, opacity 0.35s ease !important;
+      /* دعم متصفحات Safari و iOS */
+      zoom: 0.75 !important;
+    }
+
+    /* تصغير عنوان النافذة */
+    #order-modal .modal-content h2,
+    #order-modal .modal-content h3 {
+      font-size: 1.8rem;
+      text-align: center;
+      padding-bottom: 0.1rem;
+      letter-spacing: 0.15rem;
+      font-weight: bold;
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 8s linear infinite;
+      transition: all 0.4s ease;
+      cursor: default;
+      margin: 0;
+      font-family: 'El Messiri', sans-serif !important;
+      font-size: 1.3rem !important;
+      font-weight: bold !important;
+      direction: rtl !important;
+      unicode-bidi: isolate !important;
+      letter-spacing: normal !important;
+      padding-bottom: 0.1rem !important;
+      margin-bottom: 0 !important;
+      margin-top: 1rem !important;
+      color: #fff !important;
+    }
+
+    /* تصغير حقول الإدخال والخيارات داخل نافذة الطلب */
+    #order-modal input[type="text"], 
+    #order-modal input[type="url"], 
+    #order-modal select {
+      font-family: 'El Messiri', sans-serif !important;
+      font-size: 0.85rem !important;
+      color: #ffffff !important;
+      width: 85% !important;
+      padding: 0.5rem !important;
+      margin: 0.8rem auto !important;
+      display: block !important;
+      border: 1px solid #333333 !important;
+      border-radius: 0.5rem !important;
+      background: #000000 !important;
+      box-sizing: border-box !important;
+    }
+
+    #order-modal input::placeholder,
+    #order-modal select::placeholder {
+      font-family: 'El Messiri', sans-serif !important;
+      font-size: 0.75rem !important;
+      color: #888888 !important;
+    }
+
+    /* تنسيق التسميات (Labels) */
+    #order-modal label {
+      font-family: 'El Messiri', sans-serif !important;
+      display: block !important;
+      text-align: right !important;
+      width: 85% !important;
+      margin: 0.4rem auto 0 auto !important;
+      font-size: 0.8rem !important;
+      color: #ddd !important;
+    }
+
+    #order-modal label span.label-en {
+      font-size: 0.7rem !important;
+      color: #ffffff !important;
+      margin-right: 5px !important;
+    }
+
+    /* تصغير وتصميم زر الإرسال بنفس لمعان زر التتبع */
+    #order-modal #my-form-button-mobile,
+    #order-modal button[type="submit"] {
+      font-family: 'El Messiri', sans-serif !important;
+      font-size: 0.8rem !important;
+      font-weight: bold !important;
+      background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
+      background-size: 200% auto !important;
+      animation: shine 5.8s linear infinite !important;
+      transition: transform 0.2s ease, opacity 0.2s ease !important;
+      color: black !important;
+      border: none !important;
+      padding: 0.4rem 1.2rem !important;
+      border-radius: 5rem !important;
+      cursor: pointer !important;
+      margin: 1rem auto 0 auto !important;
+      display: block !important;
+    }
+
+    /* نصوص حالة الإرسال */
+    #order-modal #form-success-msg-mobile,
+    #order-modal #my-form-status-mobile {
+      font-family: 'El Messiri', sans-serif !important;
+      font-size: 0.75rem !important;
+      margin-top: 0.6rem !important;
+      text-align: center !important;
+      color: #fff !important;
+    }
+
+    /* الفاصل الذهبي */
+    #order-modal .gold-divider {
+      margin: 1rem auto 0.8rem auto !important;
+      width: 85% !important;
+      height: 1px !important;
+      background: linear-gradient(90deg, transparent, #c5a055, transparent) !important;
+    }
+
+    /* إعدادات المودال الأساسية وحالة الفتح والاغلاق */
+    #order-modal.modal {
+      display: flex !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: rgba(0, 0, 0, 0.8) !important;
+      justify-content: center !important;
+      align-items: center !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: opacity 0.3s ease, visibility 0.3s ease !important;
+    }
+
+    /* التفعيل عند الفتح */
+    #order-modal.modal-open {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    #order-modal.modal-open .modal-content {
+      transform: scale(1) !important; 
+    }
+
+    #form-success-msg, 
+    #form-success-msg-mobile {
+      color: #4BB543 !important;
+    }
+  }
 }
-
-/* زر الإغلاق X الخاص بنافذة الطلب */
-#order-modal .new-close-btn {
-  position: absolute !important;
-  top: 12px !important;
-  left: 5.8% !important;
-  transform: translateX(-50%) !important;
-  
-  width: max-content !important;
-  height: auto !important;
-  min-width: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  
-  display: inline-block !important;
-  line-height: 1 !important;
-  font-size: 1.2rem !important;
-  cursor: pointer !important;
-  background: transparent !important;
-  color: #c5a055 !important;
-  z-index: 9999999999999999999999999999999999999999999 !important;
-  pointer-events: auto !important;
-}
-
-#order-modal .new-close-btn i,
-#order-modal .new-close-btn span {
-  display: inline-block !important;
-  width: auto !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* تصغير النافذة المنبثقة للطلب بالكامل دفعة واحدة (نفس إعدادات التتبع) */
-#order-modal .modal-content {
-
-    top: 3rem;
-  width: 90% !important;
-  max-width: 360px !important;
-  padding: 1.5rem 1rem !important;
-  border-radius: 1.2rem !important;
-  background: #000000 !important;
-  border: 1px solid rgba(197, 160, 85, 0) !important;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 3rem rgba(199, 149, 48, 0.705) !important;
-  position: relative !important;
-  box-sizing: border-box !important;
-
-  /* نسبة التصغير للنافذة بكل محتوياتها */
-  transform: scale(0.5) !important;
-  transform-origin: center center !important;
-  transition: transform 0.35s ease, opacity 0.35s ease !important;
-  
-  /* دعم متصفحات Safari و iOS */
-  zoom: 0.75 !important;
-}
-
-/* تصغير عنوان النافذة */
-#order-modal .modal-content h2,
-#order-modal .modal-content h3 {
-
-
-font-size: 1.8rem;
-    text-align: center;
-    padding-bottom: 0.1rem;
-    letter-spacing: 0.15rem;
-    font-weight: bold;
-    font-family: 'Playfair Display', serif;
-    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 8s linear infinite;
-    transition: all 0.4s ease;
-    cursor: default;
-    margin: 0;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  font-family: 'El Messiri', sans-serif !important;
-  font-size: 1.3rem !important;
-  font-weight: bold !important;
-  direction: rtl !important;
-  unicode-bidi: isolate !important;
-  letter-spacing: normal !important;
-  padding-bottom: 0.1rem !important;
-  margin-bottom: 0 !important;
-  margin-top: 1rem !important;
-  color: #fff !important;
-}
-
-/* تصغير حقول الإدخال والخيارات داخل نافذة الطلب */
-#order-modal input[type="text"], 
-#order-modal input[type="url"], 
-#order-modal select {
-  font-family: 'El Messiri', sans-serif !important;
-  font-size: 0.85rem !important;
-  color: #ffffff !important;
-  width: 85% !important;
-  padding: 0.5rem !important;
-  margin: 0.8rem auto !important;
-  display: block !important;
-  border: 1px solid #333333 !important;
-  border-radius: 0.5rem !important;
-  background: #000000 !important;
-  box-sizing: border-box !important;
-}
-
-#order-modal input::placeholder,
-#order-modal select::placeholder {
-  font-family: 'El Messiri', sans-serif !important;
-  font-size: 0.75rem !important;
-  color: #888888 !important;
-}
-
-/* تنسيق التسميات (Labels) */
-#order-modal label {
-  font-family: 'El Messiri', sans-serif !important;
-  display: block !important;
-  text-align: right !important;
-  width: 85% !important;
-  margin: 0.4rem auto 0 auto !important;
-  font-size: 0.8rem !important;
-  color: #ddd !important;
-}
-
-#order-modal label span.label-en {
-  font-size: 0.7rem !important;
-  color: #ffffff !important;
-  margin-right: 5px !important;
-}
-
-/* تصغير وتصميم زر الإرسال بنفس لمعان زر التتبع */
-#order-modal #my-form-button-mobile,
-#order-modal button[type="submit"] {
-  font-family: 'El Messiri', sans-serif !important;
-  font-size: 0.8rem !important;
-  font-weight: bold !important;
-  
-  background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
-  background-size: 200% auto !important;
-  
-  animation: shine 5.8s linear infinite !important;
-  transition: transform 0.2s ease, opacity 0.2s ease !important;
-  
-  color: black !important;
-  border: none !important;
-  padding: 0.4rem 1.2rem !important;
-  border-radius: 5rem !important;
-  cursor: pointer !important;
-  margin: 1rem auto 0 auto !important;
-  display: block !important;
-}
-
-/* نصوص حالة الإرسال */
-#order-modal #form-success-msg-mobile,
-#order-modal #my-form-status-mobile {
-  font-family: 'El Messiri', sans-serif !important;
-  font-size: 0.75rem !important;
-  margin-top: 0.6rem !important;
-  text-align: center !important;
-  color: #fff !important;
-}
-
-/* الفاصل الذهبي */
-#order-modal .gold-divider {
-  margin: 1rem auto 0.8rem auto !important;
-  width: 85% !important;
-  height: 1px !important;
-  background: linear-gradient(90deg, transparent, #c5a055, transparent) !important;
-}
-
-/* إعدادات المودال الأساسية وحالة الفتح والاغلاق */
-#order-modal.modal {
-  display: flex !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  background: rgba(0, 0, 0, 0.8) !important;
-  justify-content: center !important;
-  align-items: center !important;
-  
-  opacity: 0 !important;
-  visibility: hidden !important;
-  transition: opacity 0.3s ease, visibility 0.3s ease !important;
-}
-
-/* التفعيل عند الفتح */
-#order-modal.modal-open {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-#order-modal.modal-open .modal-content {
-  transform: scale(1) !important; 
-}
-
-
-#form-success-msg, 
-#form-success-msg-mobile {
-  color: #4BB543 !important;
-}
-
-
-
-}}

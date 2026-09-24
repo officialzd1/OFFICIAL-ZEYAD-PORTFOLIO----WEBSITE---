@@ -51,7 +51,6 @@ let currentLang = 'ar';
 
 // التهيئة العامة عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', () => {
-
     // أ. فتح نافذة سياسة الدفع
     const policyModal = document.getElementById('policyModal');
     const openPolicyBtn = document.getElementById('open-policy-btn');
@@ -225,12 +224,6 @@ setStatus(false);
    ========================================================================== */
 
 const myProjects = {
-
-
-
-
-
-
     "ZD1": { 
         name: "معاينة تجريبية | Experimental preview ",
         deliveryDate: "8:30PM | 24 September 2026",
@@ -250,29 +243,6 @@ const myProjects = {
             { ar: "التسليم", en: "Final Delivery" }
         ]
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     "ZD-783": { 
         name: "بدأت يومي بـ 0 ريال وحاولت أجمع مبلغ يكفيني",
         deliveryDate: "12:30PM | 21 September 2026",
@@ -351,11 +321,6 @@ let countdownInterval = null;
 function toggleInfo() {
     const modal = document.getElementById('info-modal');
     if (modal) modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
-}
-
-function toggleTracker() {
-    const modal = document.getElementById('tracker-modal');
-    if (modal) modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
 }
 
 function parseDeliveryDate(dateStr) {
@@ -489,152 +454,72 @@ function checkProject() {
     }, 800); // وقت التحميل بالملي ثانية
 }
 
-
-
-
-
-function toggleTracker() {
-  const modal = document.getElementById('tracker-modal');
-  const menuItems = document.getElementById('menuItems');
-  const burgerToggle = document.querySelector('.burger-toggle');
-
-  if (modal) {
-    modal.classList.toggle('modal-open');
-
-    if (modal.classList.contains('modal-open')) {
-      if (menuItems) menuItems.classList.remove('show');
-      if (burgerToggle) burgerToggle.classList.remove('active');
-    }
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
-  const burgerToggle = document.getElementById('burgerToggle');
-  const menuItems = document.getElementById('menuItems');
+    const burgerToggle = document.getElementById('burgerToggle');
+    const menuItems = document.getElementById('menuItems');
 
-  // تحكم بقائمة البرجر
-  if (burgerToggle && menuItems) {
-    burgerToggle.addEventListener('click', () => {
-      burgerToggle.classList.toggle('active');
-      menuItems.classList.toggle('show');
-    });
-  }
-
-  // إغلاق النوافذ عند النقر على الخلفية السوداء (الـ Modal نفسها)
-  window.addEventListener('click', function (e) {
-    const trackerModal = document.getElementById('tracker-modal');
-    const orderModal = document.getElementById('order-modal');
-
-    if (trackerModal && e.target === trackerModal) {
-      trackerModal.classList.remove('modal-open');
+    // تحكم بقائمة البرجر
+    if (burgerToggle && menuItems) {
+        burgerToggle.addEventListener('click', () => {
+            burgerToggle.classList.toggle('active');
+            menuItems.classList.toggle('show');
+        });
     }
-    if (orderModal && e.target === orderModal) {
-      orderModal.classList.remove('modal-open');
-    }
-  });
 
-  // تفعيل زر Enter للبحث في نافذة التتبع
-  const inputField = document.querySelector('#tracker-modal input, .modal input, #tracker-form input');
-  const checkBtn = document.querySelector('#tracker-modal button, .modal button, .check-btn');
+    // إغلاق النوافذ عند النقر على الخلفية السوداء (الـ Modal نفسها)
+    window.addEventListener('click', function (e) {
+        const trackerModal = document.getElementById('tracker-modal');
+        const orderModal = document.getElementById('order-modal');
 
-  if (inputField) {
-    inputField.addEventListener('keydown', function (event) {
-      if (event.key === 'Enter' || event.keyCode === 13) {
-        event.preventDefault();
-        if (checkBtn) {
-          checkBtn.click();
+        if (trackerModal && e.target === trackerModal) {
+            trackerModal.classList.remove('modal-open');
         }
-      }
+        if (orderModal && e.target === orderModal) {
+            orderModal.classList.remove('modal-open');
+        }
     });
-  }
 
-  // تأثير زر التحقق (Check) في التتبع
-  const trackingCheckBtn = document.querySelector('.check-btn') || document.querySelector('#check-btn');
-  const resultSection = document.querySelector('#tracker-result') || document.querySelector('.project-details');
+    // تفعيل زر Enter للبحث في نافذة التتبع
+    const inputField = document.querySelector('#tracker-modal input, .modal input, #tracker-form input');
+    const checkBtn = document.querySelector('#tracker-modal button, .modal button, .check-btn');
 
-  if (resultSection) {
-    resultSection.style.display = 'none';
-  }
+    if (inputField) {
+        inputField.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' || event.keyCode === 13) {
+                event.preventDefault();
+                if (checkBtn) {
+                    checkBtn.click();
+                }
+            }
+        });
+    }
 
-  if (trackingCheckBtn) {
-    trackingCheckBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      
-      if (resultSection) {
+    // تأثير زر التحقق (Check) في التتبع
+    const trackingCheckBtn = document.querySelector('.check-btn') || document.querySelector('#check-btn');
+    const resultSection = document.querySelector('#tracker-result') || document.querySelector('.project-details');
+
+    if (resultSection) {
         resultSection.style.display = 'none';
-      }
+    }
 
-      trackingCheckBtn.classList.add('loading');
+    if (trackingCheckBtn) {
+        trackingCheckBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            if (resultSection) {
+                resultSection.style.display = 'none';
+            }
 
-      setTimeout(function () {
-        trackingCheckBtn.classList.remove('loading');
-        if (resultSection) {
-          resultSection.style.display = 'block';
-        }
-      }, 800); 
-    });
-  }
+            trackingCheckBtn.classList.add('loading');
+
+            setTimeout(function () {
+                trackingCheckBtn.classList.remove('loading');
+                if (resultSection) {
+                    resultSection.style.display = 'block';
+                }
+            }, 800); 
+        });
+    }
 });
 
 
@@ -690,71 +575,69 @@ function toggleOrderModal() {
     }
 }
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
-  const forms = document.querySelectorAll('form[action*="formspree.io"]');
+    const forms = document.querySelectorAll('form[action*="formspree.io"]');
 
-  forms.forEach(form => {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault(); // منع الانتقال لصفحة Formspree الخارجية
-      
-      const formData = new FormData(form);
-      const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
-      
-      // البحث عن رسالة النجاح المرتبطة بهذا الفورم تحديداً
-      const statusMessage = form.parentElement.querySelector('#form-success-msg, #form-success-msg-mobile');
+    forms.forEach(form => {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // منع الانتقال لصفحة Formspree الخارجية
+            
+            const formData = new FormData(form);
+            const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+            
+            // البحث عن رسالة النجاح المرتبطة بهذا الفورم تحديداً
+            const statusMessage = form.parentElement.querySelector('#form-success-msg, #form-success-msg-mobile');
 
-      if (submitBtn) {
-        submitBtn.classList.add('loading');
-      }
-
-      fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (submitBtn) {
-          submitBtn.classList.remove('loading');
-        }
-
-        if (response.ok) {
-          if (statusMessage) {
-            statusMessage.innerHTML = "تم إرسال الطلب | Order Sent ";
-            statusMessage.style.display = "block"; // إظهار الرسالة إجبارياً
-            statusMessage.style.color = "#4BB543"; // لون أخضر فخم للنجاح
-            statusMessage.style.setProperty('color', '#4BB543', 'important');
-          }
-          form.reset(); // تفريغ الحقول بعد الإرسال
-        } else {
-          response.json().then(data => {
-            if (Object.hasOwn(data, 'errors')) {
-              if (statusMessage) {
-                statusMessage.innerHTML = data.errors.map(error => error.message).join(", ");
-                statusMessage.style.display = "block";
-                statusMessage.style.color = "#ff3333";
-              }
-            } else {
-              if (statusMessage) {
-                statusMessage.innerHTML = "عذراً، حدث خطأ. حاول مرة أخرى.";
-                statusMessage.style.display = "block";
-                statusMessage.style.color = "#ff3333";
-              }
+            if (submitBtn) {
+                submitBtn.classList.add('loading');
             }
-          })
-        }
-      }).catch(error => {
-        if (submitBtn) {
-          submitBtn.classList.remove('loading');
-        }
-        if (statusMessage) {
-          statusMessage.innerHTML = "عذراً، تأكد من اتصالك بالإنترنت.";
-          statusMessage.style.display = "block";
-          statusMessage.style.color = "#ff3333";
-        }
-      });
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (submitBtn) {
+                    submitBtn.classList.remove('loading');
+                }
+
+                if (response.ok) {
+                    if (statusMessage) {
+                        statusMessage.innerHTML = "تم إرسال الطلب | Order Sent ";
+                        statusMessage.style.display = "block"; // إظهار الرسالة إجبارياً
+                        statusMessage.style.color = "#4BB543"; // لون أخضر فخم للنجاح
+                        statusMessage.style.setProperty('color', '#4BB543', 'important');
+                    }
+                    form.reset(); // تفريغ الحقول بعد الإرسال
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            if (statusMessage) {
+                                statusMessage.innerHTML = data.errors.map(error => error.message).join(", ");
+                                statusMessage.style.display = "block";
+                                statusMessage.style.color = "#ff3333";
+                            }
+                        } else {
+                            if (statusMessage) {
+                                statusMessage.innerHTML = "عذراً، حدث خطأ. حاول مرة أخرى.";
+                                statusMessage.style.display = "block";
+                                statusMessage.style.color = "#ff3333";
+                            }
+                        }
+                    })
+                }
+            }).catch(error => {
+                if (submitBtn) {
+                    submitBtn.classList.remove('loading');
+                }
+                if (statusMessage) {
+                    statusMessage.innerHTML = "عذراً، تأكد من اتصالك بالإنترنت.";
+                    statusMessage.style.display = "block";
+                    statusMessage.style.color = "#ff3333";
+                }
+            });
+        });
     });
-  });
 });

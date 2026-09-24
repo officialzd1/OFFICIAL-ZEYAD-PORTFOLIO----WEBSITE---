@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
-
 <head>
-  <!-- 1. تحديد ترميز الفونت وطريقة الاستجابة مع الشاشات المخلفة (الهواتف والكمبيوتر) -->
+  <!-- 1. تحديد ترميز الفونت وطريقة الاستجابة مع الشاشات المختلفة (الهواتف والكمبيوتر) -->
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
   <!-- 2. عنوان الصفحة المكتوب في تبويب المتصفح -->
   <title>OFFICIAL ZEYAD PORTFOLIO</title>
 
@@ -21,20 +20,19 @@
   <!-- 5. أيقونة الموقع (Favicon) التي تظهر بجانب عنوان التبويب -->
   <link rel="icon" type="image/png" href="favicon.png">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- 6. تسريع الاتصال بسيرفرات خطوط Google Fonts لتسريع التحميل -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Changa:wght@500;700;800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600;700&display=swap" rel="stylesheet">
+
   <!-- 8. ربط ملف الـ CSS الأساسي لتنسيق وتصميم الموقع -->
   <link rel="stylesheet" href="style.css">
 
@@ -82,23 +80,21 @@
     <h2>الأعمال | Works</h2>
 
     <div class="gold-divider">
-            <div class="divider-line"></div>
-        </div>
+        <div class="divider-line"></div>
+    </div>
 
     <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">الكل | All</button>
+        <button class="filter-btn active" data-filter="all">الكل | All</button>
         <button class="filter-btn" data-filter="challenge">تحديات | Challenges</button>
         <button class="filter-btn" data-filter="entertainment">ترفيه | Entertainment</button>
         <button class="filter-btn" data-filter="experiments">تجارب | Experiments</button>
         <button class="filter-btn" data-filter="pranks">مقالب | Pranks</button>
         <button class="filter-btn" data-filter="story">قصص | Stories</button>
         <button class="filter-btn" data-filter="teaser">ترويج | Teasers</button>
-
         <button class="filter-btn" data-filter="vlog">فلوقات | Vlogs</button>
     </div>
 
     <div class="portfolios-container" id="slider">
-
         <a href="https://www.youtube.com/watch?v=ZsQmh_tuh8I" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="experiments">
             <img src="WORKS/019" alt="ممنوع اصرف ولا ريال.. الا اذا كسبته !" loading="lazy">
         </a>
@@ -174,7 +170,6 @@
         <a href="https://youtu.be/UdCc1Npt840?si=fbUJojsGAWKnGH03" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
             <img src="WORKS/001" alt="مقلب السواق النصاب" loading="lazy">
         </a>
-
     </div>
 </section>
 
@@ -256,42 +251,22 @@
     <p id="my-form-status"></p>
 </section>
 
-
 <button class="track-btn" onclick="toggleTracker()"> تتبع المشروع | Track Project </button>
 
-    <div id="tracker-modal" class="modal">
-        <div class="modal-content">
-            <span class="new-close-btn" onclick="toggleTracker()">&times;</span>
-            <h3> تتبع المشروع | Track Project </h3>
-            <div class="gold-divider">
-        <div class="divider-line"></div>
-    </div>
-            <input type="text" id="project-code" placeholder=" أدخل كود المشروع | Enter Project Code ">
-            <button class="check-btn" onclick="checkProject()"> تحقق | Check </button>
-
-            
-            <div id="project-status"></div>
-            
+<div id="tracker-modal" class="modal">
+    <div class="modal-content">
+        <span class="new-close-btn" onclick="toggleTracker()">&times;</span>
+        <h3> تتبع المشروع | Track Project </h3>
+        <div class="gold-divider">
+            <div class="divider-line"></div>
         </div>
-        
+        <input type="text" id="project-code" placeholder=" أدخل كود المشروع | Enter Project Code ">
+        <button class="check-btn" onclick="checkProject()"> تحقق | Check </button>
+        <div id="project-status"></div>
     </div>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="order-modal" class="modal">
+<div id="order-modal" class="modal">
   <div class="modal-content">
     <span class="new-close-btn" onclick="toggleOrderModal()">×</span>
 
@@ -342,21 +317,11 @@
   </div>
 </div>
 
+<footer>
+    <p>آخر تحديث : سبتمبر 2026 | Last Updated : September 2026</p>
+</footer>
 
-
-
-
-
-
-
-    
-
-
-    <footer>
-        <p>آخر تحديث : سبتمبر 2026 | Last Updated : September 2026</p>
-    </footer>
-
-    <div class="soon-mobile-menu">
+<div class="soon-mobile-menu">
   <!-- زر البرجر -->
   <button class="burger-toggle" id="burgerToggle" aria-label="القائمة">
     <span></span>
@@ -364,23 +329,19 @@
     <span></span>
   </button>
 
-  
-<!-- القائمة المنبثقة: زر التواصل وزر تتبع المشروع وزر الطلب -->
-<div class="menu-items" id="menuItems">
+  <!-- القائمة المنبثقة: زر التواصل وزر تتبع المشروع وزر الطلب -->
+  <div class="menu-items" id="menuItems">
+    <!-- زر الطلب الجديد (يستدعي فانكشن toggleOrderModal) -->
+    <button class="menu-icon-btn" onclick="toggleOrderModal()" title="طلب مشروع">
+      <i class="fa-solid fa-bag-shopping"></i>
+    </button>
 
-  <!-- زر الطلب الجديد (يستدعي فانكشن toggleOrderModal) -->
-  <button class="menu-icon-btn" onclick="toggleOrderModal()" title="طلب مشروع">
-    <i class="fa-solid fa-bag-shopping"></i>
-  </button>
-
-  <button class="menu-icon-btn" onclick="toggleTrackerModal()" title="تتبع المشروع">
-  <i class="fa-solid fa-magnifying-glass"></i>
-</button>
-
-
-    </div>
+    <button class="menu-icon-btn" onclick="toggleTrackerModal()" title="تتبع المشروع">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
 </div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
