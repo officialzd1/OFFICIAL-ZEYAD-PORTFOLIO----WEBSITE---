@@ -689,3 +689,72 @@ function toggleOrderModal() {
         }
     }
 }
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const forms = document.querySelectorAll('form[action*="formspree.io"]');
+
+  forms.forEach(form => {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // منع الانتقال لصفحة Formspree الخارجية
+      
+      const formData = new FormData(form);
+      const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+      
+      // البحث عن رسالة النجاح المرتبطة بهذا الفورم تحديداً
+      const statusMessage = form.parentElement.querySelector('#form-success-msg, #form-success-msg-mobile');
+
+      if (submitBtn) {
+        submitBtn.classList.add('loading');
+      }
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (submitBtn) {
+          submitBtn.classList.remove('loading');
+        }
+
+        if (response.ok) {
+          if (statusMessage) {
+            statusMessage.innerHTML = "تم إرسال الطلب | Order Sent ";
+            statusMessage.style.display = "block"; // إظهار الرسالة إجبارياً
+            statusMessage.style.color = "#4BB543"; // لون أخضر فخم للنجاح
+            statusMessage.style.setProperty('color', '#4BB543', 'important');
+          }
+          form.reset(); // تفريغ الحقول بعد الإرسال
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              if (statusMessage) {
+                statusMessage.innerHTML = data.errors.map(error => error.message).join(", ");
+                statusMessage.style.display = "block";
+                statusMessage.style.color = "#ff3333";
+              }
+            } else {
+              if (statusMessage) {
+                statusMessage.innerHTML = "عذراً، حدث خطأ. حاول مرة أخرى.";
+                statusMessage.style.display = "block";
+                statusMessage.style.color = "#ff3333";
+              }
+            }
+          })
+        }
+      }).catch(error => {
+        if (submitBtn) {
+          submitBtn.classList.remove('loading');
+        }
+        if (statusMessage) {
+          statusMessage.innerHTML = "عذراً، تأكد من اتصالك بالإنترنت.";
+          statusMessage.style.display = "block";
+          statusMessage.style.color = "#ff3333";
+        }
+      });
+    });
+  });
+});

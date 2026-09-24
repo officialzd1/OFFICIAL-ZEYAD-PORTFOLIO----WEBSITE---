@@ -1798,7 +1798,10 @@ font-size: 1.8rem;
 }
 
 
-
+#form-success-msg, 
+#form-success-msg-mobile {
+  color: #4BB543 !important;
+}
 
 
 
