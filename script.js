@@ -485,3 +485,24 @@ window.addEventListener('click', function(e) {
     // trackerModal.classList.remove('show');
   }
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('tracker-modal') || document.querySelector('.modal');
+  const closeBtn = document.querySelector('.close-btn') || document.querySelector('.close');
+
+  // 1. إغلاق النافذة عند الضغط على زر X
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (modal) modal.style.display = 'none';
+    });
+  }
+
+  // 2. إغلاق النافذة عند الضغط في أي مكان خارج المودال
+  window.addEventListener('click', function (e) {
+    if (e.target === modal || e.target.classList.contains('modal-overlay')) {
+      modal.style.display = 'none';
+    }
+  });
+});
