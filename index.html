@@ -204,52 +204,80 @@
     </div>
 </section>
 
-<section id="order-form">
-    <h2>اطلب الآن | Order Now</h2>
-    
-    <!-- الفاصل الذهبي -->
-    <div class="gold-divider">
-        <div class="divider-line"></div>
-    </div>
-        
-    <form id="my-form" action="https://formspree.io/f/xeewdywy" method="POST">
-        <label>
-            <span class="label-ar">الاسم</span>
-            <span class="label-en">Name</span>
-        </label>
-        <input type="text" name="name" required>
+ <section id="order-form" style="padding: 50px;">
+        <h2 style="text-align: center;"> اطلب الآن | Order Now </h2>
+        <form id="my-form" action="https://formspree.io/f/xeewdywy" method="POST">
+            <label style="display: block; overflow: hidden;">
+                <span style="float: right;"> الاسم </span>
+                <span style="float: left;"> Name </span>
+            </label>
+            <input type="text" name="name" required>
 
-        <label>
-            <span class="label-ar">رابط الفيديو</span>
-            <span class="label-en">Video Link</span>
-        </label>
-        <input type="url" name="video-link">
+            <label style="display: block; overflow: hidden;">
+                <span style="float: right;"> رابط الفيديو </span>
+                <span style="float: left;"> Video Link </span>
+            </label>
+            <input type="url" name="video-link">
 
-        <label>
-            <span class="label-ar">نوع الفيديو</span>
-            <span class="label-en">Video Type</span>
-        </label>
-        <select name="video-type">
-            <option value="Short">قصير | Short</option>
-            <option value="Teaser">تشويقة | Teaser</option>
-            <option value="YouTube">يوتيوب | YouTube</option>
-        </select>
+            <label style="display: block; overflow: hidden;">
+                <span style="float: right;"> نوع الفيديو </span>
+                <span style="float: left;"> Video Type </span>
+            </label>
+            <select name="video-type">
+                <option value="Short"> قصير | Short </option>
+                <option value="Teaser"> تشويقة | Teaser </option>
+                <option value="YouTube"> يوتيوب | YouTube </option>
+            </select>
 
-        <label class="label-contact">
-            <span class="label-ar">التواصل</span>
-            <span class="label-en">Contact</span>
-        </label>
-        <input type="text" name="contact">        
+            <label style="display: block; overflow: hidden; margin-top: 10px;">
+                <span style="float: right;"> التواصل </span>
+                <span style="float: left;"> Contact </span>
+            </label>
+            <input type="text" name="contact">         
 
-        <button type="submit" id="my-form-button">إرسال الطلب | Order Now</button>
-    </form>
+            <!-- خانة الموافقة (عربي - مربع الصح - إنجليزي في نفس السطر) -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0 18px 0; width: 100%; direction: rtl;">
+                <!-- النص العربي (يمين) -->
+                <label for="policy-checkbox" style="color: #fff; font-size: 11.5px; cursor: pointer; text-align: right;">
+                    أقر بأنني قرأت <span onclick="openPolicyModal()" style="color: #d4af37; text-decoration: underline; cursor: pointer;">سياسة الدفع</span>
+                </label>
 
-    <!-- رسائل حالة النموذج -->
-    <div id="form-success-msg">
-        تم إرسال الطلب | Order Sent
-    </div>
-    <p id="my-form-status"></p>
-</section>
+                <!-- مربع الصح (في المنتصف) -->
+                <input type="checkbox" id="policy-checkbox" required style="width: 15px; height: 15px; cursor: pointer; accent-color: #d4af37; margin: 0; flex-shrink: 0;">
+
+                <!-- النص الإنجليزي (يسار) -->
+                <label for="policy-checkbox" style="color: #fff; font-size: 11px; cursor: pointer; text-align: left; direction: ltr;">
+                    I Read The <span onclick="openPolicyModal()" style="color: #d4af37; text-decoration: underline; cursor: pointer;">Payment Policy</span>
+                </label>
+            </div>
+
+            <button type="submit" id="my-form-button"> إرسال الطلب | Order Now </button>
+        </form>
+
+        <div class="order-note-wrapper">
+            <button type="button" class="order-info-tooltip" aria-label="Toggle Project Notes" onclick="toggleOrderNote(event)">
+                <span aria-hidden="true">i</span>
+                <div class="order-note-box">
+                    <div class="order-note-header">
+                        <span class="order-note-ar">ملاحظة</span>
+                        <span class="order-note-en">Note</span>
+                    </div>
+                    <div class="order-note-body">
+                        <div class="order-note-row">
+                            <p class="order-text-ar">إدخال رابط الفيديو وتفاصيل الطلب عبر الموقع يُمثّل إثباتًا رسميًا للاتفاق على نطاق العمل بين الطرفين</p>
+                            <p class="order-text-en">Submitting the video link and order details through the website serves as official proof of agreement on the scope of work between both parties</p>
+                        </div>
+                    </div>
+                </div>
+            </button>
+        </div>
+
+        <div id="form-success-msg" style="display: none; text-align: center; margin-top: 15px; color: #2ecc71; font-size: 1.1rem; font-weight: bold;">
+            تم إرسال الطلب | Order Sent
+        </div>
+        <p id="my-form-status" style="text-align: center; font-size: 3px;"></p>
+    </section>
+
 
 <button class="track-btn" onclick="toggleTrackerModal()">تتبع المشروع | Track Project</button>
 
@@ -266,6 +294,51 @@
         <div id="project-status"></div>
     </div>
 </div>
+
+ <!-- Modal سياسة الدفع مع خيار تبديل اللغة -->
+    <div id="policyModal" class="policy-modal-overlay">
+        <div class="policy-modal-content">
+            
+            <!-- هيدر الـ Modal ويحتوي على العنوان وزر تغيير اللغة -->
+            <div class="modal-header">
+                <h3 id="modal-title">سياسة الدفع</h3>
+                <button type="button" id="lang-switch-btn" onclick="togglePolicyLanguage()">English</button>
+            </div>
+
+            <!-- المحتوى العربي -->
+            <div id="policy-content-ar" class="policy-lang-pane">
+                <h4>العملاء الجدد :</h4>
+                <ul>
+                    <li>بعد استلام تفاصيل المشروع وتأكيد السعر ، يتم تحديد قيمة المشروع .</li>
+                    <li>يبدأ العمل بعد استلام دفعة أولى .</li>
+                    <li>يتم دفع المبلغ المتبقي عند اكتمال المشروع وقبل تسليم النسخة النهائية .</li>
+                    <li>الدفعة الأولى غير مستردة بعد بدء العمل ، لأنها تغطي الوقت والجهد المبذول في المشروع .</li>
+                </ul>
+                <p><strong>ملاحظة هامة :</strong> يتم دفع 50% مقدمًا عند تأكيد المشروع ، والـ50% المتبقية عند اكتمال المشروع وقبل تسليم الملفات النهائية .</p>
+
+                <h4>العملاء الدائمون :</h4>
+                <p>يمكن الدفع بعد اكتمال المشروع ، حسب طبيعة التعاون والاتفاق بين الطرفين .</p>
+            </div>
+
+            <!-- المحتوى الإنجليزي -->
+            <div id="policy-content-en" class="policy-lang-pane" style="display: none; direction: ltr; text-align: left;">
+                <h4>New Clients :</h4>
+                <ul>
+                    <li>After receiving project details and confirming the price , the project value is determined .</li>
+                    <li>Work begins after receiving an initial deposit .</li>
+                    <li>The remaining amount is paid upon project completion and before delivering the final version .</li>
+                    <li>The initial deposit is non-refundable after work begins , as it covers the time and effort invested .</li>
+                </ul>
+                <p><strong>Important Note :</strong> 50% is paid in advance upon project confirmation , and the remaining 50% upon completion before final files delivery .</p>
+
+                <h4>Regular Clients :</h4>
+                <p>Payment can be made after project completion , depending on the nature of cooperation and agreement between both parties .</p>
+            </div>
+
+            <button type="button" class="close-policy-btn" onclick="closePolicyModal()">فهمت | Got it</button>
+        </div>
+    </div>
+
 
 <div id="order-modal" class="modal">
   <div class="modal-content">
@@ -341,6 +414,8 @@
     </button>
   </div>
 </div>
+
+
 
 <script src="script.js"></script>
 </body>

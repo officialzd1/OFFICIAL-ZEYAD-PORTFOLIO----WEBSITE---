@@ -1068,7 +1068,7 @@ footer p {
 
 @media screen and (max-width: 768px) {
   /* إخفاء كل عناصر الـ body في الجوال باستثناء القائمة الجانبية، المودال، وقسم الطلب */
-  body > *:not(.soon-mobile-menu):not(#tracker-modal):not(#order-modal) {
+  body > *:not(.soon-mobile-menu):not(#tracker-modal):not(#order-modal) :not(#order-modal){
     display: none !important;
   }
 

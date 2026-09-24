@@ -227,9 +227,9 @@ const myProjects = {
 
     "ZD-491": { 
         name: "عرض وزارة الدفاع 2026",
-        deliveryDate: "9:50PM | 24 September 2026",
+        deliveryDate: "10:30PM | 24 September 2026",
         currentStage: 13, 
-        driveUrl: "",
+        driveUrl: "https://drive.google.com/file/d/1md5sQm0TEO2tFAghKLO0wlwT-tNR0ejb/view?usp=sharing",
         stages: [
             { ar: "التنزيل", en: "Downloading" },
             { ar: "الترتيب", en: "Organizing" },
@@ -455,7 +455,7 @@ function checkProject() {
 
         let downloadButton = (project.driveUrl && project.driveUrl.trim() !== "") ? `
             <div style="text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                <a href="${project.driveUrl}" target="_blank" class="drive-btn">إستلام المعاينة 📥 Get Preview</a>
+                <a href="${project.driveUrl}" target="_blank" class="drive-btn">إستلام الفيديو 📥 Get Video</a>
             </div>` : '';
 
         display.innerHTML = `
@@ -665,4 +665,5 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
 
