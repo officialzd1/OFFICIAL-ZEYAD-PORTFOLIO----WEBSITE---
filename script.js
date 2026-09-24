@@ -232,7 +232,7 @@ const myProjects = {
         driveUrl: "",
         stages: [
 
-            { ar: "بانتظار البدء", en: "" },
+            { ar: "بانتظار البدء", en: "Waiting To Start" },
 
 
             { ar: "التنزيل", en: "Downloading" },
@@ -248,7 +248,7 @@ const myProjects = {
             { ar: "المراجعة", en: "Review" },
             { ar: "التعديلات", en: "Amendments" },
             { ar: "تصدير المعاينة", en: "Export Preview" },
-            { ar: "تسليم المعاينة", en: "Pre-delivery Inspection" },
+            { ar: "تسليم المعاينة", en: "Delivery For Review" },
             { ar: "تعديلات العميل", en: "Client Revisions" },
             { ar: "التصدير النهائي", en: "Final Export" },
             { ar: "التسليم النهائي", en: "Final Delivery" }
