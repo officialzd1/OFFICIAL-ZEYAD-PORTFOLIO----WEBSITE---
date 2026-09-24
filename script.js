@@ -232,7 +232,7 @@ const myProjects = {
 
 
     "ZD1": { 
-        name: "معاينة | Preview",
+        name: "معاينة تجريبية | Experimental preview ",
         deliveryDate: "8:30PM | 24 September 2026",
         currentStage: 8, 
         driveUrl: "https://drive.google.com",
