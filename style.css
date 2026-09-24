@@ -1188,7 +1188,7 @@ display: block;
 
     background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
         background-size: 430% auto;
-    animation: shine 13.8s linear infinite;
+    
 
   border-radius: 1rem;
   transition: all 0.3s ease;
@@ -1241,8 +1241,8 @@ transform: translateY(-9px) rotate(-45deg);}
 .menu-icon-btn,
 .menu-icon-btn:visited,
 .menu-icon-btn:active {
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 2.3rem;
+  height: 2.3rem;
   background: rgba(20, 20, 20, 0.363) !important; /* خلفية سوداء/رمادية داكنة شبه شفافة */
   border: 1px solid rgba(197, 160, 89, 0.3) !important; /* إطار ذهبي خفيف وناعم */
   border-radius: 50% !important; /* تحويل الزر إلى دائرة متناسقة */
@@ -1262,7 +1262,7 @@ transform: translateY(-9px) rotate(-45deg);}
 /* تنسيق وتلوين الأيقونات بداخل الدوائر بدون قص للحواف */
 .menu-icon-btn i {
   display: inline-block !important;
-  font-size: 1.1rem !important;
+  font-size: 0.8rem !important;
   padding: 0.2em !important; /* مساحة حرة تمنع قص حواف التدرج الذهبي */
   background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
   background-size: 200% auto !important;
