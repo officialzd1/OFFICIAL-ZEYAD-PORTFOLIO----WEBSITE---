@@ -493,23 +493,6 @@ function checkProject() {
 
 
 
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const burgerToggle = document.getElementById('burgerToggle');
-  const menuItems = document.getElementById('menuItems');
-
-  if (burgerToggle && menuItems) {
-    burgerToggle.addEventListener('click', () => {
-      burgerToggle.classList.toggle('active');
-      menuItems.classList.toggle('show');
-    });
-  }
-});
-
-
 function toggleTracker() {
   const modal = document.getElementById('tracker-modal');
   const menuItems = document.getElementById('menuItems');
@@ -526,106 +509,183 @@ function toggleTracker() {
 }
 
 
-const trackerModal = document.getElementById('tracker-modal');
-const closeModalBtn = document.querySelector('.close-btn') || document.querySelector('.close');
 
-if (closeModalBtn) {
-  closeModalBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    trackerModal.style.display = 'none';
-    
-  });
-}
 
-window.addEventListener('click', function(e) {
-  if (e.target === trackerModal) {
-    trackerModal.style.display = 'none';
-  }
-});
 
-document.addEventListener('DOMContentLoaded', function () {
-  const modal = document.getElementById('tracker-modal') || document.querySelector('.modal');
-  const closeBtn = document.querySelector('.close-btn') || document.querySelector('.close');
 
-  if (closeBtn) {
-    closeBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      if (modal) modal.style.display = 'none';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const burgerToggle = document.getElementById('burgerToggle');
+  const menuItems = document.getElementById('menuItems');
+
+  // تحكم بقائمة البرجر
+  if (burgerToggle && menuItems) {
+    burgerToggle.addEventListener('click', () => {
+      burgerToggle.classList.toggle('active');
+      menuItems.classList.toggle('show');
     });
   }
 
+  // إغلاق النوافذ عند النقر على الخلفية السوداء (الـ Modal نفسها)
   window.addEventListener('click', function (e) {
-    if (e.target === modal || e.target.classList.contains('modal-overlay')) {
-      modal.style.display = 'none';
+    const trackerModal = document.getElementById('tracker-modal');
+    const orderModal = document.getElementById('order-modal');
+
+    if (trackerModal && e.target === trackerModal) {
+      trackerModal.classList.remove('modal-open');
+    }
+    if (orderModal && e.target === orderModal) {
+      orderModal.classList.remove('modal-open');
     }
   });
-});
 
-document.addEventListener('DOMContentLoaded', function () {
+  // تفعيل زر Enter للبحث في نافذة التتبع
   const inputField = document.querySelector('#tracker-modal input, .modal input, #tracker-form input');
   const checkBtn = document.querySelector('#tracker-modal button, .modal button, .check-btn');
 
   if (inputField) {
     inputField.addEventListener('keydown', function (event) {
       if (event.key === 'Enter' || event.keyCode === 13) {
-        event.preventDefault(); // منع إعادة تحميل الصفحة لو كان داخل فورم
-        
-        // إذا وُجد زر التحقق، اضغط عليه برمجياً
+        event.preventDefault();
         if (checkBtn) {
           checkBtn.click();
-        } else {
-          // بديل مباشر: لو ما لقينا الزر، نفذ الدالة البرمجية حق البحث هنا مباشرة
-          console.log("تم ضغط Enter، تنفيذ البحث...");
-          // حط دالة البحث حقك هنا لو عندك دالة مخصصة (مثلا: checkProject());
         }
       }
     });
   }
-});
 
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  const checkBtn = document.querySelector('.check-btn') || document.querySelector('#check-btn');
-  const trackingInput = document.querySelector('input[type="text"]');
-  
-  // حدد عنصر قسم المراحل/النتيجة عندك (استبدل الكلاس أو الأيدي حسب ما هو موجود عندك)
+  // تأثير زر التحقق (Check) في التتبع
+  const trackingCheckBtn = document.querySelector('.check-btn') || document.querySelector('#check-btn');
   const resultSection = document.querySelector('#tracker-result') || document.querySelector('.project-details');
 
-  // تأكد من إخفاء المراحل أول ما تنفتح الصفحة
   if (resultSection) {
     resultSection.style.display = 'none';
   }
 
-  if (checkBtn) {
-    checkBtn.addEventListener('click', function (e) {
+  if (trackingCheckBtn) {
+    trackingCheckBtn.addEventListener('click', function (e) {
       e.preventDefault();
       
-      // 1. إخفاء النتيجة القديمة لو كانت ظاهرة (لو بيغير الكود)
       if (resultSection) {
         resultSection.style.display = 'none';
       }
 
-      // 2. تشغيل دائرة التحميل على الزر
-      checkBtn.classList.add('loading');
+      trackingCheckBtn.classList.add('loading');
 
-      // 3. الانتظار حتى ينتهي التحميل (مثلاً 800 جزء من الألف من الثانية) وبعدها تظهر المراحل
       setTimeout(function () {
-        // إيقاف دائرة التحميل
-        checkBtn.classList.remove('loading');
-        
-        // إظهار قسم المراحل والنتيجة الآن فقط!
+        trackingCheckBtn.classList.remove('loading');
         if (resultSection) {
-          resultSection.style.display = 'block'; // أو flex حسب تصميمك
+          resultSection.style.display = 'block';
         }
-        
       }, 800); 
     });
   }
 });
+
+
+// ==========================================
+// دوال الفتح والإغلاق المتبادلة (تمنع تداخل النوافذ)
+// ==========================================
+
+// دالة فتح/إغلاق نافذة تتبع المشروع
+function toggleTrackerModal() {
+    const trackerModal = document.getElementById('tracker-modal');
+    const orderModal = document.getElementById('order-modal');
+    const menuItems = document.getElementById('menuItems');
+    const burgerToggle = document.getElementById('burgerToggle');
+
+    if (trackerModal) {
+        const isOpen = trackerModal.classList.contains('modal-open');
+        
+        // تبديل حالة التتبع، وإغلاق الطلب إجبارياً إذا كنا بنفتح التتبع
+        trackerModal.classList.toggle('modal-open', !isOpen);
+        if (!isOpen && orderModal) {
+            orderModal.classList.remove('modal-open'); 
+        }
+
+        // إغلاق قائمة البرجر عند فتح النافذة
+        if (!isOpen) {
+            if (menuItems) menuItems.classList.remove('show');
+            if (burgerToggle) burgerToggle.classList.remove('active');
+        }
+    }
+}
+
+// دالة فتح/إغلاق نافذة الطلب
+function toggleOrderModal() {
+    const orderModal = document.getElementById('order-modal');
+    const trackerModal = document.getElementById('tracker-modal');
+    const menuItems = document.getElementById('menuItems');
+    const burgerToggle = document.getElementById('burgerToggle');
+
+    if (orderModal) {
+        const isOpen = orderModal.classList.contains('modal-open');
+        
+        // تبديل حالة الطلب، وإغلاق التتبع إجبارياً إذا كنا بنفتح الطلب
+        orderModal.classList.toggle('modal-open', !isOpen);
+        if (!isOpen && trackerModal) {
+            trackerModal.classList.remove('modal-open'); 
+        }
+
+        // إغلاق قائمة البرجر عند فتح النافذة
+        if (!isOpen) {
+            if (menuItems) menuItems.classList.remove('show');
+            if (burgerToggle) burgerToggle.classList.remove('active');
+        }
+    }
+}

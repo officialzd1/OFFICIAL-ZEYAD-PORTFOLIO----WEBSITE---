@@ -246,40 +246,8 @@
         </label>
         <input type="text" name="contact">        
 
-        <!-- خانة الموافقة -->
-        <div class="policy-checkbox-container">
-            <label for="policy-checkbox" class="policy-label-ar">
-                أقر بأنني قرأت <span onclick="openPolicyModal()" class="policy-link">سياسة الدفع</span>
-            </label>
-
-            <input type="checkbox" id="policy-checkbox" required class="custom-checkbox">
-
-            <label for="policy-checkbox" class="policy-label-en">
-                I Read The <span onclick="openPolicyModal()" class="policy-link">Payment Policy</span>
-            </label>
-        </div>
-
         <button type="submit" id="my-form-button">إرسال الطلب | Order Now</button>
     </form>
-
-    <!-- ملاحظة الطلب التوضيحية -->
-    <div class="order-note-wrapper">
-        <button type="button" class="order-info-tooltip" aria-label="Toggle Project Notes" onclick="toggleOrderNote(event)">
-            <span aria-hidden="true">i</span>
-            <div class="order-note-box">
-                <div class="order-note-header">
-                    <span class="order-note-ar">ملاحظة</span>
-                    <span class="order-note-en">Note</span>
-                </div>
-                <div class="order-note-body">
-                    <div class="order-note-row">
-                        <p class="order-text-ar">إدخال رابط الفيديو وتفاصيل الطلب عبر الموقع يُمثّل إثباتًا رسميًا للاتفاق على نطاق العمل بين الطرفين</p>
-                        <p class="order-text-en">Submitting the video link and order details through the website serves as official proof of agreement on the scope of work between both parties</p>
-                    </div>
-                </div>
-            </div>
-        </button>
-    </div>
 
     <!-- رسائل حالة النموذج -->
     <div id="form-success-msg">
@@ -288,54 +256,6 @@
     <p id="my-form-status"></p>
 </section>
 
-    <div id="policyModal" class="policy-modal-overlay">
-        <div class="policy-modal-content">
-            
-            <!-- هيدر الـ Modal ويحتوي على العنوان وزر تغيير اللغة -->
-            <div class="modal-header">
-                <h3 id="modal-title">سياسة الدفع</h3>
-                
-                <button type="button" id="lang-switch-btn" onclick="togglePolicyLanguage()">English</button>
-                
-            </div>
-
-            <div class="gold-divider">
-        <div class="divider-line"></div>
-    </div>
-
-            <!-- المحتوى العربي -->
-            <div id="policy-content-ar" class="policy-lang-pane">
-                <h4>العملاء الجدد :</h4>
-                <ul>
-                    <li>بعد استلام تفاصيل المشروع وتأكيد السعر ، يتم تحديد قيمة المشروع .</li>
-                    <li>يبدأ العمل بعد استلام دفعة أولى .</li>
-                    <li>يتم دفع المبلغ المتبقي عند اكتمال المشروع وقبل تسليم النسخة النهائية .</li>
-                    <li>الدفعة الأولى غير مستردة بعد بدء العمل ، لأنها تغطي الوقت والجهد المبذول في المشروع .</li>
-                </ul>
-                <p><strong>ملاحظة هامة :</strong> يتم دفع 50% مقدمًا عند تأكيد المشروع ، والـ50% المتبقية عند اكتمال المشروع وقبل تسليم الملفات النهائية .</p>
-
-                <h4>العملاء الدائمون :</h4>
-                <p>يمكن الدفع بعد اكتمال المشروع ، حسب طبيعة التعاون والاتفاق بين الطرفين .</p>
-            </div>
-
-            <!-- المحتوى الإنجليزي -->
-            <div id="policy-content-en" class="policy-lang-pane" style="display: none; direction: ltr; text-align: left;">
-                <h4>New Clients :</h4>
-                <ul>
-                    <li>After receiving project details and confirming the price , the project value is determined .</li>
-                    <li>Work begins after receiving an initial deposit .</li>
-                    <li>The remaining amount is paid upon project completion and before delivering the final version .</li>
-                    <li>The initial deposit is non-refundable after work begins , as it covers the time and effort invested .</li>
-                </ul>
-                <p><strong>Important Note :</strong> 50% is paid in advance upon project confirmation , and the remaining 50% upon completion before final files delivery .</p>
-
-                <h4>Regular Clients :</h4>
-                <p>Payment can be made after project completion , depending on the nature of cooperation and agreement between both parties .</p>
-            </div>
-
-            <button type="button" class="close-policy-btn" onclick="closePolicyModal()">فهمت | Got it</button>
-        </div>
-    </div>
 
 <button class="track-btn" onclick="toggleTracker()"> تتبع المشروع | Track Project </button>
 
@@ -356,25 +276,87 @@
         
     </div>
 
-    <a href="#order-form" class="floating-order-btn" aria-label="طلب جديد">
-        <svg width="13" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-        </svg>
-    </a>
 
-    <a href="https://wa.me/966560260300" target="_blank" class="floating-contact-btn" aria-label="تواصل عبر الواتساب">
-        <svg width="13" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-        </svg>
-    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="order-modal" class="modal">
+  <div class="modal-content">
+    <span class="new-close-btn" onclick="toggleOrderModal()">×</span>
+
+    <div class="mobile-order-container">
+        <h2>اطلب الآن | Order Now</h2>
+        
+        <div class="gold-divider">
+            <div class="divider-line"></div>
+        </div>
+            
+        <form id="my-form-mobile" action="https://formspree.io/f/xeewdywy" method="POST">
+            <label>
+                <span class="label-ar">الاسم</span>
+                <span class="label-en">Name</span>
+            </label>
+            <input type="text" name="name" required>
+
+            <label>
+                <span class="label-ar">رابط الفيديو</span>
+                <span class="label-en">Video Link</span>
+            </label>
+            <input type="url" name="video-link">
+
+            <label>
+                <span class="label-ar">نوع الفيديو</span>
+                <span class="label-en">Video Type</span>
+            </label>
+            <select name="video-type">
+                <option value="Short">قصير | Short</option>
+                <option value="Teaser">تشويقة | Teaser</option>
+                <option value="YouTube">يوتيوب | YouTube</option>
+            </select>
+
+            <label class="label-contact">
+                <span class="label-ar">التواصل</span>
+                <span class="label-en">Contact</span>
+            </label>
+            <input type="text" name="contact">        
+
+            <button type="submit" id="my-form-button-mobile">إرسال الطلب | Order Now</button>
+        </form>
+
+        <div id="form-success-msg-mobile" style="display:none;">
+            تم إرسال الطلب | Order Sent
+        </div>
+        <p id="my-form-status-mobile"></p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    
+
 
     <footer>
         <p>آخر تحديث : سبتمبر 2026 | Last Updated : September 2026</p>
     </footer>
 
-<!-- قائمة الجوال المبسطة -->
-<div class="soon-mobile-menu">
+    <div class="soon-mobile-menu">
   <!-- زر البرجر -->
   <button class="burger-toggle" id="burgerToggle" aria-label="القائمة">
     <span></span>
@@ -382,17 +364,22 @@
     <span></span>
   </button>
 
-<!-- القائمة المنبثقة: زر التواصل وزر تتبع المشروع -->
-<div class="menu-items" id="menuItems">
   
+<!-- القائمة المنبثقة: زر التواصل وزر تتبع المشروع وزر الطلب -->
+<div class="menu-items" id="menuItems">
 
-  <!-- زر تتبع المشروع (يستدعي نفس الفانكشن toggleTracker) -->
-  <button class="menu-icon-btn" onclick="toggleTracker()" title="تتبع المشروع">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <!-- زر الطلب الجديد (يستدعي فانكشن toggleOrderModal) -->
+  <button class="menu-icon-btn" onclick="toggleOrderModal()" title="طلب مشروع">
+    <i class="fa-solid fa-bag-shopping"></i>
   </button>
+
+  <button class="menu-icon-btn" onclick="toggleTrackerModal()" title="تتبع المشروع">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+
+
+    </div>
 </div>
-
-
 
     <script src="script.js"></script>
 </body>
