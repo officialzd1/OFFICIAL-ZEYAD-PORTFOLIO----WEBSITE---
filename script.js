@@ -249,7 +249,7 @@ const myProjects = {
     },
 
     "ZD1": { 
-        name: "معاينة تجريبية | Experimental preview ",
+        name: "معاينة تجريبية | Experimental previe ",
         deliveryDate: "8:30PM | 24 September 2026",
         currentStage: 8, 
         driveUrl: "https://drive.google.com",
