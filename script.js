@@ -228,8 +228,8 @@ const myProjects = {
     "ZD-491": { 
         name: "عرض وزارة الدفاع 2026",
         deliveryDate: "8:30PM | 24 September 2026",
-        currentStage: 8, 
-        driveUrl: "",
+        currentStage: 10, 
+        driveUrl: "https://drive.google.com/drive/folders/182xx24cuvOIvoH4Gw_Yr_rykjG4ohn2N?usp=sharing",
         stages: [
             { ar: "التنزيل", en: "Downloading" },
             { ar: "الترتيب", en: "Organizing" },
@@ -240,8 +240,11 @@ const myProjects = {
             { ar: "المؤثرات الصوتية والموسيقى", en: "Sound Effects & Music" },
             { ar: "المراجعة", en: "Review" },
             { ar: "التعديلات", en: "Amendments" },
-            { ar: "التصدير", en: "Exporting" },
-            { ar: "التسليم", en: "Final Delivery" }
+            { ar: "تصدير المعاينة", en: "Export Preview" },
+            { ar: "تسليم المعاينة", en: "Pre-delivery Inspection" },
+            { ar: "تعديلات العميل", en: "Client Revisions" },
+            { ar: "التصدير النهائي", en: "Final Export" },
+            { ar: "التسليم النهائي", en: "Final Delivery" }
         ]
     },
 
@@ -452,7 +455,7 @@ function checkProject() {
 
         let downloadButton = (project.driveUrl && project.driveUrl.trim() !== "") ? `
             <div style="text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                <a href="${project.driveUrl}" target="_blank" class="drive-btn">إستلام الفيديو 📥 Get Video</a>
+                <a href="${project.driveUrl}" target="_blank" class="drive-btn">إستلام المعاينة 📥 Get Preview</a>
             </div>` : '';
 
         display.innerHTML = `
