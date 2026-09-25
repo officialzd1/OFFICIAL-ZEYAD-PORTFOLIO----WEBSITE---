@@ -240,6 +240,9 @@ const myProjects = {
             { ar: "القص", en: "Cutting" },
             { ar: "التلوين", en: "Coloring" },
             { ar: "تحسين الصوت بالذكاء الإصطناعي", en: "AI-Powered Audio Enhancement" },
+
+            { ar: "الترجمة التوضيحية", en: "Caption" },
+
             { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effects & Transition" },
             { ar: "المؤثرات الصوتية والموسيقى", en: "Sound Effects & Music" },
 
