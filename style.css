@@ -1052,7 +1052,26 @@ footer p {
   display: none !important;
 }
 
+/* إخفاء نافذة السياسة افتراضياً على كل الأجهزة حتى يتم فتحها برمجياً */
+#zd1TermsModal {
+    display: none;
+}
 
+/* عندما تفتح النافذة وتأخذ كلاس التفعيل أو عرض الـ flex تتضح */
+#zd1TermsModal.modal-open,
+#zd1TermsModal[style*="flex"] {
+    display: flex !important;
+}
+
+/* إخفاء نافذة الطلب تماماً على البي سي والشاشات الكبيرة */
+#order-modal {
+    display: none !important;
+}
+
+/* عندما تأخذ كلاس التفعيل modal-open تظهر بالـ flex */
+#order-modal.modal-open {
+    display: none !important;
+}
 @media screen and (min-width: 768px) {
   .soon-mobile-menu {
     display: none !important;
@@ -1067,19 +1086,21 @@ footer p {
 
 @media screen and (max-width: 768px) {
   /* إخفاء كل عناصر الـ body في الجوال باستثناء القائمة الجانبية، المودال، وقسم الطلب */
-  body > *:not(.soon-mobile-menu):not(#tracker-modal):not(#order-modal) :not(#order-modal){
+  body > *:not(.soon-mobile-menu):not(#tracker-modal):not(#order-modal):not(#zd1TermsModal) {
     display: none !important;
-  }
+}
 
   /* إخفاء الزر الأصلي بالأسفل */
   .track-btn {
     display: none !important;
   }
   
+  
   /* باقي أكواد الميديا... */
 
   /* إعدادات خلفية الشاشة */
   body {
+    position: fixed !important;
     background-color: #000000 !important;
     overflow: hidden !important; /* منع أي سحب أو سكرول بالجوال */
     overflow-x: hidden !important;
@@ -1087,15 +1108,16 @@ footer p {
     padding: 0 !important;
     height: 100vh !important;
     width: 100vw !important;
+    inset: 0 !important;
   }
 
   /* نص "قريباً | SOON" - متوسط 100% في كافة الشاشات */
   body::before {
     content: "قريباً | SOON";
-    position: absolute !important; /* تحويلها لـ absolute بدلاً من fixed */
-    top: 26.2rem !important;          /* تثبيتها في منتصف القسم الأول */
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
+position: fixed !important;
+    top: 50% !important;
+        left: 50% !important;
+transform: translate(-50%, -50%) !important;
     width: max-content !important;
     max-width: 90vw !important;
     text-align: center !important;
@@ -1658,4 +1680,201 @@ footer p {
       color: #4BB543 !important;
     }
   }
+
+/* ==========================================================
+     تنسيقات نافذة سياسة ZD1 (نسخة مطابقة تماماً لنافذة الطلب والتتبع)
+     ========================================================== */
+
+  /* رفع النافذة المنبثقة فوق جميع عناصر الصفحة وتفعيل اللمس */
+  #zd1TermsModal, 
+  #zd1TermsModal.modal, 
+  #zd1TermsModal .modal-overlay {
+    z-index: 999999999999999999999999999999999999999999999 !important;
+    pointer-events: auto !important;
+  }
+
+  /* زر الإغلاق X الخاص بنافذة السياسة */
+  #zd1TermsModal .new-close-btn {
+    position: absolute !important;
+    top: 12px !important;
+    left: 5% !important; /* خليها متطابقة مع نافذة الطلب 5% بدلاً من 5.8% */
+    transform: translateX(-50%) !important;
+    width: max-content !important;
+    height: auto !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: inline-block !important;
+    line-height: 1 !important;
+    font-size: 1.2rem !important;
+    cursor: pointer !important;
+    background: transparent !important;
+    color: #c5a055 !important;
+    z-index: 999999 !important;
+    pointer-events: auto !important;
+}
+
+  #zd1TermsModal .new-close-btn i,
+  #zd1TermsModal .new-close-btn span {
+    display: inline-block !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* تصغير النافذة المنبثقة للسياسة بالكامل دفعة واحدة (نفس إعدادات التتبع والطلب) */
+  #zd1TermsModal .modal-content,
+  #zd1TermsModal .zd1-modal-content {
+    top: 3rem;
+    width: 90% !important;
+    max-width: 360px !important;
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+    padding: 1.5rem 1rem !important;
+    border-radius: 1.2rem !important;
+    background: #000000 !important;
+    border: 1px solid rgba(197, 160, 85, 0.7) !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 3rem rgba(199, 149, 48, 0.705) !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    transform: scale(0.5) !important;
+    transform-origin: center center !important;
+    transition: transform 0.35s ease, opacity 0.35s ease !important;
+    zoom: 0.75 !important;
+  }
+
+  /* تصغير عنوان النافذة */
+  #zd1TermsModal .modal-content h3,
+  #zd1TermsModal h3 {
+    font-family: 'El Messiri', sans-serif !important;
+    font-size: 1.3rem !important;
+    font-weight: bold !important;
+    direction: rtl !important;
+    unicode-bidi: isolate !important;
+    letter-spacing: normal !important;
+    padding-bottom: 0.1rem !important;
+    margin-bottom: 0.8rem !important;
+    margin-top: 1rem !important;
+    color: #c5a055 !important;
+    text-align: center !important;
+  }
+
+  /* تنسيق النصوص الداخلية وقوائم السياسة */
+  #zd1TermsModal .zd1-terms-text,
+  #zd1TermsModal p,
+  #zd1TermsModal li {
+    font-family: 'El Messiri', sans-serif !important;
+    font-size: 0.75rem !important;
+    line-height: 1.6 !important;
+    color: #ddd !important;
+    text-align: right !important;
+  }
+
+  #zd1TermsModal h4 {
+    font-family: 'El Messiri', sans-serif !important;
+    font-size: 0.85rem !important;
+    color: #c5a055 !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  /* تصميم زر الفهم السفلي بنفس لمعان الأزرار الأخرى */
+  #zd1TermsModal .drive-btn,
+  #zd1TermsModal button.close-modal-btn {
+    font-family: 'El Messiri', sans-serif !important;
+    font-size: 0.8rem !important;
+    font-weight: bold !important;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
+    background-size: 200% auto !important;
+    animation: shine 5.8s linear infinite !important;
+    transition: transform 0.2s ease, opacity 0.2s ease !important;
+    color: black !important;
+    border: none !important;
+    padding: 0.4rem 1.2rem !important;
+    border-radius: 5rem !important;
+    cursor: pointer !important;
+    margin: 1rem auto 0 auto !important;
+    display: block !important;
+    width: 85% !important;
+  }
+
+  /* إعدادات المودال الأساسية وحالة الفتح والإغلاق */
+  #zd1TermsModal.modal,
+  #zd1TermsModal.zd1-modal-overlay {
+    display: flex !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    justify-content: center !important;
+    align-items: center !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease !important;
+  }
+
+  /* التفعيل عند الفتح */
+  #zd1TermsModal.modal-open,
+  #zd1TermsModal[style*="flex"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  #zd1TermsModal.modal-open .modal-content,
+  #zd1TermsModal.modal-open .zd1-modal-content,
+  #zd1TermsModal[style*="flex"] .modal-content,
+  #zd1TermsModal[style*="flex"] .zd1-modal-content {
+    transform: scale(1) !important; 
+  }
+
+/* حاوية جملة الإقرار - تصغير الخط ومنعه من الالتفاف لعدة أسطر */
+.terms-agreement-container {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* توزيع متساوي لليمين واليسار والمربع بالوسط */
+    gap: 8px;
+    font-size: 0.5rem; /* تصغير حجم الخط العام */
+    color: #ccc;
+    text-align: center;
+    width: 100%;
+}
+
+/* الجملة العربية (يمين) */
+.terms-text-ar {
+    direction: rtl;
+    text-align: right;
+    white-space: nowrap; /* منع النص من النزول لسطر جديد */
+}
+
+/* الجملة الإنجليزية (يسار) */
+.terms-text-en {
+    direction: ltr;
+    text-align: left;
+    white-space: nowrap; /* منع النص من النزول لسطر جديد */
+}
+
+/* كلمة سياسة ZD1 الصفراء */
+.policy-link-trigger {
+    color: #ffb000;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: opacity 0.2s ease;
+}
+
+.policy-link-trigger:hover {
+    opacity: 0.8;
+}
+
+/* تصميم مربع الاختيار (Checkbox) */
+.custom-terms-checkbox {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    accent-color: #c5a055;
+    flex-shrink: 0; /* منع انكماش المربع */
+der-radius: 3px;
+}
 }

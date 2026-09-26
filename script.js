@@ -21,14 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (filterButtons.length && portfolioItems.length) {
         filterButtons.forEach(button => {
             button.addEventListener('click', function() {
-                // إزالة فئة النشاط من جميع الأزرار وتعيينها للزر المحدد
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
 
-                // جلب قيمة التصفية المطلوبة
                 const filterValue = this.getAttribute('data-filter');
 
-                // إظهار أو إخفاء عناصر الأعمال بناءً على القسم المحدد
                 portfolioItems.forEach(item => {
                     const itemCategory = item.getAttribute('data-category');
                     if (filterValue === 'all' || itemCategory === filterValue) {
@@ -49,9 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let currentLang = 'ar';
 
-// التهيئة العامة عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', () => {
-    // أ. فتح نافذة سياسة الدفع
     const policyModal = document.getElementById('policyModal');
     const openPolicyBtn = document.getElementById('open-policy-btn');
 
@@ -61,20 +56,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ب. إغلاق نافذة سياسة الدفع عند النقر خارجها
     if (policyModal) {
         window.addEventListener('click', (e) => {
             if (e.target === policyModal) policyModal.style.display = 'none';
         });
     }
 
-    // ج. ربط حدث إرسال نموذج الطلب
     const orderForm = document.getElementById("my-form");
     if (orderForm) {
         orderForm.addEventListener("submit", handleOrderSubmit);
     }
 
-    // د. ربط مراقب التمرير لظهور الأقسام بسلاسة (Intersection Observer)
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -86,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// إظهار وإخفاء أداة التلميحات والملاحظات (Tooltip)
 function toggleTooltip(e, selector) {
     if (e) {
         e.preventDefault();
@@ -106,7 +97,6 @@ function toggleOrderNote(e) {
     toggleTooltip(e, '.order-info-tooltip'); 
 }
 
-// إدارة نافذة سياسة الدفع (Payment Policy Modal)
 function openPolicyModal() {
     const modal = document.getElementById('policyModal');
     if (modal) modal.style.display = 'flex';
@@ -132,7 +122,6 @@ function togglePolicyLanguage() {
     langBtn.textContent = currentLang === 'ar' ? 'English' : 'العربية';
 }
 
-// معالجة إرسال نموذج الطلب (Formspree Submission)
 async function handleOrderSubmit(event) {
     event.preventDefault();
 
@@ -142,7 +131,6 @@ async function handleOrderSubmit(event) {
     const successMsg = document.getElementById("form-success-msg");
     const checkbox = document.getElementById('policy-checkbox');
 
-    // التحقق من الموافقة على الشروط
     if (checkbox && !checkbox.checked) {
         alert('يرجى الموافقة على سياسة الدفع أولاً | Please agree to payment policy');
         return;
@@ -198,18 +186,30 @@ async function handleOrderSubmit(event) {
     });
 }
 
-// إدارة القائمة الجوالة (Mobile Navigation Menu)
 function toggleMenu() {
-    const mobileNav = document.getElementById('mobile-nav');
-    if (mobileNav) mobileNav.classList.toggle('active');
+    const mobileNav = document.getElementById('menuItems') || document.getElementById('mobile-nav');
+    const burgerToggle = document.getElementById('burgerToggle');
+    if (mobileNav) {
+        mobileNav.classList.toggle('show');
+        mobileNav.classList.toggle('active');
+    }
+    if (burgerToggle) {
+        burgerToggle.classList.toggle('active');
+    }
 }
 
 function closeMenu() {
-    const mobileNav = document.getElementById('mobile-nav');
-    if (mobileNav) mobileNav.classList.remove('active');
+    const mobileNav = document.getElementById('menuItems') || document.getElementById('mobile-nav');
+    const burgerToggle = document.getElementById('burgerToggle');
+    if (mobileNav) {
+        mobileNav.classList.remove('show');
+        mobileNav.classList.remove('active');
+    }
+    if (burgerToggle) {
+        burgerToggle.classList.remove('active');
+    }
 }
 
-// إدارة حالة التوفر (متاح / مشغول)
 function setStatus(isBusy) {
     const badge = document.getElementById('status-badge');
     if (badge) {
@@ -224,34 +224,23 @@ setStatus(false);
    ========================================================================== */
 
 const myProjects = {
-
     "ZD-553": { 
         name: "كأس الخليج 27 - 2026",
-        deliveryDate: "2:30PM | 26 September 2026",
-        currentStage: 4, 
-        driveUrl: "",
+        deliveryDate: "1:30PM | 26 September 2026",
+        currentStage: 8, 
+        driveUrl: "https://drive.google.com/file/d/19V8OCezDiknm84gpSnQ8mmvAqAQhcKeR/view?usp=sharing",
         stages: [
-
-
-
             { ar: "الـــتـــنـــزيـــل", en: "Downloading" },
             { ar: "الـــتـــرتـــيـــب", en: "Organizing" },
             { ar: "الـــقـــص", en: "Cutting" },
             { ar: "الـــتـــلـــويـــن", en: "Coloring" },
-
             { ar: "الـــتـــرجـــمـــة", en: "Caption" },
-
-            
-
-
-
             { ar: "الـــمـــراجـــعـــة", en: "Review" },
             { ar: "الـــتـــعـــديـــلات", en: "Amendments" },
             { ar: "الـــتـــصـــديـــر", en: "Exporting" },
             { ar: "الـــتـــســـلـــيـــم", en: "Final Delivery" }
         ]
     },
-
     "ZD-491": { 
         name: "عرض وزارة الدفاع 2026",
         deliveryDate: "10:00PM | 24 September 2026",
@@ -274,9 +263,8 @@ const myProjects = {
             { ar: "التسليم النهائي", en: "Final Delivery" }
         ]
     },
-
     "ZD1": { 
-        name: "معاينة تجريبية | Experimental previe ",
+        name: "معاينة تجريبية | Experimental preview",
         deliveryDate: "8:30PM | 24 September 2026",
         currentStage: 8, 
         driveUrl: "https://drive.google.com",
@@ -369,11 +357,6 @@ const myProjects = {
 
 let countdownInterval = null;
 
-function toggleInfo() {
-    const modal = document.getElementById('info-modal');
-    if (modal) modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
-}
-
 function parseDeliveryDate(dateStr) {
     if (!dateStr) return null;
     const regex = /(\d{1,2}):(\d{2})\s*(AM|PM)?\s*\|\s*(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})/i;
@@ -431,13 +414,11 @@ function checkProject() {
     const checkBtn = document.querySelector('.check-btn');
     if (!codeInput || !display) return;
 
-    // 1. إخفاء النتيجة فوراً وتشغيل تأثير التحميل على الزر
     display.innerHTML = "";
     if (checkBtn) {
         checkBtn.classList.add('loading');
     }
 
-    // 2. الانتظار لثزء من الثانية لمحاكاة البحث ومن ثم إظهار النتائج
     setTimeout(function () {
         if (checkBtn) {
             checkBtn.classList.remove('loading');
@@ -502,35 +483,32 @@ function checkProject() {
 
         if (project.deliveryDate) startCountdown(project.deliveryDate);
 
-    }, 800); // وقت التحميل بالملي ثانية
+    }, 800);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     const burgerToggle = document.getElementById('burgerToggle');
-    const menuItems = document.getElementById('menuItems');
+    const menuItems = document.getElementById('menuItems') || document.getElementById('mobile-nav');
 
-    // تحكم بقائمة البرجر
     if (burgerToggle && menuItems) {
         burgerToggle.addEventListener('click', () => {
             burgerToggle.classList.toggle('active');
             menuItems.classList.toggle('show');
+            menuItems.classList.toggle('active');
         });
     }
 
-    // إغلاق النوافذ عند النقر على الخلفية السوداء (الـ Modal نفسها)
+    // إغلاق النوافذ عند النقر على الخلفية السوداء
     window.addEventListener('click', function (e) {
         const trackerModal = document.getElementById('tracker-modal');
         const orderModal = document.getElementById('order-modal');
+        const zd1TermsModal = document.getElementById('zd1TermsModal');
 
-        if (trackerModal && e.target === trackerModal) {
-            trackerModal.classList.remove('modal-open');
-        }
-        if (orderModal && e.target === orderModal) {
-            orderModal.classList.remove('modal-open');
-        }
+        if (trackerModal && e.target === trackerModal) closeModal('tracker-modal');
+        if (orderModal && e.target === orderModal) closeModal('order-modal');
+        if (zd1TermsModal && e.target === zd1TermsModal) closeModal('zd1TermsModal');
     });
 
-    // تفعيل زر Enter للبحث في نافذة التتبع
     const inputField = document.querySelector('#tracker-modal input, .modal input, #tracker-form input');
     const checkBtn = document.querySelector('#tracker-modal button, .modal button, .check-btn');
 
@@ -538,14 +516,11 @@ document.addEventListener('DOMContentLoaded', () => {
         inputField.addEventListener('keydown', function (event) {
             if (event.key === 'Enter' || event.keyCode === 13) {
                 event.preventDefault();
-                if (checkBtn) {
-                    checkBtn.click();
-                }
+                if (checkBtn) checkBtn.click();
             }
         });
     }
 
-    // تأثير زر التحقق (Check) في التتبع
     const trackingCheckBtn = document.querySelector('.check-btn') || document.querySelector('#check-btn');
     const resultSection = document.querySelector('#tracker-result') || document.querySelector('.project-details');
 
@@ -556,139 +531,154 @@ document.addEventListener('DOMContentLoaded', () => {
     if (trackingCheckBtn) {
         trackingCheckBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            
-            if (resultSection) {
-                resultSection.style.display = 'none';
-            }
-
+            if (resultSection) resultSection.style.display = 'none';
             trackingCheckBtn.classList.add('loading');
-
             setTimeout(function () {
                 trackingCheckBtn.classList.remove('loading');
-                if (resultSection) {
-                    resultSection.style.display = 'block';
-                }
+                if (resultSection) resultSection.style.display = 'block';
             }, 800); 
         });
     }
 });
 
 
-// ==========================================
-// دوال الفتح والإغلاق المتبادلة (تمنع تداخل النوافذ)
-// ==========================================
+/* ==========================================================================
+   4. دوال التحكم الموحدة بالنوافذ المنبثقة وإغلاق القائمة فوراً
+   ========================================================================== */
 
-// دالة فتح/إغلاق نافذة تتبع المشروع
+// دالة فتح نافذة تتبع المشروع وإغلاق البرجر فوراً
 function toggleTrackerModal() {
     const trackerModal = document.getElementById('tracker-modal');
-    const orderModal = document.getElementById('order-modal');
-    const menuItems = document.getElementById('menuItems');
-    const burgerToggle = document.getElementById('burgerToggle');
+    closeMenu(); 
 
     if (trackerModal) {
         const isOpen = trackerModal.classList.contains('modal-open');
-        
-        // تبديل حالة التتبع، وإغلاق الطلب إجبارياً إذا كنا بنفتح التتبع
-        trackerModal.classList.toggle('modal-open', !isOpen);
-        if (!isOpen && orderModal) {
-            orderModal.classList.remove('modal-open'); 
-        }
-
-        // إغلاق قائمة البرجر عند فتح النافذة
-        if (!isOpen) {
-            if (menuItems) menuItems.classList.remove('show');
-            if (burgerToggle) burgerToggle.classList.remove('active');
+        if (isOpen) {
+            closeModal('tracker-modal');
+        } else {
+            openModal('tracker-modal');
         }
     }
 }
 
-// دالة فتح/إغلاق نافذة الطلب
+// دالة فتح نافذة الطلب وإغلاق البرجر فوراً
 function toggleOrderModal() {
     const orderModal = document.getElementById('order-modal');
-    const trackerModal = document.getElementById('tracker-modal');
-    const menuItems = document.getElementById('menuItems');
-    const burgerToggle = document.getElementById('burgerToggle');
+    closeMenu(); 
 
     if (orderModal) {
         const isOpen = orderModal.classList.contains('modal-open');
-        
-        // تبديل حالة الطلب، وإغلاق التتبع إجبارياً إذا كنا بنفتح الطلب
-        orderModal.classList.toggle('modal-open', !isOpen);
-        if (!isOpen && trackerModal) {
-            trackerModal.classList.remove('modal-open'); 
-        }
-
-        // إغلاق قائمة البرجر عند فتح النافذة
-        if (!isOpen) {
-            if (menuItems) menuItems.classList.remove('show');
-            if (burgerToggle) burgerToggle.classList.remove('active');
+        if (isOpen) {
+            closeModal('order-modal');
+        } else {
+            openModal('order-modal');
         }
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    const forms = document.querySelectorAll('form[action*="formspree.io"]');
+// فتح نافذة سياسة ZD1 من قائمة البرجر وإغلاق البرجر فوراً
+function toggleZd1TermsModal() {
+    const modal = document.getElementById('zd1TermsModal');
+    closeMenu(); 
 
-    forms.forEach(form => {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault(); // منع الانتقال لصفحة Formspree الخارجية
-            
-            const formData = new FormData(form);
-            const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
-            
-            // البحث عن رسالة النجاح المرتبطة بهذا الفورم تحديداً
-            const statusMessage = form.parentElement.querySelector('#form-success-msg, #form-success-msg-mobile');
+    if (modal) {
+        const isOpen = modal.classList.contains('modal-open');
+        if (isOpen) {
+            closeModal('zd1TermsModal');
+        } else {
+            openModal('zd1TermsModal');
+        }
+    }
+}
 
-            if (submitBtn) {
-                submitBtn.classList.add('loading');
-            }
+function closeZd1TermsModal() {
+    const modal = document.getElementById('zd1TermsModal');
+    if (modal) {
+        modal.classList.remove('modal-open');
+        setTimeout(() => {
+            modal.style.display = 'none'; 
+        }, 300); // متطابقة مع التوقيت العام للإغلاق
+    }
 
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (submitBtn) {
-                    submitBtn.classList.remove('loading');
-                }
+    // تحديد مربع الإقرار تلقائياً عند الضغط على فهمت
+    const termsCheckbox = document.getElementById('termsCheckbox');
+    if (termsCheckbox) {
+        termsCheckbox.checked = true;
+    }
+}
 
-                if (response.ok) {
-                    if (statusMessage) {
-                        statusMessage.innerHTML = "تم إرسال الطلب | Order Sent ";
-                        statusMessage.style.display = "block"; // إظهار الرسالة إجبارياً
-                        statusMessage.style.color = "#4BB543"; // لون أخضر فخم للنجاح
-                        statusMessage.style.setProperty('color', '#4BB543', 'important');
-                    }
-                    form.reset(); // تفريغ الحقول بعد الإرسال
-                } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            if (statusMessage) {
-                                statusMessage.innerHTML = data.errors.map(error => error.message).join(", ");
-                                statusMessage.style.display = "block";
-                                statusMessage.style.color = "#ff3333";
-                            }
-                        } else {
-                            if (statusMessage) {
-                                statusMessage.innerHTML = "عذراً، حدث خطأ. حاول مرة أخرى.";
-                                statusMessage.style.display = "block";
-                                statusMessage.style.color = "#ff3333";
-                            }
-                        }
-                    })
-                }
-            }).catch(error => {
-                if (submitBtn) {
-                    submitBtn.classList.remove('loading');
-                }
-                if (statusMessage) {
-                    statusMessage.innerHTML = "عذراً، تأكد من اتصالك بالإنترنت.";
-                    statusMessage.style.display = "block";
-                    statusMessage.style.color = "#ff3333";
-                }
-            });
+function openModal(modalId) {
+    // إذا لم تكن النافذة المراد فتحها هي السياسة، نقفل البقية بشكل طبيعي
+    if (modalId !== 'zd1TermsModal') {
+        const allModals = document.querySelectorAll('#order-modal, #tracker-modal, #zd1TermsModal');
+        allModals.forEach(modal => {
+            modal.classList.remove('modal-open');
+            modal.style.display = 'none'; 
         });
+    }
+
+    // فتح النافذة المطلوبة
+    const targetModal = document.getElementById(modalId);
+    if (targetModal) {
+        targetModal.style.display = 'flex';
+        setTimeout(() => {
+            targetModal.classList.add('modal-open');
+        }, 10);
+    }
+}
+
+// دالة عامة لإغلاق أي مودل بانسيابية متطابقة
+function closeModal(modalId) {
+    const targetModal = document.getElementById(modalId);
+    if (targetModal) {
+        targetModal.classList.remove('modal-open');
+        setTimeout(() => {
+            targetModal.style.display = 'none';
+        }, 300); // 300ms متطابقة مع التوقيت العام
+    }
+}
+
+
+let currentPolicyLang = 'ar';
+
+function togglePolicyLanguage() {
+    const title = document.getElementById('policy-modal-title');
+    const contentAr = document.getElementById('policy-content-ar');
+    const contentEn = document.getElementById('policy-content-en');
+    const langBtn = document.getElementById('lang-switch-btn');
+
+    if (!title || !contentAr || !contentEn || !langBtn) return;
+
+    currentPolicyLang = currentPolicyLang === 'ar' ? 'en' : 'ar';
+
+    if (currentPolicyLang === 'ar') {
+        contentAr.style.display = 'block';
+        contentEn.style.display = 'none';
+        title.textContent = 'سياسة-ZD1';
+        langBtn.textContent = 'English';
+    } else {
+        contentAr.style.display = 'none';
+        contentEn.style.display = 'block';
+        
+        // إجبار الحاوية الكبيرة على اليسار
+        contentEn.setAttribute('dir', 'ltr');
+        contentEn.style.direction = 'ltr';
+        contentEn.style.textAlign = 'left';
+        
+        title.textContent = 'Policy-ZD1';
+        langBtn.textContent = 'العربية';
+        
+        // إجبار كل العناوين والفقرات بالداخل على محاذاة اليسار بقوة !important
+        const enElements = contentEn.querySelectorAll('h4, p');
+        enElements.forEach(el => {
+            el.style.setProperty('direction', 'ltr', 'important');
+            el.style.setProperty('text-align', 'left', 'important');
+        });
+    }
+}
+
+document.querySelectorAll('.policy-link-trigger').forEach(link => {
+    link.addEventListener('click', function() {
+        openModal('zd1TermsModal'); 
     });
 });
