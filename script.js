@@ -228,7 +228,7 @@ const myProjects = {
     "ZD-553": { 
         name: "كأس الخليج 27 - 2026",
         deliveryDate: "02:00PM | 26 September 2026",
-        currentStage: 3, 
+        currentStage: 7, 
         driveUrl: "",
         stages: [
 
