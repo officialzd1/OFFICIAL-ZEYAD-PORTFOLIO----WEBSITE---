@@ -9,7 +9,7 @@ window.addEventListener('scroll', () => {
     const progress = document.getElementById("scrollProgress");
     
     if (progress && height > 0) {
-        progress.style.width = `${(winScroll / height) * 100}%`;
+        progress.style.width = `${(winScroll / height) * 0}%`;
     }
 });
 
@@ -227,34 +227,28 @@ const myProjects = {
 
     "ZD-553": { 
         name: "كأس الخليج 27 - 2026",
-        deliveryDate: "02:00PM | 26 September 2026",
-        currentStage: 7, 
+        deliveryDate: "2:30PM | 26 September 2026",
+        currentStage: 4, 
         driveUrl: "",
         stages: [
 
-            { ar: "بانتظار البدء", en: "Waiting To Start" },
 
 
-            { ar: "التنزيل", en: "Downloading" },
-            { ar: "الترتيب", en: "Organizing" },
-            { ar: "القص", en: "Cutting" },
-            { ar: "التلوين", en: "Coloring" },
-            { ar: "تحسين الصوت بالذكاء الإصطناعي", en: "AI-Powered Audio Enhancement" },
+            { ar: "الـــتـــنـــزيـــل", en: "Downloading" },
+            { ar: "الـــتـــرتـــيـــب", en: "Organizing" },
+            { ar: "الـــقـــص", en: "Cutting" },
+            { ar: "الـــتـــلـــويـــن", en: "Coloring" },
 
-            { ar: "الترجمة التوضيحية", en: "Caption" },
+            { ar: "الـــتـــرجـــمـــة", en: "Caption" },
 
-            { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effects & Transition" },
-            { ar: "المؤثرات الصوتية والموسيقى", en: "Sound Effects & Music" },
+            
 
 
 
-            { ar: "المراجعة", en: "Review" },
-            { ar: "التعديلات", en: "Amendments" },
-            { ar: "تصدير المعاينة", en: "Export Preview" },
-            { ar: "تسليم المعاينة", en: "Delivery For Review" },
-            { ar: "تعديلات العميل", en: "Client Revisions" },
-            { ar: "التصدير النهائي", en: "Final Export" },
-            { ar: "التسليم النهائي", en: "Final Delivery" }
+            { ar: "الـــمـــراجـــعـــة", en: "Review" },
+            { ar: "الـــتـــعـــديـــلات", en: "Amendments" },
+            { ar: "الـــتـــصـــديـــر", en: "Exporting" },
+            { ar: "الـــتـــســـلـــيـــم", en: "Final Delivery" }
         ]
     },
 
