@@ -1139,7 +1139,7 @@ footer p {
     .logo {
         font-size: 2.3rem;
         font-weight: bold;
-        font-family: 'Playfair Display', serif;
+    font-family: 'El Messiri', sans-serif;
         background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
         background-size: 200% auto;
         -webkit-background-clip: text;
@@ -1185,7 +1185,7 @@ footer p {
         font-size: 1rem;
         margin-bottom: 3rem;
         margin-top: 1.5rem;
-        font-family: 'Playfair Display', serif;
+    font-family: 'El Messiri', sans-serif;
     }
 
     .clients-grid {
@@ -1266,7 +1266,7 @@ display: none;
         font-size: 1rem;
         white-space: nowrap;
         margin: 0rem 0 0rem 0;
-        font-family: 'Playfair Display', serif;
+    font-family: 'El Messiri', sans-serif;
     }
 
     #order-form input, 
@@ -1398,76 +1398,6 @@ display: none;
         font-size: 2.5vmin !important;
     }
 
-    #lang-switch-btn {
-        background: transparent;
-        color: #d4af37;
-        border: 1px solid #d4af37;
-        padding: 0.5vmin 1.5vmin !important;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 2vmin !important;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    #lang-switch-btn:hover {
-        background: #d4af37;
-        color: #000;
-    }
-
-    .policy-modal-content h4 {
-        color: #e5c158;
-        margin-top: 2vmin !important;
-        margin-bottom: 1vmin !important;
-        font-size: 2.2vmin !important;
-    }
-
-    .policy-modal-content ul {
-        padding-right: 15px;
-        margin: 0 0 1.5vmin 0 !important;
-    }
-
-    .policy-modal-content li, 
-    .policy-modal-content p {
-        font-size: 2vmin !important;
-        color: #ccc;
-        line-height: 1.5;
-        margin-bottom: 0.8vmin !important;
-    }
-
-    .close-policy-btn {
-        background: #d4af37;
-        color: #000;
-        border: none;
-        padding: 1vmin 3vmin !important;
-        border-radius: 8px;
-        font-weight: bold;
-        cursor: pointer;
-        display: block;
-        margin: 2vmin auto 0 auto !important;
-        transition: 0.3s;
-    }
-
-    .close-policy-btn:hover {
-        background: #fff;
-    }
-
-    form input[type="checkbox"] {
-        width: 14px !important;
-        height: 14px !important;
-        vertical-align: middle;
-    }
-
-    form label input[type="checkbox"] + span,
-    form label {
-        font-size: 1.8vmin !important;
-    }
-
-    form div:has(input[type="checkbox"]) {
-        font-size: 1.8vmin !important;
-        text-align: center;
-        margin: 18px 0 !important;
-    }
 
     
 }
@@ -1501,7 +1431,7 @@ display: none;
     display: none !important;
   }
   
-  
+
   /* باقي أكواد الميديا... */
 
   /* إعدادات خلفية الشاشة */
@@ -1514,6 +1444,8 @@ display: none;
     height: 100vh !important;
     width: 100vw !important;
     inset: 0 !important;
+    font-family: 'El Messiri', sans-serif;
+
   }
 
   /* نص "قريباً | SOON" - متوسط 100% في كافة الشاشات */
