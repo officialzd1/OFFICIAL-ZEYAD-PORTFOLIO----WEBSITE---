@@ -9,7 +9,7 @@ window.addEventListener('scroll', () => {
     const progress = document.getElementById("scrollProgress");
     
     if (progress && height > 0) {
-        progress.style.width = `${(winScroll / height) * 0}%`;
+        progress.style.width = `${(winScroll / height) * 100}%`;
     }
 });
 
