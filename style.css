@@ -14,7 +14,7 @@ body {
   overflow-x: hidden;
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: var(--font-main);
+    font-family: 'El Messiri', sans-serif;
 }
 
 @keyframes fadeIn {
@@ -187,7 +187,7 @@ nav a:hover::after {
     font-size: 1.8rem;
   letter-spacing: 0.3rem;
   font-weight: bold;
-  font-family: 'Playfair Display', serif;
+    font-family: 'El Messiri', sans-serif;
   background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -321,7 +321,7 @@ nav a:hover::after {
     font-size: 1.8rem;
   letter-spacing: 0.3rem;
   font-weight: bold;
-  font-family: 'Playfair Display', serif;
+    font-family: 'El Messiri', sans-serif;
   background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -1163,7 +1163,7 @@ footer p {
         padding-left: 1.1rem;
         font-weight: 200;
         font-family: 'Arial', sans-serif;
-        margin-top: 1rem;
+        margin-top: 0.6rem;
         user-select: none;
         
     }
