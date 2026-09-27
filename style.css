@@ -1134,6 +1134,8 @@ footer p {
         min-height: 100vh;
         left: 0.2rem;
         bottom: -1.8rem;
+
+        padding-bottom: 5rem;
     }
 
     .logo {
@@ -1153,6 +1155,8 @@ footer p {
         
         margin-top: -2rem;    /* ارفع الكلمة لفوق (كل ما زادت السالب ارتفعت أكثر) */
     margin-bottom: -0.3rem; /* مسافة من تحتها */
+
+    
     }
 
     .subtitle {
