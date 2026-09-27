@@ -1189,11 +1189,16 @@ footer p {
 
     #clients h2,
 .works-section h2 {
-    font-size: 1rem;
-    margin-bottom: 3rem;
-    margin-top: 1.5rem;
-    text-align: center;
-    font-family: 'El Messiri', sans-serif, Arial, Tahoma;
+    font-size: 1.1rem !important;
+    padding-bottom: 0.1rem !important;
+    margin-bottom: 0 !important;
+    margin-top: 1rem;
+    font-family: 'El Messiri', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    direction: rtl;
+    unicode-bidi: isolate;
+    letter-spacing: normal !important;
 }
 
     .clients-grid {
@@ -1456,6 +1461,9 @@ display: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+      animation: fadeIn 1.8s ease-in-out;
+
   }
 
   /* تصميم زر البرجر */
