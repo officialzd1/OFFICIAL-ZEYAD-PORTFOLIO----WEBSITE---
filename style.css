@@ -1138,6 +1138,7 @@ footer p {
 
     .logo {
         font-size: 2.3rem;
+        
         font-weight: bold;
     font-family: 'El Messiri', sans-serif;
         background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
@@ -1150,6 +1151,8 @@ footer p {
         text-align: center;
         width: 100%;
         
+        margin-top: -2rem;    /* ارفع الكلمة لفوق (كل ما زادت السالب ارتفعت أكثر) */
+    margin-bottom: -0.3rem; /* مسافة من تحتها */
     }
 
     .subtitle {
@@ -1437,55 +1440,8 @@ display: none;
   }
   
 
-  /* باقي أكواد الميديا... */
 
-  /* إعدادات خلفية الشاشة */
-  body {
-    position: fixed !important;
-    background-color: #000000 !important;
-    overflow-x: hidden !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    height: 100vh !important;
-    width: 100vw !important;
-    inset: 0 !important;
-    font-family: 'El Messiri', sans-serif;
 
-  }
-
-  /* نص "قريباً | SOON" - متوسط 100% في كافة الشاشات */
-  body::before {
-    content: "قريباً | SOON";
-position: fixed !important;
-    top: 50% !important;
-        left: 50% !important;
-transform: translate(-50%, -50%) !important;
-    width: max-content !important;
-    max-width: 90vw !important;
-    text-align: center !important;
-    z-index: 1 !important;
-    cursor: default !important;
-    margin: 0 !important;
-    gap: 5rem;
-    font-family: 'El Messiri', sans-serif !important;
-    font-size: 1.8rem !important;
-    font-weight: bold !important;
-    direction: rtl !important;
-    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-    background-size: 430% auto;
-    animation: shine 13.8s linear infinite;
-    background-size: 200% auto !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    animation: shine 5.8s linear infinite !important;
-    filter: drop-shadow(0 0 3px #000000) 
-            drop-shadow(0 0 10px #ffd90000) 
-            drop-shadow(0 0 25px #c69a5d00) 
-            drop-shadow(0 0 45px #c69a5d) !important;
-
-            display: none;
-  }
 
   /* حاوية القائمة أعلى اليسار */
   .soon-mobile-menu {
