@@ -1131,6 +1131,10 @@ footer p {
         overflow-x: hidden;
     }
 
+    
+
+
+
     nav {
         top: 0;
         padding: 1rem 1rem;
@@ -1253,6 +1257,8 @@ footer p {
         margin-top: 0.9rem;
         animation: bounce 1.8s infinite;
         user-select: none;
+
+        
     }
 
     #clients {
@@ -1524,7 +1530,17 @@ display: none;
   }
   
 
-
+body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 110px;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0) 100%);
+        pointer-events: none;
+        z-index: 999999999999999999999999999999999999999999999999; /* خليناه أقل عشان يكون تحت الشريط والعناصر المهمة */
+    }
 
 
   /* حاوية القائمة أعلى اليسار */
@@ -1537,7 +1553,6 @@ display: none;
     flex-direction: column;
     align-items: center;
 
-      animation: fadeIn 1.8s ease-in-out;
 
   }
 
@@ -2279,7 +2294,7 @@ der-radius: 3px;
   background-size: 200% auto;
   animation: shine 3.8s linear infinite;
   transition: width 0.1s ease-out;
-  z-index: 10000;
+  z-index: 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
 
   box-shadow: 0rem 0.1rem 0.3rem rgb(0, 0, 0); /* ظل خفيف يبرزه عن الخلفية والصور */
 
@@ -2287,4 +2302,8 @@ box-shadow: 0rem 0.1rem 0.3rem rgb(0, 0, 0); /* ظل خفيف يبرزه عن ا
 
 
 }
+
+
+
+
 }
