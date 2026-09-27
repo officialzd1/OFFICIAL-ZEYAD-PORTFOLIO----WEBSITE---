@@ -1133,7 +1133,7 @@ footer p {
         justify-content: center;
         min-height: 100vh;
         left: 0.2rem;
-        bottom: 0.8rem;
+        bottom: -1.8rem;
     }
 
     .logo {
