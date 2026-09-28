@@ -430,6 +430,37 @@ nav a:hover::after {
     box-shadow: 0 0 1rem rgba(196, 155, 51, 0.3);
 }
 
+/* تم إضافة input[type="date"] هنا لتاخذ نفس تصميم باقي الحقول بالضبط */
+#order-form input[type="text"], 
+#order-form input[type="url"], 
+#order-form input[type="date"],
+#order-form select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.8rem;
+    border: 1px solid #333333;
+    border-radius: 0.5rem;
+    background: #000000;
+    color: #ffffff;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* تخصيص أيقونة التقويم لتتطابق مع الثيم الفخم */
+#order-form input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#order-form input:focus, 
+#order-form select:focus {
+    border-color: #c49b33;
+    outline: none;
+    box-shadow: 0 0 1rem rgba(196, 155, 51, 0.3);
+}
 .policy-checkbox-container {
     display: flex;
     align-items: center;
@@ -2083,6 +2114,74 @@ margin: 1.5rem auto 1.5rem auto !important;
       color: #4BB543 !important;
     }
   }
+
+/* تصغير حقول الإدخال والخيارات وتاريخ الموعد النهائي داخل نافذة الطلب */
+    #order-modal input[type="text"], 
+    #order-modal input[type="url"], 
+    #order-modal input[type="date"],
+    #order-modal select {
+      font-family: 'El Messiri', sans-serif !important;
+      font-size: 0.85rem !important;
+      color: #ffffff !important;
+      width: 85% !important;
+      padding: 0.5rem !important;
+      margin: 1.3rem auto !important;
+      display: block !important;
+      border: 1px solid #333333 !important;
+      border-radius: 0.5rem !important;
+      background: #000000 !important;
+      box-sizing: border-box !important;
+    }
+
+    #order-modal input::placeholder,
+    #order-modal select::placeholder {
+      font-family: 'El Messiri', sans-serif !important;
+      font-size: 0.75rem !important;
+      color: #888888 !important;
+    }
+
+    /* تخصيص أيقونة التقويم داخل حقل التاريخ لتتناسب مع الثيم الأسود والفخم */
+    #order-modal input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
+    /* تنسيق التسميات (Labels) */
+    #order-modal label {
+      font-family: 'El Messiri', sans-serif !important;
+      display: block !important;
+      text-align: right !important;
+      width: 85% !important;
+      margin: 0.4rem auto 0 auto !important;
+      font-size: 0.8rem !important;
+      color: #ddd !important;
+    }
+
+    #order-modal label span.label-en {
+      font-size: 0.7rem !important;
+      color: #ffffff !important;
+      margin-right: 5px !important;
+    }
+
+    /* تصغير وتصميم زر الإرسال بنفس لمعان زر التتبع */
+    #order-modal #my-form-button-mobile,
+    #order-modal button[type="submit"] {
+      font-family: 'El Messiri', sans-serif !important;
+      font-size: 0.8rem !important;
+      font-weight: bold !important;
+      background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
+      background-size: 200% auto !important;
+      animation: shine 5.8s linear infinite !important;
+      transition: transform 0.2s ease, opacity 0.2s ease !important;
+      color: black !important;
+      border: none !important;
+      padding: 0.4rem 3.2rem !important;
+      border-radius: 5rem !important;
+      cursor: pointer !important;
+      margin: 1.5rem auto 1.5rem auto !important;
+      display: block !important;
+    }
 
 /* ==========================================================
      تنسيقات نافذة سياسة ZD1 (نسخة مطابقة تماماً لنافذة الطلب والتتبع)

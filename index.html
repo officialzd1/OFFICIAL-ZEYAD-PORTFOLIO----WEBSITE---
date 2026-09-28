@@ -222,55 +222,73 @@
     </div>
 </section>
 
- <section id="order-form" style="padding: 50px;">
+<section id="order-form" style="padding: 50px;">
         <h2 style="text-align: center;"> اطلب الآن | Order Now </h2>
 
         <div class="gold-divider">
             <div class="divider-line"></div>
         </div>
-
         
         <form id="my-form" action="https://formspree.io/f/xeewdywy" method="POST">
+            <!-- الاسم -->
             <label style="display: block; overflow: hidden;">
                 <span style="float: right;"> الاسم </span>
                 <span style="float: left;"> Name </span>
             </label>
             <input type="text" name="name" required>
 
+            <!-- رابط الفيديو -->
             <label style="display: block; overflow: hidden;">
                 <span style="float: right;"> رابط الفيديو </span>
                 <span style="float: left;"> Video Link </span>
             </label>
             <input type="url" name="video-link">
 
+            <!-- نوع الفيديو -->
             <label style="display: block; overflow: hidden;">
                 <span style="float: right;"> نوع الفيديو </span>
                 <span style="float: left;"> Video Type </span>
             </label>
-            <select name="video-type">
+            <select name="video-type" required>
                 <option value="Short"> قصير | Short </option>
                 <option value="Teaser"> تشويقة | Teaser </option>
                 <option value="YouTube"> يوتيوب | YouTube </option>
             </select>
 
+            <!-- الجودة -->
+            <label style="display: block; overflow: hidden;">
+                <span style="float: right;">الجودة</span>
+                <span style="float: left;">Quality</span>
+            </label>
+            <select name="quality" required>
+                <option value="1080p-30f">1080p | 30f</option>
+                <option value="1080p-60f">1080p | 60f</option>
+                <option value="4k-30f" disabled>2160p | 30f (قريباً - Soon)</option>
+            </select>
+
+            <!-- الموعد النهائي المطلوب (الخانة الجديدة) -->
+            <label style="display: block; overflow: hidden;">
+                <span style="float: right;">موعد التسليم</span>
+                <span style="float: left;">Required Deadline</span>
+            </label>
+            <input type="date" name="deadline" required>
+
+            <!-- التواصل -->
             <label style="display: block; overflow: hidden; margin-top: 10px;">
-                <span style="float: right;"> التواصل </span>
+                <span style="float: right;"> التواصل (واتساب أو بريد) </span>
                 <span style="float: left;"> Contact </span>
             </label>
-            <input type="text" name="contact">         
+            <input type="text" name="contact" required>         
 
-            
-
+            <!-- زر الإرسال -->
             <button type="submit" id="my-form-button"> إرسال الطلب | Order Now </button>
         </form>
-
-        
 
         <div id="form-success-msg" style="display: none; text-align: center; margin-top: 15px; color: #2ecc71; font-size: 1.1rem; font-weight: bold;">
             تم إرسال الطلب | Order Sent
         </div>
         <p id="my-form-status" style="text-align: center; font-size: 3px;"></p>
-    </section>
+</section>
 
 <button class="track-btn" onclick="toggleTrackerModal()">تتبع المشروع | Track Project</button>
 
@@ -316,74 +334,33 @@
                 <span class="label-en">Video Type</span>
             </label>
             <select name="video-type" required>
-
-
                 <option value="Short">قصير | Short</option>
                 <option value="Teaser">تشويقة | Teaser</option>
                 <option value="YouTube">يوتيوب | YouTube</option>
             </select>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <label>
                 <span class="label-ar">الجودة</span>
                 <span class="label-en">Quality</span>
             </label>
-            
-
             <select name="quality" required>
-    <option value="1080p-30f">1080p | 30f</option>
-    <option value="1080p-60f">1080p | 60f</option>
-    <option value="4k-30f">2160p | 30f</option>
-</select>
+                <option value="1080p-30f">1080p | 30f</option>
+                <option value="1080p-60f">1080p | 60f</option>
+                <option value="4k-30f">2160p | 30f (قريباً - Soon)</option>
+            </select>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <!-- خانة تحديد الموعد النهائي -->
+            <label>
+                <span class="label-ar">موعد التسليم</span>
+                <span class="label-en">Required Deadline</span>
+            </label>
+            <input type="date" name="deadline" required>
 
             <label class="label-contact">
                 <span class="label-ar">التواصل</span>
                 <span class="label-en">Contact</span>
             </label>
-<input type="text" name="contact" required>            
-    
-
-
+            <input type="text" name="contact" required>            
 
             <button type="submit" id="my-form-button-mobile">إرسال الطلب | Order Now</button>
         </form>
