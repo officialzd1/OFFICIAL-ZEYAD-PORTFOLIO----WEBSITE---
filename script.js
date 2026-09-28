@@ -355,6 +355,8 @@ const myProjects = {
     }
 };
 
+
+
 let countdownInterval = null;
 
 function parseDeliveryDate(dateStr) {
@@ -434,6 +436,8 @@ function checkProject() {
             return;
         }
 
+        
+
         let stagesHTML = project.stages.map((stage, index) => {
             const isCompleted = index < project.currentStage;
             const isActive = index === project.currentStage;
@@ -486,6 +490,8 @@ function checkProject() {
     }, 800);
 }
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const burgerToggle = document.getElementById('burgerToggle');
     const menuItems = document.getElementById('menuItems') || document.getElementById('mobile-nav');
@@ -520,6 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    
 
     const trackingCheckBtn = document.querySelector('.check-btn') || document.querySelector('#check-btn');
     const resultSection = document.querySelector('#tracker-result') || document.querySelector('.project-details');
@@ -540,6 +547,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
 
 
 /* ==========================================================================
