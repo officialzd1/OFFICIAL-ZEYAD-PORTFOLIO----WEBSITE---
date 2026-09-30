@@ -3,7 +3,7 @@ const myProjects = {
 
 "ZD-828": { 
         name: "خليت المتابعين يتحكمون بيومي لمدة 24 ساعة",
-        deliveryDate: "09:00PM | 1 October 2026",
+        deliveryDate: "09:00AM | 1 October 2026",
         status: "paused",
         currentStage: 1, 
         driveUrl: "",
