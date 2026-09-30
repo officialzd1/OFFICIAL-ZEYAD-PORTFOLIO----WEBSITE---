@@ -11,6 +11,8 @@ const myProjects = {
             { ar: "التنزيل", en: "Downloading" },
             { ar: "المقدمة", en: "Intro" },
 
+            { ar: "إستراحة", en: "Break" },
+
             { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effects & Transition" },
             { ar: "المؤثرات الصوتية", en: "Sound Effects" },
 
