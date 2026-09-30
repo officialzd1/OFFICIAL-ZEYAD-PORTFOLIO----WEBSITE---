@@ -1,4 +1,58 @@
 const myProjects = {
+
+
+"ZD-828": { 
+        name: "خليت المتابعين يتحكمون بيومي لمدة 24 ساعة",
+        deliveryDate: "12:30PM | 3 October 2026",
+        status: "paused",
+        currentStage: 1, 
+        driveUrl: "",
+        stages: [
+            { ar: "التنزيل", en: "Downloading" },
+            { ar: "المقدمة", en: "Intro" },
+
+            { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effects & Transition" },
+            { ar: "المؤثرات الصوتية", en: "Sound Effects" },
+
+
+            { ar: "المراجعة", en: "Review" },
+            { ar: "التعديلات", en: "Amendments" },
+            { ar: "التصدير", en: "Exporting" },
+            { ar: "التسليم", en: "Final Delivery" }
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "ZD-553": { 
         name: "كأس الخليج 27 - 2026",
         deliveryDate: "1:30PM | 26 September 2026",

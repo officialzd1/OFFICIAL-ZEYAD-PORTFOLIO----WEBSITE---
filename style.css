@@ -1123,13 +1123,12 @@ footer p {
     position: fixed;
 }
 
-/* النقطة المضيئة التي تدل على الحالة */
 .status-dot {
     width: 0.5rem;
     height: 0.5rem;
-    background-color: #2ecc71; /* أخضر إذا كنت متاحاً، أو أصفر/أحمر إذا كنت مكتفياً */
+    background-color: #cc2e2e; /* أخضر إذا كنت متاحاً، أو أصفر/أحمر إذا كنت مكتفياً */
     border-radius: 50%;
-    box-shadow: 0 0 8px #2ecc71;
+    box-shadow: 0 0 8px #ff0000;
     animation: pulse-dot 2s infinite;
 }
 
@@ -1137,7 +1136,7 @@ footer p {
 @keyframes pulse-dot {
     0% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
     }
     70% {
         transform: scale(1);
@@ -1210,9 +1209,9 @@ footer p {
 .status-dot {
     width: 0.5rem;
     height: 0.5rem;
-    background-color: #2ecc71; /* أخضر إذا كنت متاحاً، أو أصفر/أحمر إذا كنت مكتفياً */
+    background-color: #cc2e2e; /* أخضر إذا كنت متاحاً، أو أصفر/أحمر إذا كنت مكتفياً */
     border-radius: 50%;
-    box-shadow: 0 0 8px #2ecc71;
+    box-shadow: 0 0 8px #ff0000;
     animation: pulse-dot 2s infinite;
 }
 
@@ -1220,7 +1219,7 @@ footer p {
 @keyframes pulse-dot {
     0% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
     }
     70% {
         transform: scale(1);
