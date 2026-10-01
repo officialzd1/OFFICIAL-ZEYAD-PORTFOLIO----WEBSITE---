@@ -5,8 +5,8 @@ const myProjects = {
         name: "خليت المتابعين يتحكمون بيومي لمدة 24 ساعة",
         deliveryDate: "09:00AM | 1 October 2026",
         status: "paused",
-        currentStage: 6, 
-        driveUrl: "",
+        currentStage: 7, 
+        driveUrl: "https://drive.google.com/file/d/1mIpRaExFLx0IPyGYSlctriJT8ShvQJrg/view?usp=sharing",
         stages: [
             { ar: "التنزيل", en: "Downloading" },
             { ar: "المقدمة", en: "Intro" },
