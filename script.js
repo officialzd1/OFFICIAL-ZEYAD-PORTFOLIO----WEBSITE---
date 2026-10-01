@@ -5,7 +5,7 @@ const myProjects = {
         name: "خليت المتابعين يتحكمون بيومي لمدة 24 ساعة",
         deliveryDate: "09:00AM | 1 October 2026",
         status: "paused",
-        currentStage: 2, 
+        currentStage: 5, 
         driveUrl: "",
         stages: [
             { ar: "التنزيل", en: "Downloading" },
