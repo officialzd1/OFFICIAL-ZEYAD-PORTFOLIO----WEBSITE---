@@ -1,5 +1,42 @@
 const myProjects = {
 
+"ZD-330": { 
+        name: "مشروع مسار مكة - 2026",
+        deliveryDate: "08:30AM | 2 October 2026",
+        status: "paused",
+        currentStage: 4, 
+        driveUrl: "",
+        stages: [
+            { ar: "التنزيل", en: "Downloading" },
+
+
+            { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effects & Transition" },
+            { ar: "المؤثرات الصوتية و الموسيقى", en: "Sound Effects & Music" },
+            { ar: "المراجعة", en: "Review" },
+            { ar: "التعديلات", en: "Amendments" },
+            { ar: "التصدير", en: "Exporting" },
+            { ar: "التسليم", en: "Final Delivery" }
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 "ZD-828": { 
         name: "خليت المتابعين يتحكمون بيومي لمدة 24 ساعة",
