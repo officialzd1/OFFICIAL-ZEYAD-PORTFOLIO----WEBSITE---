@@ -2,7 +2,7 @@ const myProjects = {
 
 "ZD-330": { 
         name: "مشروع مسار مكة - 2026",
-        deliveryDate: "08:30AM | 2 October 2026",
+        deliveryDate: "08:30PM | 2 October 2026",
         status: "paused",
         currentStage: 6, 
         driveUrl: "https://drive.google.com/file/d/1tVYW-ImbI_BDKxhBcCJACAXKmX7dlhfM/view?usp=sharing",
