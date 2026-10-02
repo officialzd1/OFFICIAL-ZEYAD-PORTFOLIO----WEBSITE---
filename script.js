@@ -4,8 +4,8 @@ const myProjects = {
         name: "مشروع مسار مكة - 2026",
         deliveryDate: "08:30AM | 2 October 2026",
         status: "paused",
-        currentStage: 4, 
-        driveUrl: "",
+        currentStage: 6, 
+        driveUrl: "https://drive.google.com/file/d/1tVYW-ImbI_BDKxhBcCJACAXKmX7dlhfM/view?usp=sharing",
         stages: [
             { ar: "التنزيل", en: "Downloading" },
 
