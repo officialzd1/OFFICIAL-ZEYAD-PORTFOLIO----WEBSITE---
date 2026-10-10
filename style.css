@@ -217,6 +217,7 @@ nav a:hover::after {
   font-size: 0.8rem;
   transition: all 0.8s ease;
   box-shadow: 0 0 1rem rgba(75, 60, 22, 0.411);
+  direction: ltr !important; /* هذا السطر يخلي ترتيب الأزرار يبدأ من اليسار لليمين */
 }
 
 .filter-btn:hover {
@@ -229,6 +230,15 @@ nav a:hover::after {
   color: #000;
   border-color: #d4af37;
   font-weight: bold;
+}
+
+/* عكس ترتيب الأزرار لتبدأ من اليسار لليمين */
+.filter-buttons {
+    direction: ltr !important;
+}
+
+.filter-btn {
+    direction: rtl !important;
 }
 
 .portfolios-container {
@@ -1297,9 +1307,12 @@ footer p {
     letter-spacing: normal !important;
   }
 
-  .clients-grid {
-    gap: 1.5rem;
-  }
+.clients-grid {
+    display: flex !important;
+    flex-wrap: wrap-reverse !important;
+    justify-content: center !important;
+    direction: rtl !important;
+}
 
   .clients-grid img {
     width: 4.5rem;
@@ -1315,6 +1328,7 @@ footer p {
     border: 0.1rem solid #5c5c5c67;
     box-shadow: 0 0 1rem rgba(75, 60, 22, 0);
     transition: all 0.8s ease;
+    
   }
 
   /* إذا كنت تستخدم كلاس لتحديد الزر النشط، تأكد أنه لا يغير حجم الخط أو البادنج، ومثال لذلك: */
