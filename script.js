@@ -1,6 +1,9 @@
-const myProjects = {
+/* ==========================================================================
+   1. بيانات المشاريع ونظام التتبع (Projects & Tracker System)
+   ========================================================================== */
 
-"ZD-330": { 
+const myProjects = {
+    "ZD-330": { 
         name: "مشروع مسار مكة - 2026",
         deliveryDate: "08:30PM | 2 October 2026",
         status: "paused",
@@ -8,8 +11,6 @@ const myProjects = {
         driveUrl: "https://drive.google.com/file/d/1tVYW-ImbI_BDKxhBcCJACAXKmX7dlhfM/view?usp=sharing",
         stages: [
             { ar: "التنزيل", en: "Downloading" },
-
-
             { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effects & Transition" },
             { ar: "المؤثرات الصوتية و الموسيقى", en: "Sound Effects & Music" },
             { ar: "المراجعة", en: "Review" },
@@ -18,27 +19,7 @@ const myProjects = {
             { ar: "التسليم", en: "Final Delivery" }
         ]
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"ZD-828": { 
+    "ZD-828": { 
         name: "خليت المتابعين يتحكمون بيومي لمدة 24 ساعة",
         deliveryDate: "09:00AM | 1 October 2026",
         status: "paused",
@@ -47,50 +28,14 @@ const myProjects = {
         stages: [
             { ar: "التنزيل", en: "Downloading" },
             { ar: "المقدمة", en: "Intro" },
-
-
             { ar: "المؤثرات البصرية و الإنتقالات", en: "Video Effects & Transition" },
             { ar: "المؤثرات الصوتية", en: "Sound Effects" },
-
-
             { ar: "المراجعة", en: "Review" },
             { ar: "التعديلات", en: "Amendments" },
             { ar: "التصدير", en: "Exporting" },
             { ar: "التسليم", en: "Final Delivery" }
         ]
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     "ZD-553": { 
         name: "كأس الخليج 27 - 2026",
         deliveryDate: "1:30PM | 26 September 2026",
@@ -301,8 +246,6 @@ function checkProject() {
             return;
         }
 
-        
-
         let stagesHTML = project.stages.map((stage, index) => {
             const isCompleted = index < project.currentStage;
             const isActive = index === project.currentStage;
@@ -315,7 +258,7 @@ function checkProject() {
             let enText = typeof stage === 'object' ? stage.en : '';
 
             return `
-                <li style="position: relative; margin-bottom: ${index === project.stages.length - 1 ? '0' : '20px'}; font-size: 0.82em; display: flex; align-items: center; justify-content: space-between; width: 100%; direction: ltr; box-sizing: border-box; padding: 0 10px;">
+                <li style="position: relative; margin-bottom: 20px; font-size: 0.82em; display: flex; align-items: center; justify-content: space-between; width: 100%; direction: ltr; box-sizing: border-box; padding: 0 10px;">
                     <span style="width: 42%; text-align: right; color: ${textColor};">${enText}</span>
                     <div style="width: 16%; display: flex; justify-content: center; position: relative;">
                         <span style="width: 12px; height: 12px; background-color: ${circleColor}; border-radius: 50%; box-shadow: ${glow}; border: 2px solid #111; z-index: 2;"></span>
@@ -389,25 +332,35 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // ربط نماذج الإرسال (Formspree) مع إظهار رسالة النجاح الخضراء
+    const formMain = document.getElementById('my-form');
+    if (formMain) {
+        formMain.addEventListener('submit', (e) => handleFormSubmit(e, 'my-form-status', 'form-success-msg', 'my-form-button'));
+    }
+
+    const formMobile = document.getElementById('my-form-mobile');
+    if (formMobile) {
+        formMobile.addEventListener('submit', (e) => handleFormSubmit(e, 'my-form-status-mobile', 'form-success-msg-mobile', 'my-form-button-mobile'));
+    }
 });
 
 
 /* ==========================================================================
-   2. نظام قسم الطلب وسياسة الدفع (Order Form & Payment Policy System)
+   2. نظام قسم الطلب وإرسال الرسالة الخضراء (Order Form & Success Message)
    ========================================================================== */
 
-async function handleOrderSubmit(event) {
+function handleFormSubmit(event, statusId, successMsgId, buttonId) {
     event.preventDefault();
 
     const form = event.target;
-    const formStatus = document.getElementById("my-form-status");
-    const sendBtn = document.getElementById("my-form-button");
-    const successMsg = document.getElementById("form-success-msg");
-    const checkbox = document.getElementById('policy-checkbox');
+    const formStatus = document.getElementById(statusId);
+    const successMsg = document.getElementById(successMsgId);
+    const sendBtn = document.getElementById(buttonId);
 
-    if (checkbox && !checkbox.checked) {
-        alert('يرجى الموافقة على سياسة الدفع أولاً | Please agree to payment policy');
-        return;
+    if (sendBtn) {
+        sendBtn.disabled = true;
+        sendBtn.innerText = "جاري الإرسال | Sending";
     }
 
     const data = new FormData(form);
@@ -425,11 +378,12 @@ async function handleOrderSubmit(event) {
 
             form.reset();
             setTimeout(() => {
+                if (successMsg) successMsg.style.display = 'none';
                 if (sendBtn) {
                     sendBtn.innerText = "إرسال الطلب | Order Now";
                     sendBtn.disabled = false;
                 }
-            }, 3000);
+            }, 4000);
         } else {
             if (successMsg) successMsg.style.display = 'none';
             response.json().then(data => {
@@ -505,7 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // إغلاق النوافذ عند النقر على الخلفية السوداء (تمت إضافة policyModal هنا)
+    // إغلاق النوافذ عند النقر على الخلفية السوداء
     window.addEventListener('click', function (e) {
         const trackerModal = document.getElementById('tracker-modal');
         const orderModal = document.getElementById('order-modal');
@@ -529,25 +483,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 event.preventDefault();
                 if (checkBtn) checkBtn.click();
             }
-        });
-    }
-
-    const trackingCheckBtn = document.querySelector('.check-btn') || document.querySelector('#check-btn');
-    const resultSection = document.querySelector('#tracker-result') || document.querySelector('.project-details');
-
-    if (resultSection) {
-        resultSection.style.display = 'none';
-    }
-
-    if (trackingCheckBtn) {
-        trackingCheckBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            if (resultSection) resultSection.style.display = 'none';
-            trackingCheckBtn.classList.add('loading');
-            setTimeout(function () {
-                trackingCheckBtn.classList.remove('loading');
-                if (resultSection) resultSection.style.display = 'block';
-            }, 800); 
         });
     }
 });
@@ -584,7 +519,6 @@ function toggleOrderModal() {
     }
 }
 
-// دالة فتح نافذة سياسة ZD1 وإغلاق البرجر فوراً بنفس نظام النوافذ الأخرى
 function togglePolicyModal() {
     const policyModal = document.getElementById('policyModal');
     closeMenu(); 
@@ -600,14 +534,12 @@ function togglePolicyModal() {
 }
 
 function openModal(modalId) {
-    // إغلاق جميع النوافذ الأخرى فوراً لضمان عدم تداخلها
     const allModals = document.querySelectorAll('#order-modal, #tracker-modal, #policyModal, #zd1-policy-modal');
     allModals.forEach(modal => {
         modal.classList.remove('modal-open');
         modal.style.display = 'none'; 
     });
 
-    // فتح النافذة المطلوبة وحدها
     const targetModal = document.getElementById(modalId);
     if (targetModal) {
         targetModal.style.display = 'flex';

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <!-- 1. تحديد ترميز الفونت وطريقة الاستجابة مع الشاشات المختلفة (الهواتف والكمبيوتر) -->
+  <!-- 1. تحديد ترميز الفونت وطريقة الاستجابة مع الشاشات المختلفة -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   
@@ -11,18 +11,18 @@
   <!-- 3. وصف الموقع لوصف محركات البحث (SEO) -->
   <meta name="description" content="Welcome to the official portfolio of Zeyad. Explore my latest projects, skills, and work.">
 
-  <!-- 4. وسم Open Graph لتخصيص شكل المعاينة والصورة والعنوان عند مشاركة رابط الموقع على مواقع التواصل Social Media -->
+  <!-- 4. وسم Open Graph لتخصيص شكل المعاينة وصورة المشاركة -->
   <meta property="og:title" content="Zeyad Portfolio">
   <meta property="og:description" content="Professional Video Editing Services">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://officialzd1.com/thumbnail.jpg">
 
-  <!-- 5. أيقونة الموقع (Favicon) التي تظهر بجانب عنوان التبويب -->
+  <!-- 5. أيقونة الموقع (Favicon) -->
   <link rel="icon" type="image/png" href="favicon.png">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- 6. تسريع الاتصال بسيرفرات خطوط Google Fonts لتسريع التحميل -->
+  <!-- 6. خطوط Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
@@ -33,13 +33,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600;700&display=swap" rel="stylesheet">
 
-  <!-- 8. ربط ملف الـ CSS الأساسي لتنسيق وتصميم الموقع -->
+  <!-- 8. ربط ملف الـ CSS الأساسي -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- 9. مكتبة html2canvas لالتقاط الصور وتصوير عناصر الشاشة برمجياً -->
+  <!-- 9. مكتبة html2canvas -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-  <!-- 10. مكتبة EmailJS وتفعيل مفتاح API لإرسال الرسائل إلى بريدك مباشرة من الموقع -->
+  <!-- 10. مكتبة EmailJS وتفعيل مفتاح API -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script type="text/javascript">
     (function(){
@@ -47,7 +47,7 @@
     })();
   </script>
 
-  <!-- 11. أداة تحليلات جوجل (Google Analytics) لتتبع وتعديد زوار الموقع والتفاعل -->
+  <!-- 11. أداة تحليلات جوجل (Google Analytics) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GF2S0JGBB"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -64,9 +64,6 @@
 <div class="status-badge">
     <span class="status-dot"></span>
 </div>
-
-
-
 
 <nav>
   <a href="#order-form">اطلب الآن | Order</a>
@@ -85,10 +82,10 @@
 
 <section id="works" class="works-section">
     <h2 style="text-align: center; direction: ltr;">
-    <span style="display: inline-block;">Works</span>
-    <span style="margin: 0 5px;">|</span>
-    <span style="direction: rtl; unicode-bidi: isolate; display: inline-block;">الأعمال</span>
-</h2>
+        <span style="display: inline-block;">Works</span>
+        <span style="margin: 0 5px;">|</span>
+        <span style="direction: rtl; unicode-bidi: isolate; display: inline-block;">الأعمال</span>
+    </h2>
 
     <div class="gold-divider">
         <div class="divider-line"></div>
@@ -186,14 +183,11 @@
 
 <section id="clients" class="clients-section">
     <div class="container">
-
-        
-<h2 style="text-align: center; direction: ltr;">
-    <span style="direction: ltr; unicode-bidi: isolate; display: inline-block;">Clients</span>
-    <span style="display: inline-block; margin: 0 5px;">|</span>
-    <span style="direction: rtl; unicode-bidi: isolate; display: inline-block;">العملاء</span>
-</h2>
-
+        <h2 style="text-align: center; direction: ltr;">
+            <span style="direction: ltr; unicode-bidi: isolate; display: inline-block;">Clients</span>
+            <span style="display: inline-block; margin: 0 5px;">|</span>
+            <span style="direction: rtl; unicode-bidi: isolate; display: inline-block;">العملاء</span>
+        </h2>
 
         <div class="gold-divider">
             <div class="divider-line"></div>
@@ -223,78 +217,78 @@
 </section>
 
 <section id="order-form" style="padding: 50px;">
-        <h2 style="text-align: center;"> اطلب الآن | Order Now </h2>
+    <h2 style="text-align: center;"> اطلب الآن | Order Now </h2>
 
-        <div class="gold-divider">
-            <div class="divider-line"></div>
-        </div>
-        
-        <form id="my-form" action="https://formspree.io/f/xeewdywy" method="POST">
-            <!-- الاسم -->
-            <label style="display: block; overflow: hidden;">
-                <span style="float: right;"> الاسم </span>
-                <span style="float: left;"> Name </span>
-            </label>
-            <input type="text" name="name" required>
+    <div class="gold-divider">
+        <div class="divider-line"></div>
+    </div>
+    
+    <form id="my-form" action="https://formspree.io/f/xeewdywy" method="POST">
+        <!-- الاسم -->
+        <label style="display: block; overflow: hidden;">
+            <span style="float: right;"> الاسم </span>
+            <span style="float: left;"> Name </span>
+        </label>
+        <input type="text" name="name" required>
 
-            <!-- رابط الفيديو -->
-            <label style="display: block; overflow: hidden;">
-                <span style="float: right;"> رابط الفيديو </span>
-                <span style="float: left;"> Video Link </span>
-            </label>
-            <input type="url" name="video-link">
+        <!-- رابط الفيديو -->
+        <label style="display: block; overflow: hidden;">
+            <span style="float: right;"> رابط الفيديو </span>
+            <span style="float: left;"> Video Link </span>
+        </label>
+        <input type="url" name="video-link">
 
-            <!-- نوع الفيديو -->
-            <label style="display: block; overflow: hidden;">
-                <span style="float: right;"> نوع الفيديو </span>
-                <span style="float: left;"> Video Type </span>
-            </label>
-            <select name="video-type" required>
-                <option value="Short"> قصير | Short </option>
-                <option value="Teaser"> تشويقة | Teaser </option>
-                <option value="YouTube"> يوتيوب | YouTube </option>
-            </select>
+        <!-- نوع الفيديو -->
+        <label style="display: block; overflow: hidden;">
+            <span style="float: right;"> نوع الفيديو </span>
+            <span style="float: left;"> Video Type </span>
+        </label>
+        <select name="video-type" required>
+            <option value="Short"> قصير | Short </option>
+            <option value="Teaser"> تشويقة | Teaser </option>
+            <option value="YouTube"> يوتيوب | YouTube </option>
+        </select>
 
-            <!-- الجودة -->
-            <label style="display: block; overflow: hidden;">
-                <span style="float: right;">الجودة</span>
-                <span style="float: left;">Quality</span>
-            </label>
-            <select name="quality" required>
-                <option value="1080p-30f">1080p | 30f</option>
-                <option value="1080p-60f">1080p | 60f</option>
-                <option value="4k-30f" disabled>2160p | 30f</option>
-            </select>
+        <!-- الجودة -->
+        <label style="display: block; overflow: hidden;">
+            <span style="float: right;">الجودة</span>
+            <span style="float: left;">Quality</span>
+        </label>
+        <select name="quality" required>
+            <option value="1080p-30f">1080p | 30f</option>
+            <option value="1080p-60f">1080p | 60f</option>
+            <option value="4k-30f" disabled>2160p | 30f</option>
+        </select>
 
-            <!-- الموعد النهائي المطلوب (الخانة الجديدة) -->
-            <label style="display: block; overflow: hidden;">
-                <span style="float: right;">موعد التسليم</span>
-                <span style="float: left;">Required Deadline</span>
-            </label>
-            <input type="date" name="deadline" required>
+        <!-- الموعد النهائي المطلوب -->
+        <label style="display: block; overflow: hidden;">
+            <span style="float: right;">موعد التسليم</span>
+            <span style="float: left;">Required Deadline</span>
+        </label>
+        <input type="date" name="deadline" required>
 
-            <!-- التواصل -->
-            <label style="display: block; overflow: hidden; margin-top: 10px;">
-                <span style="float: right;"> التواصل (واتساب أو بريد) </span>
-                <span style="float: left;"> Contact </span>
-            </label>
-            <input type="text" name="contact" required>         
+        <!-- التواصل -->
+        <label style="display: block; overflow: hidden; margin-top: 10px;">
+            <span style="float: right;"> التواصل (واتساب أو بريد) </span>
+            <span style="float: left;"> Contact </span>
+        </label>
+        <input type="text" name="contact" required>        
 
-            <!-- زر الإرسال -->
-            <button type="submit" id="my-form-button"> إرسال الطلب | Order Now </button>
-        </form>
+        <!-- زر الإرسال -->
+        <button type="submit" id="my-form-button"> إرسال الطلب | Order Now </button>
+    </form>
 
-        <div id="form-success-msg" style="display: none; text-align: center; margin-top: 15px; color: #2ecc71; font-size: 1.1rem; font-weight: bold;">
-            تم إرسال الطلب | Order Sent
-        </div>
-        <p id="my-form-status" style="text-align: center; font-size: 3px;"></p>
+    <div id="form-success-msg" style="display: none; text-align: center; margin-top: 15px; color: #2ecc71; font-size: 1.1rem; font-weight: bold;">
+        تم إرسال الطلب | Order Sent
+    </div>
+    <p id="my-form-status" style="text-align: center; font-size: 3px;"></p>
 </section>
 
 <button class="track-btn" onclick="toggleTrackerModal()">تتبع المشروع | Track Project</button>
 
 <div id="tracker-modal" class="modal">
     <div class="modal-content">
-<span class="new-close-btn" onclick="toggleTrackerModal()">&times;</span>
+        <span class="new-close-btn" onclick="toggleTrackerModal()">&times;</span>
         <h3> تتبع المشروع | Track Project </h3>
         <div class="gold-divider">
             <div class="divider-line"></div>
@@ -373,36 +367,7 @@
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="zd1TermsModal" class="zd1-modal-overlay">
 <div id="zd1TermsModal" class="zd1-modal-overlay" style="display: none;">
-
     <!-- زر إغلاق نافذة السياسة -->
     <span class="new-close-btn" onclick="closeZd1TermsModal()">&times;</span>
 
@@ -437,76 +402,13 @@
     <div style="text-align: center; margin-top: 15px;">
         <button type="button" class="drive-btn" onclick="closeZd1TermsModal()" style="padding: 10px 25px; font-size: 0.9rem; width: 100%;">فهمت Got It</button>
     </div>
-
-  </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <footer>
     <p>آخر تحديث : سبتمبر 2026 | Last Updated : September 2026</p>
 </footer>
 
 <div class="soon-mobile-menu">
-    
   <button class="burger-toggle" id="burgerToggle" aria-label="القائمة">
     <span></span>
     <span></span>
@@ -514,7 +416,6 @@
   </button>
 
   <div class="menu-items" id="menuItems">
-
     <button class="menu-icon-btn" onclick="toggleOrderModal()" title="طلب مشروع">
       <i class="fa-solid fa-bag-shopping"></i>
     </button>
@@ -522,9 +423,6 @@
     <button class="menu-icon-btn" onclick="toggleTrackerModal()" title="تتبع المشروع">
       <i class="fa-solid fa-magnifying-glass"></i>
     </button>
-
-    
-
   </div>
 </div>
 
