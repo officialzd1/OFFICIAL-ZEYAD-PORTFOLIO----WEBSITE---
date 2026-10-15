@@ -558,3 +558,26 @@ function closeModal(modalId) {
         }, 300); 
     }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const navItems = document.querySelectorAll(".mobile-bottom-nav .nav-item");
+
+  navItems.forEach(item => {
+    item.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("data-target");
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection) {
+        // الانتقال لبداية القسم من فوق
+        targetSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start" // يخلي القسم يبدأ من أعلى الشاشة تماماً
+        });
+
+        navItems.forEach(nav => nav.classList.remove("active"));
+        this.classList.add("active");
+      }
+    });
+  });
+});

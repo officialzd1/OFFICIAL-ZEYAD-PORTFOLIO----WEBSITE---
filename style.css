@@ -2112,4 +2112,134 @@ footer p {
     box-shadow: 0rem 0.1rem 0.3rem rgb(0, 0, 0); /* ظل خفيف يبرزه عن الخلفية والصور */
   }
 }
+
+/* إخفاء القائمة في الشاشات الكبيرة */
+.mobile-bottom-nav {
+  display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+  div.mobile-bottom-nav {
+    display: flex !important;
+    position: fixed !important;
+    bottom: 25px !important;
+    top: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 270px !important; 
+    height: 58px !important;
+
+
+
+
+    /* زجاج أبل الحقيقي: شفاف جداً مع ضبابية عالية جداً */
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(0.8rem) saturate(100%) !important;
+    -webkit-backdrop-filter: blur(0.3rem) saturate(100%) !important;
+
+
+
+    /* إطار زجاجي دقيق وخفيف منعاً لأي حواف مزعجة */
+    border: 1px solid rgba(255, 255, 255, 0) !important;
+    border-radius: 30px !important;
+
+
+
+
+    justify-content: space-around !important;
+    align-items: center !important;
+    direction: ltr !important;
+    z-index: 999999 !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    margin: 0 !important;
+    padding: 0 8px !important;
+  }
+
+  div.mobile-bottom-nav .nav-item {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    color: rgba(255, 255, 255, 0.4) !important; /* لون هادئ للأيقونات غير المحددة */
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background: transparent !important; /* إلغاء أي خلفية سابقة تماماً */
+  }
+
+  /* العنصر النشط بلمسة ذهبية فاخرة من أبل بدون خلفية رمادية أو مربعة */
+  div.mobile-bottom-nav .nav-item.active {
+    color: #d6aa49 !important; /* ذهبي مضيء وفخم */
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.199) 0%, rgba(0, 0, 0, 0) 70%) !important;
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.753);
+  }
+
+  div.mobile-bottom-nav .nav-icon {
+    width: 22px !important;
+    height: 22px !important;
+    transition: transform 0.3s ease !important;
+  }
+
+  div.mobile-bottom-nav .nav-item.active .nav-icon {
+    transform: scale(1.1);
+  }
+}
+
+
+
+
+/* التحكم في موضع ظهور كل قسم بشكل مستقل للجوال */
+@media screen and (max-width: 768px) {
+
+  /* 1. قسم الرئيسية (Hero) */
+  #hero {
+    scroll-margin-top: 0rem; /* الموضع من الأعلى للرئيسية */
+  }
+
+  /* 2. قسم الأعمال (Works) */
+  #works {
+    scroll-margin-top: 18.3rem; /* المسافة العلوية لقسم الأعمال ليبدأ من فوق تماماً */
+  }
+
+  /* 3. قسم العملاء (Clients) */
+  #clients {
+    scroll-margin-top: 0.1rem; /* زيادة الرقم هنا تخلي قسم العملاء ينزل تحت أكثر ويجي في النص تماماً */
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
