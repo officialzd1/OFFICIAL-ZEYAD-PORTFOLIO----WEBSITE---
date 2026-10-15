@@ -1938,6 +1938,8 @@ footer p {
   /* تصغير حقول الإدخال والخيارات داخل نافذة الطلب */
   #order-modal input[type="text"], 
   #order-modal input[type="url"], 
+    #order-modal input[type="date"],
+
   #order-modal select {
     font-family: 'El Messiri', sans-serif !important;
     font-size: 0.85rem !important;
@@ -2044,23 +2046,7 @@ footer p {
     color: #4BB543 !important;
   }
 
-  /* تصغير حقول الإدخال والخيارات وتاريخ الموعد النهائي داخل نافذة الطلب */
-  #order-modal input[type="text"], 
-  #order-modal input[type="url"], 
-  #order-modal input[type="date"],
-  #order-modal select {
-    font-family: 'El Messiri', sans-serif !important;
-    font-size: 0.85rem !important;
-    color: #ffffff !important;
-    width: 85% !important;
-    padding: 0.5rem !important;
-    margin: 1.3rem auto !important;
-    display: block !important;
-    border: 1px solid #333333 !important;
-    border-radius: 0.5rem !important;
-    background: #000000 !important;
-    box-sizing: border-box !important;
-  }
+  
 
   #order-modal input::placeholder,
   #order-modal select::placeholder {
