@@ -1935,24 +1935,27 @@ footer p {
     color: #fff !important;
   }
 
-  /* تصغير حقول الإدخال والخيارات داخل نافذة الطلب */
-  #order-modal input[type="text"], 
-  #order-modal input[type="url"], 
-    #order-modal input[type="date"],
-
-  #order-modal select {
-    font-family: 'El Messiri', sans-serif !important;
-    font-size: 0.85rem !important;
-    color: #ffffff !important;
-    width: 88% !important;
-    padding: 0.5rem !important;
-    margin: 1.3rem auto !important;
-    display: block !important;
-    border: 1px solid #333333 !important;
-    border-radius: 0.5rem !important;
-    background: #000000 !important;
-    box-sizing: border-box !important;
-  }
+/* تصغير وتوحيد حجم جميع حقول الإدخال والخيارات داخل نافذة الطلب */
+#order-modal input[type="text"],
+#order-modal input[type="url"],
+#order-modal input[type="date"],
+#order-modal input[type="email"],
+#order-modal select {
+  font-family: 'El Messiri', sans-serif !important;
+  font-size: 0.85rem !important;
+  color: #ffffff !important;
+  width: 88% !important;
+  height: 42px !important; /* تحديد ارتفاع موحد لجميع الحقول */
+  padding: 0 0.8rem !important; /* ضبط البادينج الداخلي */
+  margin: 0.5rem auto 1.3rem auto !important;
+  display: block !important;
+  border: 1px solid #333333 !important;
+  border-radius: 0.5rem !important;
+  background: #000000 !important;
+  box-sizing: border-box !important;
+  -webkit-appearance: none !important; /* إلغاء التنسيق الافتراضي للنظام للجوال */
+  appearance: none !important;
+}
 
   #order-modal input::placeholder,
   #order-modal select::placeholder {
