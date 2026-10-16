@@ -559,3 +559,27 @@ function closeModal(modalId) {
     }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const navItems = document.querySelectorAll(".mobile-bottom-nav .nav-item");
+
+  navItems.forEach(item => {
+    item.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // تفعيل الأيقونة فوراً لحظة الضغط
+      navItems.forEach(nav => nav.classList.remove("active"));
+      this.classList.add("active");
+
+      const targetId = this.getAttribute("data-target");
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection) {
+        // انتقال سموذ فوري عبر المتصفح
+        targetSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  });
+});
