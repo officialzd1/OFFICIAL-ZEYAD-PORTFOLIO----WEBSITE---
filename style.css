@@ -2253,15 +2253,7 @@ user-select: none !important;
 
 
 
-.nav-divider {
-  color: rgba(255, 255, 255, 0.3); /* لون خفيف ورايق متناسق مع التصميم */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 6px;
-  font-size: 1.2rem;
-  user-select: none;
-}
+
 
 
 }

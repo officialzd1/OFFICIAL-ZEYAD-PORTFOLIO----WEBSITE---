@@ -588,11 +588,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// توجيه مستثنى ومباشر لصفحة البروفايل
-const profileLink = document.getElementById('profilePageLink');
-if (profileLink) {
-  profileLink.addEventListener('click', (e) => {
-    e.stopPropagation(); // منع الـ script القديم من إيقاف الرابط
-    window.location.href = 'profile.html'; // تحويل فوري للصفحة الجديدة
-  });
-}
