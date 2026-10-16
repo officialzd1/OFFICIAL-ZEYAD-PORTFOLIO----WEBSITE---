@@ -1093,6 +1093,7 @@ footer {
   text-align: center;
   margin-top: 5rem;
   margin-bottom: 2rem;
+  user-select: none;
 }
 
 footer p {
@@ -1487,7 +1488,8 @@ user-select: none !important;
   footer {
     text-align: center;
     margin-top: 0rem;
-    margin-bottom: -3rem;
+    margin-bottom: 0rem;
+    display: none; /* إخفاء الفوتر على الشاشات الصغيرة */
   }
 
   footer p {
