@@ -2151,7 +2151,7 @@ user-select: none !important;
 
 
     /* إطار زجاجي دقيق وخفيف منعاً لأي حواف مزعجة */
-    border: 1px solid rgba(255, 255, 255, 0.295) !important;
+    border: 1px solid rgba(255, 255, 255, 0.767) !important;
     border-radius: 30px !important;
 
 
@@ -2161,7 +2161,7 @@ user-select: none !important;
     align-items: center !important;
     direction: ltr !important;
     z-index: 999999 !important;
-    box-shadow: 0 15px 35px rgb(0, 0, 0), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
     margin: 0 !important;
     padding: 0 8px !important;
   }
