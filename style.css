@@ -2140,14 +2140,14 @@ footer p {
 
 
     /* زجاج أبل الحقيقي: شفاف جداً مع ضبابية عالية جداً */
-    background: rgba(255, 255, 255, 0.03) !important;
-    backdrop-filter: blur(0.8rem) saturate(100%) !important;
+    background: rgba(255, 255, 255, 0) !important;
+    backdrop-filter: blur(0.3rem) saturate(100%) !important;
     -webkit-backdrop-filter: blur(0.3rem) saturate(100%) !important;
 
 
 
     /* إطار زجاجي دقيق وخفيف منعاً لأي حواف مزعجة */
-    border: 1px solid rgba(255, 255, 255, 0) !important;
+    border: 1px solid rgba(255, 255, 255, 0.295) !important;
     border-radius: 30px !important;
 
 
@@ -2157,7 +2157,7 @@ footer p {
     align-items: center !important;
     direction: ltr !important;
     z-index: 999999 !important;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 15px 35px rgb(0, 0, 0), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
     margin: 0 !important;
     padding: 0 8px !important;
   }
@@ -2166,13 +2166,16 @@ footer p {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    color: rgba(255, 255, 255, 0.4) !important; /* لون هادئ للأيقونات غير المحددة */
+    color: rgba(255, 255, 255, 0.603) !important; /* لون هادئ للأيقونات غير المحددة */
+
     width: 42px !important;
     height: 42px !important;
     border-radius: 50% !important;
     text-decoration: none !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     background: transparent !important; /* إلغاء أي خلفية سابقة تماماً */
+
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9)) !important;
   }
 
   /* العنصر النشط بلمسة ذهبية فاخرة من أبل بدون خلفية رمادية أو مربعة */
@@ -2216,7 +2219,14 @@ footer p {
 
 }
 
-
+@media screen and (max-width: 768px) {
+  div.mobile-bottom-nav {
+    /* ... (باقي الخصائص الموجودة عندك زي ما هي) ... */
+    
+    /* أضف هذا السطر لتصغير القائمة بالكامل دفعة واحدة */
+    transform: translateX(-50%) scale(0.85) !important; /* كل ما قللت الرقم زي 0.8 تصغر أكثر */
+  }
+}
 
 
 
