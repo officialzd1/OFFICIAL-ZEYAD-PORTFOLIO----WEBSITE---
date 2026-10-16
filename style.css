@@ -1174,6 +1174,10 @@ footer p {
     overflow-x: hidden;
   }
 
+  html {
+    scroll-behavior: smooth !important; /* يخلي كل تنقلات الصفحة سحرية وناعمة تلقائياً */
+  }
+  
   nav {
     top: 0;
     padding: 1rem 1rem;

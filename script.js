@@ -565,18 +565,20 @@ document.addEventListener("DOMContentLoaded", () => {
   navItems.forEach(item => {
     item.addEventListener("click", function (e) {
       e.preventDefault();
+
+      // تفعيل الأيقونة فوراً وبدون أي جزء من الثانية تأخير
+      navItems.forEach(nav => nav.classList.remove("active"));
+      this.classList.add("active");
+
       const targetId = this.getAttribute("data-target");
       const targetSection = document.getElementById(targetId);
 
       if (targetSection) {
-        // الانتقال لبداية القسم من فوق
+        // انتقال فوري ولحظي باستخدام ميزة المتصفح الأصلية المدعومة بالـ CSS السموذ
         targetSection.scrollIntoView({
           behavior: "smooth",
-          block: "start" // يخلي القسم يبدأ من أعلى الشاشة تماماً
+          block: "start"
         });
-
-        navItems.forEach(nav => nav.classList.remove("active"));
-        this.classList.add("active");
       }
     });
   });
