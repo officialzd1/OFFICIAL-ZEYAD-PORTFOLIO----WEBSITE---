@@ -1489,12 +1489,11 @@ user-select: none !important;
     text-align: center;
     margin-top: 0rem;
     margin-bottom: 0rem;
-    display: none; /* إخفاء الفوتر على الشاشات الصغيرة */
   }
 
   footer p {
-    color: #666668;
-    font-size: 0.38rem;
+    color: #66666800;
+    font-size: 1em;
     font-family: sans-serif;
   }
 
