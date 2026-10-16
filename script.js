@@ -593,3 +593,35 @@ if ("serviceWorker" in navigator) {
   });
 }
 
+let deferredPrompt;
+
+// التقاط حدث التثبيت من المتصفح
+window.addEventListener('beforeinstallprompt', (e) => {
+  // منع ظهور نافذة المتصفح الافتراضية
+  e.preventDefault();
+  deferredPrompt = e;
+
+  // إظهار أيقونة التنزيل داخل قائمة البرجر
+  const menuInstallBtn = document.getElementById('menuInstall-btn');
+  if (menuInstallBtn) {
+    menuInstallBtn.style.display = 'flex'; // أو block حسب التنسيق عندك
+
+    // عند النقر على الأيقونة داخل القائمة
+    menuInstallBtn.addEventListener('click', () => {
+      if (!deferredPrompt) return;
+
+      // إظهار نافذة التثبيت الرسمية للجوال/المتصفح
+      deferredPrompt.prompt();
+
+      // معرفة اختيار المستخدم (هل وافق على التثبيت أم لا)
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the install prompt');
+        } else {
+          console.log('User dismissed the install prompt');
+        }
+        deferredPrompt = null;
+      });
+    });
+  }
+});
