@@ -625,3 +625,14 @@ window.addEventListener('beforeinstallprompt', (e) => {
     });
   }
 });
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  console.log("✅ حدث التثبيت جاهز للاستخدام!");
+  
+  const menuInstallBtn = document.getElementById('menuInstall-btn');
+  if (menuInstallBtn) {
+    menuInstallBtn.style.display = 'flex';
+  }
+});
