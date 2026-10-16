@@ -1486,13 +1486,13 @@ user-select: none !important;
 
   footer {
     text-align: center;
-    margin-top: 0.8rem;
-    margin-bottom: 1rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
   }
 
   footer p {
     color: #666668;
-    font-size: 0.3rem;
+    font-size: 0.38rem;
     font-family: sans-serif;
   }
 
