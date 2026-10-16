@@ -2226,7 +2226,7 @@ user-select: none !important;
     /* ... (باقي الخصائص الموجودة عندك زي ما هي) ... */
     
     /* أضف هذا السطر لتصغير القائمة بالكامل دفعة واحدة */
-    transform: translateX(-50%) scale(0.85) !important; /* كل ما قللت الرقم زي 0.8 تصغر أكثر */
+    transform: translateX(-50%) scale(0.76) !important; /* كل ما قللت الرقم زي 0.8 تصغر أكثر */
   }
 }
 
