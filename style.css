@@ -1152,6 +1152,18 @@ footer p {
   animation: pulse-dot 2s infinite;
 }
 
+/* إخفاء القائمة السفلية نهائياً في الشاشات الكبيرة والـ PC */
+div.mobile-bottom-nav {
+  display: none !important;
+}
+
+/* إظهارها فقط في شاشات الجوال (768px وأقل) */
+@media screen and (max-width: 768px) {
+  div.mobile-bottom-nav {
+    display: flex !important;
+  }
+}
+
 /* تأثير نبض النقطة */
 @keyframes pulse-dot {
   0% {
@@ -1528,17 +1540,7 @@ user-select: none !important;
     display: none !important;
   }
 
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 110px;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0) 100%);
-    pointer-events: none;
-    z-index: 999999999999999999999999999999999999999999999999; /* خليناه أقل عشان يكون تحت الشريط والعناصر المهمة */
-  }
+  
 
   /* حاوية القائمة أعلى اليسار */
   .soon-mobile-menu {
