@@ -566,7 +566,7 @@ document.addEventListener("DOMContentLoaded", () => {
     item.addEventListener("click", function (e) {
       e.preventDefault();
 
-      // تفعيل الأيقونة فوراً وبدون أي جزء من الثانية تأخير
+      // تفعيل الأيقونة فوراً لحظة الضغط
       navItems.forEach(nav => nav.classList.remove("active"));
       this.classList.add("active");
 
@@ -574,7 +574,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetSection = document.getElementById(targetId);
 
       if (targetSection) {
-        // انتقال فوري ولحظي باستخدام ميزة المتصفح الأصلية المدعومة بالـ CSS السموذ
+        // انتقال سموذ فوري عبر المتصفح
         targetSection.scrollIntoView({
           behavior: "smooth",
           block: "start"

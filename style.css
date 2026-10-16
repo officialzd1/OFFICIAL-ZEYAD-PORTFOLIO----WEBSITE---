@@ -166,7 +166,7 @@ nav a:hover::after {
   color: #ffffff;
   text-decoration: none;
   animation: bounce 1.8s infinite;
-  user-select: none;
+  user-select: block;
 }
 
 .gold-divider {
@@ -1289,7 +1289,9 @@ footer p {
     padding-right: 0.4rem;
     margin-top: 0.9rem;
     animation: bounce 1.8s infinite;
-    user-select: none;
+user-select: none !important;
+  -webkit-user-select: none !important;
+  pointer-events: none !important; /* هذا السطر يمنع أي ضغطة أو تفاعل عليه نهائياً */
   }
 
   #clients {
