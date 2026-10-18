@@ -169,6 +169,7 @@ const myProjects = {
 
 let countdownInterval = null;
 
+// دالة تحليل تنسيق وتاريخ التسليم
 function parseDeliveryDate(dateStr) {
     if (!dateStr) return null;
     const regex = /(\d{1,2}):(\d{2})\s*(AM|PM)?\s*\|\s*(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})/i;
@@ -189,6 +190,7 @@ function parseDeliveryDate(dateStr) {
     return new Date(dateStr.replace('|', '').trim());
 }
 
+// دالة العد التنازلي لموعد التسليم
 function startCountdown(dateString) {
     if (countdownInterval) clearInterval(countdownInterval);
 
@@ -220,6 +222,7 @@ function startCountdown(dateString) {
     countdownInterval = setInterval(updateTimer, 1000);
 }
 
+// دالة التحقق من كود المشروع وعرض مراحله
 function checkProject() {
     const codeInput = document.getElementById('project-code');
     const display = document.getElementById('project-status');
@@ -298,6 +301,7 @@ function checkProject() {
     }, 800);
 }
 
+// شريط التقدم العلوي عند التمرير
 window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -308,7 +312,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// تصفية معرض الأعمال (Portfolio Filter)
+// تصفية معرض الأعمال (Portfolio Filter) ومعالجة النماذج عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.thumbnail-link');
@@ -559,6 +563,7 @@ function closeModal(modalId) {
     }
 }
 
+// التحكم في شريط التنقل السفلي للجوال والانتقال السلس بين الأقسام
 document.addEventListener("DOMContentLoaded", () => {
   const navItems = document.querySelectorAll(".mobile-bottom-nav .nav-item");
 
@@ -583,8 +588,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-
-
-
-
