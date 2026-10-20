@@ -1714,13 +1714,22 @@ div.mobile-bottom-nav {
     width: 90% !important;
     max-width: 360px !important;
     padding: 1.5rem 1rem !important;
-    border-radius: 1.2rem !important;
-        border: 1px solid rgba(255, 255, 255, 0.500) !important;
+    
 
     transform: scale(0.75) !important;
     transform-origin: center center !important;
     zoom: 0.75 !important;
-    box-shadow: 0 0 25px rgba(255, 0, 0, 0) !important;
+
+    background: rgb(0, 0, 0) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+
+border: 1px solid rgba(212, 157, 55, 0.380) !important;
+    border-radius: 20px !important;
+
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.9),
+        0 0 1.8rem rgba(212, 157, 55, 0.596) !important;
   }
 
   /* تصغير عنوان النافذة */
@@ -1744,6 +1753,12 @@ div.mobile-bottom-nav {
     padding: 0.5rem !important;
 margin: 0.8rem auto !important;
   }
+
+  #tracker-modal #project-code:focus {
+    border-color: rgba(212, 175, 55, 0.8) !important;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.3) !important;
+    outline: none !important;
+}
 
   #tracker-modal #project-code::placeholder {
     font-family: 'El Messiri', sans-serif !important;
@@ -1896,6 +1911,7 @@ margin: 0.8rem auto !important;
     pointer-events: auto !important;
   }
 
+
   /* زر الإغلاق X الخاص بنافذة الطلب */
   #order-modal .new-close-btn {
     position: absolute !important;
@@ -1931,16 +1947,24 @@ margin: 0.8rem auto !important;
     width: 90% !important;
     max-width: 360px !important;
     padding: 1.5rem 1rem !important;
-    border-radius: 1.3rem !important;
-    background: #000000 !important;
-    border: 1px solid rgba(255, 255, 255, 0.500) !important;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 3rem rgba(199, 149, 48, 0) !important;
+
     position: relative !important;
     box-sizing: border-box !important;
     transform: scale(0.5) !important;
     transform-origin: center center !important;
     transition: transform 0.35s ease, opacity 0.35s ease !important;
     zoom: 0.75 !important;
+
+background: rgb(0, 0, 0) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+
+border: 1px solid rgba(212, 157, 55, 0.380) !important;
+    border-radius: 20px !important;
+
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.9),
+        0 0 1.8rem rgba(212, 157, 55, 0.596) !important;
   }
 
   #order-modal .modal-content h2,
