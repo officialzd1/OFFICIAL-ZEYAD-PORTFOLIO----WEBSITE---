@@ -60,6 +60,10 @@ body {
   }
 }
 
+.status-dot {
+    display: none;
+}
+
 /* شريط التقدم العلوي أثناء التمرير في الصفحة */
 #scrollProgress {
   position: fixed;
@@ -1185,9 +1189,9 @@ footer p {
 .status-dot {
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #cc2e2e; /* أخضر إذا كنت متاحاً، أو أصفر/أحمر إذا كنت مكتفياً */
+  background-color: #5bcc2e; /* أخضر إذا كنت متاحاً، أو أصفر/أحمر إذا كنت مكتفياً */
   border-radius: 50%;
-  box-shadow: 0 0 8px #ff0000;
+  box-shadow: 0 0 8px #5bcc2e;
   animation: pulse-dot 2s infinite;
 }
 
@@ -1207,15 +1211,15 @@ div.mobile-bottom-nav {
 @keyframes pulse-dot {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+    box-shadow: 0 0 0 0 rgba(102, 255, 0, 0.7);
   }
   70% {
     transform: scale(1);
-    box-shadow: 0 0 0 6px rgba(46, 204, 113, 0);
+    box-shadow: 0 0 0 6px rgba(91, 204, 46, 0);
   }
   100% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+    box-shadow: 0 0 0 0 rgba(91, 204, 46, 0);
   }
 }
 
@@ -1273,9 +1277,9 @@ div.mobile-bottom-nav {
   .status-dot {
     width: 0.5rem;
     height: 0.5rem;
-    background-color: #cc2e2e; /* أخضر إذا كنت متاحاً، أو أصفر/أحمر إذا كنت مكتفياً */
+    background-color: #5bcc2e; /* أخضر إذا كنت متاحاً، أو أصفر/أحمر إذا كنت مكتفياً */
     border-radius: 50%;
-    box-shadow: 0 0 8px #ff0000;
+    box-shadow: 0 0 8px #5bcc2e;
     animation: pulse-dot 2s infinite;
   }
 
@@ -1283,15 +1287,15 @@ div.mobile-bottom-nav {
   @keyframes pulse-dot {
     0% {
       transform: scale(0.95);
-      box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+      box-shadow: 0 0 0 0 rgba(91, 204, 46, 0.7);
     }
     70% {
       transform: scale(1);
-      box-shadow: 0 0 0 6px rgba(46, 204, 113, 0);
+      box-shadow: 0 0 0 6px rgba(91, 204, 46, 0);
     }
     100% {
       transform: scale(0.95);
-      box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+      box-shadow: 0 0 0 0 rgba(91, 204, 46, 0);
     }
   }
 
@@ -1921,10 +1925,10 @@ div.mobile-bottom-nav {
     width: 90% !important;
     max-width: 360px !important;
     padding: 1.5rem 1rem !important;
-    border-radius: 1.2rem !important;
+    border-radius: 1.3rem !important;
     background: #000000 !important;
-    border: 1px solid rgba(197, 160, 89, 0) !important;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 3rem rgba(199, 149, 48, 0.705) !important;
+    border: 1px solid rgba(255, 255, 255, 0.500) !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 3rem rgba(199, 149, 48, 0) !important;
     position: relative !important;
     box-sizing: border-box !important;
     transform: scale(0.5) !important;
@@ -2092,61 +2096,6 @@ div.mobile-bottom-nav {
 /* إخفاء القائمة في الشاشات الكبيرة */
 .mobile-bottom-nav {
   display: none !important;
-}
-
-@media screen and (max-width: 768px) {
-  div.mobile-bottom-nav {
-    display: flex !important;
-    position: fixed !important;
-    bottom: 0.3px !important;
-    top: auto !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    width: 313px !important; 
-    height: 58px !important;
-    background: rgba(255, 255, 255, 0) !important;
-    backdrop-filter: blur(0.3rem) saturate(100%) !important;
-    -webkit-backdrop-filter: blur(0.3rem) saturate(100%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.767) !important;
-    border-radius: 30px !important;
-    justify-content: space-around !important;
-    align-items: center !important;
-    direction: ltr !important;
-    z-index: 999999 !important;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-    margin: 0 !important;
-    padding: 0 8px !important;
-  }
-
-  div.mobile-bottom-nav .nav-item {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    color: rgba(255, 255, 255, 0.603) !important;
-    width: 42px !important;
-    height: 42px !important;
-    border-radius: 50% !important;
-    text-decoration: none !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    background: transparent !important;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9)) !important;
-  }
-
-  div.mobile-bottom-nav .nav-item.active {
-    color: #d6aa49 !important;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.199) 0%, rgba(0, 0, 0, 0) 70%) !important;
-    text-shadow: 0 0 12px rgba(212, 175, 55, 0.753);
-  }
-
-  div.mobile-bottom-nav .nav-icon {
-    width: 22px !important;
-    height: 22px !important;
-    transition: transform 0.3s ease !important;
-  }
-
-  div.mobile-bottom-nav .nav-item.active .nav-icon {
-    transform: scale(1.1);
-  }
 }
 
 /* التحكم في موضع ظهور كل قسم بشكل مستقل للجوال */
