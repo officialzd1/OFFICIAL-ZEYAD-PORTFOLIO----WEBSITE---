@@ -1471,7 +1471,7 @@ div.mobile-bottom-nav {
     cursor: pointer;
     font-size: 0.5rem;
     font-weight: bold;
-    box-shadow: 0 0px 0.8rem rgba(182, 126, 53, 0.411), 0 0 0.8rem rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0px 0.8rem rgba(255, 145, 0, 0), 0 0 0.8rem rgba(0, 0, 0, 0.6);
     padding: 0.5rem 1rem;
     transition: all 0.5s ease;
   }
@@ -1715,9 +1715,12 @@ div.mobile-bottom-nav {
     max-width: 360px !important;
     padding: 1.5rem 1rem !important;
     border-radius: 1.2rem !important;
+        border: 1px solid rgba(255, 255, 255, 0.500) !important;
+
     transform: scale(0.75) !important;
     transform-origin: center center !important;
     zoom: 0.75 !important;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0) !important;
   }
 
   /* تصغير عنوان النافذة */
@@ -1739,7 +1742,7 @@ div.mobile-bottom-nav {
     color: #ffffff !important;
     width: 85% !important;
     padding: 0.5rem !important;
-    margin: 0.8rem 0 !important;
+margin: 0.8rem auto !important;
   }
 
   #tracker-modal #project-code::placeholder {
@@ -1760,8 +1763,11 @@ div.mobile-bottom-nav {
     animation: shine 5.8s !important;
     transition: transform 0.2s ease, opacity 0.2s ease !important;
     padding: 0.4rem 1.2rem !important;
-    margin-top: 0.5rem !important;
+    margin-top: 0.8rem !important;
     font-size: 0.8rem !important;
+
+  margin: 1rem auto -0.9rem auto !important; 
+    display: block !important; /* لضمان أخذ الهامش والتحاذي في المنتصف */
   }
 
   #tracker-modal #project-status {
