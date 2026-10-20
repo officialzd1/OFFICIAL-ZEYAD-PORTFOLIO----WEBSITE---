@@ -563,3 +563,78 @@ function closeModal(modalId) {
     }
 }
 
+
+// ==========================================
+// 1. نظام التبديل بين منصات الأعمال (Youtube / Shorts)
+// ==========================================
+const mainFilterBtns = document.querySelectorAll('.main-filter-btn');
+const youtubeView = document.getElementById('youtube-view');
+const shortsView = document.getElementById('shorts-view');
+
+mainFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        mainFilterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const target = btn.getAttribute('data-main');
+        if (target === 'youtube') {
+            youtubeView.style.display = 'block';
+            shortsView.style.display = 'none';
+        } else if (target === 'shorts') {
+            youtubeView.style.display = 'none';
+            shortsView.style.display = 'block';
+        }
+    });
+});
+
+// ==========================================
+// 2. فلترة أعمال اليوتيوب
+// ==========================================
+const ytFilterBtns = document.querySelectorAll('#youtube-view .filter-btn');
+const ytPortfolioItems = document.querySelectorAll('#slider .thumbnail-link');
+
+if (ytFilterBtns.length && ytPortfolioItems.length) {
+    ytFilterBtns.forEach(button => {
+        button.addEventListener('click', function() {
+            ytFilterBtns.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            const filterValue = this.getAttribute('data-filter');
+
+            ytPortfolioItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                if (filterValue === 'all' || itemCategory === filterValue) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+
+// ==========================================
+// 3. فلترة أعمال القصيرة (Shorts) المستقلة
+// ==========================================
+const shortsBtns = document.querySelectorAll('.shorts-filter-btn');
+const shortsItems = document.querySelectorAll('#shorts-slider .shorts-card');
+
+if (shortsBtns.length && shortsItems.length) {
+    shortsBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            shortsBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            const filterValue = this.getAttribute('data-filter-shorts');
+
+            shortsItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                if (filterValue === 'all' || itemCategory === filterValue) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+}

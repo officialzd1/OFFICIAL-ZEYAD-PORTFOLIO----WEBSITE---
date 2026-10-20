@@ -88,19 +88,50 @@
         </div>
     </section>
 
-    <!-- قسم الأعمال (Works Section) مع أزرار الفلترة ومعرض الفيديوهات -->
-    <section id="works" class="works-section">
-        <h2 style="text-align: center; direction: ltr;">
-            <span style="display: inline-block;">Works</span>
-            <span style="margin: 0 5px;">|</span>
-            <span style="direction: rtl; unicode-bidi: isolate; display: inline-block;">الأعمال</span>
-        </h2>
+<!-- قسم الأعمال (Works Section) مع أزرار الفلترة ومعرض الفيديوهات -->
+<section id="works" class="works-section">
+    <h2 style="text-align: center; direction: ltr;">
+        <span style="display: inline-block;">Works</span>
+        <span style="margin: 0 5px;">|</span>
+        <span style="direction: rtl; unicode-bidi: isolate; display: inline-block;">الأعمال</span>
+    </h2>
 
-        <div class="gold-divider">
-            <div class="divider-line"></div>
-        </div>
 
-        <!-- أزرار تصفية وتصنيف الأعمال -->
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="gold-divider">
+        <div class="divider-line"></div>
+    </div>
+
+        <!-- أزرار التصنيف الرئيسي للمنصات (شريط مدمج متناسق) -->
+<div style="text-align: center;">
+    <div class="main-filters">
+                <button class="main-filter-btn" data-main="shorts">قصيرة | Shorts</button>
+
+        <button class="main-filter-btn active" data-main="youtube">يوتيوب | YouTube</button>
+    </div>
+</div>
+
+    <!-- ================= 1. قسم أعمال اليوتيوب بالكامل ================= -->
+    <div id="youtube-view">
+        <!-- أزرار الفلترة الفرعية لليوتيوب -->
         <div class="filter-buttons">
             <button class="filter-btn active" data-filter="all">الكل | All</button>
             <button class="filter-btn" data-filter="challenge">تحديات | Challenges</button>
@@ -112,7 +143,7 @@
             <button class="filter-btn" data-filter="vlog">فلوقات | Vlogs</button>
         </div>
 
-        <!-- حاوية صور المصغرات والأعمال -->
+        <!-- حاوية أعمال اليوتيوب -->
         <div class="portfolios-container" id="slider">
             <a href="https://www.youtube.com/watch?v=ZsQmh_tuh8I" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="experiments">
                 <img src="WORKS/019" alt="ممنوع اصرف ولا ريال.. الا اذا كسبته !" loading="lazy">
@@ -190,7 +221,24 @@
                 <img src="WORKS/001" alt="مقلب السواق النصاب" loading="lazy">
             </a>
         </div>
-    </section>
+    </div>
+
+    <!-- ================= 2. قسم أعمال القصيرة (Shorts) ================= -->
+    <div id="shorts-view" style="display: none;">
+        <!-- أزرار الفلترة الخاصة بالشورتس (بنفس التصميم القديم) -->
+        <div class="filter-buttons">
+            <button class="shorts-filter-btn active" data-filter-shorts="all">الكل | All</button>
+            <button class="shorts-filter-btn" data-filter-shorts="challenge">تحديات | Challenges</button>
+        </div>
+
+        <!-- حاوية أعمال القصيرة الطولية -->
+        <div class="shorts-container" id="shorts-slider">
+            <a href="https://www.tiktok.com/@idseven97/video/7697567955764219156" target="_blank" rel="noopener noreferrer" class="shorts-card" data-category="challenge">
+                <img src="WORKS/S-001" alt="عمل قصيرة" loading="lazy">
+            </a>
+        </div>
+    </div>
+</section>
 
     <!-- قسم العملاء (Clients Section) -->
     <section id="clients" class="clients-section">

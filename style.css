@@ -1168,6 +1168,195 @@ footer p {
   display: none !important;
 }
 
+/* ==========================================================================
+   تغيير شامل للفلاتر الرئيسية (شريط تبديل مدمج وأنيق Segmented Control)
+   ========================================================================== */
+
+/* الحاوية الخارجية: شريط فاخر ذو خلفية داكنة موحدة تجمع الزرين معاً */
+.main-filters {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(20, 20, 20, 0.85); /* خلفية سوداء ناعمة مع شفافية */
+    border: 1px solid rgba(212, 175, 55, 0.35); /* إطار ذهبي نحيف وجذاب */
+    padding: 4px;                       /* مسافة بسيطة جداً تحيط بالأزرار الداخلية */
+    border-radius: 50px;                /* حواف دائرية بالكامل ليعطي شكل الحاوية الموحدة */
+    margin: 0 auto 3rem auto;           /* توسيط الحاوية بالمنتصف وترك مسافة بالأسفل */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* ظل خلفي لبروز الشريط */
+    backdrop-filter: blur(8px);
+}
+
+/* تنسيق أزرار التبديل الداخلية */
+.main-filter-btn {
+    background: transparent;            /* زر شفاف بداخل الحاوية الداكنة */
+    border: none;                       /* بدون أي إطار خارجي لكل زر */
+    color: #888888;                     /* لون رمادي خفيف عند عدم التنشيط */
+    padding: 8px 22px;                  /* حجم متوسط وأنيق */
+    border-radius: 40px;                /* حواف دائرية تناسب الحاوية */
+    font-size: 0.82rem;                 /* حجم خط متناسق */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); /* حركة انسيابية جداً */
+    margin: 0 2px;
+}
+
+/* عند مرور الماوس على الزر غير النشط */
+.main-filter-btn:hover {
+    color: #ffffff;                     /* إضاءة النص للأبيض */
+}
+
+/* الزر النشط (Active): كبسولة ذهبية بارزة كلياً بداخل الشريط */
+.main-filter-btn.active {
+    background: linear-gradient(135deg, #ffd700 0%, #b38728 100%); /* ذهبي فاخر ومششرق */
+    color: #000000;                     /* نص أسود عريض وواضح جداً */
+    font-weight: 700;
+    box-shadow: 0 2px 12px rgba(212, 175, 55, 0.5); /* إضاءة ذهبية ناعمة للزر المفعل */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   تطوير ألوان وتصميم الفلاتر الفرعية (التصنيفات: تحديات، فلوقات، مقالب...)
+   ========================================================================== */
+
+/* 1. حاويات الأزرار الفرعية لكل من اليوتيوب والشورتس */
+.filter-buttons,
+.shorts-filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;           /* مسافة بين كل زر فرعي وآخر */
+    flex-wrap: wrap;    /* السماح برصف الأزرار تلقائياً في الشاشات الصغيرة */
+    margin-bottom: 22px;
+    padding: 0 10px;
+}
+
+/* 2. شكل الأزرار الفرعية في حالتها العادية (ألوان هادئة وراقية) */
+.filter-btn,
+.shorts-filter-btn {
+    background: rgba(255, 255, 255, 0.03);  /* خلفية رمادية زجاجية خفيفة جداً */
+    border: 1px solid rgba(212, 175, 55, 0.2);/* إطار ذهبي نحيف للغاية وغير مزعج */
+    color: #a6a6a6;                         /* لون الخط رمادي فاتح مريح للعين */
+    padding: 6px 15px;                      /* حجم الزر متناسق وأصغر من الرئيسي */
+    border-radius: 18px;                    /* انحناء كبسولي أنيق */
+    font-size: 0.78rem;                     /* حجم خط دقيق وفاخر */
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); /* حركة انسيابية مريحة */
+}
+
+/* 3. تأثير مرور الماوس فوق الزر الفرعي (Hover) */
+.filter-btn:hover,
+.shorts-filter-btn:hover {
+    background: rgba(212, 175, 55, 0.1);    /* خامة ذهبية خفيفة عند الوقوف عليه */
+    border-color: rgba(212, 175, 55, 0.6);  /* إبراز الإطار الذهبي قليلاً */
+    color: #ffffff;                         /* نص أبيض ساطع */
+    transform: translateY(-1px);            /* ارتفاع خفيف جداً للأعلى */
+}
+
+/* 4. شكل الزر الفرعي المفعّل/المختار (Active - التوهج والألوان الذهبية) */
+.filter-btn.active,
+.shorts-filter-btn.active {
+    background: rgba(212, 175, 55, 0.18);   /* خلفية ذهبية دافئة شفافة */
+    color: #ffd700;                         /* لون نص ذهبي ساطع وفاخر */
+    border-color: #ffd700;                  /* إطار ذهبي مشرّق */
+    font-weight: 700;                       /* خط عريض لإبراز القسم المختار */
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.25); /* توهج ذهبي ناعم وانيق حول الزر */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   3. شبكة وكروت الشورتس الطولية (9:16)
+   ========================================== */
+
+/* حاوية عروض كروت الشورتس (ترتيبها بجانب بعضها وتوسيطها) */
+.shorts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 220px)); /* تحكم بعرض الكارت حسب الشاشة */
+    gap: 20px;
+    justify-content: center;
+}
+
+/* تنسيق كارت الشورتس الواحد الطولي */
+.shorts-card {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16; /* نسبة الأبعاد الطولية الرسمية للشورتس والتيك توك */
+    border-radius: 12px;   /* حواف دائرية للكارت */
+    overflow: hidden;      /* إخفاء أي أجزاء خارج حدود الكارت */
+    border: 1px solid rgba(212, 175, 55, 0.3); /* إطار ذهبي خفيف وراقي */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);  /* ظل أسود عميق تحت الكارت */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* تأثير تكبير الكارت ورفع التوهج عند تمرير الماوس فوق فيديو الشورتس */
+.shorts-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* صورة الغلاف داخل كارت الشورتس */
+.shorts-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* جعل الصورة تغطي المساحة بالكامل بدون أي تشوه أو مط */
+}
+
 /* شارة الحالة (Status Badge) */
 .status-badge {
   display: inline-flex;
@@ -1382,6 +1571,293 @@ div.mobile-bottom-nav {
     height: 4.5rem;
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   تغيير شامل للفلاتر الرئيسية (شريط تبديل مدمج وأنيق Segmented Control)
+   ========================================================================== */
+
+/* الحاوية الخارجية: شريط فاخر ذو خلفية داكنة موحدة تجمع الزرين معاً */
+.main-filters {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(20, 20, 20, 0); /* خلفية سوداء ناعمة مع شفافية */
+    border: 1px solid rgba(212, 175, 55, 0.35); /* إطار ذهبي نحيف وجذاب */
+    padding: 4px;                       /* مسافة بسيطة جداً تحيط بالأزرار الداخلية */
+    border-radius: 50px;                /* حواف دائرية بالكامل ليعطي شكل الحاوية الموحدة */
+    margin: 0 auto 3rem auto;           /* توسيط الحاوية بالمنتصف وترك مسافة بالأسفل */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* ظل خلفي لبروز الشريط */
+    backdrop-filter: blur(8px);
+}
+
+/* تنسيق أزرار التبديل الداخلية */
+.main-filter-btn {
+    background: transparent;            /* زر شفاف بداخل الحاوية الداكنة */
+    border: none;                       /* بدون أي إطار خارجي لكل زر */
+    color: #888888;                     /* لون رمادي خفيف عند عدم التنشيط */
+    padding: 8px 22px;                  /* حجم متوسط وأنيق */
+    border-radius: 40px;                /* حواف دائرية تناسب الحاوية */
+    font-size: 0.82rem;                 /* حجم خط متناسق */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); /* حركة انسيابية جداً */
+    margin: 0 2px;
+}
+
+/* عند مرور الماوس على الزر غير النشط */
+.main-filter-btn:hover {
+    color: #ffffff;                     /* إضاءة النص للأبيض */
+}
+
+/* الزر النشط (Active): كبسولة ذهبية بارزة كلياً بداخل الشريط */
+.main-filter-btn.active {
+    background: linear-gradient(135deg, #ffd700 0%, #b38728 100%); /* ذهبي فاخر ومششرق */
+    color: #000000;                     /* نص أسود عريض وواضح جداً */
+    font-weight: 700;
+    box-shadow: 0 2px 12px rgba(212, 175, 55, 0.5); /* إضاءة ذهبية ناعمة للزر المفعل */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   تطوير ألوان وتصميم الفلاتر الفرعية (التصنيفات: تحديات، فلوقات، مقالب...)
+   ========================================================================== */
+
+/* 1. حاويات الأزرار الفرعية لكل من اليوتيوب والشورتس */
+.filter-buttons,
+.shorts-filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;           /* مسافة بين كل زر فرعي وآخر */
+    flex-wrap: wrap;    /* السماح برصف الأزرار تلقائياً في الشاشات الصغيرة */
+    margin-bottom: 22px;
+    padding: 0 10px;
+}
+
+/* 2. شكل الأزرار الفرعية في حالتها العادية (ألوان هادئة وراقية) */
+.filter-btn,
+.shorts-filter-btn {
+    background: rgba(255, 255, 255, 0.03);  /* خلفية رمادية زجاجية خفيفة جداً */
+    border: 1px solid rgba(212, 175, 55, 0.2);/* إطار ذهبي نحيف للغاية وغير مزعج */
+    color: #a6a6a6;                         /* لون الخط رمادي فاتح مريح للعين */
+    padding: 6px 15px;                      /* حجم الزر متناسق وأصغر من الرئيسي */
+    border-radius: 18px;                    /* انحناء كبسولي أنيق */
+    font-size: 0.78rem;                     /* حجم خط دقيق وفاخر */
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); /* حركة انسيابية مريحة */
+}
+
+/* 3. تأثير مرور الماوس فوق الزر الفرعي (Hover) */
+.filter-btn:hover,
+.shorts-filter-btn:hover {
+    background: rgba(212, 175, 55, 0.1);    /* خامة ذهبية خفيفة عند الوقوف عليه */
+    border-color: rgba(212, 175, 55, 0.6);  /* إبراز الإطار الذهبي قليلاً */
+    color: #ffffff;                         /* نص أبيض ساطع */
+    transform: translateY(-1px);            /* ارتفاع خفيف جداً للأعلى */
+}
+
+/* 4. شكل الزر الفرعي المفعّل/المختار (Active - التوهج والألوان الذهبية) */
+.filter-btn.active,
+.shorts-filter-btn.active {
+    background: rgba(212, 175, 55, 0.18);   /* خلفية ذهبية دافئة شفافة */
+    color: #ffd700;                         /* لون نص ذهبي ساطع وفاخر */
+    border-color: #ffd700;                  /* إطار ذهبي مشرّق */
+    font-weight: 700;                       /* خط عريض لإبراز القسم المختار */
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.25); /* توهج ذهبي ناعم وانيق حول الزر */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   3. شبكة وكروت الشورتس الطولية (9:16)
+   ========================================== */
+
+/* حاوية عروض كروت الشورتس (ترتيبها بجانب بعضها وتوسيطها) */
+.shorts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 220px)); /* تحكم بعرض الكارت حسب الشاشة */
+    gap: 20px;
+    justify-content: center;
+}
+
+/* تنسيق كارت الشورتس الواحد الطولي */
+.shorts-card {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16; /* نسبة الأبعاد الطولية الرسمية للشورتس والتيك توك */
+    border-radius: 12px;   /* حواف دائرية للكارت */
+    overflow: hidden;      /* إخفاء أي أجزاء خارج حدود الكارت */
+    border: 1px solid rgba(212, 175, 55, 0.3); /* إطار ذهبي خفيف وراقي */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);  /* ظل أسود عميق تحت الكارت */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* تأثير تكبير الكارت ورفع التوهج عند تمرير الماوس فوق فيديو الشورتس */
+.shorts-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* صورة الغلاف داخل كارت الشورتس */
+.shorts-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* جعل الصورة تغطي المساحة بالكامل بدون أي تشوه أو مط */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   .filter-btn {
     padding: 0.25rem 0.5rem; /* قللنا الـ padding عشان تصير أصغر حجماً */
     font-size: 0.6rem;       /* صغرنا حجم الخط أكثر */
@@ -1411,6 +1887,8 @@ div.mobile-bottom-nav {
   .thumbnail-link {
     border-radius: 0.8rem;
   }
+
+
 
   .portfolio-item-wrapper {
     margin-bottom: 0.5rem;
@@ -1773,17 +2251,20 @@ margin: 0.8rem auto !important;
     border: none;
     border-radius: 5rem;
     cursor: pointer;
-    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c) !important;
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #bf953f, #fbf5b7, #aa761c);
     background-size: 200% auto !important;
     animation: shine 5.8s !important;
     transition: transform 0.2s ease, opacity 0.2s ease !important;
     padding: 0.4rem 1.2rem !important;
-    margin-top: 0.8rem !important;
     font-size: 0.8rem !important;
-
-  margin: 1rem auto -0.9rem auto !important; 
-    display: block !important; /* لضمان أخذ الهامش والتحاذي في المنتصف */
-  }
+    
+    /* الهوامش الموزونة للسنترة التامة فوق وتحت وفي المنتصف */
+    margin-top: 1.8rem !important;
+margin-bottom: 0.1rem !important;
+margin-left: auto !important;
+margin-right: auto !important;
+    display: block !important;
+}
 
   #tracker-modal #project-status {
     font-family: 'El Messiri', sans-serif !important;
