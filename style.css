@@ -1447,7 +1447,6 @@ div.mobile-bottom-nav {
 
 
 
-
 /* إخفاء القائمة في أجهزة الكمبيوتر */
 .my-custom-bar {
   display: none;
@@ -1461,78 +1460,71 @@ div.mobile-bottom-nav {
     bottom: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    height: 60px !important;
-    background-color: #000000 !important; /* اللون الأحمر التجريبي */
+    height: 65px !important;
+    
+    /* 1. خلفية سوداء فخمة مع ضبابية زجاجية (Glassmorphism) */
+    background-color: rgba(0, 0, 0, 0.83) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    
+    /* 2. مساحة أمان لشاشات الآيفون الحديثة */
+    padding-bottom: env(safe-area-inset-bottom) !important;
+    
     z-index: 999999 !important;
-    box-shadow: none !important;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3) !important;
     border: none !important;
   }
 
-  /* التحكم اليدوي بموقع زر الأيقونة */
+  /* --- أيقونة الرئيسية (على اليسار) --- */
   .my-custom-bar .home-btn {
     position: absolute !important;
-    
-    /* --- التحكم بالمسافات (غير هذه الأرقام حسب رغبتك) --- */
-    left: 4rem !important;   /* المسافة من اليسار (كَبّر الرقم للتحريك لليمين) */
-    top: 50% !important;     /* لتوسيط الأيقونة عمودياً */
-    transform: translateY(-50%) !important; /* لضمان التوسيط العمودي الدقيق */
-    
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-decoration: none !important;
-  }
-
-  /* حجم ولون الأيقونة */
-  .my-custom-bar .home-btn svg {
-    width: 26px !important;  /* يمكنك تغيير حجم الأيقونة من هنا */
-    height: 26px !important;
-    stroke: #ffffff !important; /* لون الأيقونة */
-  }
-
-
-
-/* التحكم اليدوي بموقع أيقونة الأعمال (في المنتصف) */
-  .my-custom-bar .works-btn {
-    position: absolute !important;
-    left: 50% !important; /* وضعها في منتصف العرض */
-    top: 50% !important;  /* وضعها في منتصف الارتفاع */
-    transform: translate(-50%, -50%) !important; /* توسيط دقيق 100% أفقياً وعمودياً */
-    
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-decoration: none !important;
-  }
-
-  /* حجم ولون أيقونة الأعمال */
-  .my-custom-bar .works-btn svg {
-    width: 26px !important;
-    height: 26px !important;
-    stroke: #ffffff !important;
-  }
-
-
-
-  /* التحكم اليدوي بموقع أيقونة العملاء (على اليمين) */
-  .my-custom-bar .clients-btn {
-    position: absolute !important;
-    right: 4rem !important; /* نفس مسافة الرئيسية ولكن من اليمين */
+    left: 4rem !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     text-decoration: none !important;
   }
 
-  /* حجم ولون أيقونة العملاء */
-  .my-custom-bar .clients-btn svg {
+  /* --- أيقونة الأعمال (في المنتصف) --- */
+  .my-custom-bar .works-btn {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+  }
+
+  /* --- أيقونة العملاء (على اليمين) --- */
+  .my-custom-bar .clients-btn {
+    position: absolute !important;
+    right: 4rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+  }
+
+  /* أحجام وألوان جميع الأيقونات */
+  .my-custom-bar a svg {
     width: 26px !important;
     height: 26px !important;
     stroke: #ffffff !important;
+    transition: all 0.2s ease !important;
   }
+
+  /* 3. تأثير ذهبي أنيق واستجابة عند النقر على أي أيقونة */
+  .my-custom-bar a:active svg {
+    stroke: #D4AF37 !important; /* يتغير اللون للذهبي عند الضغط */
+    transform: scale(0.9) !important; /* تكبير/تصغير بسيط يعطي شعور الضغط */
+  }
+}
 
 
 
