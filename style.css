@@ -1389,6 +1389,246 @@ div.mobile-bottom-nav {
   display: none !important;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* إخفاء القائمة في أجهزة الكمبيوتر */
+.my-custom-bar {
+  display: none;
+}
+
+/* إظهار القائمة وتنسيق العناصر للجوال */
+@media (max-width: 991px) {
+  .my-custom-bar {
+    display: block !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 60px !important;
+    background-color: #000000 !important; /* اللون الأحمر التجريبي */
+    z-index: 999999 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* التحكم اليدوي بموقع زر الأيقونة */
+  .my-custom-bar .home-btn {
+    position: absolute !important;
+    
+    /* --- التحكم بالمسافات (غير هذه الأرقام حسب رغبتك) --- */
+    left: 4rem !important;   /* المسافة من اليسار (كَبّر الرقم للتحريك لليمين) */
+    top: 50% !important;     /* لتوسيط الأيقونة عمودياً */
+    transform: translateY(-50%) !important; /* لضمان التوسيط العمودي الدقيق */
+    
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+  }
+
+  /* حجم ولون الأيقونة */
+  .my-custom-bar .home-btn svg {
+    width: 26px !important;  /* يمكنك تغيير حجم الأيقونة من هنا */
+    height: 26px !important;
+    stroke: #ffffff !important; /* لون الأيقونة */
+  }
+
+
+
+/* التحكم اليدوي بموقع أيقونة الأعمال (في المنتصف) */
+  .my-custom-bar .works-btn {
+    position: absolute !important;
+    left: 50% !important; /* وضعها في منتصف العرض */
+    top: 50% !important;  /* وضعها في منتصف الارتفاع */
+    transform: translate(-50%, -50%) !important; /* توسيط دقيق 100% أفقياً وعمودياً */
+    
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+  }
+
+  /* حجم ولون أيقونة الأعمال */
+  .my-custom-bar .works-btn svg {
+    width: 26px !important;
+    height: 26px !important;
+    stroke: #ffffff !important;
+  }
+
+
+
+  /* التحكم اليدوي بموقع أيقونة العملاء (على اليمين) */
+  .my-custom-bar .clients-btn {
+    position: absolute !important;
+    right: 4rem !important; /* نفس مسافة الرئيسية ولكن من اليمين */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+  }
+
+  /* حجم ولون أيقونة العملاء */
+  .my-custom-bar .clients-btn svg {
+    width: 26px !important;
+    height: 26px !important;
+    stroke: #ffffff !important;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* إظهارها فقط في شاشات الجوال (768px وأقل) */
 @media screen and (max-width: 768px) {
   div.mobile-bottom-nav {
@@ -1423,6 +1663,9 @@ div.mobile-bottom-nav {
     scroll-behavior: smooth !important; /* يخلي كل تنقلات الصفحة سحرية وناعمة تلقائياً */
   }
   
+
+
+
   nav {
     top: 0;
     padding: 1rem 1rem;
@@ -1808,7 +2051,7 @@ div.mobile-bottom-nav {
     aspect-ratio: 9 / 16; /* نسبة الأبعاد الطولية الرسمية للشورتس والتيك توك */
     border-radius: 12px;   /* حواف دائرية للكارت */
     overflow: hidden;      /* إخفاء أي أجزاء خارج حدود الكارت */
-    border: 1px solid rgba(212, 175, 55, 0.3); /* إطار ذهبي خفيف وراقي */
+    border: 1px solid rgba(212, 175, 55, 0); /* إطار ذهبي خفيف وراقي */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);  /* ظل أسود عميق تحت الكارت */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
