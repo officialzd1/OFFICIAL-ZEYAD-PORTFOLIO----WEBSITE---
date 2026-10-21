@@ -638,3 +638,34 @@ if (shortsBtns.length && shortsItems.length) {
         });
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+const extraBtn = document.querySelector('.extra-btn');
+  const overlay = document.getElementById('customPageOverlay');
+  const mainNavLinks = document.querySelectorAll('.my-custom-bar a:not(.extra-btn)');
+
+  if (extraBtn && overlay) {
+    // عند الضغط على الزر المنفصل
+    extraBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const isActive = overlay.classList.toggle('active');
+      document.body.classList.toggle('no-scroll', isActive);
+    });
+
+    // عند الضغط على أي أيقونة رئيسية أخرى (الرئيسية، الأعمال، العملاء)، يتم إغلاق الصفحة السوداء وإعادة التمرير
+    mainNavLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        overlay.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+      });
+    });
+  }

@@ -1461,6 +1461,73 @@ html {
 }
 
 
+
+
+
+
+/* الواجهة السوداء الكاملة (Cut مباشر بدون تلاشٍ) */
+.custom-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: #000000 !important;
+  z-index: 999998 !important;
+  display: none; /* إخفاء مباشر */
+  overflow: hidden !important;
+}
+
+/* إظهار الواجهة فوراً عند التفعيل (Cut) */
+.custom-overlay.active {
+  display: block !important;
+}
+
+/* منع التمرير والنزول لأسفل */
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   .my-custom-bar {
     display: block !important;
     position: fixed !important;
@@ -1477,7 +1544,7 @@ html {
     /* 2. مساحة أمان لشاشات الآيفون الحديثة */
     padding-bottom: env(safe-area-inset-bottom) !important;
     
-    z-index: 999999 !important;
+    z-index: 999999999999999 !important;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3) !important;
     border: none !important;
   }
@@ -1536,6 +1603,84 @@ html {
     stroke: #D4AF37 !important; /* يتغير اللون للذهبي عند الضغط */
     transform: scale(0.9) !important; /* تكبير/تصغير بسيط يعطي شعور الضغط */
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- إعادة توزيع الأيقونات الرئيسية لتوفير مساحة للزر الجديد --- */
+  /* --- إعادة توزيع الأيقونات الرئيسية وإزاحتها لليمين لتوسيطها تماماً --- */
+  .my-custom-bar .home-btn {
+    position: absolute !important;
+    left: 15% !important; /* إزاحة الرئيسية لليمين أكثر قليلاً */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .my-custom-bar .works-btn {
+    position: absolute !important;
+    left: 43% !important; /* إزاحة الأعمال لليمين */
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .my-custom-bar .clients-btn {
+    position: absolute !important;
+    left: 67% !important; /* إزاحة العملاء لليمين وتقريبها من الفاصل */
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  /* --- الفاصل العمودي --- */
+  .my-custom-bar .nav-divider {
+    position: absolute !important;
+    right: 4.5rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 1px !important;
+    height: 24px !important;
+    background-color: rgba(255, 255, 255, 0.2) !important; /* لون فاصل رمادي شفاف أنيق */
+  }
+
+  /* --- الأيقونة المنفصلة الجديدة (أقصى اليمين) --- */
+  .my-custom-bar .extra-btn {
+    position: absolute !important;
+    right: 1.5rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
@@ -2313,7 +2458,7 @@ html {
     position: fixed;
     top: 3rem;
     left: 2.8rem;
-    z-index: 99999999999999999999999999999999999999999999;
+    z-index: 99;
     display: flex;
     flex-direction: column;
     align-items: center;
