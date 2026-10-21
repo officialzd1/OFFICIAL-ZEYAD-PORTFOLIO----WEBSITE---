@@ -653,16 +653,25 @@ const extraBtn = document.querySelector('.extra-btn');
   const mainNavLinks = document.querySelectorAll('.my-custom-bar a:not(.extra-btn)');
 
   if (extraBtn && overlay) {
-    // عند الضغط على الأيقونة الجديدة: يفتح الصفحة السوداء فقط (بدون إغلاق عند تكرار الضغط)
+    // 1. فتح الصفحة السوداء عند الضغط على الزر المنفصل (بدون إغلاق بالتكرار)
     extraBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      
-      // تفعيل الصفحة السوداء وقفل التمرير دائماً عند النقر
       if (!overlay.classList.contains('active')) {
         overlay.classList.add('active');
         document.body.classList.add('no-scroll');
       }
     });
+
+    // 2. إغلاق الصفحة السوداء والعودة للموقع بسلاسة عند الضغط على أي أيقونة رئيسية
+    mainNavLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        if (overlay.classList.contains('active')) {
+          overlay.classList.remove('active');
+          document.body.classList.remove('no-scroll');
+        }
+      });
+    });
+  
 
     // الخروج من الصفحة السوداء والانتقال المباشر للقسم فقط عند الضغط على الأيقونات الرئيسية
     mainNavLinks.forEach(link => {
@@ -689,3 +698,7 @@ const extraBtn = document.querySelector('.extra-btn');
       });
     });
   }
+
+
+
+  
