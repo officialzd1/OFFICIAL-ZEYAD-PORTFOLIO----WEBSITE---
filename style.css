@@ -1491,7 +1491,36 @@ body.no-scroll {
 
 
 
+/* تنسيق نص "قريباً | SOON" المماثل للهوية الذهبية */
+.coming-soon-content {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  text-align: center !important;
+  width: 100% !important;
+}
 
+.coming-soon-title {
+  font-size: 1.3rem;
+  letter-spacing: 0.3rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3.8s linear infinite;
+  transition: all 0.4s ease;
+  cursor: default;
+  margin: 0.3rem;
+}
+
+.coming-soon-title span {
+  font-weight: 300 !important;
+  opacity: 0.6 !important;
+  margin: 0 8px !important;
+}
 
 
 
