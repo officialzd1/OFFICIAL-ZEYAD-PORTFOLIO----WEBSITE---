@@ -6,8 +6,9 @@
 }
 
 /* تفعيل التمرير السلس للصفحة */
-html { 
-  scroll-behavior: smooth; 
+/* تفعيل السلاسة العامة لكل الموقع */
+html {
+  scroll-behavior: smooth !important;
 }
 
 /* إعدادات العناصر الأساسية للجسم والصفحة */
@@ -1454,6 +1455,12 @@ div.mobile-bottom-nav {
 
 /* إظهار القائمة وتنسيق العناصر للجوال */
 @media (max-width: 991px) {
+
+html {
+  scroll-behavior: smooth;
+}
+
+
   .my-custom-bar {
     display: block !important;
     position: fixed !important;
@@ -1474,6 +1481,11 @@ div.mobile-bottom-nav {
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3) !important;
     border: none !important;
   }
+
+  /* تحديد نقطة وقوف التمرير عند الضغط على قسم الأعمال */
+#works {
+  scroll-margin-top: 138px !important; /* يمكنك زيادة الرقم (مثلاً 100px) أو تقليله لضبط المكان بالظبط */
+}
 
   /* --- أيقونة الرئيسية (على اليسار) --- */
   .my-custom-bar .home-btn {
