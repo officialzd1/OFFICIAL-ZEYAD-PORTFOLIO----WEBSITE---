@@ -618,8 +618,40 @@
 
 
 
+<script>
+  // حركة التمرير السريعة مع تباطؤ ناعم (Ease-Out) بدون أي تأخير
+  document.querySelectorAll('.my-custom-bar a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        const duration = 500; // المدة بالملي ثانية (0.5 ثانية استجابة سريعة)
+        let start = null;
 
+        // منحنى Ease-Out: يبدأ فوراً وسريعاً وينتهي بتباطؤ ناعم
+        function easeOutQuad(t, b, c, d) {
+          t /= d;
+          return -c * t * (t - 2) + b;
+        }
 
+        function animation(currentTime) {
+          if (start === null) start = currentTime;
+          const timeElapsed = currentTime - start;
+          const run = easeOutQuad(timeElapsed, startPosition, distance, duration);
+          window.scrollTo(0, run);
+          if (timeElapsed < duration) requestAnimationFrame(animation);
+        }
+
+        requestAnimationFrame(animation);
+      }
+    });
+  });
+</script>
     <!-- ربط ملف الجافاسكريبت الأساسي (Script.js) -->
     <script src="script.js"></script>
 </body>
