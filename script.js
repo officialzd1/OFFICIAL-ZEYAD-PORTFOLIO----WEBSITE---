@@ -648,24 +648,44 @@ if (shortsBtns.length && shortsItems.length) {
 
 
 
-
 const extraBtn = document.querySelector('.extra-btn');
   const overlay = document.getElementById('customPageOverlay');
   const mainNavLinks = document.querySelectorAll('.my-custom-bar a:not(.extra-btn)');
 
   if (extraBtn && overlay) {
-    // عند الضغط على الزر المنفصل
+    // عند الضغط على الأيقونة الجديدة: يفتح الصفحة السوداء فقط (بدون إغلاق عند تكرار الضغط)
     extraBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      const isActive = overlay.classList.toggle('active');
-      document.body.classList.toggle('no-scroll', isActive);
+      
+      // تفعيل الصفحة السوداء وقفل التمرير دائماً عند النقر
+      if (!overlay.classList.contains('active')) {
+        overlay.classList.add('active');
+        document.body.classList.add('no-scroll');
+      }
     });
 
-    // عند الضغط على أي أيقونة رئيسية أخرى (الرئيسية، الأعمال، العملاء)، يتم إغلاق الصفحة السوداء وإعادة التمرير
+    // الخروج من الصفحة السوداء والانتقال المباشر للقسم فقط عند الضغط على الأيقونات الرئيسية
     mainNavLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        overlay.classList.remove('active');
-        document.body.classList.remove('no-scroll');
+      link.addEventListener('click', function(e) {
+        if (overlay.classList.contains('active')) {
+          overlay.classList.remove('active');
+          document.body.classList.remove('no-scroll');
+
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            e.preventDefault();
+            // إيقاف التمرير السلس لحظياً للانتقال المباشر
+            document.documentElement.style.scrollBehavior = 'auto';
+            targetElement.scrollIntoView({ behavior: 'instant' });
+
+            // إعادة السلاسة للتمرير العادي
+            setTimeout(() => {
+              document.documentElement.style.scrollBehavior = '';
+            }, 50);
+          }
+        }
       });
     });
   }

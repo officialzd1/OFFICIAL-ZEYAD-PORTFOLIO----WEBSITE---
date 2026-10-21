@@ -1460,7 +1460,20 @@ html {
   scroll-behavior: smooth;
 }
 
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+  background-size: 200% auto;
+  animation: shine 3.8s linear infinite;
+  transition: width 0.1s ease-out;
+  z-index: 10000;
 
+  display: none !important;
+}
 
 
 
@@ -1473,7 +1486,7 @@ html {
   width: 100vw !important;
   height: 100vh !important;
   background-color: #000000 !important;
-  z-index: 999998 !important;
+  z-index: 99998 !important;
   display: none; /* إخفاء مباشر */
   overflow: hidden !important;
 }
@@ -1842,6 +1855,10 @@ body.no-scroll {
   }
   
 
+  body, html {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
 
 
   nav {
@@ -1958,13 +1975,19 @@ body.no-scroll {
     user-select: none !important;
     -webkit-user-select: none !important;
     pointer-events: none !important; /* هذا السطر يمنع أي ضغطة أو تفاعل عليه نهائياً */
+
+    
   }
 
   #clients {
     transform: scale(0.85);
     transform-origin: center top;
-    padding: 2rem 1rem;
-    min-height: auto;
+   
+    
+    min-height: unset !important;
+  height: auto !important;
+  padding-bottom: 1rem !important;
+  margin-bottom: 0 !important;
   }
 
   #clients h2,
@@ -1985,11 +2008,16 @@ body.no-scroll {
     flex-wrap: wrap-reverse !important;
     justify-content: center !important;
     direction: rtl !important;
+
+    margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
   }
 
   .clients-grid img {
     width: 4.5rem;
     height: 4.5rem;
+
+    
   }
 
 
@@ -2430,6 +2458,7 @@ body.no-scroll {
     text-align: center;
     margin-top: 0rem;
     margin-bottom: 0rem;
+    display: none;
   }
 
   footer p {
