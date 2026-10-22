@@ -1937,7 +1937,7 @@ body.no-scroll {
     min-height: 100vh;
     left: 0.2rem;
     bottom: -1.8rem;
-    padding-bottom: 5rem;
+    padding-bottom: 0rem;
   }
 
   .logo {
@@ -2460,7 +2460,7 @@ body.no-scroll {
 
   footer {
     text-align: center;
-    margin-top: 5rem;
+    margin-top: 3rem;
     margin-bottom: 0rem;
     padding: 0.8rem 3rem;
 
