@@ -1990,6 +1990,8 @@ body.no-scroll {
   height: auto !important;
   padding-bottom: 1rem !important;
   margin-bottom: 0 !important;
+
+  display: none !important; /* إخفاء قسم العملاء تماماً على الجوال */
   }
 
   #clients h2,
@@ -2458,10 +2460,11 @@ body.no-scroll {
 
   footer {
     text-align: center;
-    margin-top: 0rem;
+    margin-top: 5rem;
     margin-bottom: 0rem;
-    display: none;
-  }
+    padding: 0.8rem 3rem;
+
+    }
 
   footer p {
     color: #666668;
