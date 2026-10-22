@@ -3258,43 +3258,35 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     cursor: default;
 }
 
-
-
-
 /* تنسيق الصورة الشخصية وإطارها الذهبي */
 .about-avatar-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0 25px 0; /* مسافة بين النص والأزرار */
+    margin: 20px 0 25px 0;
 }
 
 .about-avatar {
-    width: 90px;  /* حجم الصورة */
+    width: 90px;
     height: 90px;
-    border-radius: 50%; /* جعل الصورة دائرية */
+    border-radius: 50%;
     object-fit: cover;
     
-    /* إطار ذهبي فخم ناعم مع توهج خفيف */
     border: 2px solid #d4af37;
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.about-avatar:hover {
-    transform: scale(1.05); /* تكبير خفيف عند التمرير */
-    box-shadow: 0 0 22px rgba(212, 175, 55, 0.45);
-}
 
 
-
-
-
-/* قسم نبذة عني مع تأثير الشفافية للانتقال السلس */
+/* ===================================================
+   إعدادات التلاشي والانتقال (عامة لكل الشاشات)
+   =================================================== */
 .about-page {
-    display: none; /* مخفي افتراضياً */
+    display: none;
     opacity: 0;
-    transition: opacity 0.4s ease-in-out; /* سرعة ونعومة الانتقال */
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; /* ناعم جداً للظهور والاختفاء */
     min-height: 100vh;
     padding: 20px;
     background-color: #000000;
@@ -3303,12 +3295,24 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     box-sizing: border-box;
 }
 
-/* كلاس التفعيل للظهور السلس */
 .about-page.show {
+    display: block;
     opacity: 1;
+    visibility: visible;
 }
 
-/* حاوية زر العودة - للتثبيت في نفس المكان فوق على اليسار */
+/* حركة التلاشي للموقع وزر البرجر */
+#mainPortfolio,
+.burger-toggle {
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+
+.fade-element {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* حاوية زر العودة */
 .about-back-wrapper {
     position: absolute;
     top: 3rem;
@@ -3316,11 +3320,10 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     z-index: 1000;
 }
 
-/* زر سهم العودة بنفس التدرج الذهبي للبرجر */
 .about-back-btn {
     background: transparent;
     border: none;
-    font-size: 22px; /* حجم متناسق مع أيقونات القائمة */
+    font-size: 22px;
     cursor: pointer;
     padding: 0;
     margin: 0;
@@ -3330,7 +3333,6 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     justify-content: center;
     transition: transform 0.2s ease, opacity 0.2s ease;
     
-    /* التدرج الذهبي الخاص بقائمة البرجر */
     background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
     background-size: 430% auto;
     -webkit-background-clip: text;
@@ -3351,26 +3353,19 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     padding: 0 10px;
     box-sizing: border-box;
 
-    /* تجميع التنزيل والتصغير في سطر واحد فقط */
     transform-origin: center center;
-    transform: translateY(180px) scale(0.75); /* عدّل scale هنا ليصغر فوراً */
+    transform: translateY(180px) scale(0.75);
 }
 
-
-
-
-
-/* الفاصل الذهبي */
 .about-divider {
     margin: 12px 0 20px 0;
 }
 
-/* فقرة التعريف - تصغير الخط والمسافات */
 .about-bio {
     direction: rtl;
     text-align: right;
     color: #cccccc;
-    font-size: 13px; /* تصغير حجم الخط */
+    font-size: 13px;
     line-height: 1.7;
     margin-bottom: 25px;
 }
@@ -3384,7 +3379,6 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     font-weight: 600;
 }
 
-/* أزرار التواصل الاجتماعي */
 .about-socials {
     display: flex;
     gap: 10px;
@@ -3399,13 +3393,13 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     background: rgba(212, 175, 55, 0.08);
     border: 1px solid #d4af37;
     color: #d4af37;
-    padding: 8px 16px; /* تصغير حجم الأزرار */
+    padding: 8px 16px;
     border-radius: 8px;
     text-decoration: none;
-    font-size: 13px; /* تصغير نص الزر */
+    font-size: 13px;
     font-weight: 500;
     transition: all 0.3s ease;
-    width: 100%; /* توزيع الأزرار بشكل متناسق */
+    width: 100%;
     justify-content: center;
 }
 
@@ -3419,48 +3413,29 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     transform: translateY(-2px);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ===================================================
    التجاوب مع الشاشات المختلفة (Media Queries)
    =================================================== */
 
-/* الجوالات والشاشات الصغيرة (أقل من 480px) */
 @media screen and (max-width: 480px) {
     .about-page {
         padding: 15px;
     }
-
     .about-container {
         margin-top: 50px;
         padding: 0 5px;
     }
-
     .about-title {
         font-size: 21px;
     }
-
     .about-bio {
         font-size: 14px;
         line-height: 1.7;
     }
-
     .about-socials {
-        flex-direction: column; /* الأزرار تحت بعض في الجوال الشاشة الضيقة */
+        flex-direction: column;
         gap: 12px;
     }
-
     .social-btn {
         width: 100%;
         justify-content: center;
@@ -3468,86 +3443,23 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     }
 }
 
-/* الشاشات المتوسطة مثل التابلت (من 481px إلى 768px) */
 @media screen and (min-width: 481px) and (max-width: 768px) {
     .about-title {
         font-size: 24px;
     }
-
     .about-bio {
         font-size: 15px;
     }
 }
 
-/* الشاشات الكبيرة واللابتوب (أكبر من 769px) */
 @media screen and (min-width: 769px) {
     .about-container {
         max-width: 700px;
     }
-
     .about-title {
         font-size: 30px;
     }
-
     .about-bio {
         font-size: 17px;
     }
-}
-
-
-@media screen and (max-width: 768px) {
-
-
-
-
-
-
-
-
-
-
-
-/* توحيد سرعة التلاشي لجميع العناصر */
-.about-page,
-#mainPortfolio,
-.burger-toggle,
-#menuItems {
-    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
-}
-
-/* كلاس الإخفاء العام */
-.fade-element {
-    opacity: 0 !important;
-    visibility: hidden !important;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -711,9 +711,8 @@ function toggleAboutModal() {
   if (!isOpen) {
     // === 1. عند الدخول لصفحة "نبذة عني" ===
     
-    // إخفاء الموقع والقائمة
+    // إخفاء الموقع وزر البرجر فقط
     if (mainPortfolio) mainPortfolio.classList.add('fade-element');
-    if (menuItems) menuItems.classList.add('fade-element');
     if (burgerToggle) burgerToggle.classList.add('fade-element');
 
     // تجهيز صفحة نبذة عني
@@ -721,7 +720,7 @@ function toggleAboutModal() {
     window.scrollTo(0, 0);
 
     // ==========================================================
-    // 🎛️ مكان التحكم اليدوي (جرب ارفع أو انزل بهذا الرقم بالمللي ثانية)
+    // 🎛️ مكان التحكم اليدوي بمدة التأخير (جرب ارفع أو انزل بهذا الرقم)
     // ==========================================================
     const fadeDelay = 300; // 300 يعني ثلث ثانية تأخير قبل ما تطلع الصفحة الثانية
     
@@ -729,7 +728,7 @@ function toggleAboutModal() {
       aboutSection.classList.add('show');
     }, fadeDelay);
 
-    // إغلاق قائمة البرجر بالكامل في الخلفية
+    // إغلاق قائمة البرجر وإخفاء الموقع في الخلفية
     setTimeout(() => {
       if (typeof toggleMenu === 'function' && menuItems && menuItems.classList.contains('active')) {
         toggleMenu();
@@ -740,7 +739,7 @@ function toggleAboutModal() {
       if (mainPortfolio) mainPortfolio.style.display = 'none';
     }, 400);
 
-} else {
+  } else {
     // === 2. عند الرجوع للموقع الرئيسي ===
     aboutSection.classList.remove('show');
 
@@ -748,8 +747,7 @@ function toggleAboutModal() {
       mainPortfolio.style.display = 'block';
       setTimeout(() => {
         if (mainPortfolio) mainPortfolio.classList.remove('fade-element');
-        if (menuItems) menuItems.classList.remove('fade-element');
-        if (burgerToggle) burgerToggle.classList.remove('fade-element'); // هنا التصحيح!
+        if (burgerToggle) burgerToggle.classList.remove('fade-element');
       }, 50);
     }
 
@@ -757,4 +755,4 @@ function toggleAboutModal() {
       aboutSection.style.display = 'none';
     }, 400);
   }
-  }
+}
