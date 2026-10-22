@@ -700,4 +700,61 @@ const extraBtn = document.querySelector('.extra-btn');
   }
 
 
+function toggleAboutModal() {
+  const mainPortfolio = document.getElementById('mainPortfolio');
+  const aboutSection = document.getElementById('aboutSection');
+  const menuItems = document.getElementById('menuItems');
+  const burgerToggle = document.querySelector('.burger-toggle');
 
+  const isOpen = aboutSection.classList.contains('show');
+
+  if (!isOpen) {
+    // === 1. عند الدخول لصفحة "نبذة عني" ===
+    
+    // إخفاء الموقع والقائمة
+    if (mainPortfolio) mainPortfolio.classList.add('fade-element');
+    if (menuItems) menuItems.classList.add('fade-element');
+    if (burgerToggle) burgerToggle.classList.add('fade-element');
+
+    // تجهيز صفحة نبذة عني
+    aboutSection.style.display = 'block';
+    window.scrollTo(0, 0);
+
+    // ==========================================================
+    // 🎛️ مكان التحكم اليدوي (جرب ارفع أو انزل بهذا الرقم بالمللي ثانية)
+    // ==========================================================
+    const fadeDelay = 300; // 300 يعني ثلث ثانية تأخير قبل ما تطلع الصفحة الثانية
+    
+    setTimeout(() => {
+      aboutSection.classList.add('show');
+    }, fadeDelay);
+
+    // إغلاق قائمة البرجر بالكامل في الخلفية
+    setTimeout(() => {
+      if (typeof toggleMenu === 'function' && menuItems && menuItems.classList.contains('active')) {
+        toggleMenu();
+      } else {
+        if (menuItems) menuItems.classList.remove('active');
+        if (burgerToggle) burgerToggle.classList.remove('active');
+      }
+      if (mainPortfolio) mainPortfolio.style.display = 'none';
+    }, 400);
+
+} else {
+    // === 2. عند الرجوع للموقع الرئيسي ===
+    aboutSection.classList.remove('show');
+
+    if (mainPortfolio) {
+      mainPortfolio.style.display = 'block';
+      setTimeout(() => {
+        if (mainPortfolio) mainPortfolio.classList.remove('fade-element');
+        if (menuItems) menuItems.classList.remove('fade-element');
+        if (burgerToggle) burgerToggle.classList.remove('fade-element'); // هنا التصحيح!
+      }, 50);
+    }
+
+    setTimeout(() => {
+      aboutSection.style.display = 'none';
+    }, 400);
+  }
+  }

@@ -63,334 +63,211 @@
 
 <body>
 
+    <!-- حاوية البورتفوليو الرئيسي بالكامل -->
+    <div id="mainPortfolio">
 
+        <!-- مؤشر شريط التقدم عند التمرير -->
+        <div id="scrollProgress"></div>
 
-
-
-</div>
-
-
-
-
-    <!-- مؤشر شريط التقدم عند التمرير -->
-    <div id="scrollProgress"></div>
-
-    <!-- شارة الحالة (متصل/متاح) -->
-    <div class="status-badge">
-        <span class="status-dot"></span>
-    </div>
-
-    <!-- شريط التنقل العلوي (Navbar) -->
-    <nav>
-        <a href="#order-form">اطلب الآن | Order</a>
-        <a href="#clients">العملاء | Clients</a>
-        <a href="#works">الأعمال | Works</a>
-        <a href="#hero">الرئيسية | Home</a>
-    </nav>
-
-    <!-- قسم الواجهة الرئيسية (Hero Section) -->
-    <section class="hero-section" id="hero">
-        <div class="container">
-            <h1 class="logo" id="nameTrigger">ZEYAD</h1>
-            <p class="subtitle">PORTFOLIO</p>
-            <a href="#works" class="scroll-indicator" aria-label="Scroll down">↓</a>
-        </div>
-    </section>
-
-<!-- قسم الأعمال (Works Section) مع أزرار الفلترة ومعرض الفيديوهات -->
-<section id="works" class="works-section">
-    <h2 style="text-align: center; direction: ltr;">
-        <span style="display: inline-block;">Works</span>
-        <span style="margin: 0 5px;">|</span>
-        <span style="direction: rtl; unicode-bidi: isolate; display: inline-block;">الأعمال</span>
-    </h2>
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="gold-divider">
-        <div class="divider-line"></div>
-    </div>
-
-
-
-    <!-- ================= 1. قسم أعمال اليوتيوب بالكامل ================= -->
-    <div id="youtube-view">
-        <!-- أزرار الفلترة الفرعية لليوتيوب -->
-        <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="all">الكل | All</button>
-            <button class="filter-btn" data-filter="challenge">تحديات | Challenges</button>
-            <button class="filter-btn" data-filter="entertainment">ترفيه | Entertainment</button>
-            <button class="filter-btn" data-filter="experiments">تجارب | Experiments</button>
-            <button class="filter-btn" data-filter="pranks">مقالب | Pranks</button>
-            <button class="filter-btn" data-filter="story">قصص | Stories</button>
-            <button class="filter-btn" data-filter="teaser">ترويج | Teasers</button>
-            <button class="filter-btn" data-filter="vlog">فلوقات | Vlogs</button>
+        <!-- شارة الحالة (متصل/متاح) -->
+        <div class="status-badge">
+            <span class="status-dot"></span>
         </div>
 
-        <!-- حاوية أعمال اليوتيوب -->
-        <div class="portfolios-container" id="slider">
-            <a href="https://www.youtube.com/watch?v=ZsQmh_tuh8I" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="experiments">
-                <img src="WORKS/019" alt="ممنوع اصرف ولا ريال.. الا اذا كسبته !" loading="lazy">
-            </a>
+        <!-- شريط التنقل العلوي (Navbar) -->
+        <nav>
+            <a href="#order-form">اطلب الآن | Order</a>
+            <a href="#clients">العملاء | Clients</a>
+            <a href="#works">الأعمال | Works</a>
+            <a href="#hero">الرئيسية | Home</a>
+        </nav>
 
-            <a href="https://www.youtube.com/watch?v=9FVaz2_qDec" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="entertainment">
-                <img src="WORKS/018" alt="قررت اصير دكتور واعالج اغرب مجتمع ome tv" loading="lazy">
-            </a>
+        <!-- قسم الواجهة الرئيسية (Hero Section) -->
+        <section class="hero-section" id="hero">
+            <div class="container">
+                <h1 class="logo" id="nameTrigger">ZEYAD</h1>
+                <p class="subtitle">PORTFOLIO</p>
+                <a href="#works" class="scroll-indicator" aria-label="Scroll down">↓</a>
+            </div>
+        </section>
 
-            <a href="https://youtu.be/uo6fzuzxGLQ?si=nKHmAK3JzIc02mtH" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="vlog">
-                <img src="WORKS/017" alt="فلوق سفرة جدة مع الشباب شريت مشط ذهبي" loading="lazy">
-            </a>
-
-            <a href="https://youtu.be/DNW3pVBPlKg?si=qolXZ4xJYDGI9hM3" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="vlog">
-                <img src="WORKS/016" alt="فلوق سفرة ماربيا مع الأهل Marbella Family Trip" loading="lazy">
-            </a>
-
-            <a href="https://youtu.be/AmwNr7vQUy0?si=_5k7PZMLMzPbuR5N" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="vlog">
-                <img src="WORKS/015" alt="فلوق رحلة اتلانتا" loading="lazy">
-            </a>
-
-            <a href="https://youtu.be/tPpVBMyrqWE?si=s7bx2b11vZYSUXVY" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="experiments">
-                <img src="WORKS/014" alt="صرت باكستاني لمدة 24 ساعة في الطايف البلد" loading="lazy">
-            </a>
-
-            <a href="https://youtu.be/MKPA-BmoSkE?si=nMlvuTX8ed5fOBvR" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="challenge">
-                <img src="WORKS/013" alt="تحدي التناغم مع صليح و حمادة" loading="lazy">
-            </a>
-
-            <a href="https://x.com/Abo_treek1/status/1959275208365244815?s=20" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="teaser">
-                <img src="WORKS/012" alt="تشويقة تحدي التناغم مع صليح و حمادة" loading="lazy">
-            </a>
-
-            <a href="https://youtu.be/VZcWpZs6yzU?si=1S16UL8e_xjtoMr9" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="experiments">
-                <img src="WORKS/011" alt="مطاعم المشاهير ضد المطاعم المشهورة" loading="lazy">
-            </a>
-
-            <a href="https://x.com/ImSkelyy/status/1912251022942073250?s=20" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="teaser">
-                <img src="WORKS/010" alt="تشويقة مطاعم المشاهير ضد المطاعم المشهورة" loading="lazy">
-            </a>
-
-            <a href="https://youtu.be/CudNBlgTGnE?si=dItQxiBHh_kiPOqV" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="vlog">
-                <img src="WORKS/009" alt="دخلت سوق في وسط البحيرة زيارتي لكشمير الهند" loading="lazy">
-            </a>
-
-            <a href="https://youtu.be/sHPfm9vUaJw?si=bhwZtOCAm7FPD-qw" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="story">
-                <img src="WORKS/008" alt="حكاية اقوى ساحر سوداني حامد آدم" loading="lazy">
-            </a>
-
-            <a href="https://youtu.be/HOEXf71h7K4?si=bsH6IzRpTfRWXyci" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="challenge">
-                <img src="WORKS/007" alt="تحدي التنمر اللي انسجنت بسببه" loading="lazy">
-            </a>
-
-            <a href="https://youtu.be/n461_RB2fRU?si=WW9IrJlDk6-VytD3" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
-                <img src="WORKS/006" alt="مقلب التنمر في نجم التيك توك عبدالله نقال العلوم" loading="lazy">
-            </a>
-
-            <a href="https://youtu.be/2Z6B0Y5nWoY?si=AbgcqyI-nOw8Cv-P" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="story">
-                <img src="WORKS/005" alt="حركة بسيطة منك تقدر تغير العالم" loading="lazy">
-            </a>
-
-            <a href="https://youtu.be/MUuLRo9t-_g?si=22iCAj3ae0ksttBU" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
-                <img src="WORKS/004" alt="مقلب اتصل على امك وقلها فطورك مو عاجبني" loading="lazy">
-            </a>
-
-            <a href="https://youtu.be/nNBCm9JFWX8?si=J49B0JCYs-ecT04n" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
-                <img src="WORKS/003" alt="مقلب السكيورتي الحرامي" loading="lazy">
-            </a>
-
-            <a href="https://youtu.be/Hx6la0F4jOk?si=Fzj93cjRJVtiJBl0" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
-                <img src="WORKS/002" alt="مقلب في بنت الكورنيش نينو" loading="lazy">
-            </a>
-
-            <a href="https://youtu.be/UdCc1Npt840?si=fbUJojsGAWKnGH03" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
-                <img src="WORKS/001" alt="مقلب السواق النصاب" loading="lazy">
-            </a>
-        </div>
-    </div>
-
-    
-</section>
-
-    <!-- قسم العملاء (Clients Section) -->
-    <section id="clients" class="clients-section">
-        <div class="container">
+        <!-- قسم الأعمال (Works Section) مع أزرار الفلترة ومعرض الفيديوهات -->
+        <section id="works" class="works-section">
             <h2 style="text-align: center; direction: ltr;">
-                <span style="direction: ltr; unicode-bidi: isolate; display: inline-block;">Clients</span>
-                <span style="display: inline-block; margin: 0 5px;">|</span>
-                <span style="direction: rtl; unicode-bidi: isolate; display: inline-block;">العملاء</span>
+                <span style="display: inline-block;">Works</span>
+                <span style="margin: 0 5px;">|</span>
+                <span style="direction: rtl; unicode-bidi: isolate; display: inline-block;">الأعمال</span>
             </h2>
 
             <div class="gold-divider">
                 <div class="divider-line"></div>
             </div>
-            
-            <!-- شبكة شعارات وقنوات العملاء -->
-            <div class="clients-grid">
-                <a href="https://www.youtube.com/@HAMADALOMARII" target="_blank" rel="noopener noreferrer">
-                    <img src="client001" alt="Hamad Alomarii">
-                </a>
-                <a href="https://www.youtube.com/@abo_klod" target="_blank" rel="noopener noreferrer">
-                    <img src="client002" alt="Abo Klod">
-                </a>
-                <a href="https://www.youtube.com/@Abo_treek1" target="_blank" rel="noopener noreferrer">
-                    <img src="client003" alt="Abo Treeka">
-                </a>
-                <a href="https://www.youtube.com/@Spaaiki" target="_blank" rel="noopener noreferrer">
-                    <img src="client004" alt="Spaaiki">
-                </a>
-                <a href="https://www.youtube.com/@skelyy" target="_blank" rel="noopener noreferrer">
-                    <img src="client005" alt="Skelyy">
-                </a>
-                <a href="https://www.youtube.com/@M8LB" target="_blank" rel="noopener noreferrer">
-                    <img src="client006" alt="M8LB">
-                </a>
+
+            <!-- ================= 1. قسم أعمال اليوتيوب بالكامل ================= -->
+            <div id="youtube-view">
+                <!-- أزرار الفلترة الفرعية لليوتيوب -->
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">الكل | All</button>
+                    <button class="filter-btn" data-filter="challenge">تحديات | Challenges</button>
+                    <button class="filter-btn" data-filter="entertainment">ترفيه | Entertainment</button>
+                    <button class="filter-btn" data-filter="experiments">تجارب | Experiments</button>
+                    <button class="filter-btn" data-filter="pranks">مقالب | Pranks</button>
+                    <button class="filter-btn" data-filter="story">قصص | Stories</button>
+                    <button class="filter-btn" data-filter="teaser">ترويج | Teasers</button>
+                    <button class="filter-btn" data-filter="vlog">فلوقات | Vlogs</button>
+                </div>
+
+                <!-- حاوية أعمال اليوتيوب -->
+                <div class="portfolios-container" id="slider">
+                    <a href="https://www.youtube.com/watch?v=ZsQmh_tuh8I" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="experiments">
+                        <img src="WORKS/019" alt="ممنوع اصرف ولا ريال.. الا اذا كسبته !" loading="lazy">
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=9FVaz2_qDec" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="entertainment">
+                        <img src="WORKS/018" alt="قررت اصير دكتور واعالج اغرب مجتمع ome tv" loading="lazy">
+                    </a>
+
+                    <a href="https://youtu.be/uo6fzuzxGLQ?si=nKHmAK3JzIc02mtH" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="vlog">
+                        <img src="WORKS/017" alt="فلوق سفرة جدة مع الشباب شريت مشط ذهبي" loading="lazy">
+                    </a>
+
+                    <a href="https://youtu.be/DNW3pVBPlKg?si=qolXZ4xJYDGI9hM3" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="vlog">
+                        <img src="WORKS/016" alt="فلوق سفرة ماربيا مع الأهل Marbella Family Trip" loading="lazy">
+                    </a>
+
+                    <a href="https://youtu.be/AmwNr7vQUy0?si=_5k7PZMLMzPbuR5N" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="vlog">
+                        <img src="WORKS/015" alt="فلوق رحلة اتلانتا" loading="lazy">
+                    </a>
+
+                    <a href="https://youtu.be/tPpVBMyrqWE?si=s7bx2b11vZYSUXVY" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="experiments">
+                        <img src="WORKS/014" alt="صرت باكستاني لمدة 24 ساعة في الطايف البلد" loading="lazy">
+                    </a>
+
+                    <a href="https://youtu.be/MKPA-BmoSkE?si=nMlvuTX8ed5fOBvR" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="challenge">
+                        <img src="WORKS/013" alt="تحدي التناغم مع صليح و حمادة" loading="lazy">
+                    </a>
+
+                    <a href="https://x.com/Abo_treek1/status/1959275208365244815?s=20" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="teaser">
+                        <img src="WORKS/012" alt="تشويقة تحدي التناغم مع صليح و حمادة" loading="lazy">
+                    </a>
+
+                    <a href="https://youtu.be/VZcWpZs6yzU?si=1S16UL8e_xjtoMr9" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="experiments">
+                        <img src="WORKS/011" alt="مطاعم المشاهير ضد المطاعم المشهورة" loading="lazy">
+                    </a>
+
+                    <a href="https://x.com/ImSkelyy/status/1912251022942073250?s=20" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="teaser">
+                        <img src="WORKS/010" alt="تشويقة مطاعم المشاهير ضد المطاعم المشهورة" loading="lazy">
+                    </a>
+
+                    <a href="https://youtu.be/CudNBlgTGnE?si=dItQxiBHh_kiPOqV" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="vlog">
+                        <img src="WORKS/009" alt="دخلت سوق في وسط البحيرة زيارتي لكشمير الهند" loading="lazy">
+                    </a>
+
+                    <a href="https://youtu.be/sHPfm9vUaJw?si=bhwZtOCAm7FPD-qw" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="story">
+                        <img src="WORKS/008" alt="حكاية اقوى ساحر سوداني حامد آدم" loading="lazy">
+                    </a>
+
+                    <a href="https://youtu.be/HOEXf71h7K4?si=bsH6IzRpTfRWXyci" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="challenge">
+                        <img src="WORKS/007" alt="تحدي التنمر اللي انسجنت بسببه" loading="lazy">
+                    </a>
+
+                    <a href="https://youtu.be/n461_RB2fRU?si=WW9IrJlDk6-VytD3" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
+                        <img src="WORKS/006" alt="مقلب التنمر في نجم التيك توك عبدالله نقال العلوم" loading="lazy">
+                    </a>
+
+                    <a href="https://youtu.be/2Z6B0Y5nWoY?si=AbgcqyI-nOw8Cv-P" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="story">
+                        <img src="WORKS/005" alt="حركة بسيطة منك تقدر تغير العالم" loading="lazy">
+                    </a>
+
+                    <a href="https://youtu.be/MUuLRo9t-_g?si=22iCAj3ae0ksttBU" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
+                        <img src="WORKS/004" alt="مقلب اتصل على امك وقلها فطورك مو عاجبني" loading="lazy">
+                    </a>
+
+                    <a href="https://youtu.be/nNBCm9JFWX8?si=J49B0JCYs-ecT04n" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
+                        <img src="WORKS/003" alt="مقلب السكيورتي الحرامي" loading="lazy">
+                    </a>
+
+                    <a href="https://youtu.be/Hx6la0F4jOk?si=Fzj93cjRJVtiJBl0" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
+                        <img src="WORKS/002" alt="مقلب في بنت الكورنيش نينو" loading="lazy">
+                    </a>
+
+                    <a href="https://youtu.be/UdCc1Npt840?si=fbUJojsGAWKnGH03" target="_blank" rel="noopener noreferrer" class="thumbnail-link" data-category="pranks">
+                        <img src="WORKS/001" alt="مقلب السواق النصاب" loading="lazy">
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- قسم نموذج طلب الخدمة (Order Form Section) المربوط بـ Formspree -->
-    <section id="order-form" style="padding: 50px;">
-        <h2 style="text-align: center;"> اطلب الآن | Order Now </h2>
+        <!-- قسم العملاء (Clients Section) -->
+        <section id="clients" class="clients-section">
+            <div class="container">
+                <h2 style="text-align: center; direction: ltr;">
+                    <span style="direction: ltr; unicode-bidi: isolate; display: inline-block;">Clients</span>
+                    <span style="display: inline-block; margin: 0 5px;">|</span>
+                    <span style="direction: rtl; unicode-bidi: isolate; display: inline-block;">العملاء</span>
+                </h2>
 
-        <div class="gold-divider">
-            <div class="divider-line"></div>
-        </div>
-        
-        <form id="my-form" action="https://formspree.io/f/xeewdywy" method="POST">
-            <!-- حقل الاسم -->
-            <label style="display: block; overflow: hidden;">
-                <span style="float: right;"> الاسم </span>
-                <span style="float: left;"> Name </span>
-            </label>
-            <input type="text" name="name" required>
-
-            <!-- حقل رابط الفيديو -->
-            <label style="display: block; overflow: hidden;">
-                <span style="float: right;"> رابط الفيديو </span>
-                <span style="float: left;"> Video Link </span>
-            </label>
-            <input type="url" name="video-link">
-
-            <!-- حقل نوع الفيديو -->
-            <label style="display: block; overflow: hidden;">
-                <span style="float: right;"> نوع الفيديو </span>
-                <span style="float: left;"> Video Type </span>
-            </label>
-            <select name="video-type" required>
-                <option value="Short"> قصير | Short </option>
-                <option value="Teaser"> تشويقة | Teaser </option>
-                <option value="YouTube"> يوتيوب | YouTube </option>
-            </select>
-
-            <!-- حقل جودة الفيديو -->
-            <label style="display: block; overflow: hidden;">
-                <span style="float: right;">الجودة</span>
-                <span style="float: left;">Quality</span>
-            </label>
-            <select name="quality" required>
-                <option value="1080p-30f">1080p | 30f</option>
-                <option value="1080p-60f">1080p | 60f</option>
-                <option value="4k-30f" disabled>2160p | 30f</option>
-                <option value="4k-60f" disabled>2160p | 60f</option>
-            </select>
-
-            <!-- حقل الموعد النهائي المطلوب (Deadline) -->
-            <label style="display: block; overflow: hidden;">
-                <span style="float: right;">موعد التسليم</span>
-                <span style="float: left;">Required Deadline</span>
-            </label>
-            <input type="date" name="deadline" required>
-
-            <!-- حقل معلومات التواصل -->
-            <label style="display: block; overflow: hidden; margin-top: 10px;">
-                <span style="float: right;"> التواصل </span>
-                <span style="float: left;"> Contact </span>
-            </label>
-            <input type="text" name="contact" required>        
-
-            <!-- زر إرسال الطلب -->
-            <button type="submit" id="my-form-button"> إرسال الطلب | Order Now </button>
-        </form>
-
-        <!-- رسالة نجاح الإرسال -->
-        <div id="form-success-msg" style="display: none; text-align: center; margin-top: 15px; color: #2ecc71; font-size: 1.1rem; font-weight: bold;">
-            تم إرسال الطلب | Order Sent
-        </div>
-        <p id="my-form-status" style="text-align: center; font-size: 3px;"></p>
-    </section>
-
-    <!-- زر فتح نافذة تتبع المشروع -->
-    <button class="track-btn" onclick="toggleTrackerModal()">تتبع المشروع | Track Project</button>
-
-    <!-- نافذة منبثقة (Modal) لتتبع المشروع -->
-    <div id="tracker-modal" class="modal">
-        <div class="modal-content">
-            <span class="new-close-btn" onclick="toggleTrackerModal()">&times;</span>
-            <h3> تتبع المشروع | Track Project </h3>
-            <div class="gold-divider">
-                <div class="divider-line"></div>
-            </div>
-            <input type="text" id="project-code" placeholder=" أدخل كود المشروع | Enter Project Code ">
-            <button class="check-btn" onclick="checkProject()"> تحقق | Check </button>
-            <div id="project-status"></div>
-        </div>
-    </div>
-
-    <!-- نافذة منبثقة (Modal) لطلب الخدمة عبر الجوال -->
-    <div id="order-modal" class="modal">
-      <div class="modal-content">
-        <span class="new-close-btn" onclick="toggleOrderModal()">×</span>
-
-        <div class="mobile-order-container">
-            <h2>اطلب الآن | Order Now</h2>
-            
-            <div class="gold-divider">
-                <div class="divider-line"></div>
-            </div>
+                <div class="gold-divider">
+                    <div class="divider-line"></div>
+                </div>
                 
-            <form id="my-form-mobile" action="https://formspree.io/f/xeewdywy" method="POST">
-                <label>
-                    <span class="label-ar">الاسم</span>
-                    <span class="label-en">Name</span>
+                <div class="clients-grid">
+                    <a href="https://www.youtube.com/@HAMADALOMARII" target="_blank" rel="noopener noreferrer">
+                        <img src="client001" alt="Hamad Alomarii">
+                    </a>
+                    <a href="https://www.youtube.com/@abo_klod" target="_blank" rel="noopener noreferrer">
+                        <img src="client002" alt="Abo Klod">
+                    </a>
+                    <a href="https://www.youtube.com/@Abo_treek1" target="_blank" rel="noopener noreferrer">
+                        <img src="client003" alt="Abo Treeka">
+                    </a>
+                    <a href="https://www.youtube.com/@Spaaiki" target="_blank" rel="noopener noreferrer">
+                        <img src="client004" alt="Spaaiki">
+                    </a>
+                    <a href="https://www.youtube.com/@skelyy" target="_blank" rel="noopener noreferrer">
+                        <img src="client005" alt="Skelyy">
+                    </a>
+                    <a href="https://www.youtube.com/@M8LB" target="_blank" rel="noopener noreferrer">
+                        <img src="client006" alt="M8LB">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم نموذج طلب الخدمة (Order Form Section) -->
+        <section id="order-form" style="padding: 50px;">
+            <h2 style="text-align: center;"> اطلب الآن | Order Now </h2>
+
+            <div class="gold-divider">
+                <div class="divider-line"></div>
+            </div>
+            
+            <form id="my-form" action="https://formspree.io/f/xeewdywy" method="POST">
+                <label style="display: block; overflow: hidden;">
+                    <span style="float: right;"> الاسم </span>
+                    <span style="float: left;"> Name </span>
                 </label>
                 <input type="text" name="name" required>
 
-                <label>
-                    <span class="label-ar">رابط الفيديو</span>
-                    <span class="label-en">Video Link</span>
+                <label style="display: block; overflow: hidden;">
+                    <span style="float: right;"> رابط الفيديو </span>
+                    <span style="float: left;"> Video Link </span>
                 </label>
                 <input type="url" name="video-link">
 
-                <label>
-                    <span class="label-ar">نوع الفيديو</span>
-                    <span class="label-en">Video Type</span>
+                <label style="display: block; overflow: hidden;">
+                    <span style="float: right;"> نوع الفيديو </span>
+                    <span style="float: left;"> Video Type </span>
                 </label>
                 <select name="video-type" required>
-                    <option value="Short">قصير | Short</option>
-                    <option value="Teaser">تشويقة | Teaser</option>
-                    <option value="YouTube">يوتيوب | YouTube</option>
+                    <option value="Short"> قصير | Short </option>
+                    <option value="Teaser"> تشويقة | Teaser </option>
+                    <option value="YouTube"> يوتيوب | YouTube </option>
                 </select>
 
-                <label>
-                    <span class="label-ar">الجودة</span>
-                    <span class="label-en">Quality</span>
+                <label style="display: block; overflow: hidden;">
+                    <span style="float: right;">الجودة</span>
+                    <span style="float: left;">Quality</span>
                 </label>
                 <select name="quality" required>
                     <option value="1080p-30f">1080p | 30f</option>
@@ -399,100 +276,334 @@
                     <option value="4k-60f" disabled>2160p | 60f</option>
                 </select>
 
-                <!-- خانة تحديد الموعد النهائي -->
-                <label>
-                    <span class="label-ar">موعد التسليم</span>
-                    <span class="label-en">Required Deadline</span>
+                <label style="display: block; overflow: hidden;">
+                    <span style="float: right;">موعد التسليم</span>
+                    <span style="float: left;">Required Deadline</span>
                 </label>
                 <input type="date" name="deadline" required>
 
-                <label class="label-contact">
-                    <span class="label-ar">التواصل</span>
-                    <span class="label-en">Contact</span>
+                <label style="display: block; overflow: hidden; margin-top: 10px;">
+                    <span style="float: right;"> التواصل </span>
+                    <span style="float: left;"> Contact </span>
                 </label>
-                <input type="text" name="contact" required>            
+                <input type="text" name="contact" required>        
 
-                <button type="submit" id="my-form-button-mobile">إرسال الطلب | Order Now</button>
+                <button type="submit" id="my-form-button"> إرسال الطلب | Order Now </button>
             </form>
 
-            <div id="form-success-msg-mobile" style="display:none;">
+            <div id="form-success-msg" style="display: none; text-align: center; margin-top: 15px; color: #2ecc71; font-size: 1.1rem; font-weight: bold;">
                 تم إرسال الطلب | Order Sent
             </div>
-            <p id="my-form-status-mobile"></p>
+            <p id="my-form-status" style="text-align: center; font-size: 3px;"></p>
+        </section>
+
+        <!-- زر فتح نافذة تتبع المشروع -->
+        <button class="track-btn" onclick="toggleTrackerModal()">تتبع المشروع | Track Project</button>
+
+        <!-- نافذة منبثقة (Modal) لتتبع المشروع -->
+        <div id="tracker-modal" class="modal">
+            <div class="modal-content">
+                <span class="new-close-btn" onclick="toggleTrackerModal()">&times;</span>
+                <h3> تتبع المشروع | Track Project </h3>
+                <div class="gold-divider">
+                    <div class="divider-line"></div>
+                </div>
+                <input type="text" id="project-code" placeholder=" أدخل كود المشروع | Enter Project Code ">
+                <button class="check-btn" onclick="checkProject()"> تحقق | Check </button>
+                <div id="project-status"></div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <!-- نافذة منبثقة (Modal) لسياسة وشروط الموقع -->
-    <div id="zd1TermsModal" class="zd1-modal-overlay" style="display: none;">
-        <!-- زر إغلاق نافذة السياسة -->
-        <span class="new-close-btn" onclick="closeZd1TermsModal()">&times;</span>
+        <!-- نافذة منبثقة (Modal) لطلب الخدمة عبر الجوال -->
+        <div id="order-modal" class="modal">
+          <div class="modal-content">
+            <span class="new-close-btn" onclick="toggleOrderModal()">×</span>
 
-        <!-- زر تبديل اللغة داخل نافذة السياسة -->
-        <button type="button" id="lang-switch-btn" onclick="togglePolicyLanguage()" style="position: absolute; top: 15px; right: 20px; background: transparent; border: 1px solid rgba(197, 160, 85, 0.4); color: #c5a055; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; cursor: pointer;">
-            English
-        </button>
+            <div class="mobile-order-container">
+                <h2>اطلب الآن | Order Now</h2>
+                
+                <div class="gold-divider">
+                    <div class="divider-line"></div>
+                </div>
+                    
+                <form id="my-form-mobile" action="https://formspree.io/f/xeewdywy" method="POST">
+                    <label>
+                        <span class="label-ar">الاسم</span>
+                        <span class="label-en">Name</span>
+                    </label>
+                    <input type="text" name="name" required>
 
-        <!-- عنوان النافذة -->
-        <h3 id="policy-modal-title" style="color: #ffb000; text-align: center; margin-bottom: 20px;">سياسة-ZD1</h3>
-        <div class="gold-divider">
-            <div class="divider-line"></div>
-        </div>
+                    <label>
+                        <span class="label-ar">رابط الفيديو</span>
+                        <span class="label-en">Video Link</span>
+                    </label>
+                    <input type="url" name="video-link">
 
-        <!-- المحتوى العربي للسياسة -->
-        <div id="policy-content-ar" class="zd1-terms-text" style="color: #ddd; font-size: 0.85rem; line-height: 1.6; max-height: 350px; overflow-y: auto; padding: 20px 10px; text-align: center; direction: rtl;">
-          <div style="padding: 2rem 1rem;">
-            <h4 style="color: #fff; margin-bottom: 0.8rem; font-size: 1.1rem;">سياسة العمل قيد الانشاء والتحديث</h4>
-            <p style="color: #a0a0a0; font-size: 0.85rem; line-height: 1.6;">نعمل حاليا على تطوير وتحديث بنود السياسة لتقديم أفضل تجربة وسيتم إطلاقها قريبا جدا</p>
+                    <label>
+                        <span class="label-ar">نوع الفيديو</span>
+                        <span class="label-en">Video Type</span>
+                    </label>
+                    <select name="video-type" required>
+                        <option value="Short">قصير | Short</option>
+                        <option value="Teaser">تشويقة | Teaser</option>
+                        <option value="YouTube">يوتيوب | YouTube</option>
+                    </select>
+
+                    <label>
+                        <span class="label-ar">الجودة</span>
+                        <span class="label-en">Quality</span>
+                    </label>
+                    <select name="quality" required>
+                        <option value="1080p-30f">1080p | 30f</option>
+                        <option value="1080p-60f">1080p | 60f</option>
+                        <option value="4k-30f" disabled>2160p | 30f</option>
+                        <option value="4k-60f" disabled>2160p | 60f</option>
+                    </select>
+
+                    <label>
+                        <span class="label-ar">موعد التسليم</span>
+                        <span class="label-en">Required Deadline</span>
+                    </label>
+                    <input type="date" name="deadline" required>
+
+                    <label class="label-contact">
+                        <span class="label-ar">التواصل</span>
+                        <span class="label-en">Contact</span>
+                    </label>
+                    <input type="text" name="contact" required>            
+
+                    <button type="submit" id="my-form-button-mobile">إرسال الطلب | Order Now</button>
+                </form>
+
+                <div id="form-success-msg-mobile" style="display:none;">
+                    تم إرسال الطلب | Order Sent
+                </div>
+                <p id="my-form-status-mobile"></p>
+            </div>
           </div>
         </div>
 
-        <!-- المحتوى الإنجليزي للسياسة -->
-        <div id="policy-content-en" class="zd1-terms-text" style="display: none; color: #ddd; font-size: 0.85rem; line-height: 1.6; max-height: 350px; overflow-y: auto; padding: 20px 10px; text-align: center; direction: ltr;">
-          <div style="padding: 2rem 1rem;">
-            <h4 style="color: #fff; margin-bottom: 0.8rem; font-size: 1.1rem;">Policy Under Construction</h4>
-            <p style="color: #a0a0a0; font-size: 0.85rem; line-height: 1.6;">We are currently updating and refining our terms to provide the best experience and it will be launched soon</p>
+        <!-- نافذة منبثقة (Modal) لسياسة وشروط الموقع -->
+        <div id="zd1TermsModal" class="zd1-modal-overlay" style="display: none;">
+            <span class="new-close-btn" onclick="closeZd1TermsModal()">&times;</span>
+
+            <button type="button" id="lang-switch-btn" onclick="togglePolicyLanguage()" style="position: absolute; top: 15px; right: 20px; background: transparent; border: 1px solid rgba(197, 160, 85, 0.4); color: #c5a055; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; cursor: pointer;">
+                English
+            </button>
+
+            <h3 id="policy-modal-title" style="color: #ffb000; text-align: center; margin-bottom: 20px;">سياسة-ZD1</h3>
+            <div class="gold-divider">
+                <div class="divider-line"></div>
+            </div>
+
+            <div id="policy-content-ar" class="zd1-terms-text" style="color: #ddd; font-size: 0.85rem; line-height: 1.6; max-height: 350px; overflow-y: auto; padding: 20px 10px; text-align: center; direction: rtl;">
+              <div style="padding: 2rem 1rem;">
+                <h4 style="color: #fff; margin-bottom: 0.8rem; font-size: 1.1rem;">سياسة العمل قيد الانشاء والتحديث</h4>
+                <p style="color: #a0a0a0; font-size: 0.85rem; line-height: 1.6;">نعمل حاليا على تطوير وتحديث بنود السياسة لتقديم أفضل تجربة وسيتم إطلاقها قريبا جدا</p>
+              </div>
+            </div>
+
+            <div id="policy-content-en" class="zd1-terms-text" style="display: none; color: #ddd; font-size: 0.85rem; line-height: 1.6; max-height: 350px; overflow-y: auto; padding: 20px 10px; text-align: center; direction: ltr;">
+              <div style="padding: 2rem 1rem;">
+                <h4 style="color: #fff; margin-bottom: 0.8rem; font-size: 1.1rem;">Policy Under Construction</h4>
+                <p style="color: #a0a0a0; font-size: 0.85rem; line-height: 1.6;">We are currently updating and refining our terms to provide the best experience and it will be launched soon</p>
+              </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 15px;">
+                <button type="button" class="drive-btn" onclick="closeZd1TermsModal()" style="padding: 10px 25px; font-size: 0.9rem; width: 100%;">فهمت Got It</button>
+            </div>
+        </div>
+
+        <!-- تذييل الموقع (Footer) -->
+        <footer>
+            <p>آخر تحديث : أكتوبر 2026 | Last Updated : October 2026</p>
+        </footer>
+
+        <!-- قائمة الجوال الجانبية السريعة -->
+        <div class="soon-mobile-menu">
+          <button class="burger-toggle" id="burgerToggle" aria-label="القائمة">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="menu-items" id="menuItems">
+            <button class="menu-icon-btn" onclick="toggleOrderModal()" title="طلب مشروع">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </button>
+
+            <button class="menu-icon-btn" onclick="toggleTrackerModal()" title="تتبع المشروع">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <!-- زر نبذة عني الجديد -->
+            <button class="menu-icon-btn" onclick="toggleAboutModal()" title="نبذة عني">
+              <i class="fa-solid fa-user"></i>
+            </button>
           </div>
         </div>
 
-        <!-- زر الإغلاق السفلي للسياسة -->
-        <div style="text-align: center; margin-top: 15px;">
-            <button type="button" class="drive-btn" onclick="closeZd1TermsModal()" style="padding: 10px 25px; font-size: 0.9rem; width: 100%;">فهمت Got It</button>
-        </div>
+    </div> <!-- نهاية حاوية mainPortfolio -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+<!-- قسم نبذة عني -->
+<div id="aboutSection" class="about-page">
+  
+  <!-- زر سهم العودة -->
+  <div class="about-back-wrapper">
+    <button onclick="toggleAboutModal()" title="العودة للبورتفوليو" class="about-back-btn">
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+  </div>
+
+  <!-- المحتوى الرئيسي -->
+  <div class="about-zeyad">
+    
+<!-- العنوان الرئيسي بنفس كلاسات واستطايل عناوين الأقسام -->
+<h2 style="text-align: center; direction: ltr;">
+                <span style="display: inline-block;">ZEYAD</span>
+                <span style="margin: 0 5px;">|</span>
+                <span style="direction: rtl; unicode-bidi: isolate; display: inline-block;">زياد</span>
+            </h2>
+
+    <!-- الفاصل الذهبي -->
+    <div class="gold-divider about-divider">
+      <div class="divider-line"></div>
     </div>
 
-    <!-- تذييل الموقع (Footer) -->
-    <footer>
-        <p>آخر تحديث : أكتوبر 2026 | Last Updated : October 2026</p>
-    </footer>
-
-    <!-- قائمة الجوال الجانبية السريعة -->
-    <div class="soon-mobile-menu">
-      <button class="burger-toggle" id="burgerToggle" aria-label="القائمة">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <div class="menu-items" id="menuItems">
-        <button class="menu-icon-btn" onclick="toggleOrderModal()" title="طلب مشروع">
-          <i class="fa-solid fa-bag-shopping"></i>
-        </button>
-
-        <button class="menu-icon-btn" onclick="toggleTrackerModal()" title="تتبع المشروع">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
+    <!-- فقرة التعريف -->
+    <div class="about-bio">
+      <p>
+        أهلاً بك! أنا <strong>زياد</strong>، صانع محتوى ومحرر فيديو من جدة. أعمل على تحويل الأفكار واللحظات إلى تجارب بصرية ممتعة وصانعة للأثر.
+      </p>
+      <p>
+        أعتمد على <strong>Adobe Premiere Pro</strong> وأحدث الأدوات لإخراج فيديوهات احترافية تناسب صناع المحتوى والشركات، بدءاً من الفلوقات والتحديات وصولاً إلى الإعلانات والتشويقات.
+      </p>
     </div>
 
 
 
 
 
+<!-- حاوية الصورة الشخصية -->
+<div class="about-avatar-wrapper">
+    <img src="about-zeyad" alt="Zeyad Ayaz" class="about-avatar">
+</div>
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- أزرار التواصل الاجتماعي -->
+    <div class="about-socials">
+      <a href="https://wa.me/966XXXXXXXXX" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>WhatsApp</span>
+      </a>
+
+      <a href="https://instagram.com/USERNAME" target="_blank" rel="noopener noreferrer" class="social-btn instagram-btn">
+        <i class="fa-brands fa-instagram"></i>
+        <span>Instagram</span>
+      </a>
+    </div>
+
+  </div>
+</div>
 
 
 
