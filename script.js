@@ -711,7 +711,7 @@ function toggleAboutModal() {
   if (!isOpen) {
     // === 1. عند الدخول لصفحة "نبذة عني" ===
     
-    // إخفاء الموقع وزر البرجر فقط
+    // إخفاء الموقع وزر البرجر
     if (mainPortfolio) mainPortfolio.classList.add('fade-element');
     if (burgerToggle) burgerToggle.classList.add('fade-element');
 
@@ -719,10 +719,8 @@ function toggleAboutModal() {
     aboutSection.style.display = 'block';
     window.scrollTo(0, 0);
 
-    // ==========================================================
-    // 🎛️ مكان التحكم اليدوي بمدة التأخير (جرب ارفع أو انزل بهذا الرقم)
-    // ==========================================================
-    const fadeDelay = 300; // 300 يعني ثلث ثانية تأخير قبل ما تطلع الصفحة الثانية
+    // التأخير اليدوي لظهور الصفحة الثانية
+    const fadeDelay = 300; 
     
     setTimeout(() => {
       aboutSection.classList.add('show');
@@ -740,19 +738,27 @@ function toggleAboutModal() {
     }, 400);
 
   } else {
-    // === 2. عند الرجوع للموقع الرئيسي ===
-    aboutSection.classList.remove('show');
-
+    // === 2. عند الرجوع للموقع الرئيسي (تطابق تام مع حركة الذهاب) ===
+    
+    // أ) إظهار هيكل الموقع في الخلفية وهو شفاف فوراً
     if (mainPortfolio) {
       mainPortfolio.style.display = 'block';
-      setTimeout(() => {
-        if (mainPortfolio) mainPortfolio.classList.remove('fade-element');
-        if (burgerToggle) burgerToggle.classList.remove('fade-element');
-      }, 50);
     }
 
+    // ب) بدء اختفاء صفحة نبذة عني
+    aboutSection.classList.remove('show');
+
+    // ج) تأخير إزالة الـ fade-element عن الموقع والمينو ليعود بتدريج متناسق جداً مع اختفاء الصفحة الثانية
+    const returnFadeDelay = 1; // 🎛️ تحكم يدوي: زوّده (مثلاً 250 أو 300) لو تبغى الموقع يتأخر أكثر في الظهور
+
+    setTimeout(() => {
+      if (mainPortfolio) mainPortfolio.classList.remove('fade-element');
+      if (burgerToggle) burgerToggle.classList.remove('fade-element');
+    }, returnFadeDelay);
+
+    // د) إخفاء صفحة نبذة عني نهائياً بعد اكتمال التلاشي بالكامل
     setTimeout(() => {
       aboutSection.style.display = 'none';
-    }, 400);
+    }, 900);
   }
 }
