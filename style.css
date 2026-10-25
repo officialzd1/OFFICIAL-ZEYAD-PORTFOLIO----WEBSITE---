@@ -3297,7 +3297,7 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     }
 
     /* ===================================================
-       7. أزرار التواصل الاجتماعي (ثابتة في قاع الشاشة، أفقية ودائرية)
+       أزرار التواصل الاجتماعي (ثابتة وتتحرك مع الشاشة أثناء السكرول)
        =================================================== */
     .about-socials {
         display: flex !important;
@@ -3306,13 +3306,14 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
         justify-content: center !important;
         align-items: center !important;
         
+        /* 📌 السر هنا: fixed يثبتها على شاشة الجوال وتتحرك معك أثناء التمرير */
         position: fixed !important;
-        bottom: 28px !important;        /* المسافة المثالية من قاع الشاشة */
+        bottom: 25px !important;        /* مسافة ثابتة من قاع شاشة الجوال */
         left: 0 !important;
         right: 0 !important;
         width: 100% !important;
         
-        z-index: 9999 !important;
+        z-index: 99999 !important;      /* رقم كبير جداً لضمان أنها فوق كل محتويات الصفحة ولا تختفي */
         box-sizing: border-box !important;
         margin: 0 !important;
         transform: none !important;
@@ -3322,12 +3323,12 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        width: 30px !important;
-        height: 30px !important;
+        width: 32px !important;
+        height: 32px !important;
         border-radius: 50% !important;
         text-decoration: none !important;
         transition: transform 0.3s ease, opacity 0.3s ease !important;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
         flex-shrink: 0 !important;
     }
 
