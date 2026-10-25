@@ -3289,7 +3289,7 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
 }
 
 .about-bio p {
-    margin-top: 76px;    /* 🎛️ تحكم يدوي: ارفع أو انزل بالمسافة بين العنوان وباقي النص */
+    margin-top: 3px;    /* 🎛️ تعديل يدوي: التحكم بالمسافة الفاصلة بين العنوان وباقي النص */
     margin-bottom: 38px;
 }
 
@@ -3298,24 +3298,24 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     font-weight: 600;
 }
 
+/* حاوية الأزرار (تثبيت سفلي مستقل) */
 .about-socials {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 8px;                 /* المسافة بين زر انستغرام وواتساب */
     justify-content: center;
     align-items: center;
     
-    /* 👈 هذه هي الطريقة اليدوية الأضمن عشان تنزل الأزرار وحدها للمكان اللي تبغاه تماماً */
     position: absolute;
-    bottom: 1px;       /* المسافة من أسفل الشاشة (كل ما زاد الرقم طلعت لفوق، وكل ما قل نزلت لتحت) */
+    bottom: -367px;              /* 🎛️ تعديل يدوي: مسافة الأزرار من أسفل الشاشة (كل ما زاد الرقم طلعت لفوق) */
     left: 50%;
-    transform: translateX(-50%); /* لضمان توسطها في المنتصف تماماً */
-    width: 90%;         /* عرض الحاوية بالنسبة للصفحة */
-    max-width: 320px;   /* أقصى عرض عشان تتطابق مع مقاس الصفحة */
+    transform: translateX(-50%); /* لتوسيط الأزرار تماماً في منتصف الشاشة أفقيًا */
+    width: 90%; 
+    max-width: 320px; 
     box-sizing: border-box;
 }
 
-/* شكل وزر التواصل نفسه */
+/* شكل الزر الواحد وتنسيقه */
 .social-btn {
     display: flex;
     align-items: center;
@@ -3323,20 +3323,19 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     background: rgba(212, 175, 55, 0.08);
     border: 1px solid #d4af37;
     color: #d4af37;
-    padding: 8px 14px;
+    padding: 8px 14px;        /* 🎛️ تعديل يدوي: حجم الزر من الداخل (طول وعرض) */
     border-radius: 6px;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 12px;          /* حجم الخط داخل الزر */
     font-weight: 500;
     transition: all 0.3s ease;
-    width: 100%;         /* عرض الزر يكون متساوي ومطابق لعرض الصفحة */
+    width: 100%;              /* عرض الزر متساوي 100% مع الحاوية */
     box-sizing: border-box;
     justify-content: center;
 }
 
-
 .social-btn i {
-    font-size: 1.2rem;
+    font-size: 1.2rem;        /* حجم أيقونة السوشيال ميديا */
 }
 
 
