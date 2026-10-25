@@ -3307,7 +3307,7 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     
     /* تثبيت حاوية الأزرار في أسفل الشاشة بالكامل */
     position: fixed !important;
-    bottom: -300px !important;        /* مسافة الأيقونات من أسفل الشاشة */
+    bottom: -380px !important;        /* مسافة الأيقونات من أسفل الشاشة */
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;         /* عرض الحاوية كامل عشان تاخذ راحتها وما تضغط الأيقونات */
