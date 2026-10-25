@@ -3232,7 +3232,7 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
         font-size: 1.8rem !important;
         padding-bottom: 0.1rem !important;
         margin-bottom: 0 !important;
-        margin-top: 1rem;
+        margin-top: 18.3rem;
         font-family: 'El Messiri', sans-serif;
         font-weight: bold;
         direction: ltr;
@@ -3282,12 +3282,12 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
         text-align: center;
         color: #cccccc;
         font-size: 13px;
-        line-height: 1.7;
-        margin-bottom: 25px;
+        line-height: 1.8;
+        margin-bottom: 0px;
     }
 
     .about-bio p {
-        margin-top: 3px;
+        margin-top: 38px;
         margin-bottom: 38px;
     }
 
@@ -3317,6 +3317,8 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
         box-sizing: border-box !important;
         margin: 0 !important;
         transform: none !important;
+
+        display: none !important;
     }
 
     .social-btn {
