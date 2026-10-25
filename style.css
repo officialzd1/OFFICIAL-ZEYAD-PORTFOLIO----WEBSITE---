@@ -150,7 +150,7 @@ nav a:hover::after {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 0s ease-in-out;
 }
 
 /* تصميم الشعار الذهبي البارز */
@@ -3099,9 +3099,6 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
   div.mobile-bottom-nav {
     transform: translateX(-50%) scale(0.67) !important;
   }
-}
-
-
 
 
 
@@ -3282,24 +3279,30 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
 /* ===================================================
    إعدادات التلاشي والانتقال (عامة لكل الشاشات)
    =================================================== */
+/* قسم نبذة عني - التلاشي الناعم والجذري */
 .about-page {
-    display: none;
+    display: block; /* نجعله دائماً موجود في الهيكل لكن شفاف وغير مرئي وغير تفاعلي */
     opacity: 0;
     visibility: hidden;
-    /* زوّدنا المدة هنا إلى 0.7 ثانية عشان يصير التلاشي أطول وأكثر سلاسة */
-    transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out; 
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+    
     min-height: 100vh;
     padding: 20px;
     background-color: #000000;
     color: #ffffff;
-    position: relative;
+    position: absolute; /* أو fixed لتغطية الشاشة تماماً أثناء الحركة */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
     box-sizing: border-box;
 }
 
 .about-page.show {
-    display: block;
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 /* حركة التلاشي للموقع وزر البرجر */
@@ -3413,6 +3416,9 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     color: #000000;
     transform: translateY(-2px);
 }
+
+}
+
 
 /* ===================================================
    التجاوب مع الشاشات المختلفة (Media Queries)

@@ -709,24 +709,26 @@ function toggleAboutModal() {
   const isOpen = aboutSection.classList.contains('show');
 
   if (!isOpen) {
-    // === 1. عند الدخول لصفحة "نبذة عني" ===
+    // ==========================================
+    // 🚀 [1] مرحلة الذهاب والدخول إلى "نبذة عني"
+    // ==========================================
     
-    // إخفاء الموقع وزر البرجر
+    // أ) إخفاء الموقع وزر البرجر في البداية
     if (mainPortfolio) mainPortfolio.classList.add('fade-element');
     if (burgerToggle) burgerToggle.classList.add('fade-element');
 
-    // تجهيز صفحة نبذة عني
+    // ب) تجهيز وإظهار هيكل الصفحة الثانية في الـ DOM
     aboutSection.style.display = 'block';
     window.scrollTo(0, 0);
 
-    // التأخير اليدوي لظهور الصفحة الثانية
-    const fadeDelay = 300; 
+    // 🎛️ [التحكم بالدخلور]: وقت الانتظار قبل أن تبدأ صفحة النبذة بالظهور
+    const enterDelay = 300; 
     
     setTimeout(() => {
       aboutSection.classList.add('show');
-    }, fadeDelay);
+    }, enterDelay);
 
-    // إغلاق قائمة البرجر وإخفاء الموقع في الخلفية
+    // ج) إغلاق قائمة البرجر وإخفاء الموقع نهائياً من الخلفية بعد بدء الترانزشن
     setTimeout(() => {
       if (typeof toggleMenu === 'function' && menuItems && menuItems.classList.contains('active')) {
         toggleMenu();
@@ -737,28 +739,30 @@ function toggleAboutModal() {
       if (mainPortfolio) mainPortfolio.style.display = 'none';
     }, 400);
 
-  } else {
-    // === 2. عند الرجوع للموقع الرئيسي (تطابق تام مع حركة الذهاب) ===
-    
-    // أ) إظهار هيكل الموقع في الخلفية وهو شفاف فوراً
+} else {
+    // === 2. عند الرجوع للموقع الرئيسي (عبر الشاشة السودة وبنعومة كاملة) ===
+
+    // أ) تجهيز الموقع في الخلفية (ولكن يبقى مخفي بخاصية fade-element لتبقى الشاشة سودة)
     if (mainPortfolio) {
       mainPortfolio.style.display = 'block';
     }
 
-    // ب) بدء اختفاء صفحة نبذة عني
+    // ب) بدء اختفاء صفحة "نبذة عني" وتلاشيها على الخلفية السودة
     aboutSection.classList.remove('show');
 
-    // ج) تأخير إزالة الـ fade-element عن الموقع والمينو ليعود بتدريج متناسق جداً مع اختفاء الصفحة الثانية
-    const returnFadeDelay = 1; // 🎛️ تحكم يدوي: زوّده (مثلاً 250 أو 300) لو تبغى الموقع يتأخر أكثر في الظهور
+    // 🎛️ ج) وقت الانتظار للشاشة السودة:
+    // ننتظر 400 مللي ثانية لين تختفي صفحة النبذة تقريباً وتصير الشاشة سودة تماماً
+    const blackScreenDelay = 400; 
 
     setTimeout(() => {
+      // د) يبدأ الآن ظهور الموقع وزر البرجر بنعومة من الشاشة السودة!
       if (mainPortfolio) mainPortfolio.classList.remove('fade-element');
       if (burgerToggle) burgerToggle.classList.remove('fade-element');
-    }, returnFadeDelay);
+    }, blackScreenDelay);
 
-    // د) إخفاء صفحة نبذة عني نهائياً بعد اكتمال التلاشي بالكامل
+    // هـ) إنهاء حالة صفحة النبذة بعد اكتمال كامل الحركة
     setTimeout(() => {
-      aboutSection.style.display = 'none';
-    }, 900);
+      // تجهيز نهائي
+    }, 800);
   }
 }
