@@ -3298,44 +3298,56 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     font-weight: 600;
 }
 
-/* حاوية الأزرار (تثبيت سفلي مستقل) */
 .about-socials {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;                 /* المسافة بين زر انستغرام وواتساب */
-    justify-content: center;
-    align-items: center;
+    display: flex !important;
+    flex-direction: row !important; /* 👈 الأيقونات جنب بعض بالعرض */
+    gap: 15px !important;           /* المسافة الواضحة بين الأيقونتين */
+    justify-content: center !important; /* توسيط الأيقونات في المنتصف تماماً */
+    align-items: center !important;
     
-    position: absolute;
-    bottom: -250px;              /* 🎛️ تعديل يدوي: مسافة الأزرار من أسفل الشاشة (كل ما زاد الرقم طلعت لفوق) */
-    left: 50%;
-    transform: translateX(-50%); /* لتوسيط الأزرار تماماً في منتصف الشاشة أفقيًا */
-    width: 100%; 
-    max-width: 320px; 
-    box-sizing: border-box;
+    /* تثبيت حاوية الأزرار في أسفل الشاشة بالكامل */
+    position: fixed !important;
+    bottom: -300px !important;        /* مسافة الأيقونات من أسفل الشاشة */
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;         /* عرض الحاوية كامل عشان تاخذ راحتها وما تضغط الأيقونات */
+    
+    z-index: 9999 !important;       /* عشان تكون فوق كل العناصر */
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    transform: none !important;     /* إلغاء أي تحويل سابق عشان ما تتحرك من مكانها */
 }
 
-/* شكل الزر الواحد وتنسيقه */
 .social-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(212, 175, 55, 0.08);
-    border: 1px solid #d4af37;
-    color: #d4af37;
-    padding: 8px 14px;        /* 🎛️ تعديل يدوي: حجم الزر من الداخل (طول وعرض) */
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 12px;          /* حجم الخط داخل الزر */
-    font-weight: 500;
-    transition: all 0.3s ease;
-    width: 100%;              /* عرض الزر متساوي 100% مع الحاوية */
-    box-sizing: border-box;
-    justify-content: center;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 30px !important;         /* عرض الدائرة (مريح وواضح) */
+    height: 30px !important;        /* ارتفاع الدائرة لضمان شكل دائري 100% */
+    border-radius: 50% !important;  /* شكل دائري تماماً */
+    text-decoration: none !important;
+    transition: transform 0.3s ease, opacity 0.3s ease !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+    flex-shrink: 0 !important;      /* لمنع تصغير الأيقونة غصباً عنها */
 }
 
+
+
+/* حجم أيقونة السوشيال ميديا داخل الدائرة */
 .social-btn i {
-    font-size: 1.2rem;        /* حجم أيقونة السوشيال ميديا */
+    font-size: 1rem;
+    color: #ffffff;           /* لون الأيقونة يكون أبيض عشان يوضح على اللون الأصلي */
+}
+
+/* 🎨 الألوان الرسمية لكل منصة */
+/* زر واتساب (أخضر رسمي) */
+.social-btn.whatsapp {
+    background-color: #25D366;
+}
+
+/* زر انستغرام (التدرج الرسمي لانستغرام) */
+.social-btn.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
 
 
