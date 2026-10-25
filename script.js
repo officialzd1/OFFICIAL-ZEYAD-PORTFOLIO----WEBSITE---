@@ -709,26 +709,19 @@ function toggleAboutModal() {
   const isOpen = aboutSection.classList.contains('show');
 
   if (!isOpen) {
-    // ==========================================
-    // 🚀 [1] مرحلة الذهاب والدخول إلى "نبذة عني"
-    // ==========================================
     
-    // أ) إخفاء الموقع وزر البرجر في البداية
     if (mainPortfolio) mainPortfolio.classList.add('fade-element');
     if (burgerToggle) burgerToggle.classList.add('fade-element');
 
-    // ب) تجهيز وإظهار هيكل الصفحة الثانية في الـ DOM
     aboutSection.style.display = 'block';
     window.scrollTo(0, 0);
 
-    // 🎛️ [التحكم بالدخلور]: وقت الانتظار قبل أن تبدأ صفحة النبذة بالظهور
     const enterDelay = 300; 
     
     setTimeout(() => {
       aboutSection.classList.add('show');
     }, enterDelay);
 
-    // ج) إغلاق قائمة البرجر وإخفاء الموقع نهائياً من الخلفية بعد بدء الترانزشن
     setTimeout(() => {
       if (typeof toggleMenu === 'function' && menuItems && menuItems.classList.contains('active')) {
         toggleMenu();
@@ -740,29 +733,21 @@ function toggleAboutModal() {
     }, 400);
 
 } else {
-    // === 2. عند الرجوع للموقع الرئيسي (عبر الشاشة السودة وبنعومة كاملة) ===
 
-    // أ) تجهيز الموقع في الخلفية (ولكن يبقى مخفي بخاصية fade-element لتبقى الشاشة سودة)
     if (mainPortfolio) {
       mainPortfolio.style.display = 'block';
     }
 
-    // ب) بدء اختفاء صفحة "نبذة عني" وتلاشيها على الخلفية السودة
     aboutSection.classList.remove('show');
 
-    // 🎛️ ج) وقت الانتظار للشاشة السودة:
-    // ننتظر 400 مللي ثانية لين تختفي صفحة النبذة تقريباً وتصير الشاشة سودة تماماً
     const blackScreenDelay = 400; 
 
     setTimeout(() => {
-      // د) يبدأ الآن ظهور الموقع وزر البرجر بنعومة من الشاشة السودة!
       if (mainPortfolio) mainPortfolio.classList.remove('fade-element');
       if (burgerToggle) burgerToggle.classList.remove('fade-element');
     }, blackScreenDelay);
 
-    // هـ) إنهاء حالة صفحة النبذة بعد اكتمال كامل الحركة
     setTimeout(() => {
-      // تجهيز نهائي
     }, 800);
   }
 }

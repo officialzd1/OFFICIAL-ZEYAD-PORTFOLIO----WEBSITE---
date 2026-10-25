@@ -3357,6 +3357,10 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     padding: 0 10px;
     box-sizing: border-box;
 
+    display: flex;
+    flex-direction: column;
+    min-height: 88vh; /* ⬅️ زوّدنا الارتفاع هنا عشان تنزل الأزرار لأقرب نقطة للأسفل */
+
     transform-origin: center center;
     transform: translateY(180px) scale(0.75);
 }
@@ -3375,7 +3379,9 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
 }
 
 .about-bio p {
-    margin-bottom: 10px;
+      margin-top: 76px;
+
+    margin-bottom: 38px;
 }
 
 .about-bio strong {
@@ -3385,9 +3391,12 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
 
 .about-socials {
     display: flex;
-    gap: 10px;
+    flex-direction: column; /* جعل الأزرار تحت بعض بشكل مرتب */
+    gap: 8px;
     justify-content: center;
     align-items: center;
+    margin-top: auto;
+    padding-bottom: 10px; /* تقليص المسافة من تحت عشان تلصق بالأسفل أكثر */
 }
 
 .social-btn {
@@ -3397,13 +3406,13 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     background: rgba(212, 175, 55, 0.08);
     border: 1px solid #d4af37;
     color: #d4af37;
-    padding: 8px 16px;
-    border-radius: 8px;
+    padding: 6px 14px; /* ⬅️ صغرنا الحشوة الداخلية عشان يصير الزر أصغر وأنحف */
+    border-radius: 6px;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 12px; /* ⬅️ تصغير حجم الخط داخل الزر */
     font-weight: 500;
     transition: all 0.3s ease;
-    width: 100%;
+    width: 80%; /* ⬅️ تقليص عرض الزر بدل ما يكون 100% (أو تقدر تحط max-width: 200px) */
     justify-content: center;
 }
 
@@ -3411,11 +3420,7 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     font-size: 15px;
 }
 
-.social-btn:hover {
-    background: #d4af37;
-    color: #000000;
-    transform: translateY(-2px);
-}
+
 
 }
 
