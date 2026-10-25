@@ -3300,22 +3300,21 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
 
 .about-socials {
     display: flex !important;
-    flex-direction: row !important; /* 👈 الأيقونات جنب بعض بالعرض */
-    gap: 15px !important;           /* المسافة الواضحة بين الأيقونتين */
-    justify-content: center !important; /* توسيط الأيقونات في المنتصف تماماً */
+    flex-direction: row !important;
+    gap: 15px !important;
+    justify-content: center !important;
     align-items: center !important;
     
-    /* تثبيت حاوية الأزرار في أسفل الشاشة بالكامل */
     position: fixed !important;
-    bottom: -380px !important;        /* مسافة الأيقونات من أسفل الشاشة */
+    bottom: 28px !important;        /* 👈 الرقم الذهبي: يخليها في قاع الشاشة بس مرفوعة مسافة مريحة وممتازة */
     left: 0 !important;
     right: 0 !important;
-    width: 100% !important;         /* عرض الحاوية كامل عشان تاخذ راحتها وما تضغط الأيقونات */
+    width: 100% !important;
     
-    z-index: 9999 !important;       /* عشان تكون فوق كل العناصر */
+    z-index: 9999 !important;
     box-sizing: border-box !important;
     margin: 0 !important;
-    transform: none !important;     /* إلغاء أي تحويل سابق عشان ما تتحرك من مكانها */
+    transform: none !important;
 }
 
 .social-btn {
