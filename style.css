@@ -3307,10 +3307,10 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     align-items: center;
     
     position: absolute;
-    bottom: -234px;              /* 🎛️ تعديل يدوي: مسافة الأزرار من أسفل الشاشة (كل ما زاد الرقم طلعت لفوق) */
+    bottom: -250px;              /* 🎛️ تعديل يدوي: مسافة الأزرار من أسفل الشاشة (كل ما زاد الرقم طلعت لفوق) */
     left: 50%;
     transform: translateX(-50%); /* لتوسيط الأزرار تماماً في منتصف الشاشة أفقيًا */
-    width: 90%; 
+    width: 100%; 
     max-width: 320px; 
     box-sizing: border-box;
 }
