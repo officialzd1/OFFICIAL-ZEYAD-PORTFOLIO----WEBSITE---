@@ -3095,203 +3095,64 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 768px) {
   div.mobile-bottom-nav {
     transform: translateX(-50%) scale(0.67) !important;
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.about-zeyad h2 {
-    font-size: 1.8rem !important;
-    padding-bottom: 0.1rem !important;
-    margin-bottom: 0 !important;
-    margin-top: 1rem;
-    font-family: 'El Messiri', sans-serif;
-    font-weight: bold;
-    direction: ltr;
-    unicode-bidi: isolate;
-    letter-spacing: normal !important;
-    text-align: center;
-    
-    /* التأثير الذهبي المتحرك */
-    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 3.8s linear infinite;
-    transition: all 0.4s ease;
-    cursor: default;
-}
-
-/* تنسيق الصورة الشخصية وإطارها الذهبي */
-.about-avatar-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0 25px 0;
-}
-
-.about-avatar {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    object-fit: cover;
-    
-    border: 2px solid #d4af37;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-
-
-/* ===================================================
-   إعدادات التلاشي والانتقال (عامة لكل الشاشات)
-   =================================================== */
-/* قسم نبذة عني - التلاشي الناعم والجذري */
 .about-page {
-    display: block; /* نجعله دائماً موجود في الهيكل لكن شفاف وغير مرئي وغير تفاعلي */
+    display: block; /* العنصر موجود دائماً في الهيكل لكن مخفي بالشفافية لضمان نعومة الترانزشن */
     opacity: 0;
     visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+    pointer-events: none; /* لمنع أي تفاعل والموقع مغلق */
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out; /* سرعة التلاشي */
     
     min-height: 100vh;
     padding: 20px;
-    background-color: #000000;
+    background-color: #000000; /* الخلفية السوداء الفخمة */
     color: #ffffff;
-    position: absolute; /* أو fixed لتغطية الشاشة تماماً أثناء الحركة */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -3299,28 +3160,19 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     box-sizing: border-box;
 }
 
+/* حالة ظهور الصفحة (عند تفعيلها) */
 .about-page.show {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
 }
 
-/* حركة التلاشي للموقع وزر البرجر */
-#mainPortfolio,
-.burger-toggle {
-    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
-}
 
-.fade-element {
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
 
-/* حاوية زر العودة */
 .about-back-wrapper {
     position: absolute;
-    top: 3rem;
-    left: 2.8rem;
+    top: 3rem;   /* 🎛️ تعديل يدوي: مسافة الزر من أعلى الشاشة */
+    left: 2.8rem;/* 🎛️ تعديل يدوي: مسافة الزر من يسار الشاشة */
     z-index: 1000;
 }
 
@@ -3329,14 +3181,13 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     border: none;
     font-size: 22px;
     cursor: pointer;
-    padding: 0;
-    margin: 0;
     outline: none;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.2s ease, opacity 0.2s ease;
     
+    /* تأثير التدرج الذهبي للأسهم والنصوص */
     background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
     background-size: 430% auto;
     -webkit-background-clip: text;
@@ -3346,10 +3197,12 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
 }
 
 .about-back-btn:hover {
-    transform: translateX(-3px);
+    transform: translateX(-3px); /* حركة خفيفة للسهم عند المرور عليه */
     opacity: 0.85;
 }
 
+
+/* حاوية المحتوى العامة */
 .about-zeyad {
     width: 100%;
     max-width: 360px;
@@ -3359,15 +3212,42 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
 
     display: flex;
     flex-direction: column;
-    min-height: 88vh; /* ⬅️ زوّدنا الارتفاع هنا عشان تنزل الأزرار لأقرب نقطة للأسفل */
+    min-height: 65vh; 
 
     transform-origin: center center;
-    transform: translateY(180px) scale(0.75);
+    transform: translateY(80px) scale(0.75); /* 🎛️ تعديل يدوي: لرفع/خفض محتوى الصفحة وتصغيره */
 }
 
-.about-divider {
-    margin: 12px 0 20px 0;
+/* تنسيق العنوان الرئيسي (زياد) */
+.about-zeyad h2 {
+    font-size: 1.8rem !important;
+    padding-bottom: 0.1rem !important;
+    margin-bottom: 0 !important;
+    margin-top: 1rem;
+    font-family: 'El Messiri', sans-serif;
+    font-weight: bold;
+    direction: ltr;
+    text-align: center;
+    
+    /* التأثير الذهبي المتحرك للعنوان */
+    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3.8s linear infinite;
 }
+
+/* إطار وحجم الصورة الشخصية */
+.about-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+}
+
 
 .about-bio {
     direction: rtl;
@@ -3379,8 +3259,7 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
 }
 
 .about-bio p {
-      margin-top: 76px;
-
+    margin-top: 1px;    /* 🎛️ تعديل يدوي: التحكم بالمسافة الفاصلة بين العنوان وباقي النص */
     margin-bottom: 38px;
 }
 
@@ -3389,16 +3268,26 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     font-weight: 600;
 }
 
+
+
+/* حاوية الأزرار (تثبيت سفلي مستقل) */
 .about-socials {
     display: flex;
-    flex-direction: column; /* جعل الأزرار تحت بعض بشكل مرتب */
-    gap: 8px;
+    flex-direction: column;
+    gap: 8px;                 /* المسافة بين زر انستغرام وواتساب */
     justify-content: center;
     align-items: center;
-    margin-top: auto;
-    padding-bottom: 10px; /* تقليص المسافة من تحت عشان تلصق بالأسفل أكثر */
+    
+    position: absolute;
+    bottom: -350px;              /* 🎛️ تعديل يدوي: مسافة الأزرار من أسفل الشاشة (كل ما زاد الرقم طلعت لفوق) */
+    left: 50%;
+    transform: translateX(-50%); /* لتوسيط الأزرار تماماً في منتصف الشاشة أفقيًا */
+    width: 90%; 
+    max-width: 320px; 
+    box-sizing: border-box;
 }
 
+/* شكل الزر الواحد وتنسيقه */
 .social-btn {
     display: flex;
     align-items: center;
@@ -3406,19 +3295,41 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
     background: rgba(212, 175, 55, 0.08);
     border: 1px solid #d4af37;
     color: #d4af37;
-    padding: 6px 14px; /* ⬅️ صغرنا الحشوة الداخلية عشان يصير الزر أصغر وأنحف */
+    padding: 8px 14px;        /* 🎛️ تعديل يدوي: حجم الزر من الداخل (طول وعرض) */
     border-radius: 6px;
     text-decoration: none;
-    font-size: 12px; /* ⬅️ تصغير حجم الخط داخل الزر */
+    font-size: 12px;          /* حجم الخط داخل الزر */
     font-weight: 500;
     transition: all 0.3s ease;
-    width: 80%; /* ⬅️ تقليص عرض الزر بدل ما يكون 100% (أو تقدر تحط max-width: 200px) */
+    width: 100%;              /* عرض الزر متساوي 100% مع الحاوية */
+    box-sizing: border-box;
     justify-content: center;
 }
 
 .social-btn i {
-    font-size: 15px;
+    font-size: 1.2rem;        /* حجم أيقونة السوشيال ميديا */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
