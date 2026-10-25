@@ -3132,226 +3132,223 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
 
 
 
-
-
-
 @media screen and (max-width: 768px) {
-  div.mobile-bottom-nav {
-    transform: translateX(-50%) scale(0.67) !important;
-  }
 
+    /* ===================================================
+       1. القائمة العلوية للهاتف
+       =================================================== */
+    div.mobile-bottom-nav {
+        transform: translateX(-50%) scale(0.67) !important;
+    }
 
+    /* ===================================================
+       2. إعدادات التلاشي والانتقال (صفحة النبذة)
+       =================================================== */
+    .about-page {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+        
+        min-height: 100vh;
+        padding: 20px;
+        background-color: #000000;
+        color: #ffffff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        box-sizing: border-box;
+    }
 
+    .about-page.show {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
 
+    #mainPortfolio,
+    .burger-toggle {
+        transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+    }
 
-.about-zeyad h2 {
-    font-size: 1.8rem !important;
-    padding-bottom: 0.1rem !important;
-    margin-bottom: 0 !important;
-    margin-top: 1rem;
-    font-family: 'El Messiri', sans-serif;
-    font-weight: bold;
-    direction: ltr;
-    unicode-bidi: isolate;
-    letter-spacing: normal !important;
-    text-align: center;
-    
-    /* التأثير الذهبي المتحرك */
-    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 3.8s linear infinite;
-    transition: all 0.4s ease;
-    cursor: default;
-}
+    .fade-element {
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
 
-/* تنسيق الصورة الشخصية وإطارها الذهبي */
-.about-avatar-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0 25px 0;
-}
+    /* ===================================================
+       3. زر العودة (السهم العلوي)
+       =================================================== */
+    .about-back-wrapper {
+        position: absolute;
+        top: 3rem;
+        left: 2.8rem;
+        z-index: 1000;
+    }
 
-.about-avatar {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    object-fit: cover;
-    
-    border: 2px solid #d4af37;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .about-back-btn {
+        background: transparent;
+        border: none;
+        font-size: 22px;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        outline: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+        
+        background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+        background-size: 430% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+    }
 
+    /* ===================================================
+       4. حاوية المحتوى والعنوان الرئيسي
+       =================================================== */
+    .about-zeyad {
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+        padding: 0 10px;
+        box-sizing: border-box;
 
+        display: flex;
+        flex-direction: column;
+        min-height: 65vh;
 
-/* ===================================================
-   إعدادات التلاشي والانتقال (عامة لكل الشاشات)
-   =================================================== */
-/* قسم نبذة عني - التلاشي الناعم والجذري */
-.about-page {
-    display: block; /* نجعله دائماً موجود في الهيكل لكن شفاف وغير مرئي وغير تفاعلي */
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
-    
-    min-height: 100vh;
-    padding: 20px;
-    background-color: #000000;
-    color: #ffffff;
-    position: absolute; /* أو fixed لتغطية الشاشة تماماً أثناء الحركة */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    box-sizing: border-box;
-}
+        transform-origin: center center;
+        transform: translateY(80px) scale(0.75);
+    }
 
-.about-page.show {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
+    .about-zeyad h2 {
+        font-size: 1.8rem !important;
+        padding-bottom: 0.1rem !important;
+        margin-bottom: 0 !important;
+        margin-top: 1rem;
+        font-family: 'El Messiri', sans-serif;
+        font-weight: bold;
+        direction: ltr;
+        unicode-bidi: isolate;
+        letter-spacing: normal !important;
+        text-align: center;
+        
+        background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 3.8s linear infinite;
+        transition: all 0.4s ease;
+        cursor: default;
+    }
 
-/* حركة التلاشي للموقع وزر البرجر */
-#mainPortfolio,
-.burger-toggle {
-    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
-}
+    /* ===================================================
+       5. الصورة الشخصية
+       =================================================== */
+    .about-avatar-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0 25px 0;
+    }
 
-.fade-element {
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
+    .about-avatar {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #d4af37;
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-/* حاوية زر العودة */
-.about-back-wrapper {
-    position: absolute;
-    top: 3rem;
-    left: 2.8rem;
-    z-index: 1000;
-}
+    .about-divider {
+        margin: 12px 0 20px 0;
+    }
 
-.about-back-btn {
-    background: transparent;
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-    outline: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    
-    background: linear-gradient(90deg, #aa761c, #fcf6ba, #B38728, #fbf5b7, #aa761c);
-    background-size: 430% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-}
+    /* ===================================================
+       6. النصوص والنبذة التعريفية
+       =================================================== */
+    .about-bio {
+        direction: rtl;
+        text-align: center;
+        color: #cccccc;
+        font-size: 13px;
+        line-height: 1.7;
+        margin-bottom: 25px;
+    }
 
+    .about-bio p {
+        margin-top: 3px;
+        margin-bottom: 38px;
+    }
 
+    .about-bio strong {
+        color: #d4af37;
+        font-weight: 600;
+    }
 
-.about-zeyad {
-    width: 100%;
-    max-width: 360px;
-    margin: 0 auto;
-    padding: 0 10px;
-    box-sizing: border-box;
+    /* ===================================================
+       7. أزرار التواصل الاجتماعي (ثابتة في قاع الشاشة، أفقية ودائرية)
+       =================================================== */
+    .about-socials {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 15px !important;
+        justify-content: center !important;
+        align-items: center !important;
+        
+        position: fixed !important;
+        bottom: 28px !important;        /* المسافة المثالية من قاع الشاشة */
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        
+        z-index: 9999 !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        transform: none !important;
+    }
 
-    /* إعدادات الفليكس العمودي عشان نقدر نوزع العناصر فوق وتحت */
-    display: flex;
-    flex-direction: column;
-    min-height: 65vh; /* 🎛️ تحكم يدوي: زوّده لو تبغى الصفحة أطول، أو قلله لو طلع سكرول */
+    .social-btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 30px !important;
+        height: 30px !important;
+        border-radius: 50% !important;
+        text-decoration: none !important;
+        transition: transform 0.3s ease, opacity 0.3s ease !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+        flex-shrink: 0 !important;
+    }
 
-    transform-origin: center center;
-    transform: translateY(80px) scale(0.75);
-}
+    .social-btn i {
+        font-size: 1rem;
+        color: #ffffff;
+    }
 
-.about-divider {
-    margin: 12px 0 20px 0;
-}
+    /* الألوان الرسمية للمنصات */
+    .social-btn.whatsapp {
+        background-color: #25D366;
+    }
 
-.about-bio {
-    direction: rtl;
-    text-align: center;
-    color: #cccccc;
-    font-size: 13px;
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
-
-.about-bio p {
-    margin-top: 3px;    /* 🎛️ تعديل يدوي: التحكم بالمسافة الفاصلة بين العنوان وباقي النص */
-    margin-bottom: 38px;
-}
-
-.about-bio strong {
-    color: #d4af37;
-    font-weight: 600;
-}
-
-.about-socials {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 15px !important;
-    justify-content: center !important;
-    align-items: center !important;
-    
-    position: fixed !important;
-    bottom: 28px !important;        /* 👈 الرقم الذهبي: يخليها في قاع الشاشة بس مرفوعة مسافة مريحة وممتازة */
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    
-    z-index: 9999 !important;
-    box-sizing: border-box !important;
-    margin: 0 !important;
-    transform: none !important;
-}
-
-.social-btn {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 30px !important;         /* عرض الدائرة (مريح وواضح) */
-    height: 30px !important;        /* ارتفاع الدائرة لضمان شكل دائري 100% */
-    border-radius: 50% !important;  /* شكل دائري تماماً */
-    text-decoration: none !important;
-    transition: transform 0.3s ease, opacity 0.3s ease !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
-    flex-shrink: 0 !important;      /* لمنع تصغير الأيقونة غصباً عنها */
-}
-
-
-
-/* حجم أيقونة السوشيال ميديا داخل الدائرة */
-.social-btn i {
-    font-size: 1rem;
-    color: #ffffff;           /* لون الأيقونة يكون أبيض عشان يوضح على اللون الأصلي */
-}
-
-/* 🎨 الألوان الرسمية لكل منصة */
-/* زر واتساب (أخضر رسمي) */
-.social-btn.whatsapp {
-    background-color: #25D366;
-}
-
-/* زر انستغرام (التدرج الرسمي لانستغرام) */
-.social-btn.instagram {
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-}
-
-
+    .social-btn.instagram {
+        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
 
 }
+
+
+
 
 
 /* ===================================================
