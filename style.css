@@ -3123,7 +3123,25 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
 
 
 
+/* إخفاء صفحة النبذة وأزرارها تماماً على أجهزة الكمبيوتر (PC) */
+.about-page {
+    display: none !important;
+}
 
+/* وتظهر حصرياً فقط على شاشات الجوال داخل هذا الوسم */
+@media screen and (max-width: 768px) {
+    .about-page {
+        display: block !important;
+        /* باقي إعدادات التلاشي والشاشة السوداء للجوال هنا */
+    }
+
+    .about-socials {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 25px !important;
+        /* باقي إعدادات الأزرار الثابتة للجوال فقط */
+    }
+}
 
 
 
@@ -3226,6 +3244,8 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
 
         transform-origin: center center;
         transform: translateY(80px) scale(0.75);
+
+        
     }
 
     .about-zeyad h2 {
@@ -3248,6 +3268,9 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
         animation: shine 3.8s linear infinite;
         transition: all 0.4s ease;
         cursor: default;
+
+
+        display: none !important;
     }
 
     /* ===================================================
@@ -3281,13 +3304,13 @@ border: 1px solid rgba(212, 157, 55, 0.380) !important;
         direction: rtl;
         text-align: center;
         color: #cccccc;
-        font-size: 13px;
+        font-size: 30rem;
         line-height: 1.8;
-        margin-bottom: 0px;
+        margin-bottom: -70px;
     }
 
     .about-bio p {
-        margin-top: 38px;
+        margin-top: 22rem;
         margin-bottom: 38px;
     }
 
